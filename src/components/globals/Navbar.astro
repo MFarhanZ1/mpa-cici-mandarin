@@ -1,0 +1,159 @@
+---
+const CiciMandarinLogo = "/cici-mandarin.svg";
+
+const JoinUs = "/navbar/join-us.svg";
+const CurrentPath = Astro.url.pathname;
+---
+
+<nav
+	class="px-6 py-5 w-full h-26 fixed top-0 left-0 z-50 flex justify-center items-center"
+>
+	<div
+		class="bg-[#cb0d0d] rounded-2xl w-full h-full flex items-center justify-between pl-36 pr-20"
+	>
+		<img class="w-20 h-20" src={CiciMandarinLogo} alt="Cici Mandarin Logo" />
+
+		<div class="flex justify-center items-center gap-8">
+			<div class="flex justify-center items-center gap-8">
+				<a
+					class=`${CurrentPath === '/' && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-sm`
+					href="/">HOME</a
+				>
+				<a
+					class=`${CurrentPath === '/about-us' && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-sm`
+					href="/about-us">ABOUT US</a
+				>
+				<button
+					class=`${CurrentPath.includes('/services') && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-sm services-toggle`
+					type="button"
+				>
+					SERVICES
+				</button>
+				<a
+					class=`${CurrentPath === '/contact-us' && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-sm`
+					href="/contact-us">CONTACT US</a
+				>
+			</div>
+			<a
+				href="http://wa.me/+6287853909383"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="join-us-link z-10"
+			>
+				<img src={JoinUs} class="w-38 h-38 join-us-image" />
+			</a>
+		</div>
+	</div>
+
+	<!-- Services dropdown -->
+	<div id="services-dropdown" class="absolute top-[81%] right-56 hidden">
+		<div
+			class="bg-white/95 backdrop-blur rounded-b-2xl shadow-xl w-[440px] max-w-[60vw]"
+		>
+			<div class="grid grid-cols-2 sm:grid-cols-4 place-items-center">
+				<div
+					class="flex flex-col items-center cursor-pointer hover:bg-gray-50 gap-2 text-center border-r border-gray-200 last:border-r-0 px-4 py-5"
+				>
+					<img
+						class="w-14 h-14 object-contain"
+						src="/navbar/s-1.svg"
+						alt="Cici Language Course Expert"
+					/>
+					<a href="/services/cici-language-course-expert" class="text-[#cb0d0d] text-xs hover:underline"
+						>Cici Language Course Expert</a
+					>
+				</div>
+				<div
+					class="flex flex-col items-center cursor-pointer hover:bg-gray-50 gap-2 text-center border-r border-gray-200 last:border-r-0 px-4 py-5"
+				>
+					<img
+						class="w-14 h-14 object-contain"
+						src="/navbar/s-2.svg"
+						alt="Cici Study Abroad Expert"
+					/>
+					<a href="/services/cici-study-abroad-expert" class="text-[#cb0d0d] text-xs hover:underline"
+						>Cici Study Abroad Expert</a
+					>
+				</div>
+				<div
+					class="flex flex-col items-center cursor-pointer hover:bg-gray-50 gap-2 text-center border-r border-gray-200 last:border-r-0 px-4 py-5"
+				>
+					<img
+						class="w-14 h-14 object-contain"
+						src="/navbar/s-3.svg"
+						alt="Cici Tour Travel Expert"
+					/>
+					<a href="/services/cici-tour-travel-expert" class="text-[#cb0d0d] text-xs hover:underline"
+						>Cici Tour Travel Expert</a
+					>
+				</div>
+				<div class="flex flex-col items-center cursor-pointer hover:bg-gray-50 gap-2 text-center px-4 py-5">
+					<img
+						class="w-14 h-14 object-contain"
+						src="/navbar/s-4.svg"
+						alt="Cici Career Link Expert"
+					/>
+					<a href="/services/cici-career-link-expert" class="text-[#cb0d0d] text-xs hover:underline"
+						>Cici Career Link Expert</a
+					>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const joinUsLink = document.querySelector(".join-us-link");
+		const joinUsImage = document.querySelector(".join-us-image");
+		const normalSrc = "/navbar/join-us.svg";
+		const hoverSrc = "/navbar/join-us-hover.svg";
+
+		joinUsLink?.addEventListener("mouseenter", () => {
+			if (joinUsImage instanceof HTMLImageElement) {
+				joinUsImage.src = hoverSrc;
+			}
+		});
+
+		joinUsLink?.addEventListener("mouseleave", () => {
+			if (joinUsImage instanceof HTMLImageElement) {
+				joinUsImage.src = normalSrc;
+			}
+		});
+	});
+
+	// Toggle services dropdown
+	document.addEventListener("DOMContentLoaded", () => {
+		const servicesToggle = document.querySelector(".services-toggle");
+		const dropdown = document.getElementById("services-dropdown");
+
+		const closeDropdown = () => {
+			if (!dropdown) return;
+			dropdown.classList.add("hidden");
+		};
+
+		servicesToggle?.addEventListener("click", (e) => {
+			e.preventDefault();
+			if (!dropdown) return;
+			dropdown.classList.toggle("hidden");
+		});
+
+		// Klik di luar area dropdown untuk menutup
+		document.addEventListener("click", (event) => {
+			if (!dropdown || dropdown.classList.contains("hidden")) return;
+			const target = event.target as Node;
+			if (
+				target &&
+				!dropdown.contains(target) &&
+				!(servicesToggle as HTMLElement)?.contains(target as Node)
+			) {
+				closeDropdown();
+			}
+		});
+
+		// Tutup dengan tombol Escape
+		document.addEventListener("keydown", (event) => {
+			if (event.key === "Escape") closeDropdown();
+		});
+	});
+</script>

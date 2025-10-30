@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@import '@fontsource/mochiy-pop-one';
+@theme {
+	--font-mochiy-pop-one: 'Mochiy Pop One', 'sans-serif';
+}

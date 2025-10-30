@@ -1,0 +1,25 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-[#ac1234] text-white font-sora">
+	<div class="border-t border-white/50">
+		<div class="container mx-auto py-5 md:py-3 px-6 2xl:px-28">
+			<div
+				class="flex flex-wrap items-center justify-center text-center lg:justify-between lg:text-left gap-y-2 md:gap-y-4"
+			>
+				<div>
+					<a href="/" class="inline-block w-40 -mb-1">
+						<img src="/logo-light.svg" alt="Logo STIE Pancasetia" />
+					</a>
+				</div>
+
+				<div>
+					<p class="text-[13px] text-gray-300">
+						STIE Pancasetia ©{currentYear}. All rights reserved
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>

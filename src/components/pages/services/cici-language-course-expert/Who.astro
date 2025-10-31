@@ -1,45 +1,58 @@
 ---
-const background = "/services/cici-language-course-expert/Who/class.webp";
-const people1 = "/services/cici-language-course-expert/Who/people1.svg";
-const people2 = "/services/cici-language-course-expert/Who/people2.svg";
-const people3 = "/services/cici-language-course-expert/Who/people3.svg";
-const people4 = "/services/cici-language-course-expert/Who/people4.svg";
-const people5 = "/services/cici-language-course-expert/Who/people5.svg";
-const companies = "/services/cici-language-course-expert/Who/companies.svg";
-const teens = "/services/cici-language-course-expert/Who/teens.svg";
-const preschool = "/services/cici-language-course-expert/Who/preschool.svg";
-const kids = "/services/cici-language-course-expert/Who/kids.svg";
-const adults = "/services/cici-language-course-expert/Who/adults.svg";
+const background = "/services/cici-language-course-expert/who/class.webp";
+const people1 = "/services/cici-language-course-expert/who/people1.svg";
+const people2 = "/services/cici-language-course-expert/who/people2.svg";
+const people3 = "/services/cici-language-course-expert/who/people3.svg";
+const people4 = "/services/cici-language-course-expert/who/people4.svg";
+const people5 = "/services/cici-language-course-expert/who/people5.svg";
+const companies = "/services/cici-language-course-expert/who/companies.svg";
+const teens = "/services/cici-language-course-expert/who/teens.svg";
+const preschool = "/services/cici-language-course-expert/who/preschool.svg";
+const kids = "/services/cici-language-course-expert/who/kids.svg";
+const adults = "/services/cici-language-course-expert/who/adults.svg";
 ---
 
-<section class="relative w-full h-screen bg-cover bg-right bg-no-repeat overflow-hidden -mt-16" style={`background-image: url(${background});`}>
+<section class="relative w-full h-screen bg-cover bg-right bg-no-repeat overflow-visible -mt-16" style={`background-image: url(${background});`}>
   <div class="container mx-auto max-w-7xl pt-20">
     <h2 class="mb-16 text-center text-4xl font-bold text-white drop-shadow-lg font-mochiy-pop-one">WHO CAN JOIN US?</h2>
 
     <div class="relative mx-auto min-h-[500px] max-w-6xl">
-      <div class="absolute bottom-0 left-1/2 flex w-[90%] max-w-4xl -translate-x-1/2 items-end gap-6 md:gap-8">
-        <div class="flex flex-1 flex-col items-center">
-          <img src={preschool} alt="Preschool" class="h-auto w-full scale-125" />
+      <div class="absolute -bottom-10 left-1/2 flex w-[90%] max-w-4xl -translate-x-1/2 items-end gap-6 md:gap-8 z-30">
+        <!-- Preschoolers -->
+        <div class="flex flex-1 flex-col items-center self-end">
+          <div class="transform scale-125 origin-bottom">
+            <img src={preschool} alt="Preschool" class="h-auto w-full" />
+          </div>
           <img src={people1} alt="Preschool" class="h-auto w-full max-w-[120px] -mt-4 drop-shadow-lg md:max-w-[140px] md:-mt-6" />
         </div>
 
-        <div class="flex flex-1 flex-col items-center">
+        <!-- Kids -->
+        <div class="flex flex-1 flex-col items-center self-end">
           <img src={kids} alt="Kid" class="h-auto w-full" />
           <img src={people2} alt="Kid" class="h-auto w-full max-w-[120px] -mt-4 drop-shadow-lg md:max-w-[140px] md:-mt-6" />
         </div>
 
-        <div class="relative flex flex-1 flex-col items-center">
-          <img src={teens} alt="Teen" class="h-auto w-full scale-90" />
-          <img src={people3} alt="Teen" class="h-auto w-full max-w-[140px] -mt-4 drop-shadow-lg md:max-w-40 md:-mt-6" />
+        <!-- Teens -->
+        <div class="relative flex flex-1 flex-col items-center self-end">
+          <div class="transform scale-90 origin-bottom">
+            <img src={teens} alt="Teen" class="h-auto w-full" />
+          </div>
+          <img src={people3} alt="Teen" class="h-auto w-full max-w-[120px] -mt-4 drop-shadow-lg md:max-w-30 md:-mt-6" />
         </div>
 
-        <div class="flex flex-1 flex-col items-center scale-90">
-          <img src={adults} alt="Adult" class="h-auto w-full" />
+        <!-- Adults -->
+        <div class="flex flex-1 flex-col items-center self-end">
+          <div class="transform scale-90 origin-bottom">
+            <img src={adults} alt="Adult" class="h-auto w-full" />
+          </div>
           <img src={people4} alt="Adult" class="h-auto w-full max-w-[120px] -mt-4 drop-shadow-lg md:max-w-[140px] md:-mt-6" />
         </div>
 
-        <div class="flex flex-1 flex-col items-center">
-          <img src={companies} alt="Company" class="h-auto w-full scale-110" />
+        <!-- Companies -->
+        <div class="flex flex-1 flex-col items-center self-end">
+          <div class="transform scale-110 origin-bottom">
+            <img src={companies} alt="Company" class="h-auto w-full" />
+          </div>
           <img src={people5} alt="Company" class="h-auto w-full max-w-[120px] -mt-4 drop-shadow-lg md:max-w-[140px] md:-mt-6" />
         </div>
       </div>

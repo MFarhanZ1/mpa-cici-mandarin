@@ -1,0 +1,44 @@
+---
+import Background from "../../../../public/landing-pages/Welcome/BG.webp";
+import TextWelcome from "../../../../public/landing-pages/Welcome/Text-Welcome-Cici-Mandarin.png";
+import CardPrivate from "../../../../public/landing-pages/Welcome/1.png";
+import CardScholarship from "../../../../public/landing-pages/Welcome/2.png";
+import CardLiveClass from "../../../../public/landing-pages/Welcome/3.png";
+import CardComMunity from "../../../../public/landing-pages/Welcome/4.png";
+---
+
+<section
+  class="bg-cover bg-center pt-24 px-7 pb-14"
+  style={`background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${Background.src})`}
+>
+  <div class="flex flex-col gap-3">
+    <div class="flex justify-center font-mochiy-pop-one">
+      <img src={TextWelcome.src} alt="Welcome" />
+    </div>
+    <div class="flex justify-center">
+      <div class="flex flex-col justify-center items-center gap-1.5">
+        <span class="text-white font-extralight font">
+          Your All-in-One Gateway to China:
+        </span>
+        <span class="text-white font-bold"> Study, Travel, Work </span>
+        <button class="bg-[#FFBC2D] py-1 px-3 rounded-full">
+          <span class="text-[#F03C0B] font-bold"> KNOW US MORE ! </span>
+        </button>
+      </div>
+    </div>
+    <div class="flex justify-center space-x-[-20px]">
+      <div>
+        <img src={CardScholarship.src} alt="CardScholarship" class="w-64" />
+      </div>
+      <div class="z-5">
+        <img src={CardPrivate.src} alt="CardPrivate" class="w-64" />
+      </div>
+      <div>
+        <img src={CardLiveClass.src} alt="CardLiveClass" class="w-64" />
+      </div>
+      <div>
+        <img src={CardComMunity.src} alt="CardComMunity" class="w-64" />
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+---
+import Background from "../../../../public/landing-pages/our-service/Maskgroup.png";
+import CardOne from "../../../../public/landing-pages/our-service/1.png";
+import CardTwo from "../../../../public/landing-pages/our-service/2.png";
+import CardThree from "../../../../public/landing-pages/our-service/3.png";
+import CardFour from "../../../../public/landing-pages/our-service/4.png";
+---
+
+<section
+  class="bg-cover bg-left px-7 py-12 -mt-[12%]"
+  style={`background-image: url(${Background.src})`}
+>
+  <div class="flex flex-col justify-center items-center gap-8">
+    <div>
+      <span class="font-mochiy-pop-one font-normal text-[#CB0D0D] text-2xl">OUR SERVICE</span>
+    </div>
+    <div class="grid grid-cols-2 grid-rows-2 gap-2">
+      <img src={CardOne.src} alt="CardOne" class="w-52">
+      <img src={CardTwo.src} alt="CardTwo" class="w-52">
+      <img src={CardThree.src} alt="CardThree" class="w-52">
+      <img src={CardFour.src} alt="CardFour" class="w-52">
+    </div>
+  </div>
+</section>

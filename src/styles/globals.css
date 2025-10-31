@@ -6,7 +6,7 @@
 }
 
 .text-outline-red {
-  -webkit-text-stroke: 14px #C02A25;
+  -webkit-text-stroke: 12px #C02A25;
   text-stroke: 10px #cb0d0d;
   color: #ffffff;
   paint-order: stroke fill;

@@ -1,0 +1,93 @@
+---
+const background = "/services/cici-language-course-expert/class.webp";
+const people1 = "/services/cici-language-course-expert/people1.svg";
+const people2 = "/services/cici-language-course-expert/people2.svg";
+const people3 = "/services/cici-language-course-expert/people3.svg";
+const people4 = "/services/cici-language-course-expert/people4.svg";
+const people5 = "/services/cici-language-course-expert/people5.svg";
+const companies = "/services/cici-language-course-expert/companies.svg";
+const teens = "/services/cici-language-course-expert/teens.svg";
+const preschool = "/services/cici-language-course-expert/preschool.svg";
+const kids = "/services/cici-language-course-expert/kids.svg";
+const adults = "/services/cici-language-course-expert/adults.svg";
+---
+
+<section 
+  class="relative w-full h-screen"
+  style={`background-image:url(${background}); background-size:cover; background-position:right center; background-repeat:no-repeat;`}
+>
+  <div class="container mx-auto max-w-7xl">
+    <h2 class="mb-10 text-center text-4xl font-bold tracking-wider text-white drop-shadow-lg md:text-5xl font-mochiy-pop-one">
+      WHO CAN JOIN US?
+    </h2>
+    
+    <div class="relative mx-auto min-h-[500px] w-full max-w-6xl">
+      <div class="absolute bottom-20 left-1/2 flex w-[90%] max-w-4xl -translate-x-1/2 items-end gap-6 md:gap-8">
+        <div class="flex flex-1 flex-col items-center gap-2">
+          <img 
+            src={preschool} 
+            alt="Preschooler" 
+            class="h-auto w-full"
+          />
+          <img 
+            src={people1} 
+            alt="Preschooler" 
+            class="h-auto w-full max-w-[120px] drop-shadow-lg md:max-w-[140px]"
+          />
+        </div>
+        
+        <div class="flex flex-1 flex-col items-center gap-2">
+          <img 
+            src={kids} 
+            alt="Kid" 
+            class="h-auto w-full"
+          />
+          <img 
+            src={people2} 
+            alt="Kid" 
+            class="h-auto w-full max-w-[120px] drop-shadow-lg md:max-w-[140px]"
+          />
+        </div>
+        
+        <div class="relative flex flex-1 flex-col items-center gap-2">
+          <img 
+            src={teens} 
+            alt="Teen" 
+            class="h-auto w-full"
+          />
+          <img 
+            src={people3} 
+            alt="Teen" 
+            class="h-auto w-full max-w-[140px] drop-shadow-lg md:max-w-40"
+          />
+        </div>
+        
+        <div class="flex flex-1 flex-col items-center gap-2">
+          <img 
+            src={adults} 
+            alt="Adult" 
+            class="h-auto w-full"
+          />
+          <img 
+            src={people4} 
+            alt="Adult" 
+            class="h-auto w-full max-w-[120px] drop-shadow-lg md:max-w-[140px]"
+          />
+        </div>
+        
+        <div class="flex flex-1 flex-col items-center gap-2">
+          <img 
+            src={companies} 
+            alt="Company" 
+            class="h-auto w-full"
+          />
+          <img 
+            src={people5} 
+            alt="Company" 
+            class="h-auto w-full max-w-[120px] drop-shadow-lg md:max-w-[140px]"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,6 +1,17 @@
 @import "tailwindcss";
 
-@import '@fontsource/mochiy-pop-one';
+@import "@fontsource/mochiy-pop-one";
 @theme {
-	--font-mochiy-pop-one: 'Mochiy Pop One', 'sans-serif';
+  --font-mochiy-pop-one: "Mochiy Pop One", "sans-serif";
+}
+
+.text-outline-red {
+  -webkit-text-stroke: 14px #C02A25;
+  text-stroke: 10px #cb0d0d;
+  color: #ffffff;
+  paint-order: stroke fill;
+}
+
+.text-outline-shadow {
+  text-shadow: 0 6px 0 rgba(138, 30, 30, 0.7);
 }

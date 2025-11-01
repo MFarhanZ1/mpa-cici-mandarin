@@ -1,34 +1,36 @@
 ---
 
 const FooterBackground = "/footer/footer-bg.svg";
+const FooterBackgroundMobile = "/footer/footer-bg-mobile.svg";
 const currentPath = Astro.url.pathname;
 
 ---
 <footer class="w-full text-white relative overflow-hidden">
-	<img src={FooterBackground} alt="Footer Background" class="w-full h-auto block" />
-	<div class="absolute inset-0 justify-center items-center flex">
-		<div class="w-md h-24 -mt-7">
-			<div class="w-full h-2/3 flex justify-center items-center gap-4">
+	<img src={FooterBackgroundMobile} alt="Footer Background" class="w-full h-auto block md:hidden" />
+	<img src={FooterBackground} alt="Footer Background" class="w-full h-auto hidden md:block" />
+	<div class="absolute inset-0 md:right-0 -right-35 justify-center items-center flex">
+		<div class="w-md h-16 md:h-24 -mt-3 md:-mt-7">
+			<div class="w-full h-2/3 flex justify-center items-center gap-1.5 md:gap-4">
 				<a href="/">
-					<img src="/footer/web.svg" alt="Web" class="w-12 h-12">
+					<img src="/footer/web.svg" alt="Web" class="w-6 h-6 md:w-12 md:h-12">
 				</a>
 				<a href="https://www.instagram.com/cicimandarin.idn">
-					<img src="/footer/ig.svg" alt="Instagram" class="w-12 h-12">
+					<img src="/footer/ig.svg" alt="Instagram" class="w-6 h-6 md:w-12 md:h-12">
 				</a>
 				<a href="https://wa.me/+6287853909383">
-					<img src="/footer/wa.svg" alt="WhatsApp" class="w-12 h-12">
+					<img src="/footer/wa.svg" alt="WhatsApp" class="w-6 h-6 md:w-12 md:h-12">
 				</a>
 				<a href="https://www.tiktok.com/@cicimandarin.idn">
-					<img src="/footer/tiktok.svg" alt="TikTok" class="w-12 h-12">
+					<img src="/footer/tiktok.svg" alt="TikTok" class="w-6 h-6 md:w-12 md:h-12">
 				</a>
 				<a href="https://www.linkedin.com/company/cici-mandarin-idn">
-					<img src="/footer/linked-in.svg" alt="LinkedIn" class="w-12 h-12">
+					<img src="/footer/linked-in.svg" alt="LinkedIn" class="w-6 h-6 md:w-12 md:h-12">
 				</a>
 				<a href="mailto:info@cicimandarin.idn">
-					<img src="/footer/mail.svg" alt="Mail" class="w-12 h-12">
+					<img src="/footer/mail.svg" alt="Mail" class="w-6 h-6 md:w-12 md:h-12">
 				</a>
 			</div>
-			<div class="w-full font-bold text-md h-1/3 flex justify-center items-center gap-6">
+			<div class="-mt-1 md:mt-0 w-full font-bold text-[10px] md:text-base h-1/3 flex justify-center items-center gap-2 md:gap-6">
 				<a href="/" class=`hover:underline hover:text-yellow-300`>HOME</a>
 				<a href="/about-us" class=`hover:underline hover:text-yellow-300`>ABOUT US</a>
 				<a href="/services/cici-language-course-expert" class=`hover:underline hover:text-yellow-300`>SERVICES</a>

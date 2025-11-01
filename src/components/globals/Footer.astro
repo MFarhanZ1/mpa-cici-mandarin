@@ -31,10 +31,10 @@ const currentPath = Astro.url.pathname;
 				</a>
 			</div>
 			<div class="-mt-1 md:mt-0 w-full font-bold text-[10px] md:text-base h-1/3 flex justify-center items-center gap-2 md:gap-6">
-				<a href="/" class=`hover:underline hover:text-yellow-300`>HOME</a>
-				<a href="/about-us" class=`hover:underline hover:text-yellow-300`>ABOUT US</a>
-				<a href="/services/cici-language-course-expert" class=`hover:underline hover:text-yellow-300`>SERVICES</a>
-				<a href="/contact-us" class=`hover:underline hover:text-yellow-300`>CONTACT US</a>
+				<a href="/" class=`${currentPath === '/' && 'text-yellow-300 underline'} hover:underline hover:text-yellow-300`>HOME</a>
+				<a href="/about-us" class=`${currentPath === '/about-us' && 'text-yellow-300 underline'} hover:underline hover:text-yellow-300`>ABOUT US</a>
+				<a href="/services/cici-language-course-expert" class=`${currentPath.includes('/services') && 'text-yellow-300 underline'} hover:underline hover:text-yellow-300`>SERVICES</a>
+				<a href="/contact-us" class=`${currentPath === '/contact-us' && 'text-yellow-300 underline'} hover:underline hover:text-yellow-300`>CONTACT US</a>
 			</div>
 		</div>
 	</div>

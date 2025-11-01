@@ -1,9 +1,46 @@
 ---
 const background = "/services/cici-language-course-expert/benefits/background.webp";
-const item1 = "/services/cici-language-course-expert/benefits/item-1.svg";
-const item2 = "/services/cici-language-course-expert/benefits/item-2.svg";
-const item3 = "/services/cici-language-course-expert/benefits/item-3.svg";
+const item1 = "/services/cici-language-course-expert/benefits/item-1.webp";
+const item2 = "/services/cici-language-course-expert/benefits/item-2.webp";
+const item3 = "/services/cici-language-course-expert/benefits/item-3.webp";
 ---
 
 <section class="relative w-full h-screen bg-cover bg-right bg-no-repeat overflow-hidden" style={`background-image: url(${background});`}>
+  <div class="container mx-auto max-w-7xl h-full flex flex-col items-center justify-start pt-20">
+    <div class="mb-16">
+      <h2 class="text-5xl font-bold drop-shadow-lg font-mochiy-pop-one text-outline-red">BENEFITS</h2>
+    </div>
+
+    <div class="flex gap-6 items-center justify-center px-8">
+      <div class="relative w-64 h-auto rounded-3xl overflow-hidden shadow-2xl group cursor-pointer transform transition-transform duration-300 hover:scale-105 border-3 border-white">
+        <img src={item1} alt="Flexible Programs" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-linear-to-t from-red-900/80 via-red-900/40 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 text-white text-center">
+          <h3 class="text-lg font-bold mb-3">Flexible Programs</h3>
+          <p class="text-sm leading-relaxed">Choose online, offline classes or company training, tailored to your or your schedule.</p>
+        </div>
+      </div>
+
+      <div class="relative w-64 h-auto rounded-3xl overflow-hidden shadow-2xl group cursor-pointer transform transition-transform duration-300 hover:scale-105 border-3 border-white">
+        <img src={item2} alt="Experienced Instructors" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-linear-to-t from-red-900/80 via-red-900/40 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 text-white text-center">
+          <h3 class="text-lg font-bold mb-3">Experienced Instructors</h3>
+          <p class="text-sm leading-relaxed">Learn from native speakers with real-life teaching in China for authentic, effective learning.</p>
+        </div>
+      </div>
+
+      <div class="relative w-64 h-auto rounded-3xl overflow-hidden shadow-2xl group cursor-pointer transform transition-transform duration-300 hover:scale-105 border-3 border-white">
+        <img src={item3} alt="Multilingual Support" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-linear-to-t from-red-900/80 via-red-900/40 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 text-white text-center">
+          <h3 class="text-lg font-bold mb-3">Multilingual Support</h3>
+          <p class="text-sm leading-relaxed">Classes in Mandarin, Bahasa Indonesian, English, and Chinese for smooth learning.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

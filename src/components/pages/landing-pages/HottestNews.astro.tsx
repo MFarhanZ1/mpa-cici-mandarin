@@ -17,11 +17,30 @@ export default function HottestNews() {
         <h1 className="text-white text-2xl font-mochiy-pop-one text-center">
           CHINA'S HOTTEST NEWS
         </h1>
-        <div className="flex gap-1.5">
-          <img src={card9} alt="card9" />
-          <img src={card8} alt="card8" />
-
-          <img src={card10} alt="card10" />
+        <div className="w-full overflow-x-auto scrollbar-hide">
+          <div className="flex gap-4 pb-4 min-w-max px-4">
+            <div className="flex-shrink-0 w-[280px] md:w-[320px]">
+              <img
+                src={card9}
+                alt="card9"
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+            <div className="flex-shrink-0 w-[280px] md:w-[320px]">
+              <img
+                src={card8}
+                alt="card8"
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+            <div className="flex-shrink-0 w-[280px] md:w-[320px]">
+              <img
+                src={card10}
+                alt="card10"
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -17,8 +17,8 @@
 }
 
 .text-outline-blue {
-  -webkit-text-stroke: 12px #2A64C7;
-  text-stroke: 10px #4E81DA;
+  -webkit-text-stroke: 16px #2A64C7;
+  text-stroke: 16px #4E81DA;
   color: #ffffff;
   paint-order: stroke fill;
 }

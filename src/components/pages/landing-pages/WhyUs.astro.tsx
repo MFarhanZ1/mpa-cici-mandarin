@@ -11,11 +11,6 @@ const cardWidth = 232; // Lebar card (220px) + gap (12px) = 232px
 const ciciMandarinLogo = "/cici-mandarin.svg"; // Pastikan ini ada di folder /public
 const backgroundImage = "pages/landing-pages/why-us/BG.png";
 
-// ===================================================================
-// 3. KOMPONEN VIDEO CARD (Internal)
-// ===================================================================
-// Didefinisikan di file yang sama untuk memenuhi permintaan Anda
-// ===================================================================
 
 interface VideoCardProps {
   videoSrc: string;

@@ -15,3 +15,14 @@
 .text-outline-shadow {
   text-shadow: 0 6px 0 rgba(138, 30, 30, 0.7);
 }
+
+.text-outline-blue {
+  -webkit-text-stroke: 12px #2A64C7;
+  text-stroke: 10px #4E81DA;
+  color: #ffffff;
+  paint-order: stroke fill;
+}
+
+.text-outline-shadow-blue {
+  text-shadow: 0 6px 0 rgba(24, 40, 133, 0.7);
+}

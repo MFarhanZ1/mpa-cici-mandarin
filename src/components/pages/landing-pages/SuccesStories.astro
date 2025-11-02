@@ -1,0 +1,463 @@
+---
+import Background from "../../../../public/landing-pages/succes-stories/BG.png";
+import TextPage from "../../../../public/landing-pages/succes-stories/text-h1.png";
+import TextFunLanguage from "../../../../public/landing-pages/succes-stories/fun-language.webp";
+import Stamp from "../../../../public/landing-pages/succes-stories/STAMP.png";
+import Paper from "../../../../public/landing-pages/succes-stories/PAPER.png";
+import Graduation from "../../../../public/landing-pages/succes-stories/GRADUATION.png";
+
+// Konfigurasi video carousel
+const videos = ["1.mp4", "2.mp4", "3.mp4", "5.mp4", "6.mp4", "7.mp4"];
+const cardWidth = 300; // Lebar setiap card video (280px card + gap)
+const ciciMandarinLogo = "/cici-mandarin.svg";
+
+// Quote untuk setiap video (contoh)
+const quotes = [
+  {
+    mandarin: "书是随身携带的花园",
+    english: "A book is a garden you carry around with you",
+  },
+  {
+    mandarin: "学习是通往成功的钥匙",
+    english: "Learning is the key to success",
+  },
+  {
+    mandarin: "梦想不会逃跑，会逃跑的永远都是自己",
+    english: "Dreams don't escape, we are the ones who escape",
+  },
+  { mandarin: "知识就是力量", english: "Knowledge is power" },
+  { mandarin: "每一次努力都是投资", english: "Every effort is an investment" },
+  {
+    mandarin: "成功属于坚持不懈的人",
+    english: "Success belongs to those who persevere",
+  },
+];
+---
+
+<section
+  class="bg-cover bg-center px-7 py-5"
+  style={`background-image: url(${Background.src})`}
+>
+  <div class="flex flex-col gap-3.5 justify-center items-center">
+    <div>
+      <img src={TextPage.src} alt="TextPage" />
+    </div>
+
+    <!-- video carousel -->
+    <div class="relative w-full mt-6 flex items-center justify-center">
+      <div
+        class="relative flex items-center justify-center gap-4 w-full max-w-6xl"
+      >
+        <!-- Left Arrow - Kuning cerah -->
+        <button
+          id="prev-video-success"
+          class="z-10 bg-[#FFD700] rounded-full p-3 hover:bg-[#FFC700] transition-colors shadow-lg shrink-0"
+          aria-label="Previous video"
+        >
+          <svg
+            class="w-6 h-6 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+
+        <!-- Video Container Wrapper -->
+        <div class="overflow-x-auto w-full max-w-5xl scrollbar-hide">
+          <div
+            id="video-carousel-success"
+            class="flex items-center gap-4 transition-transform duration-500 ease-in-out px-2"
+            style="transform: translateX(0px);"
+          >
+            <!-- Video akan di-generate oleh script -->
+          </div>
+        </div>
+
+        <!-- Right Arrow - Kuning cerah -->
+        <button
+          id="next-video-success"
+          class="z-10 bg-[#FFD700] rounded-full p-3 hover:bg-[#FFC700] transition-colors shadow-lg shrink-0"
+          aria-label="Next video"
+        >
+          <svg
+            class="w-6 h-6 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+
+      <style>
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      </style>
+    </div>
+
+    <script define:vars={{ videos, cardWidth, ciciMandarinLogo, quotes }}>
+      (function () {
+        const videoContainer = document.getElementById(
+          "video-carousel-success"
+        );
+        const prevButton = document.getElementById("prev-video-success");
+        const nextButton = document.getElementById("next-video-success");
+
+        if (!videoContainer || !prevButton || !nextButton) return;
+
+        let currentIndex = 0;
+        let videoElements = [];
+        let currentlyPlayingIndex = -1;
+
+        // Function untuk pause semua video
+        function pauseAllVideos() {
+          videoElements.forEach((vid, idx) => {
+            if (!vid.paused) {
+              vid.pause();
+              vid.currentTime = 0;
+            }
+            const cardWrapper = videoContainer.children[idx];
+            const card = cardWrapper?.querySelector(".video-card");
+            const overlay = card?.querySelector(".play-overlay");
+            if (overlay) {
+              overlay.style.opacity = "1";
+              overlay.style.pointerEvents = "auto";
+            }
+          });
+          currentlyPlayingIndex = -1;
+        }
+
+        // Generate video cards dengan desain sesuai gambar
+        function generateVideoCards() {
+          videos.forEach((video, index) => {
+            // Card wrapper dengan border merah berornamen
+            const cardWrapper = document.createElement("div");
+            cardWrapper.className = "video-card-wrapper flex-shrink-0 relative";
+            cardWrapper.style.width = "280px";
+            cardWrapper.style.minWidth = "280px";
+            cardWrapper.style.height = "520px";
+            cardWrapper.style.padding = "10px";
+            cardWrapper.style.background =
+              "linear-gradient(to bottom, #CB0D0D, #a00a0a)";
+            cardWrapper.style.borderRadius = "12px";
+            cardWrapper.style.position = "relative";
+            cardWrapper.style.boxShadow = "0 6px 16px rgba(203, 13, 13, 0.5)";
+
+            // Banner "Fun Language Class Life" di atas card
+            const bannerContainer = document.createElement("div");
+            bannerContainer.className =
+              "absolute -top-8 left-1/2 transform -translate-x-1/2 z-30";
+            const bannerImg = document.createElement("img");
+            bannerImg.src = "/landing-pages/succes-stories/fun-language.webp";
+            bannerImg.className = "h-auto w-48";
+            bannerImg.style.filter = "drop-shadow(0 4px 8px rgba(0,0,0,0.3))";
+            bannerContainer.appendChild(bannerImg);
+
+            // Stamp/Badge di pojok kiri atas
+            const stampContainer = document.createElement("div");
+            stampContainer.className = "absolute -top-4 -left-4 z-30";
+            const stampImg = document.createElement("img");
+            stampImg.src = "/landing-pages/succes-stories/STAMP.png";
+            stampImg.className = "h-auto w-20";
+            stampImg.style.filter = "drop-shadow(0 4px 8px rgba(0,0,0,0.4))";
+            stampContainer.appendChild(stampImg);
+
+            // Diploma/Paper di pojok kanan atas
+            const paperContainer = document.createElement("div");
+            paperContainer.className = "absolute -top-6 -right-4 z-30";
+            const paperImg = document.createElement("img");
+            paperImg.src = "/landing-pages/succes-stories/PAPER.png";
+            paperImg.className = "h-auto w-16";
+            paperImg.style.filter = "drop-shadow(0 4px 8px rgba(0,0,0,0.4))";
+            paperContainer.appendChild(paperImg);
+
+            // Graduation cap di pojok kiri bawah (di luar card inner)
+            const graduationContainer = document.createElement("div");
+            graduationContainer.className = "absolute -bottom-4 -left-4 z-30";
+            const graduationImg = document.createElement("img");
+            graduationImg.src = "/landing-pages/succes-stories/GRADUATION.png";
+            graduationImg.className = "h-auto w-16";
+            graduationImg.style.filter =
+              "drop-shadow(0 4px 8px rgba(0,0,0,0.4))";
+            graduationContainer.appendChild(graduationImg);
+
+            // Pattern overlay ornamen tradisional Tiongkok (pattern awan)
+            const patternOverlay = document.createElement("div");
+            patternOverlay.className = "absolute inset-0 pointer-events-none";
+            patternOverlay.style.backgroundImage = `
+              radial-gradient(ellipse at 10% 20%, rgba(139, 0, 0, 0.4) 4px, transparent 4px),
+              radial-gradient(ellipse at 90% 80%, rgba(139, 0, 0, 0.4) 4px, transparent 4px),
+              radial-gradient(ellipse at 50% 5%, rgba(139, 0, 0, 0.35) 5px, transparent 5px),
+              radial-gradient(ellipse at 50% 95%, rgba(139, 0, 0, 0.35) 5px, transparent 5px),
+              radial-gradient(ellipse at 20% 50%, rgba(139, 0, 0, 0.3) 3px, transparent 3px),
+              radial-gradient(ellipse at 80% 50%, rgba(139, 0, 0, 0.3) 3px, transparent 3px)
+            `;
+            patternOverlay.style.backgroundSize =
+              "35px 28px, 35px 28px, 40px 32px, 40px 32px, 25px 20px, 25px 20px";
+            patternOverlay.style.borderRadius = "12px";
+            patternOverlay.style.opacity = "0.8";
+
+            // Border putih tipis di dalam
+            const whiteBorder = document.createElement("div");
+            whiteBorder.className = "absolute";
+            whiteBorder.style.top = "12px";
+            whiteBorder.style.left = "12px";
+            whiteBorder.style.right = "12px";
+            whiteBorder.style.bottom = "12px";
+            whiteBorder.style.border = "2px solid white";
+            whiteBorder.style.borderRadius = "8px";
+            whiteBorder.style.pointerEvents = "none";
+
+            // Card inner dengan video
+            const card = document.createElement("div");
+            card.className =
+              "video-card relative group cursor-pointer w-full h-full";
+            card.style.borderRadius = "6px";
+            card.style.overflow = "hidden";
+            card.style.background = "#000";
+            card.style.marginTop = "14px";
+            card.style.marginLeft = "14px";
+            card.style.marginRight = "14px";
+            card.style.marginBottom = "14px";
+            card.style.width = "calc(100% - 28px)";
+            card.style.height = "calc(100% - 28px)";
+
+            const videoEl = document.createElement("video");
+            videoEl.src = `/landing-pages/why-us/${video}`;
+            videoEl.className = "w-full h-full object-cover";
+            videoEl.muted = false;
+            videoEl.volume = 1.0;
+            videoEl.loop = true;
+            videoEl.playsInline = true;
+            videoEl.preload = "auto";
+
+            // Text overlay "CICI'S JOURNEY IN CHINA" di atas dengan warna emas dan ikon naga
+            const textOverlay = document.createElement("div");
+            textOverlay.className =
+              "absolute top-3 left-0 right-0 z-10 flex items-center justify-center gap-2";
+            // Ikon naga kecil (SVG)
+            const dragonIcon = `
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.8));">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#CB0D0D" stroke="#FFD700" stroke-width="1"/>
+                <path d="M2 7V17L12 22L22 17V7" stroke="#CB0D0D" stroke-width="1.5" fill="none"/>
+                <circle cx="7" cy="12" r="1.5" fill="#FFD700"/>
+                <circle cx="17" cy="12" r="1.5" fill="#FFD700"/>
+                <path d="M12 8L10 10L12 12L14 10L12 8Z" fill="#FFD700"/>
+              </svg>
+            `;
+            textOverlay.innerHTML = `
+              ${dragonIcon}
+              <span style="color: #FF6B35; font-weight: bold; font-size: 11px; text-shadow: 1px 1px 3px rgba(0,0,0,0.9), 0 0 3px rgba(255,255,255,0.5); letter-spacing: 1.5px; text-transform: uppercase;">
+                CICI'S JOURNEY IN CHINA
+              </span>
+            `;
+
+            // Quote box di bawah (kotak putih dengan border biru tipis)
+            const quoteBox = document.createElement("div");
+            quoteBox.className = "absolute bottom-16 left-2 right-2 z-10";
+            quoteBox.style.background = "#FFFFFF";
+            quoteBox.style.border = "1px solid #4A90E2";
+            quoteBox.style.borderRadius = "4px";
+            quoteBox.style.padding = "6px 8px";
+            quoteBox.style.boxShadow = "0 2px 6px rgba(0,0,0,0.25)";
+            const quote = quotes[index] || quotes[0];
+            quoteBox.innerHTML = `
+              <div style="color: #333; font-size: 9px; font-weight: 600; margin-bottom: 2px; text-align: center; line-height: 1.3;">
+                ${quote.mandarin}
+              </div>
+              <div style="color: #666; font-size: 8px; font-style: italic; text-align: center; line-height: 1.2;">
+                ${quote.english}
+              </div>
+            `;
+
+            // Logo Cici Mandarin di pojok kiri bawah
+            const logoContainer = document.createElement("div");
+            logoContainer.className = "absolute bottom-3 left-3 z-10";
+            const logoImg = document.createElement("img");
+            logoImg.src = ciciMandarinLogo;
+            logoImg.className = "h-5 w-auto opacity-95";
+            logoImg.style.filter =
+              "drop-shadow(2px 2px 3px rgba(0,0,0,0.8)) brightness(0) invert(1)";
+            logoContainer.appendChild(logoImg);
+
+            // Mute/Unmute button di pojok kanan bawah
+            const muteButton = document.createElement("button");
+            muteButton.className =
+              "mute-button absolute bottom-3 right-3 bg-black/70 hover:bg-black/90 rounded-full p-1.5 transition-all z-20";
+            muteButton.innerHTML = `
+              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+              </svg>
+            `;
+            muteButton.setAttribute("aria-label", "Mute/Unmute video");
+
+            const updateMuteButton = () => {
+              if (videoEl.muted) {
+                muteButton.innerHTML = `
+                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+                  </svg>
+                `;
+              } else {
+                muteButton.innerHTML = `
+                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                  </svg>
+                `;
+              }
+            };
+
+            muteButton.addEventListener("click", (e) => {
+              e.stopPropagation();
+              videoEl.muted = !videoEl.muted;
+              updateMuteButton();
+            });
+
+            // Play button overlay
+            const playButtonOverlay = document.createElement("div");
+            playButtonOverlay.className =
+              "play-overlay absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity duration-300";
+            playButtonOverlay.style.opacity = "1";
+
+            const playButton = document.createElement("button");
+            playButton.className =
+              "play-button bg-[#CB0D0D] rounded-full hover:bg-[#a00a0a] transition-all transform hover:scale-110";
+            playButton.style.padding = "14px 18px";
+            playButton.innerHTML = `
+              <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            `;
+            playButton.setAttribute("aria-label", "Play video");
+
+            playButtonOverlay.appendChild(playButton);
+            card.appendChild(videoEl);
+            card.appendChild(textOverlay);
+            card.appendChild(quoteBox);
+            card.appendChild(logoContainer);
+            card.appendChild(playButtonOverlay);
+            card.appendChild(muteButton);
+
+            cardWrapper.appendChild(patternOverlay);
+            cardWrapper.appendChild(bannerContainer);
+            cardWrapper.appendChild(stampContainer);
+            cardWrapper.appendChild(paperContainer);
+            cardWrapper.appendChild(graduationContainer);
+            cardWrapper.appendChild(whiteBorder);
+            cardWrapper.appendChild(card);
+
+            updateMuteButton();
+
+            // Toggle play/pause
+            const togglePlayPause = () => {
+              if (videoEl.paused) {
+                pauseAllVideos();
+                videoEl.muted = false;
+                videoEl
+                  .play()
+                  .then(() => {
+                    currentlyPlayingIndex = index;
+                  })
+                  .catch((err) => {
+                    console.log("Play failed:", err);
+                  });
+              } else {
+                videoEl.pause();
+                currentlyPlayingIndex = -1;
+              }
+            };
+
+            card.addEventListener("click", togglePlayPause);
+            playButton.addEventListener("click", (e) => {
+              e.stopPropagation();
+              togglePlayPause();
+            });
+
+            videoEl.addEventListener("play", () => {
+              videoElements.forEach((vid, idx) => {
+                if (idx !== index && !vid.paused) {
+                  vid.pause();
+                  vid.currentTime = 0;
+                  const otherCardWrapper = videoContainer.children[idx];
+                  const otherCard =
+                    otherCardWrapper?.querySelector(".video-card");
+                  const otherOverlay =
+                    otherCard?.querySelector(".play-overlay");
+                  if (otherOverlay) {
+                    otherOverlay.style.opacity = "1";
+                    otherOverlay.style.pointerEvents = "auto";
+                  }
+                }
+              });
+              currentlyPlayingIndex = index;
+              playButtonOverlay.style.opacity = "0";
+              playButtonOverlay.style.pointerEvents = "none";
+            });
+
+            videoEl.addEventListener("pause", () => {
+              if (currentlyPlayingIndex === index) {
+                currentlyPlayingIndex = -1;
+              }
+              playButtonOverlay.style.opacity = "1";
+              playButtonOverlay.style.pointerEvents = "auto";
+            });
+
+            videoEl.addEventListener("volumechange", () => {
+              updateMuteButton();
+            });
+
+            videoElements.push(videoEl);
+            videoContainer.appendChild(cardWrapper);
+          });
+        }
+
+        function updateCarousel() {
+          pauseAllVideos();
+          const offset = -currentIndex * cardWidth;
+          videoContainer.style.transform = `translateX(${offset}px)`;
+        }
+
+        function nextVideo() {
+          const maxIndex = Math.max(0, videos.length - 3);
+          if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateCarousel();
+          }
+        }
+
+        function prevVideo() {
+          if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+          }
+        }
+
+        prevButton.addEventListener("click", prevVideo);
+        nextButton.addEventListener("click", nextVideo);
+
+        // Initialize
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", generateVideoCards);
+        } else {
+          generateVideoCards();
+        }
+      })();
+    </script>
+  </div>
+</section>

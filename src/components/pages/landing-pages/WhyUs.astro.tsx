@@ -93,7 +93,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
         width: "220px",
         minWidth: "220px",
         height: "380px",
-        padding: "6px",
+        padding: "10px",
         background: "linear-gradient(to bottom, #CB0D0D, #a00a0a)",
         borderRadius: "10px",
         position: "relative",
@@ -350,11 +350,12 @@ const WhyUs: React.FC = () => {
 
   return (
     <section
-      className="bg-cover bg-top px-6 py-4"
+      className="bg-cover bg-top xl:bg-center px-6 py-4 xl:py-14"
       // Di React, style adalah objek
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <div className="flex flex-col gap-3">
+      
+      <div className="flex flex-col gap-3 justify-center items-center">
         {/* ... Teks "WHY US ?" ... */}
         <span className="flex justify-center items-center font-normal font-mochiy-pop-one text-[#CB0D0D] text-2xl">
           WHY US ?
@@ -385,7 +386,7 @@ const WhyUs: React.FC = () => {
         </div>
 
         {/* video card carousel */}
-        <div className="relative w-full mt-6 flex items-center justify-center">
+        <div className="relative w-full mt-6 flex items-center justify-center xl:max-w-[52rem] lg:max-w-[52rem]">
           <div className="relative flex items-center justify-center gap-4 w-full max-w-6xl">
             {/* Left Arrow */}
             <button
@@ -413,11 +414,11 @@ const WhyUs: React.FC = () => {
 
             {/* Video Container Wrapper */}
             <div
-              className="overflow-x-auto w-full max-w-6xl scrollbar-hide"
+              className="overflow-x-auto w-full min-w-[12rem] max-w-6xl scrollbar-hide "
               style={{ position: "relative", zIndex: 1 }}
             >
               <div
-                className="flex items-center gap-4 transition-transform duration-500 ease-in-out px-2"
+                className="flex items-center gap-4 transition-transform duration-500 ease-in-out"
                 style={{
                   transform: `translateX(-${currentIndex * cardWidth}px)`,
                 }}

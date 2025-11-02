@@ -18,7 +18,7 @@ export default function HottestNews() {
           CHINA'S HOTTEST NEWS
         </h1>
         <div className="w-full overflow-x-auto scrollbar-hide">
-          <div className="flex gap-4 pb-4 min-w-max px-4">
+          <div className="flex gap-4 pb-4 min-w-max px-4 justify-center items-center">
             <div className="flex-shrink-0 w-[280px] md:w-[320px]">
               <img
                 src={card9}

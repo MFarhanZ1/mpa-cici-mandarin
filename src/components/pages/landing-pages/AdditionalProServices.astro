@@ -4,32 +4,40 @@ import CardOne from "../../../../public/pages/landing-pages/additional-pro-servi
 import CardTwo from "../../../../public/pages/landing-pages/additional-pro-service/2.png";
 import CardThree from "../../../../public/pages/landing-pages/additional-pro-service/3.png";
 import CardFour from "../../../../public/pages/landing-pages/additional-pro-service/4.png";
+import GirlsImage from "../../../../public/pages/landing-pages/additional-pro-service/GIRL.png";
+import TigerImage from "../../../../public/pages/landing-pages/additional-pro-service/WHITE-TIGER.png";
+import LaternImage from "../../../../public/pages/landing-pages/additional-pro-service/ORANGE-LANTERN.png";
 ---
 
 <section
-  class="bg-cover bg-center px-7 py-5"
-  style={`background-image: url(${Background.src})`}
+    class="bg-cover bg-center px-7 py-5 xl:relative lg:relative"
+    style={`background-image: url(${Background.src})`}
 >
-  <div class="flex flex-col gap-3 text-white">
-    <div
-      class="flex flex-col justify-center items-center gap-1.5 font-mochiy-pop-one font-normal text-white text-2xl"
-    >
-      <span> ADDITIONAL </span>
-      <span> PRO SERVICES </span>
+    <img src={LaternImage.src} alt="" class="xl:top-0 lg:top-0 xl:absolute lg:absolute hidden sm:block xl:w-24 lg:w-20">
+    <img src={LaternImage.src} alt="" class="xl:top-0 lg:top-0 xl:right-5 lg:right-5 xl:absolute lg:absolute hidden sm:block xl:w-24 lg:w-20">
+    <img src={GirlsImage.src} alt="" class="xl:bottom-0 lg:bottom-0 xl:absolute lg:absolute hidden sm:block xl:w-60 lg:w-60">
+    <img src={TigerImage.src} alt="" class="xl:bottom-0 xl:right-2.5 lg:bottom-0 lg:right-2.5 xl:absolute lg:absolute hidden sm:block xl:w-60 lg:w-60">
+    <div class="flex flex-col gap-3 text-white">
+        <div
+            class="flex flex-col justify-center items-center gap-1.5 font-mochiy-pop-one font-normal text-white text-2xl"
+        >
+            <span class="font-mochiy-pop-one font-normal text-white text-2xl text-center">
+                ADDITIONAL PRO SERVICES
+            </span>
+            <div class="flex flex-col justify-center items-center gap-1 xl:px-[28%] lg:px-[30%]">
+                <div>
+                    <img src={CardOne.src} alt="CardOne" />
+                </div>
+                <div>
+                    <img src={CardTwo.src} alt="CardTwo" />
+                </div>
+                <div>
+                    <img src={CardThree.src} alt="CardThree" />
+                </div>
+                <div>
+                    <img src={CardFour.src} alt="CardFour" />
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="flex flex-col justify-center items-center gap-1">
-      <div>
-        <img src={CardOne.src} alt="CardOne" />
-      </div>
-      <div>
-        <img src={CardTwo.src} alt="CardTwo" />
-      </div>
-      <div>
-        <img src={CardThree.src} alt="CardThree" />
-      </div>
-      <div>
-        <img src={CardFour.src} alt="CardFour" />
-      </div>
-    </div>
-  </div>
 </section>

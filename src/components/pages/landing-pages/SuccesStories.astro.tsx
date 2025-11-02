@@ -26,6 +26,8 @@ const funLanguageImage = "pages/landing-pages/succes-stories/fun-language.webp";
 const stampImage = "pages/landing-pages/succes-stories/STAMP.png";
 const paperImage = "pages/landing-pages/succes-stories/PAPER.png";
 const graduationImage = "pages/landing-pages/succes-stories/GRADUATION.png";
+const girlsImage = "pages/landing-pages/succes-stories/GIRL.png";
+const awardsImage = "pages/landing-pages/succes-stories/AWARD.png";
 
 // ===================================================================
 // 3. KOMPONEN VIDEO CARD (Internal)
@@ -101,16 +103,16 @@ const VideoCard: React.FC<VideoCardProps> = ({
   );
 
   return (
-    <div className="shrink-0 relative w-[280px] sm:w-[320px] lg:w-[360px] h-[400px] sm:h-[450px] lg:h-[500px]">
+    <div className="shrink-0 w-full h-full flex items-center justify-center">
       {/* Card inner dengan video */}
       <div
-        className="relative group cursor-pointer w-full h-full rounded-2xl overflow-hidden bg-black shadow-lg"
+        className="relative group cursor-pointer w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[400px] h-[450px] sm:h-[500px] lg:h-[550px] rounded-2xl overflow-hidden bg-black shadow-lg"
         onClick={handleCardClick}
       >
         <video
           ref={videoRef}
           src={videoSrc}
-          className="h-full w-full object-fill"
+          className="h-full w-full object-cover"
           loop
           playsInline
           preload="auto"
@@ -155,201 +157,91 @@ const VideoCard: React.FC<VideoCardProps> = ({
   );
 };
 
-// ===================================================================
-// 4. KOMPONEN SUCCESS STORIES (Utama)
-// ===================================================================
-
 const SuccesStories: React.FC = () => {
-  // State untuk melacak indeks carousel
+  // State untuk melacak indeks carousel - HANYA 1 VIDEO TERLIHAT
   const [currentIndex, setCurrentIndex] = useState(0);
   // State untuk melacak video mana yang sedang diputar
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
-  // Ref untuk container carousel
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [containerWidth, setContainerWidth] = useState(0);
 
-  // Fungsi untuk menghitung kartu yang terlihat berdasarkan lebar layar
-  const getVisibleCards = useCallback(() => {
-    if (typeof window === "undefined") return 1;
+  // Max index adalah total video - 1 (karena hanya 1 video terlihat)
+  const maxIndex = videos.length - 1;
 
-    const screenWidth = window.innerWidth;
-    if (screenWidth >= 1280) return 3;
-    if (screenWidth >= 768) return 2;
-    return 1;
-  }, []);
-
-  // Fungsi untuk menghitung lebar card berdasarkan ukuran layar
-  const getCardWidth = useCallback(() => {
-    if (typeof window === "undefined") return 300;
-
-    const screenWidth = window.innerWidth;
-    if (screenWidth >= 1024) return 380; // lg: 360px card + 20px gap
-    if (screenWidth >= 640) return 340; // sm: 320px card + 20px gap
-    return 300; // mobile: 280px card + 20px gap
-  }, []);
-
-  // State untuk melacak jumlah kartu yang terlihat (responsive)
-  const [visibleCards, setVisibleCards] = useState(() => {
-    if (typeof window !== "undefined") {
-      const screenWidth = window.innerWidth;
-      if (screenWidth >= 1280) return 3;
-      if (screenWidth >= 768) return 2;
-    }
-    return 1;
-  });
-
-  // State untuk melacak lebar card (responsive)
-  const [cardWidth, setCardWidth] = useState(() => {
-    if (typeof window !== "undefined") {
-      const screenWidth = window.innerWidth;
-      if (screenWidth >= 1024) return 380;
-      if (screenWidth >= 640) return 340;
-    }
-    return 300;
-  });
-
-  // Ref untuk menyimpan visibleCards terbaru
-  const visibleCardsRef = useRef(visibleCards);
-
-  // Efek untuk mengatur 'visibleCards' dan 'cardWidth' saat komponen dimuat dan di-resize
-  useEffect(() => {
-    const handleResize = () => {
-      const newVisibleCards = getVisibleCards();
-      const newCardWidth = getCardWidth();
-      setVisibleCards(newVisibleCards);
-      setCardWidth(newCardWidth);
-      visibleCardsRef.current = newVisibleCards;
-
-      // Update container width
-      if (containerRef.current) {
-        setContainerWidth(containerRef.current.offsetWidth);
-      }
-    };
-
-    // Panggil sekali saat mount
-    handleResize();
-
-    // Tambahkan event listener
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup listener saat komponen unmount
-    return () => window.removeEventListener("resize", handleResize);
-  }, [getVisibleCards, getCardWidth]);
-
-  // Update ref setiap kali visibleCards berubah
-  useEffect(() => {
-    visibleCardsRef.current = visibleCards;
-  }, [visibleCards]);
-
-  // Nilai turunan (derived state) untuk index maksimum menggunakan useMemo
-  const maxIndex = useMemo(() => {
-    return Math.max(0, videos.length - visibleCards);
-  }, [visibleCards]);
-
-  // Efek untuk menyesuaikan currentIndex jika melebihi maxIndex setelah resize
-  useEffect(() => {
-    if (currentIndex > maxIndex) {
-      setCurrentIndex(maxIndex);
-    }
-  }, [maxIndex, currentIndex]);
-
-  const handleNext = useCallback((e?: React.MouseEvent) => {
-    e?.preventDefault();
-    e?.stopPropagation();
-
+  const handleNext = useCallback(() => {
     // Hentikan video yang sedang diputar saat navigasi
     setPlayingIndex(null);
-
-    // Hitung maxIndex berdasarkan visibleCards terbaru dari ref
-    const currentMaxIndex = Math.max(
-      0,
-      videos.length - visibleCardsRef.current,
-    );
-
-    // Gunakan functional update untuk mendapatkan currentIndex terbaru
+    
     setCurrentIndex((prev) => {
-      // Jika sudah di akhir, jangan update
-      if (prev >= currentMaxIndex) {
-        return prev;
-      }
-      // Update ke index berikutnya
+      if (prev >= maxIndex) return prev;
       return prev + 1;
+    });
+  }, [maxIndex]);
+
+  const handlePrev = useCallback(() => {
+    // Hentikan video yang sedang diputar saat navigasi
+    setPlayingIndex(null);
+    
+    setCurrentIndex((prev) => {
+      if (prev <= 0) return prev;
+      return prev - 1;
     });
   }, []);
 
-  const handlePrev = useCallback((e?: React.MouseEvent) => {
-    e?.preventDefault();
-    e?.stopPropagation();
-
-    // Hentikan video yang sedang diputar saat navigasi
-    setPlayingIndex(null);
-    setCurrentIndex((prev) => Math.max(prev - 1, 0));
-  }, []);
-
-  // Menangani play/pause. Jika video yg diklik = yg sedang main -> pause.
-  // Jika video lain diklik -> mainkan yg baru & pause yg lama.
+  // Menangani play/pause
   const handlePlayToggle = useCallback((index: number) => {
     setPlayingIndex((prevPlayingIndex) =>
       prevPlayingIndex === index ? null : index,
     );
   }, []);
 
-  // Hitung offset untuk center video
-  const getTransformOffset = useMemo(() => {
-    const offset =
-      containerWidth / 2 - cardWidth / 2 - currentIndex * cardWidth;
-    return offset;
-  }, [containerWidth, cardWidth, currentIndex]);
-
   return (
     <section
-      className="bg-cover bg-center px-7 py-5 overflow-x-hidden"
+      className="bg-cover bg-center px-7 py-5 overflow-hidden xl:relative lg:relative"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <div className="relative flex flex-col gap-10 justify-center items-center">
-        <div>
-          <img src={textPageImage} alt="TextPage" />
+      <img src={girlsImage} alt="Logo" className="xl:absolute lg:absolute xl:w-56 lg:w-50 xl:bottom-3 lg:bottom-3 xl:left-1/6 lg:left-1/12 hidden sm:block" />
+      <img src={awardsImage} alt="Logo" className="xl:absolute lg:absolute xl:w-24 lg:w-24 xl:bottom-1/6 lg:bottom-1/6 xl:left-0 lg:left-0 hidden sm:block" />
+      <div className="relative flex flex-col xl:flex-row lg:flex-row gap-10 justify-center items-center">
+        <div className="flex flex-col items-center justify-center">
+          <img src={textPageImage} alt="TextPage" className="xl:w-[80%]" />
         </div>
         <div className="left-0 absolute -ml-10 z-10 bottom-8">
-          <img src={graduationImage} alt="graduationImage" className="w-24" />
+          <img src={graduationImage} alt="graduationImage" className="w-24 xl:hidden lg:hidden" />
         </div>
-        <div className="right-0 absolute -mr-24 z-5 top-32">
+        <div className="right-0 absolute -mr-24 z-5 top-32 xl:-top-16 xl:left-1/5 xl:z-50">
           <img src={paperImage} alt="paperImage" className="w-40" />
         </div>
 
-        {/* video card carousel */}
-        <div className="relative w-full flex justify-center">
-          <div className="relative flex flex-col items-center justify-center bg-[#BE1313] py-6 sm:py-8 px-4 sm:px-6 rounded-3xl w-full max-w-[90vw] sm:max-w-[600px] lg:max-w-[800px]">
+        {/* video card carousel - SINGLE VIDEO VIEW */}
+        <div className="relative w-full flex justify-center xl:min-w-10">
+          <div className="relative flex flex-col items-center justify-center bg-[#BE1313] py-6 sm:py-8 px-4 sm:px-6 rounded-3xl w-full max-w-[90vw]">
             <div className="-mt-8 sm:-mt-10 mb-4">
               <img
                 src={funLanguageImage}
                 alt="Fun Language"
-                className="w-48 sm:w-56 lg:w-60"
+                className="w-48 sm:w-56 lg:w-60 xl:w-96"
               />
             </div>
             <div className="left-0 top-0 absolute -ml-6 sm:-ml-8 -mt-5 sm:-mt-7 z-[1]">
-              <img src={stampImage} alt="Stamp" className="w-32 sm:w-24" />
+              <img src={stampImage} alt="Stamp" className="w-32 sm:w-24 xl:w-38" />
             </div>
 
-            {/* Carousel Container with Overflow Hidden */}
-            <div
-              ref={containerRef}
-              className="relative w-full h-full overflow-hidden px-4"
-            >
+            {/* Carousel Container - HANYA TAMPILKAN 1 VIDEO */}
+            <div className="relative w-full overflow-hidden px-4 sm:px-8">
               <div
-                className="flex justify-start gap-4 sm:gap-5 transition-transform duration-500 ease-in-out h-full"
+                className="flex transition-transform duration-500 ease-in-out"
                 style={{
-                  transform: `translateX(${getTransformOffset}px)`,
+                  transform: `translateX(-${currentIndex * 100}%)`,
                 }}
               >
                 {videos.map((video, index) => (
-                  <VideoCard
-                    key={video}
-                    videoSrc={`pages/landing-pages/succes-stories/${video}`}
-                    logoSrc={ciciMandarinLogo}
-                    isPlaying={playingIndex === index}
-                    onPlayToggle={() => handlePlayToggle(index)}
-                  />
+                  <div key={video} className="w-full flex-shrink-0">
+                    <VideoCard
+                      videoSrc={`pages/landing-pages/succes-stories/${video}`}
+                      logoSrc={ciciMandarinLogo}
+                      isPlaying={playingIndex === index}
+                      onPlayToggle={() => handlePlayToggle(index)}
+                    />
+                  </div>
                 ))}
               </div>
             </div>
@@ -359,7 +251,7 @@ const SuccesStories: React.FC = () => {
               <button
                 type="button"
                 onClick={handlePrev}
-                className="absolute left-0 sm:left-4 top-1/2 -translate-y-1/2 bg-[#FFBC2D] hover:bg-white text-[#BE1313] rounded-full p-2 sm:p-3 shadow-lg transition-all hover:scale-110 z-10"
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-[#FFBC2D] hover:bg-white text-[#BE1313] rounded-full p-2 sm:p-3 shadow-lg transition-all hover:scale-110 z-10"
                 aria-label="Previous video"
               >
                 <svg
@@ -382,7 +274,7 @@ const SuccesStories: React.FC = () => {
               <button
                 type="button"
                 onClick={handleNext}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#FFBC2D] hover:bg-white text-[#BE1313] rounded-full p-2 sm:p-3 shadow-lg transition-all hover:scale-110 z-10"
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-[#FFBC2D] hover:bg-white text-[#BE1313] rounded-full p-2 sm:p-3 shadow-lg transition-all hover:scale-110 z-10"
                 aria-label="Next video"
               >
                 <svg
@@ -403,7 +295,7 @@ const SuccesStories: React.FC = () => {
 
             {/* Progress Dots */}
             <div className="flex gap-2 mt-6">
-              {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+              {videos.map((_, index) => (
                 <button
                   key={index}
                   type="button"

@@ -12,7 +12,6 @@ const videos = [
   "2.mp4",
   "3.mp4",
   "4.mp4",
-  "5.mp4",
   "6.mp4",
   "7.mp4",
   "8.mp4",
@@ -21,12 +20,12 @@ const videos = [
 const ciciMandarinLogo = "/cici-mandarin.svg";
 
 // Background dan image paths - menggunakan path langsung karena file ada di public directory
-const backgroundImage = "/landing-pages/succes-stories/BG.png";
-const textPageImage = "/landing-pages/succes-stories/text-h1.png";
-const funLanguageImage = "/landing-pages/succes-stories/fun-language.webp";
-const stampImage = "/landing-pages/succes-stories/STAMP.png";
-const paperImage = "/landing-pages/succes-stories/PAPER.png";
-const graduationImage = "/landing-pages/succes-stories/GRADUATION.png";
+const backgroundImage = "pages/landing-pages/succes-stories/BG.png";
+const textPageImage = "pages/landing-pages/succes-stories/text-h1.png";
+const funLanguageImage = "pages/landing-pages/succes-stories/fun-language.webp";
+const stampImage = "pages/landing-pages/succes-stories/STAMP.png";
+const paperImage = "pages/landing-pages/succes-stories/PAPER.png";
+const graduationImage = "pages/landing-pages/succes-stories/GRADUATION.png";
 
 // ===================================================================
 // 3. KOMPONEN VIDEO CARD (Internal)
@@ -165,6 +164,9 @@ const SuccesStories: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   // State untuk melacak video mana yang sedang diputar
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
+  // Ref untuk container carousel
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = useState(0);
 
   // Fungsi untuk menghitung kartu yang terlihat berdasarkan lebar layar
   const getVisibleCards = useCallback(() => {
@@ -217,6 +219,11 @@ const SuccesStories: React.FC = () => {
       setVisibleCards(newVisibleCards);
       setCardWidth(newCardWidth);
       visibleCardsRef.current = newVisibleCards;
+
+      // Update container width
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.offsetWidth);
+      }
     };
 
     // Panggil sekali saat mount
@@ -287,6 +294,13 @@ const SuccesStories: React.FC = () => {
     );
   }, []);
 
+  // Hitung offset untuk center video
+  const getTransformOffset = useMemo(() => {
+    const offset =
+      containerWidth / 2 - cardWidth / 2 - currentIndex * cardWidth;
+    return offset;
+  }, [containerWidth, cardWidth, currentIndex]);
+
   return (
     <section
       className="bg-cover bg-center px-7 py-5 overflow-x-hidden"
@@ -305,7 +319,7 @@ const SuccesStories: React.FC = () => {
 
         {/* video card carousel */}
         <div className="relative w-full flex justify-center">
-          <div className="relative flex flex-col items-center justify-center bg-[#BE1313] py-6 sm:py-8 px-4 sm:px-6 rounded-3xl w-80">
+          <div className="relative flex flex-col items-center justify-center bg-[#BE1313] py-6 sm:py-8 px-4 sm:px-6 rounded-3xl w-full max-w-[90vw] sm:max-w-[600px] lg:max-w-[800px]">
             <div className="-mt-8 sm:-mt-10 mb-4">
               <img
                 src={funLanguageImage}
@@ -318,17 +332,20 @@ const SuccesStories: React.FC = () => {
             </div>
 
             {/* Carousel Container with Overflow Hidden */}
-            <div className="relative w-full h-full overflow-hidden">
+            <div
+              ref={containerRef}
+              className="relative w-full h-full overflow-hidden px-4"
+            >
               <div
-                className="flex items-center gap-4 sm:gap-5 transition-transform duration-500 ease-in-out h-full"
+                className="flex justify-start gap-4 sm:gap-5 transition-transform duration-500 ease-in-out h-full"
                 style={{
-                  transform: `translateX(-${currentIndex * cardWidth}px)`,
+                  transform: `translateX(${getTransformOffset}px)`,
                 }}
               >
                 {videos.map((video, index) => (
                   <VideoCard
                     key={video}
-                    videoSrc={`/landing-pages/succes-stories/${video}`}
+                    videoSrc={`pages/landing-pages/succes-stories/${video}`}
                     logoSrc={ciciMandarinLogo}
                     isPlaying={playingIndex === index}
                     onPlayToggle={() => handlePlayToggle(index)}

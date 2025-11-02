@@ -11,7 +11,7 @@ const videos = ["1.mp4", "2.mp4", "3.mp4", "5.mp4", "6.mp4", "7.mp4"];
 const cardWidth = 232; // Lebar card (220px) + gap (12px) = 232px
 const ciciMandarinLogo = "/cici-mandarin.svg"; // Pastikan ini ada di folder /public
 // Background image - menggunakan path langsung karena file ada di public directory
-const backgroundImage = "/landing-pages/why-us/BG.png";
+const backgroundImage = "pages/landing-pages/why-us/BG.png";
 
 // ===================================================================
 // 3. KOMPONEN VIDEO CARD (Internal)
@@ -426,7 +426,7 @@ const WhyUs: React.FC = () => {
                 {videos.map((video, index) => (
                   <VideoCard
                     key={video}
-                    videoSrc={`/landing-pages/why-us/${video}`}
+                    videoSrc={`pages/landing-pages/why-us/${video}`}
                     logoSrc={ciciMandarinLogo}
                     isPlaying={playingIndex === index}
                     onPlayToggle={() => handlePlayToggle(index)}

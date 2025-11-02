@@ -6,31 +6,31 @@ const CurrentPath = Astro.url.pathname;
 ---
 
 <nav
-	class="px-6 py-5 w-full h-26 fixed top-0 left-0 z-50 flex justify-center items-center"
+	class="px-3 py-4 md:px-6 md:py-5 w-full h-16 md:h-26 fixed top-0 left-0 z-50 flex justify-center items-center"
 >
 	<div
-		class="bg-[#cb0d0d] rounded-2xl w-full h-full flex items-center justify-between pl-36 pr-20"
+		class="bg-[#cb0d0d] rounded-lg md:rounded-2xl w-full h-full flex items-center justify-between pl-5 pr-3 md:pl-36 md:pr-20"
 	>
-		<img class="w-20 h-20" src={CiciMandarinLogo} alt="Cici Mandarin Logo" />
+		<img class="w-10 h-10 md:w-20 md:h-20" src={CiciMandarinLogo} alt="Cici Mandarin Logo" />
 
-		<div class="flex justify-center items-center gap-8">
-			<div class="flex justify-center items-center gap-8">
+		<div class="flex justify-center items-center gap-2 md:gap-8">
+			<div class="flex justify-center items-center gap-2 md:gap-8">
 				<a
-					class=`${CurrentPath === '/' && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-sm`
+					class=`${CurrentPath === '/' && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-[8px] md:text-sm`
 					href="/">HOME</a
 				>
 				<a
-					class=`${CurrentPath === '/about-us' && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-sm`
+					class=`${CurrentPath === '/about-us' && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-[8px] md:text-sm`
 					href="/about-us">ABOUT US</a
 				>
 				<button
-					class=`${CurrentPath.includes('/services') && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-sm services-toggle`
+					class=`${CurrentPath.includes('/services') && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-[8px] md:text-sm services-toggle`
 					type="button"
 				>
 					SERVICES
 				</button>
 				<a
-					class=`${CurrentPath === '/contact-us' && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-sm`
+					class=`${CurrentPath === '/contact-us' && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-[8px] md:text-sm`
 					href="/contact-us">CONTACT US</a
 				>
 			</div>
@@ -40,61 +40,61 @@ const CurrentPath = Astro.url.pathname;
 				rel="noopener noreferrer"
 				class="join-us-link z-10"
 			>
-				<img src={JoinUs} class="w-38 h-38 join-us-image" />
+			<img src={JoinUs} class="w-20 h-20 md:w-38 md:h-38 join-us-image" />
 			</a>
 		</div>
 	</div>
 
 	<!-- Services dropdown -->
-	<div id="services-dropdown" class="absolute top-[81%] right-56 hidden">
-		<div
-			class="bg-white/95 backdrop-blur rounded-b-2xl shadow-xl w-[440px] max-w-[60vw]"
-		>
-			<div class="grid grid-cols-2 sm:grid-cols-4 place-items-center">
-				<a
-					href="/services/cici-language-course-expert"
-					class="group flex flex-col items-center cursor-pointer hover:bg-gray-50 gap-2 text-center border-r border-gray-200 last:border-r-0 px-4 py-5"
-				>
-					<img
-						class="w-14 h-14 object-contain"
-						src="/navbar/s-1.svg"
-						alt="Cici Language Course Expert"
-					/>
-					<span class="text-[#cb0d0d] text-xs group-hover:underline">Cici Language Course Expert</span>
-				</a>
-				<a
-					href="/services/cici-study-abroad-expert"
-					class="group flex flex-col items-center cursor-pointer hover:bg-gray-50 gap-2 text-center border-r border-gray-200 last:border-r-0 px-4 py-5"
-				>
-					<img
-						class="w-14 h-14 object-contain"
-						src="/navbar/s-2.svg"
-						alt="Cici Study Abroad Expert"
-					/>
-					<span class="text-[#cb0d0d] text-xs group-hover:underline">Cici Study Abroad Expert</span>
-				</a>
-				<a
-					href="/services/cici-tour-travel-expert"
-					class="group flex flex-col items-center cursor-pointer hover:bg-gray-50 gap-2 text-center border-r border-gray-200 last:border-r-0 px-4 py-5"
-				>
-					<img
-						class="w-14 h-14 object-contain"
-						src="/navbar/s-3.svg"
-						alt="Cici Tour Travel Expert"
-					/>
-					<span class="text-[#cb0d0d] text-xs group-hover:underline">Cici Tour Travel Expert</span>
-				</a>
-				<a href="/services/cici-career-link-expert" class="group flex flex-col items-center cursor-pointer hover:bg-gray-50 gap-2 text-center px-4 py-5">
-					<img
-						class="w-14 h-14 object-contain"
-						src="/navbar/s-4.svg"
-						alt="Cici Career Link Expert"
-					/>
-					<span class="text-[#cb0d0d] text-xs group-hover:underline">Cici Career Link Expert</span>
-				</a>
-			</div>
+<div id="services-dropdown" class="absolute md:top-[81%] top-[75%] right-10 md:right-56 hidden">
+	<div
+		class="bg-white/95 backdrop-blur rounded-b-2xl shadow-xl w-[310px] max-w-[90vw] md:w-[440px] md:max-w-[60vw]"
+	>
+		<div class="grid grid-cols-4 place-items-center">
+			<a
+				href="/services/cici-language-course-expert"
+				class="group flex flex-col items-center cursor-pointer rounded-bl-2xl hover:bg-gray-50 gap-0.5 md:gap-2 text-center border-r border-gray-200 px-1.5 py-2 md:px-4 md:py-5"
+			>
+				<img
+					class="w-6 h-6 md:w-14 md:h-14 object-contain"
+					src="/navbar/s-1.svg"
+					alt="Cici Language Course Expert"
+				/>
+				<span class="text-[#cb0d0d] text-[8px] md:text-xs group-hover:underline leading-tight">Cici Language Course Expert</span>
+			</a>
+			<a
+				href="/services/cici-study-abroad-expert"
+				class="group flex flex-col items-center cursor-pointer hover:bg-gray-50 gap-0.5 md:gap-2 text-center border-r border-gray-200 px-1.5 py-2 md:px-4 md:py-5"
+			>
+				<img
+					class="w-6 h-6 md:w-14 md:h-14 object-contain"
+					src="/navbar/s-2.svg"
+					alt="Cici Study Abroad Expert"
+				/>
+				<span class="text-[#cb0d0d] text-[8px] md:text-xs group-hover:underline leading-tight">Cici Study Abroad Expert</span>
+			</a>
+			<a
+				href="/services/cici-tour-travel-expert"
+				class="group flex flex-col items-center cursor-pointer hover:bg-gray-50 gap-0.5 md:gap-2 text-center border-r border-gray-200 px-1.5 py-2 md:px-4 md:py-5"
+			>
+				<img
+					class="w-6 h-6 md:w-14 md:h-14 object-contain"
+					src="/navbar/s-3.svg"
+					alt="Cici Tour Travel Expert"
+				/>
+				<span class="text-[#cb0d0d] text-[8px] md:text-xs group-hover:underline leading-tight">Cici Tour Travel Expert</span>
+			</a>
+			<a href="/services/cici-career-link-expert" class="group flex flex-col items-center cursor-pointer rounded-br-2xl hover:bg-gray-50 gap-0.5 md:gap-2 text-center px-1.5 py-2 md:px-4 md:py-5">
+			<img
+				class="w-6 h-6 md:w-14 md:h-14 object-contain"
+					src="/navbar/s-4.svg"
+					alt="Cici Career Link Expert"
+				/>
+			<span class="text-[#cb0d0d] text-[8px] md:text-xs group-hover:underline leading-tight">Cici Career Link Expert</span>
+			</a>
 		</div>
 	</div>
+</div>
 </nav>
 
 <script>

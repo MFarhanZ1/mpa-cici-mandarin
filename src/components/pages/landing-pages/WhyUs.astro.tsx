@@ -6,11 +6,9 @@ import React, {
   useCallback,
 } from "react";
 
-// 2. KONFIGURASI DARI SCRIPT ASTRO ANDA
 const videos = ["1.mp4", "2.mp4", "3.mp4", "5.mp4", "6.mp4", "7.mp4"];
 const cardWidth = 232; // Lebar card (220px) + gap (12px) = 232px
 const ciciMandarinLogo = "/cici-mandarin.svg"; // Pastikan ini ada di folder /public
-// Background image - menggunakan path langsung karena file ada di public directory
 const backgroundImage = "pages/landing-pages/why-us/BG.png";
 
 // ===================================================================

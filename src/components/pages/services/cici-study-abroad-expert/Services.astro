@@ -1,0 +1,81 @@
+---
+const background = "/pages/services/cici-study-abroad-expert/services/background.webp";
+// icon
+const campus = "/pages/services/cici-study-abroad-expert/services/campus.svg";
+const documents = "/pages/services/cici-study-abroad-expert/services/documents.svg";
+const graduate = "/pages/services/cici-study-abroad-expert/services/graduate.svg";
+const plane = "/pages/services/cici-study-abroad-expert/services/plane.svg";
+const passport = "/pages/services/cici-study-abroad-expert/services/passport.svg";
+const speechBubble = "/pages/services/cici-study-abroad-expert/services/speech-bubble.svg";
+// pic service
+const service1 = "/pages/services/cici-study-abroad-expert/services/service-1.webp";
+const service2 = "/pages/services/cici-study-abroad-expert/services/service-2.webp";
+const service3 = "/pages/services/cici-study-abroad-expert/services/service-3.webp";
+const service4 = "/pages/services/cici-study-abroad-expert/services/service-4.webp";
+const service5 = "/pages/services/cici-study-abroad-expert/services/service-5.webp";
+const service6 = "/pages/services/cici-study-abroad-expert/services/service-6.webp";
+const services = [
+  {
+    image: service1,
+    icon: campus,
+    title: "Find Your Best-Fit Campus",
+    description: "We help you identify the best universities and majors based on your goals, interests, and academic background.",
+  },
+  {
+    image: service2,
+    icon: documents,
+    title: "Flawless Document Preparation",
+    description: "Our experts ensure your application documents (study plan, essays, recommendations) are polished and error-free.",
+  },
+  {
+    image: service3,
+    icon: speechBubble,
+    title: "Nail Your Interview",
+    description: "Get tailored coaching to confidently tackle university admission interviews and make a lasting impression.",
+  },
+  {
+    image: service4,
+    icon: graduate,
+    title: "Insider Sharing Sessions",
+    description: "Gain valuable insights from alumni and experts about university life, culture, and academic expectations in China.",
+  },
+  {
+    image: service5,
+    icon: passport,
+    title: "Hassle-Free Application & Visa",
+    description: "We handle the entire application and visa process, ensuring everything is submitted correctly and on time.",
+  },
+  {
+    image: service6,
+    icon: plane,
+    title: "Departed Smoothly to China",
+    description: "From booking your flight to arranging airport pickup, we make your travel to China smooth and stress-free.",
+  },
+];
+---
+<section class="relative w-full bg-right bg-no-repeat overflow-hidden -mt-5 -z-2">
+  <img src={background} alt="Benefits background" class="w-full h-auto block brightness-50" />
+  <div class="absolute inset-0 flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 py-4 md:py-10">
+    <h2 class="font-mochiy-pop-one text-3xl md:text-4xl lg:text-5xl text-white mb-6 md:mb-8 text-center tracking-wider text-outline-blue">SERVICES</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-5xl w-full">
+      {
+        services.map((service) => (
+          <div class="bg-white rounded-3xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl max-w-xs mx-auto w-full flex flex-col">
+            <div class="relative h-32 md:h-36 overflow-hidden rounded-t-3xl">
+              <img src={service.image} alt={service.title} class="w-full h-full object-cover" />
+            </div>
+            <div class="flex justify-center -mt-10 relative z-10">
+              <div class="bg-linear-to-b from-[#3463C2] to-[#103786] rounded-full p-4 shadow-lg">
+                <img src={service.icon} alt={`${service.title} icon`} class="w-10 h-10" />
+              </div>
+            </div>
+            <div class="px-5 pb-6 pt-4 text-center grow flex flex-col">
+              <h3 class="text-base font-bold text-[#3D4F8E] mb-3 leading-snug">{service.title}</h3>
+              <p class="text-base text-[#3D4F8E] leading-relaxed">{service.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

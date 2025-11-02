@@ -351,7 +351,6 @@ const WhyUs: React.FC = () => {
   return (
     <section
       className="bg-cover bg-top xl:bg-center px-6 py-4 xl:py-14"
-      // Di React, style adalah objek
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       

@@ -1,31 +1,25 @@
 ---
-const background = "/pages/services/cici-study-abroad-expert/benefits/background.webp";
-const benefit1 = "/pages/services/cici-study-abroad-expert/benefits/benefit-1.webp";
-const benefit2 = "/pages/services/cici-study-abroad-expert/benefits/benefit-2.webp";
-const benefit3 = "/pages/services/cici-study-abroad-expert/benefits/benefit-3.webp";
-const benefit4 = "/pages/services/cici-study-abroad-expert/benefits/benefit-4.webp";
+const background = "/pages/services/cici-tour-travel-expert/benefits/background.webp";
+const benefit1 = "/pages/services/cici-tour-travel-expert/benefits/benefit-1.webp";
+const benefit2 = "/pages/services/cici-tour-travel-expert/benefits/benefit-2.webp";
+const benefit3 = "/pages/services/cici-tour-travel-expert/benefits/benefit-3.webp";
 
 const benefits = [
   {
     image: benefit1,
-    title: "Flexible Programs",
-    description: "Choose online, offline classes or company training, tailored to your or your schedule.",
+    title: "Travel Like Locals",
+    description: "Discover hidden gems and authentic spots most travelers miss—experience the real China like a local!",
   },
   {
     image: benefit2,
-    title: "Experienced Instructors",
-    description: "Learn from native speakers with real-life teaching in China for authentic, effective learning.",
+    title: "Personalized Itineraries",
+    description: "Your trip is crafted to match your style, interests, and budget—no generic tours here!",
   },
   {
     image: benefit3,
-    title: "Multilingual Support",
-    description: "Classes in Mandarin, Bahasa Indonesian, English, and Chinese for smooth learning.",
-  },
-  {
-    image: benefit4,
-    title: "Multilingual Support",
-    description: "Classes in Mandarin, Bahasa Indonesian, English, and Chinese for smooth learning.",
-  },
+    title: "Hassle-Free Experience",
+    description: "With 24/7 support, flexible payments, and visa assistance, we make your trip smooth and stress-free.",
+  }
 ];
 ---
 
@@ -34,7 +28,7 @@ const benefits = [
 
   <div class="absolute inset-0 container mx-auto max-w-7xl h-full flex flex-col items-center justify-start pt-20">
     <div class="mb-16">
-      <h2 class="text-5xl font-bold drop-shadow-lg font-mochiy-pop-one text-outline-blue">BENEFITS</h2>
+      <h2 class="text-5xl font-bold drop-shadow-lg font-mochiy-pop-one text-outline-cyan">BENEFITS</h2>
     </div>
 
     <div class="flex gap-6 items-center justify-center px-8">
@@ -43,7 +37,7 @@ const benefits = [
           <div class="relative w-64 h-auto rounded-3xl overflow-hidden shadow-2xl group cursor-pointer transform transition-transform duration-300 hover:scale-105 border-3 border-white">
             <img src={benefit.image} alt={benefit.title} class="w-full h-full object-cover" />
             <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
-            <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-linear-to-t via-[#2666D4] from-[#0B2552] to-transparent" />
+            <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-linear-to-t via-[#0B5B50] from-[#105154] to-transparent" />
             <div class="absolute bottom-0 left-0 right-0 p-6 text-white text-center">
               <h3 class="text-lg font-bold mb-3">{benefit.title}</h3>
               <p class="text-sm leading-relaxed">{benefit.description}</p>

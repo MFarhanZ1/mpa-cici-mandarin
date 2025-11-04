@@ -1,45 +1,16 @@
 ---
 const background = "/pages/services/cici-language-course-expert/goals/background.webp";
-const icon1 = "/pages/services/cici-language-course-expert/goals/Group.svg";
-const icon2 = "/pages/services/cici-language-course-expert/goals/Group-1.svg";
-const icon3 = "/pages/services/cici-language-course-expert/goals/Group-2.svg";
-const icon4 = "/pages/services/cici-language-course-expert/goals/Group-3.svg";
-const icon5 = "/pages/services/cici-language-course-expert/goals/Group-4.svg";
+const bgMobile = "/pages/services/cici-language-course-expert/goals/bg-mobile.webp";
 ---
 
-<section class="relative w-full h-screen bg-cover bg-right bg-no-repeat overflow-hidden -mt-16" style={`background-image: url(${background});`}>
-  <div class="container mx-auto max-w-7xl pt-20 h-full flex flex-col items-start justify-start">
-    <div class="ml-68 mt-10">
+<section class="relative w-full h-screen overflow-hidden -mt-16">
+  <picture class="absolute top-0 bottom-0 h-full" style="left: 50%; transform: translateX(-50%); width: 100vw;">
+    <source media="(min-width: 640px)" srcset={background} />
+    <img src={bgMobile} alt="Goals background" class="w-full h-full object-cover object-center md:object-right" />
+  </picture>
+  <div class="container mx-auto max-w-7xl pt-20 h-full flex flex-col items-center justify-start md:items-start md:justify-start relative z-10">
+    <div class="mt-10 md:ml-68">
       <h2 class="text-6xl font-bold drop-shadow-lg font-mochiy-pop-one text-outline-red">GOALS</h2>
-    </div>
-
-    <div class="absolute right-20 top-46 max-w-xl pr-8">
-      <div class="space-y-6 transform rotate-2 mr-24">
-        <div class="flex items-start gap-4">
-          <img src={icon5} alt="Icon" class="h-auto w-16 shrink-0" />
-          <p class="text-[#cb0d0d] font-medium text-lg pt-3">Fun, interactive lessons to build strong Mandarin basics</p>
-        </div>
-
-        <div class="flex items-start gap-4">
-          <img src={icon4} alt="Icon" class="h-auto w-16 shrink-0" />
-          <p class="text-[#cb0d0d] font-medium text-lg pt-3">Prepare for school exams and future studies in China</p>
-        </div>
-
-        <div class="flex items-start gap-4">
-          <img src={icon1} alt="Icon" class="h-auto w-16 shrink-0" />
-          <p class="text-[#cb0d0d] font-medium text-lg pt-3">Career advancement, business communication, or personal growth</p>
-        </div>
-
-        <div class="flex items-start gap-4">
-          <img src={icon2} alt="Icon" class="h-auto w-16 shrink-0" />
-          <p class="text-[#cb0d0d] font-medium text-lg pt-3">Progress reports and certifications</p>
-        </div>
-
-        <div class="flex items-start gap-4">
-          <img src={icon3} alt="Icon" class="h-auto w-16 shrink-0" />
-          <p class="text-[#cb0d0d] font-medium text-lg pt-3">Customized programs to enhance Mandarin skills</p>
-        </div>
-      </div>
     </div>
   </div>
 </section>

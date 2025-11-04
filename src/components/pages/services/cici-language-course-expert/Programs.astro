@@ -1,99 +1,137 @@
 ---
 const background = "/pages/services/cici-language-course-expert/programs/background.webp";
 const toscaOrange = "/pages/services/cici-language-course-expert/programs/tosca-orange.svg";
+const tiger = "/pages/services/cici-language-course-expert/programs/tosca-orange.svg";
+
+const programs = [
+  {
+    title: "CLASS TYPE",
+    items: [
+      { primary: "PRIVATE", secondary: "(max 1 student)", type: "text" },
+      { primary: "SEMI PRIVATE", secondary: "(max 3 students)", type: "text" },
+      { primary: "GROUP", secondary: "(max 7-10 students)", type: "text" },
+    ],
+  },
+  {
+    title: "CONCENTRATION",
+    items: [
+      { primary: "HSK Class", type: "bullet" },
+      { primary: "Comprehensive Class", type: "bullet" },
+      { primary: "Conversation Class", type: "bullet" },
+      { primary: "Business Class", type: "bullet" },
+      { primary: "Company Training", type: "bullet" },
+      { primary: "Native Class", type: "bullet" },
+      { primary: "Custom Class", type: "bullet" },
+    ],
+  },
+  {
+    title: "LEVEL",
+    items: [
+      { primary: "Basic", type: "bullet" },
+      { primary: "Beginner", type: "bullet" },
+      { primary: "Intermediate", type: "bullet" },
+      { primary: "Advance", type: "bullet" },
+    ],
+  },
+];
 ---
 
 <section class="relative w-full overflow-hidden -mt-6 -z-1">
-  <img src={background} alt="Programs background" class="w-full h-auto block" />
+  <img src={background} alt="Programs background" class="w-full h-[600px] md:h-auto block object-cover md:object-contain object-center" />
 
-  <div class="absolute inset-0 container mx-auto max-w-7xl pt-64 h-full flex flex-col items-center justify-start">
+  <div class="absolute inset-0 container mx-auto max-w-7xl pt-15 md:pt-64 h-full flex flex-col items-center justify-start">
     <div class="mb-10">
-      <h2 class="text-5xl font-bold drop-shadow-lg font-mochiy-pop-one text-outline-red">PROGRAMS</h2>
+      <h2 class="text-3xl md:text-5xl font-bold drop-shadow-lg font-mochiy-pop-one text-outline-red">PROGRAMS</h2>
     </div>
 
-    <div class="flex gap-8 mb-16 px-8">
-      <div class="bg-white rounded-3xl p-2 w-55 shadow-2xl border-3 border-[#cb0d0d]">
-        <div class="bg-linear-to-b from-[#E24815] to-[#CB0D0D] rounded-t-2xl py-3 mb-6 font-mochiy-pop-one">
-          <h3 class="text-white font-medium text-base text-center">CLASS TYPE</h3>
+    <div class="relative w-full max-w-4xl px-4 md:px-8 mb-16 mx-auto">
+      <div class="md:hidden">
+        <div class="grid grid-cols-2 gap-4 mb-4">
+          {
+            programs.slice(0, 2).map((program) => (
+              <div class="bg-white rounded-3xl p-2 shadow-2xl border-3 border-[#cb0d0d]">
+                <div class="bg-linear-to-b from-[#E24815] to-[#CB0D0D] rounded-t-2xl py-3 mb-6 font-mochiy-pop-one">
+                  <h3 class="text-white text-xs text-center">{program.title}</h3>
+                </div>
+                <div class="ml-3 text-[#cb0d0d]">
+                  {program.items.map((item) =>
+                    item.type === "text" && "secondary" in item ? (
+                      <div>
+                        <p class="font-bold text-xs">{item.primary}</p>
+                        <p class="text-[10px]">{item.secondary}</p>
+                      </div>
+                    ) : (
+                      <div class="flex items-center gap-2">
+                        <span class="text-red text-xs">•</span>
+                        <p class="text-[10px] font-medium">{item.primary}</p>
+                      </div>
+                    )
+                  )}
+                </div>
+              </div>
+            ))
+          }
         </div>
-        <div class="space-y-4 ml-3 text-[#cb0d0d]">
-          <div>
-            <p class="font-bold text-lg">PRIVATE</p>
-            <p class="text-sm">(max 1 student)</p>
+
+        <div class="relative">
+          <div class="bg-white rounded-3xl p-2 shadow-2xl border-3 border-[#cb0d0d]">
+            <div class="bg-linear-to-b from-[#E24815] to-[#CB0D0D] rounded-t-2xl py-3 mb-6 font-mochiy-pop-one">
+              <h3 class="text-white font-medium text-base text-center">{programs[2].title}</h3>
+            </div>
+            <div class="ml-3 text-[#cb0d0d]">
+              {
+                programs[2].items.map((item) =>
+                  item.type === "text" && "secondary" in item ? (
+                    <div>
+                      <p class="font-bold text-xs">{item.primary}</p>
+                      <p class="text-[10px]">{item.secondary}</p>
+                    </div>
+                  ) : (
+                    <div class="flex items-center gap-2">
+                      <span class="text-red text-xs">•</span>
+                      <p class="text-[10px] font-medium">{item.primary}</p>
+                    </div>
+                  )
+                )
+              }
+            </div>
           </div>
-          <div>
-            <p class="font-bold text-lg">SEMI PRIVATE</p>
-            <p class="text-sm">(max 3 students)</p>
-          </div>
-          <div>
-            <p class="font-bold text-lg">GROUP</p>
-            <p class="text-sm">(max 7-10 students)</p>
+
+          <div class="absolute -bottom-8 -right-8 z-10">
+            <img src={tiger} alt="Tiger" class="w-32 h-auto" />
           </div>
         </div>
       </div>
 
-      <div class="bg-white rounded-3xl p-2 w-55 shadow-2xl border-3 border-[#cb0d0d]">
-        <div class="bg-linear-to-b from-[#E24815] to-[#CB0D0D] rounded-t-2xl py-3 mb-6 font-mochiy-pop-one">
-          <h3 class="text-white font-medium text-base text-center">CONCENTRATION</h3>
-        </div>
-        <div class="space-y-2 ml-3 text-[#cb0d0d]">
-          <div class="flex items-center gap-2">
-            <span class="text-red">•</span>
-            <p class="text-sm font-medium">HSK Class</p>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-red">•</span>
-            <p class="text-sm font-medium">Comprehensive Class</p>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-red">•</span>
-            <p class="text-sm font-medium">Conversation Class</p>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-red">•</span>
-            <p class="text-sm font-medium">Business Class</p>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-red">•</span>
-            <p class="text-sm font-medium">Company Training</p>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-red">•</span>
-            <p class="text-sm font-medium">Native Class</p>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-red">•</span>
-            <p class="text-sm font-medium">Custom Class</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-3xl p-2 w-55 shadow-2xl border-3 border-[#cb0d0d]">
-        <div class="bg-linear-to-b from-[#E24815] to-[#CB0D0D] rounded-t-xl py-3 mb-6 font-mochiy-pop-one">
-          <h3 class="text-white font-medium text-base text-center">LEVEL</h3>
-        </div>
-        <div class="space-y-3 ml-3 text-[#cb0d0d]">
-          <div class="flex items-center gap-2">
-            <span class="text-red">•</span>
-            <p class="text-sm font-medium">Basic</p>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-red">•</span>
-            <p class="text-sm font-medium">Beginner</p>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-red">•</span>
-            <p class="text-sm font-medium">Intermediate</p>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-red">•</span>
-            <p class="text-sm font-medium">Advance</p>
-          </div>
-        </div>
+      <div class="hidden md:flex gap-8 justify-center">
+        {
+          programs.map((program) => (
+            <div class="bg-white rounded-3xl p-2 w-55 shadow-2xl border-3 border-[#cb0d0d]">
+              <div class="bg-linear-to-b from-[#E24815] to-[#CB0D0D] rounded-t-2xl py-3 mb-6 font-mochiy-pop-one">
+                <h3 class="text-white font-medium text-base text-center">{program.title}</h3>
+              </div>
+              <div class="space-y-2 ml-3 text-[#cb0d0d]">
+                {program.items.map((item) =>
+                  item.type === "text" && "secondary" in item ? (
+                    <div>
+                      <p class="font-bold text-lg">{item.primary}</p>
+                      <p class="text-sm">{item.secondary}</p>
+                    </div>
+                  ) : (
+                    <div class="flex items-center gap-2">
+                      <span class="text-red">•</span>
+                      <p class="text-sm font-medium">{item.primary}</p>
+                    </div>
+                  )
+                )}
+              </div>
+            </div>
+          ))
+        }
       </div>
     </div>
 
-    <div class="absolute -mt-110">
+    <div class="absolute -mt-110 hidden md:block">
       <img src={toscaOrange} alt="Tosca Orange" class="w-auto h-full" />
     </div>
   </div>

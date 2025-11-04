@@ -54,10 +54,11 @@ const services = [
 ];
 ---
 
-<section class="relative w-full bg-right bg-no-repeat overflow-hidden -mt-5 -z-1">
-  <img src={background} alt="Benefits background" class="w-full h-auto block brightness-50" />
-  <div class="absolute inset-0 flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 py-4 md:py-10">
-    <h2 class="font-mochiy-pop-one text-3xl md:text-4xl lg:text-5xl text-white mb-6 md:mb-8 text-center tracking-wider text-outline-cyan">SERVICES</h2>
+<section class="relative w-full overflow-hidden -mt-5 -z-1">
+  <div class="absolute inset-0" style={`background-image: url(${background}); background-size: cover; background-position: center; filter: brightness(0.5);`}></div>
+
+  <div class="relative flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 py-10 md:py-10 mb-4">
+    <h2 class="font-mochiy-pop-one text-4xl md:text-4xl lg:text-5xl text-white mb-6 md:mb-8 text-center tracking-wider text-outline-cyan">SERVICES</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-5xl w-full">
       {
         services.map((service) => (

@@ -1,54 +1,64 @@
 ---
 const background = "/pages/services/cici-study-abroad-expert/goals/background.webp";
+const bgMobile = "/pages/services/cici-study-abroad-expert/goals/background.webp";
 const mascot = "/pages/services/cici-study-abroad-expert/goals/mascot.svg";
 const flag = "/pages/services/cici-study-abroad-expert/goals/flag.svg";
 const scholarship = "/pages/services/cici-study-abroad-expert/goals/scholarship.svg";
 const coin = "/pages/services/cici-study-abroad-expert/goals/coin.svg";
+
+const goalsList = [
+  {
+    text: "Scholarship or Self-Funded Study in China",
+    iconSrc: coin,
+    iconAlt: "Coin",
+    iconClass: "w-auto h-16 object-contain drop-shadow-lg md:h-24",
+    containerClass: "absolute left-0 z-10 flex items-center justify-center mb-8",
+  },
+  {
+    text: "1-Year Chinese Language Program (Non-Degree)",
+    iconSrc: flag,
+    iconAlt: "Flag",
+    iconClass: "w-auto h-14 object-contain drop-shadow-lg md:h-24",
+    containerClass: "ml-4 absolute left-0 z-10 flex items-center justify-center mb-8",
+  },
+  {
+    text: "Bachelor/Master/Doctoral Program (Degree)",
+    iconSrc: scholarship,
+    iconAlt: "Scholarship",
+    iconClass: "w-auto h-14 object-contain drop-shadow-lg md:h-24",
+    containerClass: "ml-4 absolute left-0 z-10 flex items-center justify-center mb-6",
+  },
+];
 ---
 
 <section class="relative w-full -mt-20 z-1">
-  <img src={background} alt="Goals background" class="absolute inset-0 w-full h-full object-cover" />
+  <img src={bgMobile} alt="Goals background" class="absolute inset-0 w-full h-full object-cover md:hidden" />
+  <img src={background} alt="Goals background" class="absolute inset-0 w-full h-full object-cover hidden md:block" />
 
-  <div class="mx-auto max-w-7xl px-6 py-20 md:py-32">
-    <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
-      <div class="w-full lg:w-1/3 flex justify-center lg:justify-start mb-64">
+  <div class="mx-auto max-w-7xl px-6 py-30 md:py-32">
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-1 md:gap-12">
+      <div class="w-full lg:w-1/3 flex justify-center lg:justify-start mb-32 lg:mb-64">
         <div class="relative inline-block">
-          <img src={mascot} alt="Mascot" class="w-full h-64 md:w-80 select-none relative z-10 bottom-4 mb-6" />
+          <img src={mascot} alt="Mascot" class="w-full h-48 md:h-80 select-none relative z-10 bottom-4 mb-2 md:mb-6" />
           <h2 class="font-mochiy-pop-one text-5xl md:text-6xl lg:text-7xl text-white text-center lg:text-left text-outline-blue absolute bottom-0 left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0 z-20 whitespace-nowrap">GOALS</h2>
         </div>
       </div>
 
-      <div class="w-full lg:w-2/3 flex flex-col items-center lg:items-start">
+      <div class="w-full lg:w-2/3 flex flex-col items-center lg:items-start -mt-26 md:mt-0">
         <div class="w-full space-y-5">
-          <div class="relative flex items-center pl-8">
-            <div class="absolute left-0 z-10 flex items-center justify-center mb-8">
-              <img src={coin} alt="Coin" class="w-auto h-24 object-contain drop-shadow-lg" />
-            </div>
+          {
+            goalsList.map((goal) => (
+              <div class="relative flex items-center pl-4 md:pl-8">
+                <div class={goal.containerClass}>
+                  <img src={goal.iconSrc} alt={goal.iconAlt} class={goal.iconClass} />
+                </div>
 
-            <div class="bg-linear-to-r from-[#3367C1] to-[#0F316B] rounded-3xl pl-20 pr-6 py-5 border-2 border-white shadow-lg hover:shadow-xl transition-shadow duration-300 w-full">
-              <p class="text-white font-semibold text-base md:text-lg">Scholarship or Self-Funded Study in China</p>
-            </div>
-          </div>
-
-          <div class="relative flex items-center pl-8">
-            <div class="ml-6 absolute left-0 z-10 flex items-center justify-center mb-8">
-              <img src={flag} alt="Flag" class="w-auto h-20 object-contain drop-shadow-lg" />
-            </div>
-
-            <div class="bg-linear-to-r from-[#3367C1] to-[#0F316B] rounded-3xl pl-20 pr-6 py-5 border-2 border-white shadow-lg hover:shadow-xl transition-shadow duration-300 w-full">
-              <p class="text-white font-semibold text-base md:text-lg">1-Year Chinese Language Program (Non-Degree)</p>
-            </div>
-          </div>
-
-          <div class="relative flex items-center pl-8">
-            <div class="ml-6 absolute left-0 z-10 flex items-center justify-center mb-6">
-              <img src={scholarship} alt="Scholarship" class="w-auto h-20 object-contain drop-shadow-lg" />
-            </div>
-
-            <div class="bg-linear-to-r from-[#3367C1] to-[#0F316B] rounded-3xl pl-20 pr-6 py-5 border-2 border-white shadow-lg hover:shadow-xl transition-shadow duration-300 w-full">
-              <p class="text-white font-semibold text-base md:text-lg">Bachelor/Master/Doctoral Program (Degree)</p>
-            </div>
-          </div>
+                <div class="bg-linear-to-r from-[#3367C1] to-[#0F316B] rounded-3xl pl-16 md:pl-20 pr-4 md:pr-6 py-3 md:py-5 border-2 border-white shadow-lg hover:shadow-xl transition-shadow duration-300 w-full">
+                  <p class="text-white font-semibold text-[10px] md:text-lg">{goal.text}</p>
+                </div>
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>

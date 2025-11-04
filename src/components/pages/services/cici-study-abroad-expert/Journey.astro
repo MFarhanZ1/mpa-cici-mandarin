@@ -1,17 +1,21 @@
 ---
 const background = "/pages/services/cici-study-abroad-expert/journey/background.webp";
+const bgMobile = "/pages/services/cici-study-abroad-expert/journey/bg-mobile.webp";
 const content = "/pages/services/cici-study-abroad-expert/journey/content.webp";
 const arrowLeft = "/pages/services/cici-study-abroad-expert/journey/arrow-left.svg";
 const arrowRight = "/pages/services/cici-study-abroad-expert/journey/arrow-right.svg";
 ---
 
 <section class="relative w-full overflow-hidden -mt-6 -z-3">
-  <img src={background} alt="Journey background" class="w-full h-auto block" />
+  <picture>
+    <source media="(min-width: 640px)" srcset={background} />
+    <img src={bgMobile} alt="Roadmap background" class="w-full h-auto block" />
+  </picture>
 
-  <div class="absolute inset-0 flex flex-col items-center justify-start px-4 md:px-8 lg:px-12 pt-16 md:pt-18 lg:pt-24">
+  <div class="absolute inset-0 flex flex-col items-center justify-start px-4 md:px-8 lg:px-12 pt-14 md:pt-18 lg:pt-24">
     <h2 class="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-16 md:mb-42 text-center tracking-wide font-mochiy-pop-one drop-shadow-lg text-outline-blue">STUDENTS JOURNEY IN CHINA</h2>
 
-    <div class="flex items-center justify-center gap md:gap-1 lg:gap-2 w-lg max-w-xl">
+    <div class="hidden md:flex items-center justify-center gap-1 md:gap-1 lg:gap-2 w-lg max-w-xl">
       <button class="shrink-0 hover:scale-110 transition-transform duration-300 cursor-pointer" aria-label="Previous image">
         <img src={arrowLeft} alt="Previous" class="w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20" />
       </button>

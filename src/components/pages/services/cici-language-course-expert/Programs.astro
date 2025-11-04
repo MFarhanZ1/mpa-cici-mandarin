@@ -1,7 +1,7 @@
 ---
 const background = "/pages/services/cici-language-course-expert/programs/background.webp";
 const toscaOrange = "/pages/services/cici-language-course-expert/programs/tosca-orange.svg";
-const tiger = "/pages/services/cici-language-course-expert/programs/tosca-orange.svg";
+const tiger = "/pages/services/cici-language-course-expert/programs/tiger.svg";
 
 const programs = [
   {
@@ -49,8 +49,8 @@ const programs = [
         <div class="grid grid-cols-2 gap-4 mb-4">
           {
             programs.slice(0, 2).map((program) => (
-              <div class="bg-white rounded-3xl p-2 shadow-2xl border-3 border-[#cb0d0d]">
-                <div class="bg-linear-to-b from-[#E24815] to-[#CB0D0D] rounded-t-2xl py-3 mb-6 font-mochiy-pop-one">
+              <div class="bg-white rounded-2xl p-1 mt-3 shadow-2xl border-3 border-[#cb0d0d]">
+                <div class="bg-linear-to-b from-[#E24815] to-[#CB0D0D] rounded-t-xl py-3 mb-1 font-mochiy-pop-one">
                   <h3 class="text-white text-xs text-center">{program.title}</h3>
                 </div>
                 <div class="ml-3 text-[#cb0d0d]">
@@ -74,31 +74,26 @@ const programs = [
         </div>
 
         <div class="relative">
-          <div class="bg-white rounded-3xl p-2 shadow-2xl border-3 border-[#cb0d0d]">
-            <div class="bg-linear-to-b from-[#E24815] to-[#CB0D0D] rounded-t-2xl py-3 mb-6 font-mochiy-pop-one">
-              <h3 class="text-white font-medium text-base text-center">{programs[2].title}</h3>
+          <div class="bg-white rounded-3xl p-1 shadow-2xl border-3 border-[#cb0d0d] flex items-center overflow-hidden">
+            <div class="bg-linear-to-b from-[#E24815] to-[#CB0D0D] rounded-l-2xl font-mochiy-pop-one flex items-center justify-center py-6 px-4 self-stretch">
+              <h3 class="text-white font-medium text-xs text-center">{programs[2].title}</h3>
             </div>
-            <div class="ml-3 text-[#cb0d0d]">
+            
+            <div class="ml-3 text-[#cb0d0d] px-2">
               {
-                programs[2].items.map((item) =>
-                  item.type === "text" && "secondary" in item ? (
-                    <div>
-                      <p class="font-bold text-xs">{item.primary}</p>
-                      <p class="text-[10px]">{item.secondary}</p>
-                    </div>
-                  ) : (
-                    <div class="flex items-center gap-2">
-                      <span class="text-red text-xs">•</span>
-                      <p class="text-[10px] font-medium">{item.primary}</p>
+                programs[2].items.map((item) => (
+                    <div class="flex items-center">
+                      <span class="text-[#cb0d0d] text-xs">•</span>
+                      <p class="ml-3 text-xs font-medium">{item.primary}</p>
                     </div>
                   )
                 )
               }
             </div>
-          </div>
 
-          <div class="absolute -bottom-8 -right-8 z-10">
-            <img src={tiger} alt="Tiger" class="w-32 h-auto" />
+            <div class="shrink-0 self-end">
+              <img src={tiger} alt="Tiger" class="w-24 h-auto" />
+            </div>
           </div>
         </div>
       </div>

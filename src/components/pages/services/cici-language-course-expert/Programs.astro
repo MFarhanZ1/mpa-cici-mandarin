@@ -74,11 +74,10 @@ const programs = [
         </div>
 
         <div class="relative">
-          <div class="bg-white rounded-3xl p-1 shadow-2xl border-3 border-[#cb0d0d] flex items-center overflow-hidden">
+          <div class="bg-white rounded-3xl p-1 shadow-2xl border-3 border-[#cb0d0d] flex items-center overflow-hidden pr-20">
             <div class="bg-linear-to-b from-[#E24815] to-[#CB0D0D] rounded-l-2xl font-mochiy-pop-one flex items-center justify-center py-6 px-4 self-stretch">
               <h3 class="text-white font-medium text-xs text-center">{programs[2].title}</h3>
-            </div>
-            
+            </div>       
             <div class="ml-3 text-[#cb0d0d] px-2">
               {
                 programs[2].items.map((item) => (
@@ -90,10 +89,10 @@ const programs = [
                 )
               }
             </div>
+          </div>
 
-            <div class="shrink-0 self-end">
-              <img src={tiger} alt="Tiger" class="w-24 h-auto" />
-            </div>
+          <div class="absolute right-0 -bottom-1 z-10 shrink-0 self-end">
+            <img src={tiger} alt="Tiger" class="w-32 h-auto" />
           </div>
         </div>
       </div>
@@ -124,10 +123,9 @@ const programs = [
           ))
         }
       </div>
-    </div>
-
-    <div class="absolute -mt-110 hidden md:block">
-      <img src={toscaOrange} alt="Tosca Orange" class="w-auto h-full" />
+      <div class="absolute left-1/2 transform -translate-x-1/2 scale-125 hidden md:block my-3">
+        <img src={toscaOrange} alt="Tosca Orange" class="w-auto h-full" />
+      </div>
     </div>
   </div>
 </section>

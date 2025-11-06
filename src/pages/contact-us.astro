@@ -1,83 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-const ContactUsBackground = "/pages/contact-us/bg-contact-us.svg";
-const ContactUsBackgroundMobile = "/pages/contact-us/bg-contact-us-mobile.svg";
-
-const PhoneIllustration = "/pages/contact-us/phone-illustration.png";
-
-const WhatsappIcon = "/wa.svg";
-const InstagramIcon = "/ig.svg";
-const TiktokIcon = "/tiktok.svg";
-const LinkedInIcon = "/linked-in.svg";
-const MailIcon = "/mail.svg";
+import ContactUsComponent from "../components/pages/contact-us/ContactUsComponent.astro";
+import Faq from "../components/pages/contact-us/Faq.astro";
+import WhatTheySaid from "../components/pages/contact-us/WhatTheySaid.astro";
 ---
 
 <Layout title="Contact Us">
-    <div class="hidden md:block w-full overflow-hidden relative">
-        <img src={ContactUsBackground} alt="Contact Us Background" class="w-full h-auto object-cover object-center" />
-
-        <div class="absolute top-[61%] -translate-y-1/2 left-[8%] md:left-[12%] lg:left-[15%] xl:left-[16%] 2xl:left-[17%] w-[85%] md:w-96 lg:w-md xl:w-96 max-w-md">
-            <div class="w-full h-full flex flex-col justify-start items-start">
-                <span class="text-[#CB0D0D] text-2xl md:text-3xl lg:text-4xl uppercase font-mochiy-pop-one">Contact Us</span>
-                <div class="flex flex-col justify-start items-start gap-2 mt-6 w-full">
-                    <a href="https://wa.me/+6287853909383" target="_blank" rel="noopener noreferrer" class="flex pl-3 pr-6 py-2 justify-start items-center gap-2 text-lg md:text-xl rounded-full bg-red-800/70 border-2 border-[#FFBC2D] w-full min-w-[300px] md:min-w-[350px] lg:min-w-[380px]">
-                        <img src={WhatsappIcon} alt="Whatsapp" class="w-8 h-8 md:w-10 md:h-10 shrink-0">
-                        <span class="text-white whitespace-nowrap">+62 878-5390-9383</span>
-                    </a>
-                    <a href="mailto:cicimandarin.idn@gmail.com" class="flex pl-3 pr-6 py-2 justify-start items-center gap-2 text-lg md:text-xl rounded-full bg-red-800/70 border-2 border-[#FFBC2D] w-full min-w-[300px] md:min-w-[350px] lg:min-w-[380px]">
-                        <img src={MailIcon} alt="Mail" class="w-8 h-8 md:w-10 md:h-10 shrink-0">
-                        <span class="text-white wrap-break-word">cicimandarin.idn@gmail.com</span>
-                    </a>
-                    <a href="https://www.instagram.com/cicimandarin.idn" target="_blank" rel="noopener noreferrer" class="flex pl-3 pr-6 py-2 justify-start items-center gap-2 text-lg md:text-xl rounded-full bg-red-800/70 border-2 border-[#FFBC2D] w-full min-w-[300px] md:min-w-[350px] lg:min-w-[380px]">
-                        <img src={InstagramIcon} alt="Instagram" class="w-8 h-8 md:w-10 md:h-10 shrink-0">
-                        <span class="text-white">@cicimandarin.idn</span>
-                    </a>
-                    <a href="https://www.tiktok.com/@cicimandarin.idn" target="_blank" rel="noopener noreferrer" class="flex pl-3 pr-6 py-2 justify-start items-center gap-2 text-lg md:text-xl rounded-full bg-red-800/70 border-2 border-[#FFBC2D] w-full min-w-[300px] md:min-w-[350px] lg:min-w-[380px]">
-                        <img src={TiktokIcon} alt="Tiktok" class="w-8 h-8 md:w-10 md:h-10 shrink-0">
-                        <span class="text-white">@cicimandarin.idn</span>
-                    </a>
-                    <a href="https://www.linkedin.com/company/cici-mandarin-idn" target="_blank" rel="noopener noreferrer" class="flex pl-3 pr-6 py-2 justify-start items-center gap-2 text-lg md:text-xl rounded-full bg-red-800/70 border-2 border-[#FFBC2D] w-full min-w-[300px] md:min-w-[350px] lg:min-w-[380px]">
-                        <img src={LinkedInIcon} alt="LinkedIn" class="w-8 h-8 md:w-10 md:h-10 shrink-0">
-                        <span class="text-white">Cici Mandarin</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <img src={PhoneIllustration} alt="Phone Illustration" class="absolute bottom-0 right-20 w-1/2 h-auto" />
-    </div>
-    <div class="relative block md:hidden w-full">
-        <img src={ContactUsBackgroundMobile} alt="Contact Us Background" class="w-full h-auto object-cover -mt-9" />
-
-        <div class="absolute top-[47%] px-6 -translate-y-1/2 left-[8%] md:left-[12%] lg:left-[15%] xl:left-[18%] 2xl:left-[20%] w-[85%] md:w-96 lg:w-md xl:w-96 max-w-md">
-            <div class="w-full h-full flex flex-col justify-start items-center">
-                <span class="text-[#CB0D0D] text-xl md:text-2xl lg:text-3xl xl:text-4xl uppercase text-center font-mochiy-pop-one">Contact Us</span>
-                <div class="flex flex-col justify-start items-start gap-2 md:gap-2 mt-4 md:mt-6 w-full">
-                    <a href="https://wa.me/+6287853909383" target="_blank" rel="noopener noreferrer" class="flex pl-2.5 pr-5 py-2 md:pl-3 md:pr-6 md:py-2 justify-start items-center gap-2 md:gap-2 text-base md:text-lg lg:text-xl rounded-full bg-red-800/70 border-2 border-[#FFBC2D] w-full min-w-0 md:min-w-[300px] lg:min-w-[350px] xl:min-w-[380px]">
-                        <img src={WhatsappIcon} alt="Whatsapp" class="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 shrink-0">
-                        <span class="text-white whitespace-nowrap text-sm md:text-base lg:text-lg">+62 878-5390-9383</span>
-                    </a>
-                    <a href="mailto:cicimandarin.idn@gmail.com" class="flex pl-2.5 pr-5 py-2 md:pl-3 md:pr-6 md:py-2 justify-start items-center gap-2 md:gap-2 text-base md:text-lg lg:text-xl rounded-full bg-red-800/70 border-2 border-[#FFBC2D] w-full min-w-0 md:min-w-[300px] lg:min-w-[350px] xl:min-w-[380px]">
-                        <img src={MailIcon} alt="Mail" class="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 shrink-0">
-                        <span class="text-white wrap-break-word text-sm md:text-base lg:text-lg">cicimandarin.idn@gmail.com</span>
-                    </a>
-                    <a href="https://www.instagram.com/cicimandarin.idn" target="_blank" rel="noopener noreferrer" class="flex pl-2.5 pr-5 py-2 md:pl-3 md:pr-6 md:py-2 justify-start items-center gap-2 md:gap-2 text-base md:text-lg lg:text-xl rounded-full bg-red-800/70 border-2 border-[#FFBC2D] w-full min-w-0 md:min-w-[300px] lg:min-w-[350px] xl:min-w-[380px]">
-                        <img src={InstagramIcon} alt="Instagram" class="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 shrink-0">
-                        <span class="text-white text-sm md:text-base lg:text-lg">@cicimandarin.idn</span>
-                    </a>
-                    <a href="https://www.tiktok.com/@cicimandarin.idn" target="_blank" rel="noopener noreferrer" class="flex pl-2.5 pr-5 py-2 md:pl-3 md:pr-6 md:py-2 justify-start items-center gap-2 md:gap-2 text-base md:text-lg lg:text-xl rounded-full bg-red-800/70 border-2 border-[#FFBC2D] w-full min-w-0 md:min-w-[300px] lg:min-w-[350px] xl:min-w-[380px]">
-                        <img src={TiktokIcon} alt="Tiktok" class="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 shrink-0">
-                        <span class="text-white text-sm md:text-base lg:text-lg">@cicimandarin.idn</span>
-                    </a>
-                    <a href="https://www.linkedin.com/company/cici-mandarin-idn" target="_blank" rel="noopener noreferrer" class="flex pl-2.5 pr-5 py-2 md:pl-3 md:pr-6 md:py-2 justify-start items-center gap-2 md:gap-2 text-base md:text-lg lg:text-xl rounded-full bg-red-800/70 border-2 border-[#FFBC2D] w-full min-w-0 md:min-w-[300px] lg:min-w-[350px] xl:min-w-[380px]">
-                        <img src={LinkedInIcon} alt="LinkedIn" class="w-7 h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 shrink-0">
-                        <span class="text-white text-sm md:text-base lg:text-lg">Cici Mandarin</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <img src={PhoneIllustration} alt="Phone Illustration" class="absolute -bottom-8 left-[55%] -translate-x-1/2 h-auto" />
-    </div>
+    <ContactUsComponent />
+    <Faq />
+    <WhatTheySaid />
 </Layout>

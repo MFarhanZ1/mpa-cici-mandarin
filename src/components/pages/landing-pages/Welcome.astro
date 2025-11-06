@@ -1,0 +1,58 @@
+---
+import Background from "../../../../public/pages/landing-pages/Welcome/BG.webp";
+import TextWelcome from "../../../../public/pages/landing-pages/Welcome/Text-Welcome-Cici-Mandarin.png";
+import TextWelcomeWeb from "../../../../public/pages/landing-pages/Welcome/Text-Welcome-Cici-Mandarin-Web.png";
+import CardPrivate from "../../../../public/pages/landing-pages/Welcome/1.png";
+import CardScholarship from "../../../../public/pages/landing-pages/Welcome/2.png";
+import CardLiveClass from "../../../../public/pages/landing-pages/Welcome/3.png";
+import CardComMunity from "../../../../public/pages/landing-pages/Welcome/4.png";
+---
+
+<section
+    class="bg-cover bg-center pt-14 lg:pt-36 px-7 pb-14 lg:pb-36"
+    style={`background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${Background.src})`}
+>
+    <div class="flex flex-col gap-3 lg:flex-row lg:justify-center lg:items-center lg:gap-32">
+        <div>
+            <div class="flex justify-center lg:hidden">
+                <img src={TextWelcome.src} alt="Welcome" />
+            </div>
+            <div class="hidden sm:block">
+                <img src={TextWelcomeWeb.src} alt="WelcomeWeb" class="w-72">
+            </div>
+            <div class="flex justify-center">
+                <div class="flex flex-col justify-center items-center lg:items-start">
+                    <span class="text-white font-extralight font">
+                        Your All-in-One Gateway to China:
+                    </span>
+                    <span class="text-white font-bold">
+                        Study, Travel, Work
+                    </span>
+                    <button class="bg-[#FFBC2D] py-1 px-3 rounded-full">
+                        <span class="text-[#F03C0B] font-bold">
+                            KNOW US MORE !
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-center space-x-[-20px]">
+            <div>
+                <img
+                    src={CardScholarship.src}
+                    alt="CardScholarship"
+                    class="w-64 lg:w-48"
+                />
+            </div>
+            <div class="z-5">
+                <img src={CardPrivate.src} alt="CardPrivate" class="w-64 lg:w-48" />
+            </div>
+            <div>
+                <img src={CardLiveClass.src} alt="CardLiveClass" class="w-64 lg:w-48" />
+            </div>
+            <div>
+                <img src={CardComMunity.src} alt="CardComMunity" class="w-64 lg:w-48" />
+            </div>
+        </div>
+    </div>
+</section>

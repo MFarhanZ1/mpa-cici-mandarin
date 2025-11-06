@@ -23,21 +23,21 @@ export default function HottestNews() {
         </h1>
         <div className="w-full overflow-x-auto scrollbar-hide">
           <div className="flex gap-4 pb-4 min-w-max px-4 justify-center items-center">
-            <div className="flex-shrink-0 w-[280px] md:w-[320px]">
+            <div className="shrink-0 w-[280px] md:w-[320px]">
               <img
                 src={card9}
                 alt="card9"
                 className="w-full h-auto rounded-lg shadow-lg"
               />
             </div>
-            <div className="flex-shrink-0 w-[280px] md:w-[320px]">
+            <div className="shrink-0 w-[280px] md:w-[320px]">
               <img
                 src={card8}
                 alt="card8"
                 className="w-full h-auto rounded-lg shadow-lg"
               />
             </div>
-            <div className="flex-shrink-0 w-[280px] md:w-[320px]">
+            <div className="shrink-0 w-[280px] md:w-[320px]">
               <img
                 src={card10}
                 alt="card10"
@@ -61,21 +61,21 @@ export default function HottestNews() {
         </h1>
         <div className="w-full overflow-x-auto scrollbar-hide">
           <div className="flex gap-4 pb-4 min-w-max px-4 justify-center items-center">
-            <div className="flex-shrink-0 w-[280px] md:w-[320px]">
+            <div className="shrink-0 w-[280px] md:w-[320px]">
               <img
                 src={card9}
                 alt="card9"
                 className="w-full h-auto rounded-lg shadow-lg"
               />
             </div>
-            <div className="flex-shrink-0 w-[280px] md:w-[320px]">
+            <div className="shrink-0 w-[280px] md:w-[320px]">
               <img
                 src={card8}
                 alt="card8"
                 className="w-full h-auto rounded-lg shadow-lg"
               />
             </div>
-            <div className="flex-shrink-0 w-[280px] md:w-[320px]">
+            <div className="shrink-0 w-[280px] md:w-[320px]">
               <img
                 src={card10}
                 alt="card10"

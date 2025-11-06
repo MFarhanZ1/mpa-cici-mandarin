@@ -1,21 +1,21 @@
 ---
-import Background from "../../../../public/pages/landing-pages/Welcome/BG.webp";
-import TextWelcome from "../../../../public/pages/landing-pages/Welcome/Text-Welcome-Cici-Mandarin.png";
-import TextWelcomeWeb from "../../../../public/pages/landing-pages/Welcome/Text-Welcome-Cici-Mandarin-Web.png";
-import WelcomeImage  from "../../../../public/pages/landing-pages/Welcome/WELCOME.webp";
-import PictureMobile from "../../../../public/pages/landing-pages/Welcome/PIC-mobile.webp";
+const Background ="/pages/landing-pages/welcome/BG.webp";
+const TextWelcome ="/pages/landing-pages/welcome/Text-Welcome-Cici-Mandarin.png";
+const TextWelcomeWeb ="/pages/landing-pages/welcome/Text-Welcome-Cici-Mandarin-Web.png";
+const WelcomeImage  ="/pages/landing-pages/welcome/WELCOME.webp";
+const PictureMobile ="/pages/landing-pages/welcome/PIC-mobile.webp";
 ---
 
 <>
 
 <section
   class="bg-cover bg-center pt-14 px-7 block md:hidden"
-  style={`background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${Background.src})`}
+  style={`background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${Background})`}
 >
   <div class="flex flex-col gap-3">
     <div>
       <div class="flex justify-center">
-        <img src={TextWelcome.src} alt="Welcome" />
+        <img src={TextWelcome} alt="Welcome" />
       </div>
       <div class="flex justify-center">
         <div class="flex flex-col justify-center items-center">
@@ -31,7 +31,7 @@ import PictureMobile from "../../../../public/pages/landing-pages/Welcome/PIC-mo
     </div>
     <div class="flex justify-center pb-10">
       <div>
-        <img src={PictureMobile.src} alt="CardScholarship" />
+        <img src={PictureMobile} alt="CardScholarship" />
       </div>
     </div>
   </div>
@@ -39,10 +39,10 @@ import PictureMobile from "../../../../public/pages/landing-pages/Welcome/PIC-mo
 
 <section
   class="bg-cover bg-top px-7 hidden md:block h-screen"
-  style={`background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${Background.src})`}
+  style={`background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${Background})`}
 >
   <div class="flex justify-center items-center h-full px-20">
-    <img src={WelcomeImage.src} alt="">
+    <img src={WelcomeImage} alt="">
   </div>
 </section>
 </>

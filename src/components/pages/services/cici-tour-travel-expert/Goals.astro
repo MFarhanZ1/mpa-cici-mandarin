@@ -1,0 +1,19 @@
+---
+const background = "/pages/services/cici-tour-travel-expert/goals/background.webp";
+const bgMobile = "/pages/services/cici-tour-travel-expert/goals/bg-mobile.webp";
+---
+
+<section class="relative w-full overflow-hidden -mt-4">
+  <picture>
+    <source media="(min-width: 640px)" srcset={background} />
+    <img src={bgMobile} alt="Roadmap background" class="w-full h-auto block" />
+  </picture>
+
+  <div class="absolute inset-0 px-4 md:px-8 lg:px-16 py-8 md:py-12">
+    <div class="flex justify-start mb-8 md:mb-12">
+      <div class="text-white px-18 md:px-42 py-16 md:py-28">
+        <h2 class="text-5xl md:text-3xl lg:text-5xl font-bold text-left tracking-wide font-mochiy-pop-one text-outline-cyan -rotate-4">GOALS</h2>
+      </div>
+    </div>
+  </div>
+</section>

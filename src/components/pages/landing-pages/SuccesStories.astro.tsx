@@ -21,6 +21,8 @@ const ciciMandarinLogo = "/cici-mandarin.svg";
 
 // Background dan image paths - menggunakan path langsung karena file ada di public directory
 const backgroundImage = "pages/landing-pages/succes-stories/BG.png";
+const backgroundImageWeb =
+  "pages/landing-pages/succes-stories/SUCCESS-STORIES.webp";
 const textPageImage = "pages/landing-pages/succes-stories/text-h1.png";
 const funLanguageImage = "pages/landing-pages/succes-stories/fun-language.webp";
 const stampImage = "pages/landing-pages/succes-stories/STAMP.png";
@@ -106,7 +108,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
     <div className="shrink-0 w-full h-full flex items-center justify-center">
       {/* Card inner dengan video */}
       <div
-        className="relative group cursor-pointer w-full max-w-[320px] sm:max-w-[360px] lg:max-w-[400px] h-[450px] sm:h-[500px] lg:h-[550px] rounded-2xl overflow-hidden bg-black shadow-lg"
+        className="relative group cursor-pointer w-full h-[380px] md:h-[420px] lg:h-[450px] xl:h-[420px] xl:w-[300px] rounded-2xl overflow-hidden bg-black shadow-lg"
         onClick={handleCardClick}
       >
         <video
@@ -169,7 +171,7 @@ const SuccesStories: React.FC = () => {
   const handleNext = useCallback(() => {
     // Hentikan video yang sedang diputar saat navigasi
     setPlayingIndex(null);
-    
+
     setCurrentIndex((prev) => {
       if (prev >= maxIndex) return prev;
       return prev + 1;
@@ -179,7 +181,7 @@ const SuccesStories: React.FC = () => {
   const handlePrev = useCallback(() => {
     // Hentikan video yang sedang diputar saat navigasi
     setPlayingIndex(null);
-    
+
     setCurrentIndex((prev) => {
       if (prev <= 0) return prev;
       return prev - 1;
@@ -189,133 +191,151 @@ const SuccesStories: React.FC = () => {
   // Menangani play/pause
   const handlePlayToggle = useCallback((index: number) => {
     setPlayingIndex((prevPlayingIndex) =>
-      prevPlayingIndex === index ? null : index,
+      prevPlayingIndex === index ? null : index
     );
   }, []);
 
   return (
-    <section
-      className="bg-cover bg-center px-7 py-5 overflow-hidden xl:relative lg:relative"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
-    >
-      <img src={girlsImage} alt="Logo" className="xl:absolute lg:absolute xl:w-56 lg:w-50 xl:bottom-3 lg:bottom-3 xl:left-1/6 lg:left-1/12 hidden sm:block" />
-      <img src={awardsImage} alt="Logo" className="xl:absolute lg:absolute xl:w-24 lg:w-24 xl:bottom-1/6 lg:bottom-1/6 xl:left-0 lg:left-0 hidden sm:block" />
-      <div className="relative flex flex-col xl:flex-row lg:flex-row gap-10 justify-center items-center">
-        <div className="flex flex-col items-center justify-center">
-          <img src={textPageImage} alt="TextPage" className="xl:w-[80%]" />
-        </div>
-        <div className="left-0 absolute -ml-10 z-10 bottom-8">
-          <img src={graduationImage} alt="graduationImage" className="w-24 xl:hidden lg:hidden" />
-        </div>
-        <div className="right-0 absolute -mr-24 z-5 top-32 xl:-top-16 xl:left-1/5 xl:z-50">
-          <img src={paperImage} alt="paperImage" className="w-40" />
-        </div>
+    <>
+      <section
+        className="bg-cover bg-center px-7 py-5 overflow-hidden xl:relative lg:relative -mt-[2.5%]"
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+      >
+        <img
+          src={girlsImage}
+          alt="Logo"
+          className="xl:absolute lg:absolute xl:w-[15%] lg:w-50 xl:bottom-[0.4%] lg:bottom-3 xl:left-1/6 lg:left-1/12 hidden sm:block"
+        />
+        <img
+          src={awardsImage}
+          alt="Logo"
+          className="xl:absolute lg:absolute xl:w-24 lg:w-24 xl:bottom-1/6 lg:bottom-1/6 xl:left-0 lg:left-0 hidden sm:block"
+        />
+        <div className="relative flex flex-col xl:flex-row lg:flex-row gap-10 justify-center items-center">
+          <div className="flex flex-col items-center justify-center">
+            <img src={textPageImage} alt="TextPage" className="xl:w-[80%]" />
+          </div>
+          <div className="left-0 absolute -ml-10 z-10 bottom-8">
+            <img
+              src={graduationImage}
+              alt="graduationImage"
+              className="w-24 xl:hidden lg:hidden"
+            />
+          </div>
+          {/* <div className="ight-0 absolute -mr-24 z-5 top-32 xl:-top-16 xl:left-1/5 xl:z-50">
+            <img src={paperImage} alt="paperImage" className="w-40" />
+          </div> */}
 
-        {/* video card carousel - SINGLE VIDEO VIEW */}
-        <div className="relative w-full flex justify-center xl:min-w-10">
-          <div className="relative flex flex-col items-center justify-center bg-[#BE1313] py-6 sm:py-8 px-4 sm:px-6 rounded-3xl w-full max-w-[90vw]">
-            <div className="-mt-8 sm:-mt-10 mb-4">
-              <img
-                src={funLanguageImage}
-                alt="Fun Language"
-                className="w-48 sm:w-56 lg:w-60 xl:w-96"
-              />
-            </div>
-            <div className="left-0 top-0 absolute -ml-6 sm:-ml-8 -mt-5 sm:-mt-7 z-[1]">
-              <img src={stampImage} alt="Stamp" className="w-32 sm:w-24 xl:w-38" />
-            </div>
+          {/* video card carousel - SINGLE VIDEO VIEW */}
+          <div className="relative w-full flex justify-center xl:min-w-10">
+            <div className="relative flex flex-col items-center justify-center bg-[#BE1313] py-6 sm:py-8 px-4 sm:px-6 rounded-3xl w-full max-w-[90vw]">
+              <div className="-mt-8 sm:-mt-10 mb-4">
+                <img
+                  src={funLanguageImage}
+                  alt="Fun Language"
+                  className="w-48 sm:w-56 lg:w-60 xl:w-96"
+                />
+              </div>
+              <div className="left-0 top-0 absolute -ml-6 sm:-ml-8 -mt-5 sm:-mt-7 z-[1]">
+                <img
+                  src={stampImage}
+                  alt="Stamp"
+                  className="w-32 sm:w-24 xl:w-38"
+                />
+              </div>
 
-            {/* Carousel Container - HANYA TAMPILKAN 1 VIDEO */}
-            <div className="relative w-full overflow-hidden px-4 sm:px-8">
-              <div
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{
-                  transform: `translateX(-${currentIndex * 100}%)`,
-                }}
-              >
-                {videos.map((video, index) => (
-                  <div key={video} className="w-full flex-shrink-0">
-                    <VideoCard
-                      videoSrc={`pages/landing-pages/succes-stories/${video}`}
-                      logoSrc={ciciMandarinLogo}
-                      isPlaying={playingIndex === index}
-                      onPlayToggle={() => handlePlayToggle(index)}
+              {/* Carousel Container - HANYA TAMPILKAN 1 VIDEO */}
+              <div className="relative w-full overflow-hidden px-4 sm:px-8">
+                <div
+                  className="flex transition-transform duration-500 ease-in-out"
+                  style={{
+                    transform: `translateX(-${currentIndex * 100}%)`,
+                  }}
+                >
+                  {videos.map((video, index) => (
+                    <div key={video} className="w-full flex-shrink-0">
+                      <VideoCard
+                        videoSrc={`pages/landing-pages/succes-stories/${video}`}
+                        logoSrc={ciciMandarinLogo}
+                        isPlaying={playingIndex === index}
+                        onPlayToggle={() => handlePlayToggle(index)}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Navigation Buttons */}
+              {currentIndex > 0 && (
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-[#FFBC2D] hover:bg-white text-[#BE1313] rounded-full p-2 sm:p-3 shadow-lg transition-all hover:scale-110 z-10"
+                  aria-label="Previous video"
+                >
+                  <svg
+                    className="w-5 h-5 sm:w-6 sm:h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={3}
+                      d="M15 19l-7-7 7-7"
                     />
-                  </div>
+                  </svg>
+                </button>
+              )}
+
+              {currentIndex < maxIndex && (
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-[#FFBC2D] hover:bg-white text-[#BE1313] rounded-full p-2 sm:p-3 shadow-lg transition-all hover:scale-110 z-10"
+                  aria-label="Next video"
+                >
+                  <svg
+                    className="w-5 h-5 sm:w-6 sm:h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={3}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              )}
+
+              {/* Progress Dots */}
+              <div className="flex gap-2 mt-6">
+                {videos.map((_, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => {
+                      setCurrentIndex(index);
+                      setPlayingIndex(null);
+                    }}
+                    className={`h-2 rounded-full transition-all ${
+                      currentIndex === index
+                        ? "w-8 bg-white"
+                        : "w-2 bg-white/50 hover:bg-white/75"
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
                 ))}
               </div>
             </div>
-
-            {/* Navigation Buttons */}
-            {currentIndex > 0 && (
-              <button
-                type="button"
-                onClick={handlePrev}
-                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-[#FFBC2D] hover:bg-white text-[#BE1313] rounded-full p-2 sm:p-3 shadow-lg transition-all hover:scale-110 z-10"
-                aria-label="Previous video"
-              >
-                <svg
-                  className="w-5 h-5 sm:w-6 sm:h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={3}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-              </button>
-            )}
-
-            {currentIndex < maxIndex && (
-              <button
-                type="button"
-                onClick={handleNext}
-                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-[#FFBC2D] hover:bg-white text-[#BE1313] rounded-full p-2 sm:p-3 shadow-lg transition-all hover:scale-110 z-10"
-                aria-label="Next video"
-              >
-                <svg
-                  className="w-5 h-5 sm:w-6 sm:h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={3}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
-            )}
-
-            {/* Progress Dots */}
-            <div className="flex gap-2 mt-6">
-              {videos.map((_, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  onClick={() => {
-                    setCurrentIndex(index);
-                    setPlayingIndex(null);
-                  }}
-                  className={`h-2 rounded-full transition-all ${
-                    currentIndex === index
-                      ? "w-8 bg-white"
-                      : "w-2 bg-white/50 hover:bg-white/75"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

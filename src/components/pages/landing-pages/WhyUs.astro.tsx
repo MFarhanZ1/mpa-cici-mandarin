@@ -10,7 +10,8 @@ const videos = ["1.mp4", "2.mp4", "3.mp4", "5.mp4", "6.mp4", "7.mp4"];
 const cardWidth = 232;
 const ciciMandarinLogo = "/cici-mandarin.svg"; // Pastikan ini ada di folder /public
 const backgroundImage = "pages/landing-pages/why-us/BG.png";
-
+const backgroundImageWeb = "pages/landing-pages/why-us/BG-Web.webp";
+const paperImage = "pages/landing-pages/succes-stories/PAPER.png";
 
 interface VideoCardProps {
   videoSrc: string;
@@ -340,94 +341,95 @@ const WhyUs: React.FC = () => {
   }, []);
 
   return (
-    <section
-      className="bg-cover bg-top xl:bg-center px-6 py-4 xl:py-14"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
-    >
-      
-      <div className="flex flex-col gap-3 justify-center items-center">
-        {/* ... Teks "WHY US ?" ... */}
-        <span className="flex justify-center items-center font-normal font-mochiy-pop-one text-[#CB0D0D] text-2xl">
-          WHY US ?
-        </span>
-
-        {/* ... Paragraf Teks ... */}
-        <div className="flex flex-col gap-2 text-xs">
-          <span className="font-normal text-[#CB0D0D] text-center">
-            At Cici Mandarin, we don't just help you study, travel, or work in
-            China—<span className="font-bold">we empower you to thrive. </span>
+    <>
+      <section
+        className="bg-cover bg-top xl:bg-center px-6 py-4 xl:py-14 block md:hidden"
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+      >
+        <div className="flex flex-col gap-3 justify-center items-center">
+          {/* ... Teks "WHY US ?" ... */}
+          <span className="flex justify-center items-center font-normal font-mochiy-pop-one text-[#CB0D0D] text-2xl">
+            WHY US ?
           </span>
-          <span className="font-normal text-[#CB0D0D] text-center">
-            With personalized services, expert guidance, and a deep
-            understanding of both Indonesian and Chinese cultures,{" "}
-            <span className="font-bold">
-              we've helped hundreds of clients achieve their dreams.
+
+          {/* ... Paragraf Teks ... */}
+          <div className="flex flex-col gap-2 text-xs">
+            <span className="font-normal text-[#CB0D0D] text-center">
+              At Cici Mandarin, we don't just help you study, travel, or work in
+              China—
+              <span className="font-bold">we empower you to thrive. </span>
             </span>
-          </span>
-          <span className="font-normal text-[#CB0D0D] text-center">
-            Whether it's mastering Mandarin, securing a scholarship, or
-            exploring China's wonders, we're here to make your journey seamless
-            and successful.
-          </span>
-          <span className="font-normal text-[#CB0D0D] text-center">
-            Let us be your trusted partner in unlocking the opportunities China
-            has to offer!
-          </span>
-        </div>
+            <span className="font-normal text-[#CB0D0D] text-center">
+              With personalized services, expert guidance, and a deep
+              understanding of both Indonesian and Chinese cultures,{" "}
+              <span className="font-bold">
+                we've helped hundreds of clients achieve their dreams.
+              </span>
+            </span>
+            <span className="font-normal text-[#CB0D0D] text-center">
+              Whether it's mastering Mandarin, securing a scholarship, or
+              exploring China's wonders, we're here to make your journey
+              seamless and successful.
+            </span>
+            <span className="font-normal text-[#CB0D0D] text-center">
+              Let us be your trusted partner in unlocking the opportunities
+              China has to offer!
+            </span>
+          </div>
 
-        {/* video card carousel */}
-        <div className="relative w-full mt-6 flex items-center justify-center xl:max-w-[52rem] lg:max-w-[52rem]">
-          <div className="relative flex items-center justify-center gap-4 w-full max-w-6xl">
-            {/* Left Arrow */}
-            <button
-              type="button"
-              onClick={handlePrev}
-              className="z-20 bg-[#CB0D0D] rounded-full p-3 hover:bg-[#a00a0a] transition-colors shadow-lg shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
-              aria-label="Previous video"
-              disabled={currentIndex === 0}
-              style={{ position: "relative", zIndex: 20 }}
-            >
-              <svg
-                className="w-6 h-6 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+          {/* video card carousel */}
+          <div className="relative w-full mt-6 flex items-center justify-center xl:max-w-[52rem] lg:max-w-[52rem]">
+            <div className="relative flex items-center justify-center gap-4 w-full max-w-6xl">
+              {/* Left Arrow */}
+              <button
+                type="button"
+                onClick={handlePrev}
+                className="z-20 bg-[#CB0D0D] rounded-full p-3 hover:bg-[#a00a0a] transition-colors shadow-lg shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Previous video"
+                disabled={currentIndex === 0}
+                style={{ position: "relative", zIndex: 20 }}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-
-            {/* Video Container Wrapper */}
-            <div
-              className="overflow-x-auto w-full min-w-[12rem] max-w-6xl scrollbar-hide "
-              style={{ position: "relative", zIndex: 1 }}
-            >
-              <div
-                className="flex items-center gap-4 transition-transform duration-500 ease-in-out"
-                style={{
-                  transform: `translateX(-${currentIndex * cardWidth}px)`,
-                }}
-              >
-                {/* Render video cards secara dinamis */}
-                {videos.map((video, index) => (
-                  <VideoCard
-                    key={video}
-                    videoSrc={`pages/landing-pages/why-us/${video}`}
-                    logoSrc={ciciMandarinLogo}
-                    isPlaying={playingIndex === index}
-                    onPlayToggle={() => handlePlayToggle(index)}
+                <svg
+                  className="w-6 h-6 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
                   />
-                ))}
-              </div>
-            </div>
+                </svg>
+              </button>
 
-            {/* Style tag untuk scrollbar-hide (bisa dipindah ke CSS global) */}
-            <style>{`
+              {/* Video Container Wrapper */}
+              <div
+                className="overflow-x-auto w-full min-w-[12rem] max-w-6xl scrollbar-hide "
+                style={{ position: "relative", zIndex: 1 }}
+              >
+                <div
+                  className="flex items-center gap-4 transition-transform duration-500 ease-in-out"
+                  style={{
+                    transform: `translateX(-${currentIndex * cardWidth}px)`,
+                  }}
+                >
+                  {/* Render video cards secara dinamis */}
+                  {videos.map((video, index) => (
+                    <VideoCard
+                      key={video}
+                      videoSrc={`pages/landing-pages/why-us/${video}`}
+                      logoSrc={ciciMandarinLogo}
+                      isPlaying={playingIndex === index}
+                      onPlayToggle={() => handlePlayToggle(index)}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Style tag untuk scrollbar-hide (bisa dipindah ke CSS global) */}
+              <style>{`
               .scrollbar-hide::-webkit-scrollbar {
                 display: none;
               }
@@ -437,34 +439,165 @@ const WhyUs: React.FC = () => {
               }
             `}</style>
 
-            {/* Right Arrow */}
-            <button
-              type="button"
-              onClick={handleNext}
-              className="z-20 bg-[#CB0D0D] rounded-full p-3 hover:bg-[#a00a0a] transition-colors shadow-lg shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
-              aria-label="Next video"
-              disabled={currentIndex >= maxIndex}
-              style={{ position: "relative", zIndex: 20 }}
-              title={`currentIndex: ${currentIndex}, maxIndex: ${maxIndex}, visibleCards: ${visibleCards}`}
-            >
-              <svg
-                className="w-6 h-6 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+              {/* Right Arrow */}
+              <button
+                type="button"
+                onClick={handleNext}
+                className="z-20 bg-[#CB0D0D] rounded-full p-3 hover:bg-[#a00a0a] transition-colors shadow-lg shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Next video"
+                disabled={currentIndex >= maxIndex}
+                style={{ position: "relative", zIndex: 20 }}
+                title={`currentIndex: ${currentIndex}, maxIndex: ${maxIndex}, visibleCards: ${visibleCards}`}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
+                <svg
+                  className="w-6 h-6 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section
+        className="relative bg-cover bg-top xl:bg-center px-6 py-4 xl:py-14 hidden md:block"
+        style={{ backgroundImage: `url(${backgroundImageWeb})` }}
+      >
+        <div className="flex flex-col gap-3 justify-center items-center ">
+          {/* ... Teks "WHY US ?" ... */}
+          <span className="flex justify-center items-center font-normal font-mochiy-pop-one text-[#CB0D0D] text-2xl">
+            WHY US ?
+          </span>
+
+          {/* ... Paragraf Teks ... */}
+          <div className="flex flex-col gap-2 text-xs">
+            <span className="font-normal text-[#CB0D0D] text-center">
+              At Cici Mandarin, we don't just help you study, travel, or work in
+              China—
+              <span className="font-bold">we empower you to thrive. </span>
+            </span>
+            <span className="font-normal text-[#CB0D0D] text-center">
+              With personalized services, expert guidance, and a deep
+              understanding of both Indonesian and Chinese cultures,{" "}
+              <span className="font-bold">
+                we've helped hundreds of clients achieve their dreams.
+              </span>
+            </span>
+            <span className="font-normal text-[#CB0D0D] text-center">
+              Whether it's mastering Mandarin, securing a scholarship, or
+              exploring China's wonders, we're here to make your journey
+              seamless and successful.
+            </span>
+            <span className="font-normal text-[#CB0D0D] text-center">
+              Let us be your trusted partner in unlocking the opportunities
+              China has to offer!
+            </span>
+          </div>
+
+          {/* video card carousel */}
+          <div className="relative w-full mt-6 flex items-center justify-center xl:max-w-[52rem] lg:max-w-[52rem]">
+            <div className="relative flex items-center justify-center gap-4 w-full max-w-6xl">
+              {/* Left Arrow */}
+              <button
+                type="button"
+                onClick={handlePrev}
+                className="z-20 bg-[#CB0D0D] rounded-full p-3 hover:bg-[#a00a0a] transition-colors shadow-lg shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Previous video"
+                disabled={currentIndex === 0}
+                style={{ position: "relative", zIndex: 20 }}
+              >
+                <svg
+                  className="w-6 h-6 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+
+              {/* Video Container Wrapper */}
+              <div
+                className="overflow-x-auto w-full min-w-[12rem] max-w-6xl scrollbar-hide "
+                style={{ position: "relative", zIndex: 1 }}
+              >
+                <div
+                  className="flex items-center gap-4 transition-transform duration-500 ease-in-out"
+                  style={{
+                    transform: `translateX(-${currentIndex * cardWidth}px)`,
+                  }}
+                >
+                  {/* Render video cards secara dinamis */}
+                  {videos.map((video, index) => (
+                    <VideoCard
+                      key={video}
+                      videoSrc={`pages/landing-pages/why-us/${video}`}
+                      logoSrc={ciciMandarinLogo}
+                      isPlaying={playingIndex === index}
+                      onPlayToggle={() => handlePlayToggle(index)}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Style tag untuk scrollbar-hide (bisa dipindah ke CSS global) */}
+              <style>{`
+              .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+              }
+              .scrollbar-hide {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+              }
+            `}</style>
+
+              {/* Right Arrow */}
+              <button
+                type="button"
+                onClick={handleNext}
+                className="z-20 bg-[#CB0D0D] rounded-full p-3 hover:bg-[#a00a0a] transition-colors shadow-lg shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Next video"
+                disabled={currentIndex >= maxIndex}
+                style={{ position: "relative", zIndex: 20 }}
+                title={`currentIndex: ${currentIndex}, maxIndex: ${maxIndex}, visibleCards: ${visibleCards}`}
+              >
+                <svg
+                  className="w-6 h-6 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="left-[10%] absolute -bottom-[5%] z-5">
+          <img src={paperImage} alt="paperImage" className="w-40" />
+        </div>
+      </section>
+    </>
   );
 };
 

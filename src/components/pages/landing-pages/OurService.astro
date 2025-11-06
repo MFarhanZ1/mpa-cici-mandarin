@@ -1,27 +1,36 @@
 ---
 import Background from "../../../../public/pages/landing-pages/our-service/Maskgroup.png";
+import BackgroundWeb from "../../../../public/pages/landing-pages/our-service/OUR-SERVICES.webp";
 import CardOne from "../../../../public/pages/landing-pages/our-service/1.png";
 import CardTwo from "../../../../public/pages/landing-pages/our-service/2.png";
 import CardThree from "../../../../public/pages/landing-pages/our-service/3.png";
 import CardFour from "../../../../public/pages/landing-pages/our-service/4.png";
 ---
 
-<section
-    class="bg-cover lg:bg-top bg-left px-7 py-12 -mt-[12%] lg:py-24 xl:py-24"
+<>
+  <section
+    class="bg-cover bg-left px-7 py-12 -mt-[12%] block md:hidden"
     style={`background-image: url(${Background.src})`}
->
-    <div class="flex flex-col justify-center items-center gap-8 xl:mt-[8%] 2xl:mt-[10%]">
-        <div class="lg:-mt-6">
-            <span
-                class="font-mochiy-pop-one font-normal text-[#CB0D0D] text-2xl"
-                >OUR SERVICE</span
-            >
-        </div>
-        <div class="grid grid-cols-2 grid-rows-2 gap-2">
-            <img src={CardOne.src} alt="CardOne" class="w-52" />
-            <img src={CardTwo.src} alt="CardTwo" class="w-52" />
-            <img src={CardThree.src} alt="CardThree" class="w-52" />
-            <img src={CardFour.src} alt="CardFour" class="w-52" />
-        </div>
+  >
+    <div class="flex flex-col justify-center items-center gap-8">
+      <div class="">
+        <span class="font-mochiy-pop-one font-normal text-[#CB0D0D] text-2xl"
+          >OUR SERVICE</span
+        >
+      </div>
+      <div class="grid grid-cols-2 grid-rows-2 gap-2">
+        <img src={CardOne.src} alt="CardOne" class="w-52" />
+        <img src={CardTwo.src} alt="CardTwo" class="w-52" />
+        <img src={CardThree.src} alt="CardThree" class="w-52" />
+        <img src={CardFour.src} alt="CardFour" class="w-52" />
+      </div>
     </div>
+  </section>
+
+  <section
+  class="bg-cover bg-top -mt-[12%] h-auto min-h-screen hidden md:block"
+  style={`background-image: url(${BackgroundWeb.src})`}
+>
+  <div class="pb-[58%]"></div> <!-- Sesuaikan persentase dengan aspect ratio gambar -->
 </section>
+</>

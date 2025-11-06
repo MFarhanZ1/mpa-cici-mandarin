@@ -1,0 +1,70 @@
+---
+import BackgroundMobile from "../../../../public/pages/about-us/milestone/MILESTONE.webp";
+import Background from "../../../../public/pages/about-us/milestone/BG.webp";
+import BodyImage from "../../../../public/pages/about-us/milestone/BODY.png";
+import BodyImageWeb from "../../../../public/pages/about-us/milestone/BODY-web.png";
+import HeadImage from "../../../../public/pages/about-us/milestone/HEAD.png";
+import HeadImageWeb from "../../../../public/pages/about-us/milestone/HEAD-web.png";
+import TextMobile from "../../../../public/pages/about-us/milestone/text-mobile.webp";
+import TextWeb from "../../../../public/pages/about-us/milestone/text-web.png";
+import NumberImage from "../../../../public/pages/about-us/milestone/NUMBERS-MOBILE.png";
+import NumberImageWeb from "../../../../public/pages/about-us/milestone/NUMBERS-WEB.webp";
+---
+
+<>
+  <section
+    class="bg-cover px-7 py-10 block md:hidden -mt-3"
+    style={`background-image: url(${BackgroundMobile.src})`}
+  >
+    <div class="-mt-[20%]">
+      <img src={NumberImage.src} alt="" />
+    </div>
+    <div class="flex flex-col gap-7">
+      <div>
+        <img src={HeadImage.src} alt="" />
+      </div>
+      <div>
+        <img src={BodyImage.src} alt="" />
+      </div>
+      <div class="flex flex-col justify-center items-center gap-1.5">
+        <>
+          <img src={TextMobile.src} alt="" />
+        </>
+        <div class="flex justify-center">
+          <button class="bg-[#FFBC2D] py-1 px-3 rounded-lg">
+            <span class="text-[#F03C0B] font-bold"> JOIN US NOW! </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="bg-cover bg-top hidden md:block px-7 py-10"
+    style={`background-image: url(${Background.src})`}
+  >
+    <div class="flex justify-center items-center -mt-[8%]">
+      <img src={NumberImageWeb.src} alt="" class="w-4xl"/>
+    </div>
+    <div class="flex flex-col py-10">
+      <div class="-mt-[5%] -ml-[3%]">
+        <img src={HeadImageWeb.src} alt="" class="w-[44rem]" />
+      </div>
+      <div class="px-16 flex justify-center items-center">
+        <img src={BodyImageWeb.src} alt="" />
+      </div>
+      <div
+        class="flex flex-col justify-center items-center gap-4 pt-[16%] pb-[15%]"
+      >
+        <div>
+          <img src={TextWeb.src} alt="" class="w-4xl" />
+        </div>
+        <div class="flex justify-center">
+          <button class="bg-[#FFBC2D] py-1 px-3 rounded-lg">
+            <span class="text-[#F03C0B] font-bold"> JOIN US NOW! </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</>

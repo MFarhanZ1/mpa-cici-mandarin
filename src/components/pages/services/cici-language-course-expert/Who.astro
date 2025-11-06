@@ -1,0 +1,59 @@
+---
+const background = "/pages/services/cici-language-course-expert/who/class.webp";
+const bgMobile = "/pages/services/cici-language-course-expert/who/bg-mobile.webp";
+const people1 = "/pages/services/cici-language-course-expert/who/people1.svg";
+const people2 = "/pages/services/cici-language-course-expert/who/people2.svg";
+const people3 = "/pages/services/cici-language-course-expert/who/people3.svg";
+const people4 = "/pages/services/cici-language-course-expert/who/people4.svg";
+const people5 = "/pages/services/cici-language-course-expert/who/people5.svg";
+const companies = "/pages/services/cici-language-course-expert/who/companies.svg";
+const teens = "/pages/services/cici-language-course-expert/who/teens.svg";
+const preschool = "/pages/services/cici-language-course-expert/who/preschool.svg";
+const kids = "/pages/services/cici-language-course-expert/who/kids.svg";
+const adults = "/pages/services/cici-language-course-expert/who/adults.svg";
+---
+
+<section class="relative w-full h-screen bg-cover bg-right bg-no-repeat overflow-visible -mt-16">
+  <img src={bgMobile} alt="Who background" class="absolute inset-0 w-full h-full object-cover sm:hidden" />
+  <img src={background} alt="Who background" class="absolute inset-0 w-full h-full object-cover hidden sm:block" />
+  <div class="container mx-auto max-w-7xl pt-20">
+    <h2 class="mb-0 sm:mb-10 lg-mb-16 text-center text-2xl sm:text-4xl font-medium text-white drop-shadow-lg font-mochiy-pop-one">WHO CAN JOIN US?</h2>
+
+    <div class="relative mx-auto min-h-[500px] max-w-6xl">
+      <div class="absolute -bottom-6 sm:-bottom-10 left-1/2 flex w-[96%] max-w-4xl -translate-x-1/2 items-end gap-0 -space-x-6 sm:space-x-0 sm:gap-4 md:gap-8 z-1">
+        <div class="flex flex-1 flex-col items-center self-end">
+          <div class="transform scale-125 origin-bottom">
+            <img src={preschool} alt="Preschool" class="h-auto w-full" />
+          </div>
+          <img src={people1} alt="Preschool" class="h-auto w-full max-w-[140px] sm:max-w-[150px] md:max-w-40 -mt-4 drop-shadow-lg md:-mt-6" />
+        </div>
+
+        <div class="flex flex-1 flex-col items-center self-end">
+          <img src={kids} alt="Kid" class="h-auto w-full" />
+          <img src={people2} alt="Kid" class="h-auto w-full max-w-[140px] sm:max-w-[150px] md:max-w-40 -mt-4 drop-shadow-lg md:-mt-6" />
+        </div>
+
+        <div class="relative flex flex-1 flex-col items-center self-end">
+          <div class="transform scale-90 origin-bottom">
+            <img src={teens} alt="Teen" class="h-auto w-full" />
+          </div>
+          <img src={people3} alt="Teen" class="h-auto w-full max-w-[140px] sm:max-w-[150px] md:max-w-30 -mt-4 drop-shadow-lg md:-mt-6" />
+        </div>
+
+        <div class="flex flex-1 flex-col items-center self-end">
+          <div class="transform scale-90 origin-bottom">
+            <img src={adults} alt="Adult" class="h-auto w-full" />
+          </div>
+          <img src={people4} alt="Adult" class="h-auto w-full max-w-[140px] sm:max-w-[150px] md:max-w-40 -mt-4 drop-shadow-lg md:-mt-6" />
+        </div>
+
+        <div class="flex flex-1 flex-col items-center self-end">
+          <div class="transform scale-110 origin-bottom">
+            <img src={companies} alt="Company" class="h-auto w-full" />
+          </div>
+          <img src={people5} alt="Company" class="h-auto w-full max-w-[140px] sm:max-w-[150px] md:max-w-40 -mt-4 drop-shadow-lg md:-mt-6" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

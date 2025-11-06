@@ -236,7 +236,7 @@ const SuccesStories: React.FC = () => {
                   className="w-48 sm:w-56 lg:w-60 xl:w-96"
                 />
               </div>
-              <div className="left-0 top-0 absolute -ml-6 sm:-ml-8 -mt-5 sm:-mt-7 z-[1]">
+              <div className="left-0 top-0 absolute -ml-6 sm:-ml-8 -mt-5 sm:-mt-7 z-5">
                 <img
                   src={stampImage}
                   alt="Stamp"

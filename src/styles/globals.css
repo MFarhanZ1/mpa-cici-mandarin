@@ -15,3 +15,31 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
 }
+
+.text-outline-red {
+  -webkit-text-stroke: 12px #C02A25;
+  text-stroke: 10px #cb0d0d;
+  color: #ffffff;
+  paint-order: stroke fill;
+}
+
+.text-outline-blue {
+  -webkit-text-stroke: 12px #2A64C7;
+  text-stroke: 10px #4E81DA;
+  color: #ffffff;
+  paint-order: stroke fill;
+}
+
+.text-outline-cyan {
+  -webkit-text-stroke: 12px #0F9B94;
+  text-stroke: 10px #20BCB4;
+  color: #ffffff;
+  paint-order: stroke fill;
+}
+
+.text-outline-orange {
+  -webkit-text-stroke: 12px #E14A25;
+  text-stroke: 10px #EE770E;
+  color: #ffffff;
+  paint-order: stroke fill;
+}

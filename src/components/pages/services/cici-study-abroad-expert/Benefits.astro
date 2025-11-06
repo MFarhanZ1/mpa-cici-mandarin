@@ -1,0 +1,92 @@
+---
+const background = "/pages/services/cici-study-abroad-expert/benefits/background.webp";
+const benefit1 = "/pages/services/cici-study-abroad-expert/benefits/benefit-1.webp";
+const benefit2 = "/pages/services/cici-study-abroad-expert/benefits/benefit-2.webp";
+const benefit3 = "/pages/services/cici-study-abroad-expert/benefits/benefit-3.webp";
+const benefit4 = "/pages/services/cici-study-abroad-expert/benefits/benefit-4.webp";
+
+const benefits = [
+  {
+    image: benefit2,
+    title: "Strong Indonesian and China Team",
+    description:
+      "Backed by Indonesian and Chinese experts and top university networks.",
+  },
+  {
+    image: benefit3,
+    title: "Exclusive ‘Shortcuts’",
+    description:
+      "Insider strategies to fast-track your admission notice.",
+  },
+  {
+    image: benefit4,
+    title: "100% Transparency",
+    description:
+      "No hidden fees, no vague promises—just clear, honest guidance.",
+  },
+  {
+    image: benefit1,
+    title: "Global Reach, Local Touch",
+    description:
+      "Serving students worldwide with communication in Indonesian, English, or Chinese.",
+  },
+];
+---
+
+<section class="relative w-full bg-center bg-cover bg-no-repeat overflow-hidden -mt-5 -z-2 min-h-[600px] md:min-h-[700px]" style={`background-image: url(${background});`}>
+  <div class="container mx-auto max-w-7xl h-full flex flex-col items-center justify-start pt-16 md:pt-20">
+    <div class="mb-10 md:mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold drop-shadow-lg font-mochiy-pop-one text-outline-blue">BENEFITS</h2>
+    </div>
+
+    <div class="hidden md:flex gap-6 items-center justify-center px-8">
+      {
+        benefits.map((benefit) => (
+          <div class="relative w-64 h-auto rounded-3xl overflow-hidden shadow-2xl group cursor-pointer transform transition-transform duration-300 hover:scale-105 border-3 border-white">
+            <img src={benefit.image} alt={benefit.title} class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
+            <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-linear-to-t via-[#2666D4] from-[#0B2552] to-transparent" />
+            <div class="absolute bottom-0 left-0 right-0 p-6 text-white text-center">
+              <h3 class="text-lg font-bold mb-3">{benefit.title}</h3>
+              <p class="text-sm leading-relaxed">{benefit.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div id="benefits-scroller" class="md:hidden w-full flex gap-4 overflow-x-auto snap-x snap-mandatory px-4 pb-4">
+      {
+        benefits.map((benefit, index) => (
+          <div id={index === 1 ? "default-benefit" : undefined} class="relative w-64 h-auto rounded-3xl overflow-hidden shadow-2xl border-3 border-white flex-none snap-center">
+            <img src={benefit.image} alt={benefit.title} class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
+            <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-linear-to-t via-[#2666D4] from-[#0B2552] to-transparent" />
+            <div class="absolute bottom-0 left-0 right-0 p-6 text-white text-center">
+              <h3 class="text-lg font-bold mb-3">{benefit.title}</h3>
+              <p class="text-sm leading-relaxed">{benefit.description}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="absolute inset-x-0 bottom-0 h-20 shadow-2xl pointer-events-none"></div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.innerWidth < 768) {
+      const defaultItem = document.getElementById("default-benefit");
+
+      if (defaultItem) {
+        defaultItem.scrollIntoView({
+          behavior: "auto",
+          block: "nearest",
+          inline: "center",
+        });
+      }
+    }
+  });
+</script>

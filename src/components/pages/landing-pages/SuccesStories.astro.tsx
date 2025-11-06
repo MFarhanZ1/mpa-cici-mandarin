@@ -253,7 +253,7 @@ const SuccesStories: React.FC = () => {
                   }}
                 >
                   {videos.map((video, index) => (
-                    <div key={video} className="w-full flex-shrink-0">
+                    <div key={video} className="w-full shrink-0">
                       <VideoCard
                         videoSrc={`pages/landing-pages/succes-stories/${video}`}
                         logoSrc={ciciMandarinLogo}

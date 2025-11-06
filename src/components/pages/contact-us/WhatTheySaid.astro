@@ -1,42 +1,42 @@
 ---
-import BackgroundImage from "../../../../public/pages/contact-us/faq/bg-mobile-they-said.webp";
-import TheySaidImage from "../../../../public/pages/contact-us/faq/what-they-said.webp";
-import CardImage5 from "../../../../public/pages/contact-us/faq/5.png";
-import CardImage6 from "../../../../public/pages/contact-us/faq/6.png";
-import CardImage7 from "../../../../public/pages/contact-us/faq/7.png";
-import MaskotChina from "../../../../public/pages/contact-us/faq/maskot-china.webp";
-import WhiteTiger from "../../../../public/pages/contact-us/faq/white-Tiger.webp";
+const BackgroundImage = "/pages/contact-us/faq/bg-mobile-they-said.webp";
+const TheySaidImage = "/pages/contact-us/faq/what-they-said.webp";
+const CardImage5 = "/pages/contact-us/faq/5.png";
+const CardImage6 = "/pages/contact-us/faq/6.png";
+const CardImage7 = "/pages/contact-us/faq/7.png";
+const MaskotChina = "/pages/contact-us/faq/maskot-china.webp";
+const WhiteTiger = "/pages/contact-us/faq/white-Tiger.webp";
 ---
 
 <>
   <section
     class="bg-cover bg-top block md:hidden"
-    style={`background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${BackgroundImage.src})`}
+    style={`background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${BackgroundImage})`}
   >
     <div class="flex flex-col gap-9">
       <div class="flex justify-center">
-        <img src={TheySaidImage.src} alt="" class="w-2/3" />
+        <img src={TheySaidImage} alt="" class="w-2/3" />
       </div>
 
       <div class="w-full overflow-x-auto scrollbar-hide">
         <div class="flex gap-4 pb-4 min-w-max px-4 justify-center items-center">
-          <div class="flex-shrink-0 w-[280px] md:w-[320px]">
+          <div class="shrink-0 w-[280px] md:w-[320px]">
             <img
-              src={CardImage5.src}
+              src={CardImage5}
               alt="card9"
               class="w-full h-auto rounded-lg shadow-lg"
             />
           </div>
-          <div class="flex-shrink-0 w-[280px] md:w-[320px]">
+          <div class="shrink-0 w-[280px] md:w-[320px]">
             <img
-              src={CardImage6.src}
+              src={CardImage6}
               alt="card8"
               class="w-full h-auto rounded-lg shadow-lg"
             />
           </div>
-          <div class="flex-shrink-0 w-[280px] md:w-[320px]">
+          <div class="shrink-0 w-[280px] md:w-[320px]">
             <img
-              src={CardImage7.src}
+              src={CardImage7}
               alt="card10"
               class="w-full h-auto rounded-lg shadow-lg"
             />
@@ -48,21 +48,21 @@ import WhiteTiger from "../../../../public/pages/contact-us/faq/white-Tiger.webp
 
   <section
     class="bg-cover bg-top h-auto min-h-screen hidden md:block relative overflow-hidden"
-    style={`background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${BackgroundImage.src})`}
+    style={`background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${BackgroundImage})`}
   >
     <div class="-bottom-[32%] absolute">
-      <img src={MaskotChina.src} alt="" class="w-1/4" />
+      <img src={MaskotChina} alt="" class="w-1/4" />
     </div>
     <div class="">
       <img
-        src={WhiteTiger.src}
+        src={WhiteTiger}
         alt=""
         class="w-1/6 right-[1%] -bottom-[9%] absolute"
       />
     </div>
     <div class="flex flex-col gap-9">
       <div class="flex justify-center">
-        <img src={TheySaidImage.src} alt="" class="w-1/4" />
+        <img src={TheySaidImage} alt="" class="w-1/4" />
       </div>
 
       <div class="relative px-20">
@@ -92,23 +92,23 @@ import WhiteTiger from "../../../../public/pages/contact-us/faq/white-Tiger.webp
             id="carousel"
             class="flex gap-4 pb-4 px-4 justify-center items-center transition-transform duration-500 ease-in-out"
           >
-            <div class="flex-shrink-0 w-[20%]">
+            <div class="shrink-0 w-[20%]">
               <img
-                src={CardImage5.src}
+                src={CardImage5}
                 alt="card9"
                 class="w-full h-auto rounded-lg shadow-lg"
               />
             </div>
-            <div class="flex-shrink-0 w-[20%]">
+            <div class="shrink-0 w-[20%]">
               <img
-                src={CardImage6.src}
+                src={CardImage6}
                 alt="card8"
                 class="w-full h-auto rounded-lg shadow-lg"
               />
             </div>
-            <div class="flex-shrink-0 w-[20%]">
+            <div class="shrink-0 w-[20%]">
               <img
-                src={CardImage7.src}
+                src={CardImage7}
                 alt="card10"
                 class="w-full h-auto rounded-lg shadow-lg"
               />
@@ -145,7 +145,7 @@ import WhiteTiger from "../../../../public/pages/contact-us/faq/white-Tiger.webp
     const nextBtn = document.getElementById("nextBtn");
 
     let currentIndex = 0;
-    const cards = carousel?.querySelectorAll(".flex-shrink-0") || [];
+    const cards = carousel?.querySelectorAll(".shrink-0") || [];
     const totalCards = cards.length;
 
     function updateCarousel() {

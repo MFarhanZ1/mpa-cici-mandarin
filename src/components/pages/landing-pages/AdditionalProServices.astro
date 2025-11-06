@@ -1,16 +1,16 @@
 ---
-import Background from "../../../../public/pages/landing-pages/additional-pro-service/BG.webp";
-import BackgroundWeb from "../../../../public/pages/landing-pages/additional-pro-service/ADDITIONAL-PRO.webp";
-import CardOne from "../../../../public/pages/landing-pages/additional-pro-service/1.png";
-import CardTwo from "../../../../public/pages/landing-pages/additional-pro-service/2.png";
-import CardThree from "../../../../public/pages/landing-pages/additional-pro-service/3.png";
-import CardFour from "../../../../public/pages/landing-pages/additional-pro-service/4.png";
+const Background = "/pages/landing-pages/additional-pro-service/BG.webp";
+const BackgroundWeb = "/pages/landing-pages/additional-pro-service/ADDITIONAL-PRO.webp";
+const CardOne = "/pages/landing-pages/additional-pro-service/1.png";
+const CardTwo = "/pages/landing-pages/additional-pro-service/2.png";
+const CardThree = "/pages/landing-pages/additional-pro-service/3.png";
+const CardFour = "/pages/landing-pages/additional-pro-service/4.png";
 ---
 
 <>
   <section
     class="bg-cover bg-center px-7 py-5 block md:hidden"
-    style={`background-image: url(${Background.src})`}
+    style={`background-image: url(${Background})`}
   >
     <div class="flex flex-col gap-3 text-white">
       <div
@@ -23,16 +23,16 @@ import CardFour from "../../../../public/pages/landing-pages/additional-pro-serv
         </span>
         <div class="flex flex-col justify-center items-center gap-1">
           <div>
-            <img src={CardOne.src} alt="CardOne" />
+            <img src={CardOne} alt="CardOne" />
           </div>
           <div>
-            <img src={CardTwo.src} alt="CardTwo" />
+            <img src={CardTwo} alt="CardTwo" />
           </div>
           <div>
-            <img src={CardThree.src} alt="CardThree" />
+            <img src={CardThree} alt="CardThree" />
           </div>
           <div>
-            <img src={CardFour.src} alt="CardFour" />
+            <img src={CardFour} alt="CardFour" />
           </div>
         </div>
       </div>
@@ -41,7 +41,7 @@ import CardFour from "../../../../public/pages/landing-pages/additional-pro-serv
 
   <section
     class="bg-cover bg-top h-auto min-h-screen hidden md:block -mt-1"
-    style={`background-image: url(${BackgroundWeb.src})`}
+    style={`background-image: url(${BackgroundWeb})`}
   >
     <div class="pb-[54%]"></div>
     <!-- Sesuaikan persentase dengan aspect ratio gambar -->

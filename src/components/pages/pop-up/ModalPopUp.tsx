@@ -14,10 +14,10 @@ export default function ModalPopUp() {
             onClick={() => setIsOpen(false)}
           />
 
-          <div className="relative rounded-xl shadow-2xl p-8 max-w-xl w-full mx-4 z-10 pt-[6%]">
+          <div className="relative rounded-xl p-8 max-w-xl w-full mx-4 z-10 pt-[6%]">
             <button
               onClick={() => setIsOpen(false)}
-              className="cursor-pointer absolute top-[18%] right-0 text-gray-400 hover:text-gray-600 transition-colors "
+              className="cursor-pointer absolute top-[18%] right-0 text-white hover:text-red-200 transition-colors "
               aria-label="Tutup"
             >
               <X size={24} />

@@ -65,9 +65,6 @@ export default function WhatTheySaid() {
     5: CardIndexFive,
     6: CardIndexSix,
   };
-
-
-  console.log(activeCardMobile);
   const handleNext = () => {
     setCardIndex((prev) => (prev >= 6 ? 1 : prev + 1));
   };

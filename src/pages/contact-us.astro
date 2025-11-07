@@ -2,11 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import ContactUsComponent from "../components/pages/contact-us/ContactUsComponent.astro";
 import Faq from "../components/pages/contact-us/Faq.tsx";
-import WhatTheySaid from "../components/pages/contact-us/WhatTheySaid.astro";
+import WhatTheySaid from "../components/pages/contact-us/WhatTheySaid.tsx";
 ---
 
 <Layout title="Contact Us">
     <ContactUsComponent />
     <Faq client:load/>
-    <WhatTheySaid />
+    <WhatTheySaid client:load/>
 </Layout>

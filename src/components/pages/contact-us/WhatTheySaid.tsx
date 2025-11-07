@@ -67,7 +67,6 @@ export default function WhatTheySaid() {
   };
 
 
-  console.log(activeCardMobile);
   const handleNext = () => {
     setCardIndex((prev) => (prev >= 6 ? 1 : prev + 1));
   };
@@ -153,7 +152,7 @@ export default function WhatTheySaid() {
               onClick={handlePrev}
               className={`${
                 cardIndex === 1 ? "opacity-55" : ""
-              } absolute cursor-pointer left-[10%] top-1/2 -translate-y-1/2 z-10 bg-[#FFBC2D] hover:bg-[#FFBC2D] rounded-full w-8 h-8 flex items-center justify-center shadow-lg transition-all`}
+              } absolute cursor-pointer left-[15%] top-1/2 -translate-y-1/2 z-10 bg-[#FFBC2D] hover:bg-[#FFBC2D] rounded-full w-8 h-8 flex items-center justify-center shadow-lg transition-all`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

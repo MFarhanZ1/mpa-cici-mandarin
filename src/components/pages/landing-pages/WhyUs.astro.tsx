@@ -7,35 +7,45 @@ import React, {
 } from "react";
 
 const videos = ["1.mp4", "2.mp4", "3.mp4", "5.mp4", "6.mp4", "7.mp4"];
-const cardWidth = 232;
+const cardWidth = 280; // increased base card width
+const cardGap = 40; // increased gap for better spacing
+const visibleCardsCount = 3; // always show exactly 3 cards
 const ciciMandarinLogo = "/cici-mandarin.svg"; // Pastikan ini ada di folder /public
 const backgroundImage = "pages/landing-pages/why-us/BG.png";
 const backgroundImageWeb = "pages/landing-pages/why-us/BG-Web.webp";
-const paperImage = "pages/landing-pages/succes-stories/PAPER.png";
+
+// === 1. TENTUKAN LEBAR ASLI DESKTOP ===
+// (920px viewport) + (16px gap) + (16px gap) + (48px tombol) + (48px tombol)
+// Ukuran tombol: p-3 (12px) * 2 + w-6 (24px) = 48px
+// (Lebar 920px) + (gap 16px) + (Tombol 48px) + (gap 16px) + (Tombol 48px) = 1048px
+const DESKTOP_LAYOUT_WIDTH = 1048; 
+const DESKTOP_LAYOUT_HEIGHT = 600; // (minHeight 540px + padding 60px)
+// ... (sisa kode)
 
 interface VideoCardProps {
   videoSrc: string;
   logoSrc: string;
+  isOdd: boolean;
   isPlaying: boolean;
+  isCenter?: boolean;
   onPlayToggle: () => void;
 }
 
 const VideoCard: React.FC<VideoCardProps> = ({
   videoSrc,
   logoSrc,
+  isOdd,
   isPlaying,
+  isCenter,
   onPlayToggle,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(false);
 
-  // Efek untuk mengontrol play/pause dari komponen parent (WhyUs)
   useEffect(() => {
     const videoEl = videoRef.current;
     if (!videoEl) return;
-
     if (isPlaying) {
-      // Pastikan tidak muted saat user klik play
       videoEl.muted = false;
       setIsMuted(false);
       videoEl.play().catch((err) => console.log("Play failed:", err));
@@ -43,37 +53,26 @@ const VideoCard: React.FC<VideoCardProps> = ({
       videoEl.pause();
     }
   }, [isPlaying]);
-
-  // Efek untuk sinkronisasi status mute dengan elemen video
   useEffect(() => {
     const videoEl = videoRef.current;
     if (videoEl) {
       videoEl.muted = isMuted;
     }
   }, [isMuted]);
-
-  // Handler untuk mute button
   const handleMuteToggle = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Mencegah card di-klik (play/pause)
-    console.log("handleMuteToggle called");
+    e.stopPropagation();
     setIsMuted((prev) => !prev);
   };
-
-  // Handler untuk play button (di overlay)
   const handlePlayClick = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Mencegah card di-klik lagi
+    e.stopPropagation();
     e.preventDefault();
-    console.log("handlePlayClick called");
     onPlayToggle();
   };
-
-  // ==== SVG Icons (internal) ====
   const MuteIcon = () => (
     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
       <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
     </svg>
   );
-
   const UnmuteIcon = () => (
     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
       <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
@@ -84,17 +83,23 @@ const VideoCard: React.FC<VideoCardProps> = ({
     <div
       className="video-card-wrapper shrink-0 relative"
       style={{
-        width: "220px",
-        minWidth: "220px",
-        height: "380px",
+        width: `${cardWidth}px`,
+        minWidth: `${cardWidth}px`,
+        height: isCenter ? "480px" : "400px",
         padding: "10px",
         background: "linear-gradient(to bottom, #CB0D0D, #a00a0a)",
-        borderRadius: "10px",
+        borderRadius: "16px",
         position: "relative",
-        boxShadow: "0 4px 12px rgba(203, 13, 13, 0.4)",
+        boxShadow: isCenter
+          ? "0 12px 36px rgba(203, 13, 13, 0.6)"
+          : "0 4px 12px rgba(203, 13, 13, 0.4)",
+        transform: isCenter ? "scale(1.12)" : "scale(1)",
+        transition: "all 400ms ease",
+        zIndex: isCenter ? 2 : 1,
       }}
     >
-      {/* Pattern overlay */}
+      {/* ... (sisa konten VideoCard) ... */}
+            {/* Pattern overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -119,33 +124,16 @@ const VideoCard: React.FC<VideoCardProps> = ({
       <div
         className="video-card relative group cursor-pointer w-full h-full"
         style={{ borderRadius: "6px", overflow: "hidden", background: "#000" }}
-        onClick={(e) => {
-          console.log("Video card clicked");
-          onPlayToggle();
-        }} // Klik di mana saja pada card akan memicu play/pause
+        onClick={onPlayToggle}
       >
         <video
           ref={videoRef}
           src={videoSrc}
-          className="w-full h-full object-cover"
+          className={`w-full h-full object-cover ${isOdd ? "scale-105" : ""}`}
           loop
           playsInline
           preload="auto"
-          onPlay={() => {
-            // Logika ini dipindahkan ke useEffect [isPlaying]
-          }}
-          onPause={() => {
-            // Logika ini ditangani oleh state isPlaying
-          }}
         />
-
-        {/* Text overlay "GIGI'S JOURNEY IN CHINA" (sesuai script asli) */}
-        <div
-          className="absolute top-2 left-0 right-0 z-10"
-          style={{ textAlign: "center" }}
-        >
-          {/* <span className="font-semibold text-white ...">GIGI'S JOURNEY</span> */}
-        </div>
 
         {/* Logo Cici Mandarin */}
         <div className="absolute bottom-3 left-0 right-0 flex justify-center z-10">
@@ -161,8 +149,8 @@ const VideoCard: React.FC<VideoCardProps> = ({
         <div
           className="play-overlay absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity duration-300"
           style={{
-            opacity: isPlaying ? 0 : 1, // Tampil saat tidak playing
-            pointerEvents: isPlaying ? "none" : "auto", // Tidak bisa diklik saat playing
+            opacity: isPlaying ? 0 : 1,
+            pointerEvents: isPlaying ? "none" : "auto",
           }}
         >
           <button
@@ -170,7 +158,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
             className="play-button bg-[#CB0D0D] rounded-full hover:bg-[#a00a0a] transition-all transform hover:scale-110"
             style={{ padding: "12px 16px" }}
             aria-label="Play video"
-            onClick={handlePlayClick} // Handler khusus untuk play
+            onClick={handlePlayClick}
           >
             <svg
               className="w-10 h-10 text-white"
@@ -187,7 +175,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
           type="button"
           className="mute-button absolute bottom-3 right-3 bg-black/60 hover:bg-black/80 rounded-full p-1.5 transition-all z-20"
           aria-label="Mute/Unmute video"
-          onClick={handleMuteToggle} // Handler khusus untuk mute
+          onClick={handleMuteToggle}
         >
           {isMuted ? <MuteIcon /> : <UnmuteIcon />}
         </button>
@@ -197,72 +185,72 @@ const VideoCard: React.FC<VideoCardProps> = ({
 };
 
 // ===================================================================
-// 4. KOMPONEN WHY US (Utama)
+// KOMPONEN WHY US (Dengan Perbaikan Total)
 // ===================================================================
-
 const WhyUs: React.FC = () => {
-  // State untuk melacak indeks carousel
   const [currentIndex, setCurrentIndex] = useState(0);
-  // State untuk melacak video mana yang sedang diputar
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
-  // Fungsi untuk menghitung kartu yang terlihat berdasarkan lebar layar
-  const getVisibleCards = useCallback(() => {
-    // Pengecekan 'window' hanya jika di sisi klien
-    if (typeof window === "undefined") return 2;
-
-    const screenWidth = window.innerWidth;
-    if (screenWidth >= 1800) return 6;
-    if (screenWidth >= 1400) return 5;
-    if (screenWidth >= 1200) return 4;
-    if (screenWidth >= 768) return 3;
-    return 2;
-  }, []);
-
-  // State untuk melacak jumlah kartu yang terlihat (responsive)
-  // Inisialisasi dengan fungsi untuk lazy initialization
-  const [visibleCards, setVisibleCards] = useState(() => {
-    if (typeof window !== "undefined") {
-      const screenWidth = window.innerWidth;
-      if (screenWidth >= 1800) return 6;
-      if (screenWidth >= 1400) return 5;
-      if (screenWidth >= 1200) return 4;
-      if (screenWidth >= 768) return 3;
-    }
-    return 2; // Default mobile
-  });
-
-  // Ref untuk menyimpan visibleCards terbaru untuk digunakan dalam handler
+  const getVisibleCards = useCallback(() => visibleCardsCount, []);
+  const [visibleCards, setVisibleCards] = useState(visibleCardsCount);
   const visibleCardsRef = useRef(visibleCards);
 
-  // Efek untuk mengatur 'visibleCards' saat komponen dimuat dan di-resize
   useEffect(() => {
-    const handleResize = () => {
-      const newVisibleCards = getVisibleCards();
-      setVisibleCards(newVisibleCards);
-      visibleCardsRef.current = newVisibleCards; // Update ref juga
-    };
-
-    // Panggil sekali saat mount untuk memastikan nilai benar
-    handleResize();
-
-    // Tambahkan event listener
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup listener saat komponen unmount
-    return () => window.removeEventListener("resize", handleResize);
-  }, [getVisibleCards]);
-
-  // Update ref setiap kali visibleCards berubah (untuk memastikan sync)
+    setVisibleCards(visibleCardsCount);
+    visibleCardsRef.current = visibleCardsCount;
+  }, []);
   useEffect(() => {
     visibleCardsRef.current = visibleCards;
   }, [visibleCards]);
 
-  // Nilai turunan (derived state) untuk index maksimum menggunakan useMemo
+  const viewportRefMobile = useRef<HTMLDivElement | null>(null);
+  const viewportRefDesktop = useRef<HTMLDivElement | null>(null);
+  // Hapus state mobile/desktopWidth
+  const [gapPx, setGapPx] = useState<number>(16);
+
+  // === 2. TAMBAHKAN STATE & REF BARU UNTUK SCALING ===
+  const [mobileScale, setMobileScale] = useState(1);
+  const mobileWrapperRef = useRef<HTMLDivElement>(null);
+  // ===================================================
+
+  useEffect(() => {
+    const updateMeasurements = () => {
+      const screen = typeof window !== "undefined" ? window.innerWidth : 0;
+      setGapPx(screen >= 768 ? 28 : 16);
+    };
+    updateMeasurements();
+    window.addEventListener("resize", updateMeasurements);
+    return () => window.removeEventListener("resize", updateMeasurements);
+  }, []);
+
+  // === 3. TAMBAHKAN useEffect BARU UNTUK MENGHITUNG SCALE ===
+  useEffect(() => {
+    const wrapper = mobileWrapperRef.current;
+    if (!wrapper) return;
+
+    const updateScale = () => {
+      const screenWidth = wrapper.clientWidth;
+      if (screenWidth > 0) {
+        // Beri sedikit padding (misal 95% dari lebar layar)
+        setMobileScale((screenWidth * 0.95) / DESKTOP_LAYOUT_WIDTH);
+      }
+    };
+
+    updateScale();
+    window.addEventListener("resize", updateScale);
+    return () => window.removeEventListener("resize", updateScale);
+  }, []);
+  // ========================================================
+
+
+  const centerOffset = Math.floor(visibleCards / 2);
+  const centerIndex = Math.min(videos.length - 1, currentIndex + centerOffset);
+
+  const viewportContentWidth = (cardWidth * visibleCards) + (cardGap * (visibleCards - 1)); // 920px
+
   const maxIndex = useMemo(() => {
     return Math.max(0, videos.length - visibleCards);
   }, [visibleCards]);
 
-  // Efek untuk menyesuaikan currentIndex jika melebihi maxIndex setelah resize
   useEffect(() => {
     if (currentIndex > maxIndex) {
       setCurrentIndex(maxIndex);
@@ -272,78 +260,42 @@ const WhyUs: React.FC = () => {
   const handleNext = useCallback((e?: React.MouseEvent) => {
     e?.preventDefault();
     e?.stopPropagation();
-
-    console.log("handleNext called");
-
-    // Hentikan video yang sedang diputar saat navigasi
     setPlayingIndex(null);
-
-    // Hitung maxIndex berdasarkan visibleCards terbaru dari ref
     const currentMaxIndex = Math.max(
       0,
       videos.length - visibleCardsRef.current
     );
-
-    console.log(
-      "handleNext - currentMaxIndex:",
-      currentMaxIndex,
-      "visibleCards:",
-      visibleCardsRef.current
-    );
-
-    // Gunakan functional update untuk mendapatkan currentIndex terbaru
     setCurrentIndex((prev) => {
-      console.log(
-        "handleNext - prev:",
-        prev,
-        "currentMaxIndex:",
-        currentMaxIndex
-      );
-      // Jika sudah di akhir, jangan update
       if (prev >= currentMaxIndex) {
-        console.log("handleNext - already at max");
         return prev;
       }
-      // Update ke index berikutnya
-      const nextIndex = prev + 1;
-      console.log("handleNext - moving to:", nextIndex);
-      return nextIndex;
+      return prev + 1;
     });
   }, []);
 
   const handlePrev = useCallback((e?: React.MouseEvent) => {
     e?.preventDefault();
     e?.stopPropagation();
-
-    console.log("handlePrev called");
-
-    // Hentikan video yang sedang diputar saat navigasi
     setPlayingIndex(null);
     setCurrentIndex((prev) => {
-      const newIndex = Math.max(prev - 1, 0);
-      console.log("handlePrev - moving from", prev, "to", newIndex);
-      return newIndex;
+      return Math.max(prev - 1, 0);
     });
   }, []);
 
   const handlePlayToggle = useCallback((index: number) => {
-    console.log("handlePlayToggle called for index:", index);
     setPlayingIndex((prevPlayingIndex) => {
-      const newPlayingIndex = prevPlayingIndex === index ? null : index;
-      console.log(
-        "handlePlayToggle - changing from",
-        prevPlayingIndex,
-        "to",
-        newPlayingIndex
-      );
-      return newPlayingIndex;
+      return prevPlayingIndex === index ? null : index;
     });
   }, []);
 
   return (
     <>
+      {/* =========================
+        SECTION MOBILE (PERBAIKAN SCALING)
+        =========================
+      */}
       <section
-        className="bg-cover bg-top xl:bg-center px-6 py-4 xl:py-14 block md:hidden"
+        className="bg-cover max-h-[70vh] bg-bottom px-6 py-4 xl:py-14 block md:hidden"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
         <div className="flex flex-col gap-3 justify-center items-center">
@@ -378,8 +330,33 @@ const WhyUs: React.FC = () => {
           </div>
 
           {/* video card carousel */}
-          <div className="relative w-full mt-6 flex items-center justify-center xl:max-w-[52rem] lg:max-w-[52rem]">
-            <div className="relative flex items-center justify-center gap-4 w-full max-w-6xl">
+          {/* PERBAIKAN: 
+            Container 1: 'w-full' untuk mengukur layar (mobileWrapperRef)
+          */}
+          <div 
+            ref={mobileWrapperRef} 
+            className="relative w-full h-auto flex items-center justify-center"
+            style={{
+                // PAKSA TINGGINYA JADI TINGGI YANG SUDAH DI-SCALE
+                height: `${DESKTOP_LAYOUT_HEIGHT * mobileScale}px`,
+                // Tambahkan ini untuk jaga-jaga
+                overflow: "hidden" 
+            }}
+          >
+            {/* PERBAIKAN: 
+              Container 2: Terapkan 'scale' dan 'width' desktop
+            */}
+            <div 
+              className="relative flex items-center justify-center gap-4"
+              style={{
+                width: `${DESKTOP_LAYOUT_WIDTH}px`,
+                transform: `scale(${mobileScale})`,
+                transformOrigin: 'center',
+                // Beri padding vertikal ekstra untuk kompensasi scale
+                paddingTop: '30px', 
+                paddingBottom: '30px'
+              }}
+            >
               {/* Left Arrow */}
               <button
                 type="button"
@@ -387,7 +364,6 @@ const WhyUs: React.FC = () => {
                 className="z-20 bg-[#CB0D0D] rounded-full p-3 hover:bg-[#a00a0a] transition-colors shadow-lg shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
                 aria-label="Previous video"
                 disabled={currentIndex === 0}
-                style={{ position: "relative", zIndex: 20 }}
               >
                 <svg
                   className="w-6 h-6 text-white"
@@ -404,20 +380,27 @@ const WhyUs: React.FC = () => {
                 </svg>
               </button>
 
-              {/* Video Container Wrapper */}
+              {/* Video Container Wrapper (Viewport) */}
               <div
-                className="overflow-x-auto w-full min-w-[12rem] max-w-6xl scrollbar-hide "
-                style={{ position: "relative", zIndex: 1 }}
+                ref={viewportRefMobile}
+                className="overflow-hidden relative"
+                style={{
+                  width: `${viewportContentWidth}px`, // 920px
+                  zIndex: 1,
+                }}
               >
                 <div
-                  className="flex items-center gap-4 transition-transform duration-500 ease-in-out"
+                  className="flex items-center transition-transform duration-500 ease-in-out"
                   style={{
-                    transform: `translateX(-${currentIndex * cardWidth}px)`,
+                    gap: `${cardGap}px`,
+                    transform: `translateX(-${currentIndex * (cardWidth + cardGap)}px)`,
+                    minHeight: "540px",
                   }}
                 >
-                  {/* Render video cards secara dinamis */}
                   {videos.map((video, index) => (
                     <VideoCard
+                      isOdd={index % 2 === 1}
+                      isCenter={index === centerIndex}
                       key={video}
                       videoSrc={`pages/landing-pages/why-us/${video}`}
                       logoSrc={ciciMandarinLogo}
@@ -428,17 +411,6 @@ const WhyUs: React.FC = () => {
                 </div>
               </div>
 
-              {/* Style tag untuk scrollbar-hide (bisa dipindah ke CSS global) */}
-              <style>{`
-              .scrollbar-hide::-webkit-scrollbar {
-                display: none;
-              }
-              .scrollbar-hide {
-                -ms-overflow-style: none;
-                scrollbar-width: none;
-              }
-            `}</style>
-
               {/* Right Arrow */}
               <button
                 type="button"
@@ -446,7 +418,6 @@ const WhyUs: React.FC = () => {
                 className="z-20 bg-[#CB0D0D] rounded-full p-3 hover:bg-[#a00a0a] transition-colors shadow-lg shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
                 aria-label="Next video"
                 disabled={currentIndex >= maxIndex}
-                style={{ position: "relative", zIndex: 20 }}
                 title={`currentIndex: ${currentIndex}, maxIndex: ${maxIndex}, visibleCards: ${visibleCards}`}
               >
                 <svg
@@ -468,18 +439,22 @@ const WhyUs: React.FC = () => {
         </div>
       </section>
 
+      {/* =========================
+        SECTION DESKTOP (Ini sudah benar)
+        =========================
+      */}
       <section
         className="relative bg-cover bg-top xl:bg-center px-6 py-4 xl:py-14 hidden md:block"
         style={{ backgroundImage: `url(${backgroundImageWeb})` }}
       >
         <div className="flex flex-col gap-3 justify-center items-center ">
           {/* ... Teks "WHY US ?" ... */}
-          <span className="flex justify-center items-center font-normal font-mochiy-pop-one text-[#CB0D0D] text-2xl">
+          <span className="flex justify-center items-center font-normal font-mochiy-pop-one text-[#CB0D0D] text-3xl">
             WHY US ?
           </span>
 
           {/* ... Paragraf Teks ... */}
-          <div className="flex flex-col gap-2 text-xs">
+          <div className="flex flex-col gap-2 text-md">
             <span className="font-normal text-[#CB0D0D] text-center">
               At Cici Mandarin, we don't just help you study, travel, or work in
               China—
@@ -504,16 +479,19 @@ const WhyUs: React.FC = () => {
           </div>
 
           {/* video card carousel */}
-          <div className="relative w-full mt-6 flex items-center justify-center xl:max-w-[52rem] lg:max-w-[52rem]">
-            <div className="relative flex items-center justify-center gap-4 w-full max-w-6xl">
-              {/* Left Arrow */}
+          {/* Container dengan maxWidth, beri ruang sedikit ekstra */}
+          <div className="relative w-full mt-6 flex items-center justify-center" style={{ maxWidth: `${DESKTOP_LAYOUT_WIDTH}px` }}>
+
+            {/* Tombol dan Viewport dalam satu Flex Container */}
+            <div className="relative flex items-center justify-center gap-4 w-full">
+              
+              {/* Tombol Kiri */}
               <button
                 type="button"
                 onClick={handlePrev}
                 className="z-20 bg-[#CB0D0D] rounded-full p-3 hover:bg-[#a00a0a] transition-colors shadow-lg shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
                 aria-label="Previous video"
                 disabled={currentIndex === 0}
-                style={{ position: "relative", zIndex: 20 }}
               >
                 <svg
                   className="w-6 h-6 text-white"
@@ -530,20 +508,27 @@ const WhyUs: React.FC = () => {
                 </svg>
               </button>
 
-              {/* Video Container Wrapper */}
+              {/* Video Container Wrapper (Viewport) */}
               <div
-                className="overflow-x-auto w-full min-w-[12rem] max-w-6xl scrollbar-hide "
-                style={{ position: "relative", zIndex: 1 }}
+                ref={viewportRefDesktop}
+                className="overflow-hidden relative"
+                style={{
+                  width: `${viewportContentWidth}px`, // 920px
+                  zIndex: 1,
+                }}
               >
                 <div
-                  className="flex items-center gap-4 transition-transform duration-500 ease-in-out"
+                  className="flex items-center transition-transform duration-500 ease-in-out"
                   style={{
-                    transform: `translateX(-${currentIndex * cardWidth}px)`,
+                    gap: `${cardGap}px`,
+                    transform: `translateX(-${currentIndex * (cardWidth + cardGap)}px)`,
+                    minHeight: "540px",
                   }}
                 >
-                  {/* Render video cards secara dinamis */}
                   {videos.map((video, index) => (
                     <VideoCard
+                      isOdd={index % 2 === 1}
+                      isCenter={index === centerIndex}
                       key={video}
                       videoSrc={`pages/landing-pages/why-us/${video}`}
                       logoSrc={ciciMandarinLogo}
@@ -554,25 +539,24 @@ const WhyUs: React.FC = () => {
                 </div>
               </div>
 
-              {/* Style tag untuk scrollbar-hide (bisa dipindah ke CSS global) */}
+              {/* Style tag (tidak berubah) */}
               <style>{`
-              .scrollbar-hide::-webkit-scrollbar {
-                display: none;
-              }
-              .scrollbar-hide {
-                -ms-overflow-style: none;
-                scrollbar-width: none;
-              }
-            `}</style>
+                .scrollbar-hide::-webkit-scrollbar {
+                  display: none;
+                }
+                .scrollbar-hide {
+                  -ms-overflow-style: none;
+                  scrollbar-width: none;
+                }
+              `}</style>
 
-              {/* Right Arrow */}
+              {/* Tombol Kanan */}
               <button
                 type="button"
                 onClick={handleNext}
                 className="z-20 bg-[#CB0D0D] rounded-full p-3 hover:bg-[#a00a0a] transition-colors shadow-lg shrink-0 disabled:opacity-50 disabled:cursor-not-allowed"
                 aria-label="Next video"
                 disabled={currentIndex >= maxIndex}
-                style={{ position: "relative", zIndex: 20 }}
                 title={`currentIndex: ${currentIndex}, maxIndex: ${maxIndex}, visibleCards: ${visibleCards}`}
               >
                 <svg
@@ -591,10 +575,6 @@ const WhyUs: React.FC = () => {
               </button>
             </div>
           </div>
-        </div>
-
-        <div className="left-[10%] absolute -bottom-[5%] z-5">
-          <img src={paperImage} alt="paperImage" className="w-40" />
         </div>
       </section>
     </>

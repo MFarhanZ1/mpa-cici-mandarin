@@ -6,149 +6,184 @@ const CurrentPath = Astro.url.pathname;
 ---
 
 <nav
-	class="px-3 py-4 md:px-6 md:py-5 w-full h-16 md:h-26 fixed top-0 left-0 z-50 flex justify-center items-center"
+    id="main-navbar"
+    class="px-3 py-4 md:px-6 md:py-5 w-full h-16 md:h-26 fixed top-0 left-0 z-9998 flex justify-center items-center transition-transform duration-300 ease-in-out"
 >
-	<div
-		class="bg-[#cb0d0d] rounded-lg md:rounded-2xl w-full h-full flex items-center justify-between pl-5 pr-3 md:pl-36 md:pr-20"
-	>
-		<img class="w-10 h-10 md:w-20 md:h-20" src={CiciMandarinLogo} alt="Cici Mandarin Logo" />
+    <div
+        class="bg-[#cb0d0d] rounded-lg md:rounded-2xl w-full h-full flex items-center justify-between pl-5 pr-3 md:pl-36 md:pr-20"
+    >
+        <img class="w-10 h-10 md:w-20 md:h-20" src={CiciMandarinLogo} alt="Cici Mandarin Logo" />
 
-		<div class="flex justify-center items-center gap-2 md:gap-8">
-			<div class="flex justify-center items-center gap-2 md:gap-8">
-				<a
-					class=`${CurrentPath === '/' && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-[8px] md:text-sm`
-					href="/">HOME</a
-				>
-				<a
-					class=`${CurrentPath === '/about-us' && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-[8px] md:text-sm`
-					href="/about-us">ABOUT US</a
-				>
-				<button
-					class=`${CurrentPath.includes('/services') && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-[8px] md:text-sm services-toggle`
-					type="button"
-				>
-					SERVICES
-				</button>
-				<a
-					class=`${CurrentPath === '/contact-us' && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-[8px] md:text-sm`
-					href="/contact-us">CONTACT US</a
-				>
-			</div>
-			<a
-				href="http://wa.me/+6287853909383"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="join-us-link z-10"
-			>
-			<img src={JoinUs} class="w-20 h-20 md:w-38 md:h-38 join-us-image" />
-			</a>
-		</div>
-	</div>
+        <div class="flex justify-center items-center gap-2 md:gap-8">
+            <div class="flex justify-center items-center gap-2 md:gap-8">
+                <a
+                    class=`${CurrentPath === '/' && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-[8px] md:text-sm`
+                    href="/">HOME</a
+                >
+                <a
+                    class=`${CurrentPath === '/about-us' && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-[8px] md:text-sm`
+                    href="/about-us">ABOUT US</a
+                >
+                <button
+                    class=`${CurrentPath.includes('/services') && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-[8px] md:text-sm services-toggle`
+                    type="button"
+                >
+                    SERVICES
+                </button>
+                <a
+                    class=`${CurrentPath === '/contact-us' && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-[8px] md:text-sm`
+                    href="/contact-us">CONTACT US</a
+                >
+            </div>
+            <a
+                href="http://wa.me/+6287853909383"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="join-us-link z-10"
+            >
+            <img src={JoinUs} class="w-20 h-20 md:w-38 md:h-38 join-us-image" />
+            </a>
+        </div>
+    </div>
 
-	<!-- Services dropdown -->
-<div id="services-dropdown" class="absolute md:top-[81%] top-[75%] right-10 md:right-56 hidden">
-	<div
-		class="bg-white/95 backdrop-blur rounded-b-2xl shadow-xl w-[310px] max-w-[90vw] md:w-[440px] md:max-w-[60vw]"
-	>
-		<div class="grid grid-cols-4 place-items-center">
-			<a
-				href="/services/cici-language-course-expert"
-				class="group flex flex-col items-center cursor-pointer rounded-bl-2xl hover:bg-gray-50 gap-0.5 md:gap-2 text-center border-r border-gray-200 px-1.5 py-2 md:px-4 md:py-5"
-			>
-				<img
-					class="w-6 h-6 md:w-14 md:h-14 object-contain"
-					src="/navbar/s-1.svg"
-					alt="Cici Language Course Expert"
-				/>
-				<span class="text-[#cb0d0d] text-[8px] md:text-xs group-hover:underline leading-tight">Cici Language Course Expert</span>
-			</a>
-			<a
-				href="/services/cici-study-abroad-expert"
-				class="group flex flex-col items-center cursor-pointer hover:bg-gray-50 gap-0.5 md:gap-2 text-center border-r border-gray-200 px-1.5 py-2 md:px-4 md:py-5"
-			>
-				<img
-					class="w-6 h-6 md:w-14 md:h-14 object-contain"
-					src="/navbar/s-2.svg"
-					alt="Cici Study Abroad Expert"
-				/>
-				<span class="text-[#cb0d0d] text-[8px] md:text-xs group-hover:underline leading-tight">Cici Study Abroad Expert</span>
-			</a>
-			<a
-				href="/services/cici-tour-travel-expert"
-				class="group flex flex-col items-center cursor-pointer hover:bg-gray-50 gap-0.5 md:gap-2 text-center border-r border-gray-200 px-1.5 py-2 md:px-4 md:py-5"
-			>
-				<img
-					class="w-6 h-6 md:w-14 md:h-14 object-contain"
-					src="/navbar/s-3.svg"
-					alt="Cici Tour Travel Expert"
-				/>
-				<span class="text-[#cb0d0d] text-[8px] md:text-xs group-hover:underline leading-tight">Cici Tour Travel Expert</span>
-			</a>
-			<a href="/services/cici-career-link-expert" class="group flex flex-col items-center cursor-pointer rounded-br-2xl hover:bg-gray-50 gap-0.5 md:gap-2 text-center px-1.5 py-2 md:px-4 md:py-5">
-			<img
-				class="w-6 h-6 md:w-14 md:h-14 object-contain"
-					src="/navbar/s-4.svg"
-					alt="Cici Career Link Expert"
-				/>
-			<span class="text-[#cb0d0d] text-[8px] md:text-xs group-hover:underline leading-tight">Cici Career Link Expert</span>
-			</a>
-		</div>
-	</div>
+    <div id="services-dropdown" class="absolute md:top-[81%] top-[75%] right-10 md:right-56 hidden">
+    <div
+        class="bg-white/95 backdrop-blur rounded-b-2xl shadow-xl w-[310px] max-w-[90vw] md:w-[440px] md:max-w-[60vw]"
+    >
+        <div class="grid grid-cols-4 place-items-center">
+            <a
+                href="/services/cici-language-course-expert"
+                class="group flex flex-col items-center cursor-pointer rounded-bl-2xl hover:bg-gray-50 gap-0.5 md:gap-2 text-center border-r border-gray-200 px-1.5 py-2 md:px-4 md:py-5"
+            >
+                <img
+                    class="w-6 h-6 md:w-14 md:h-14 object-contain"
+                    src="/navbar/s-1.svg"
+                    alt="Cici Language Course Expert"
+                />
+                <span class="text-[#cb0d0d] text-[8px] md:text-xs group-hover:underline leading-tight">Cici Language Course Expert</span>
+            </a>
+            <a
+                href="/services/cici-study-abroad-expert"
+                class="group flex flex-col items-center cursor-pointer hover:bg-gray-50 gap-0.5 md:gap-2 text-center border-r border-gray-200 px-1.5 py-2 md:px-4 md:py-5"
+            >
+                <img
+                    class="w-6 h-6 md:w-14 md:h-14 object-contain"
+                    src="/navbar/s-2.svg"
+                    alt="Cici Study Abroad Expert"
+                />
+                <span class="text-[#cb0d0d] text-[8px] md:text-xs group-hover:underline leading-tight">Cici Study Abroad Expert</span>
+            </a>
+            <a
+                href="/services/cici-tour-travel-expert"
+                class="group flex flex-col items-center cursor-pointer hover:bg-gray-50 gap-0.5 md:gap-2 text-center border-r border-gray-200 px-1.5 py-2 md:px-4 md:py-5"
+            >
+                <img
+                    class="w-6 h-6 md:w-14 md:h-14 object-contain"
+                    src="/navbar/s-3.svg"
+                    alt="Cici Tour Travel Expert"
+                />
+                <span class="text-[#cb0d0d] text-[8px] md:text-xs group-hover:underline leading-tight">Cici Tour Travel Expert</span>
+            </a>
+            <a href="/services/cici-career-link-expert" class="group flex flex-col items-center cursor-pointer rounded-br-2xl hover:bg-gray-50 gap-0.5 md:gap-2 text-center px-1.5 py-2 md:px-4 md:py-5">
+            <img
+                class="w-6 h-6 md:w-14 md:h-14 object-contain"
+                    src="/navbar/s-4.svg"
+                    alt="Cici Career Link Expert"
+                />
+            <span class="text-[#cb0d0d] text-[8px] md:text-xs group-hover:underline leading-tight">Cici Career Link Expert</span>
+            </a>
+        </div>
+    </div>
 </div>
 </nav>
 
 <script>
-	document.addEventListener("DOMContentLoaded", () => {
-		const joinUsLink = document.querySelector(".join-us-link");
-		const joinUsImage = document.querySelector(".join-us-image");
-		const normalSrc = "/navbar/join-us.svg";
-		const hoverSrc = "/navbar/join-us-hover.svg";
+    document.addEventListener("DOMContentLoaded", () => {
+        const joinUsLink = document.querySelector(".join-us-link");
+        const joinUsImage = document.querySelector(".join-us-image");
+        const normalSrc = "/navbar/join-us.svg";
+        const hoverSrc = "/navbar/join-us-hover.svg";
 
-		joinUsLink?.addEventListener("mouseenter", () => {
-			if (joinUsImage instanceof HTMLImageElement) {
-				joinUsImage.src = hoverSrc;
-			}
-		});
+        joinUsLink?.addEventListener("mouseenter", () => {
+            if (joinUsImage instanceof HTMLImageElement) {
+                joinUsImage.src = hoverSrc;
+            }
+        });
 
-		joinUsLink?.addEventListener("mouseleave", () => {
-			if (joinUsImage instanceof HTMLImageElement) {
-				joinUsImage.src = normalSrc;
-			}
-		});
-	});
+        joinUsLink?.addEventListener("mouseleave", () => {
+            if (joinUsImage instanceof HTMLImageElement) {
+                joinUsImage.src = normalSrc;
+            }
+        });
+    });
 
-	// Toggle services dropdown
-	document.addEventListener("DOMContentLoaded", () => {
-		const servicesToggle = document.querySelector(".services-toggle");
-		const dropdown = document.getElementById("services-dropdown");
+    // Toggle services dropdown
+    document.addEventListener("DOMContentLoaded", () => {
+        const servicesToggle = document.querySelector(".services-toggle");
+        const dropdown = document.getElementById("services-dropdown");
 
-		const closeDropdown = () => {
-			if (!dropdown) return;
-			dropdown.classList.add("hidden");
-		};
+        const closeDropdown = () => {
+            if (!dropdown) return;
+            dropdown.classList.add("hidden");
+        };
 
-		servicesToggle?.addEventListener("click", (e) => {
-			e.preventDefault();
-			if (!dropdown) return;
-			dropdown.classList.toggle("hidden");
-		});
+        servicesToggle?.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (!dropdown) return;
+            dropdown.classList.toggle("hidden");
+        });
 
-		// Klik di luar area dropdown untuk menutup
-		document.addEventListener("click", (event) => {
-			if (!dropdown || dropdown.classList.contains("hidden")) return;
-			const target = event.target as Node;
-			if (
-				target &&
-				!dropdown.contains(target) &&
-				!(servicesToggle as HTMLElement)?.contains(target as Node)
-			) {
-				closeDropdown();
-			}
-		});
+        // Klik di luar area dropdown untuk menutup
+        document.addEventListener("click", (event) => {
+            if (!dropdown || dropdown.classList.contains("hidden")) return;
+            const target = event.target as Node;
+            if (
+                target &&
+                !dropdown.contains(target) &&
+                !(servicesToggle as HTMLElement)?.contains(target as Node)
+            ) {
+                closeDropdown();
+            }
+        });
 
-		// Tutup dengan tombol Escape
-		document.addEventListener("keydown", (event) => {
-			if (event.key === "Escape") closeDropdown();
-		});
-	});
+        // Tutup dengan tombol Escape
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") closeDropdown();
+        });
+    });
+
+    // BARU: Logika untuk hide/show navbar on scroll
+    document.addEventListener("DOMContentLoaded", () => {
+        const navbar = document.getElementById("main-navbar");
+        if (!navbar) return;
+
+        let lastScrollTop = 0;
+        const delta = 5; // Jarak scroll minimal sebelum trigger
+        const navbarHeight = navbar.offsetHeight;
+
+        window.addEventListener("scroll", () => {
+            const currentScroll = window.scrollY;
+
+            // Cek jika scroll cukup signifikan (abaikan jitter)
+            if (Math.abs(lastScrollTop - currentScroll) <= delta) {
+                return;
+            }
+
+            // Cek arah scroll
+            if (currentScroll > lastScrollTop) {
+                // SCROLL DOWN
+                // Sembunyikan navbar HANYA jika sudah scroll melewati tinggi navbar
+                if (currentScroll > navbarHeight) {
+                    navbar.style.transform = "translateY(-100%)";
+                }
+            } else {
+                // SCROLL UP
+                // Tampilkan navbar
+                navbar.style.transform = "translateY(0)";
+            }
+
+            // Update posisi scroll terakhir
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        }, false);
+    });
 </script>

@@ -295,7 +295,7 @@ const WhyUs: React.FC = () => {
         =========================
       */}
       <section
-        className="bg-cover max-h-[70vh] bg-bottom px-6 py-4 xl:py-14 block md:hidden"
+        className="bg-cover pt-6 bg-bottom px-6 py-4 xl:py-14 -mb-2 block md:hidden"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
         <div className="flex flex-col gap-3 justify-center items-center">

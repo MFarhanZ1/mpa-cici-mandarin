@@ -50,7 +50,7 @@ export default function HottestNews() {
     </section>
 
     <section
-      className="bg-cover px-7 bg-left py-12 -mt-44 md:block hidden -mb-[2%]"
+      className="bg-cover px-7 py-12 -mt-[14%] 2xl:-mt-[10%] md:block hidden -mb-[2%] relative"
       style={{
         backgroundImage: `url(${Background})`,
       }}

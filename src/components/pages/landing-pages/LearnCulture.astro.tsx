@@ -72,7 +72,7 @@ export default function LearnCulture() {
         </div>
       </section>
 
-      <section className="-mt-[2%] py-6 overflow-hidden hidden md:block">
+      <section className="-mt-[2%] overflow-hidden hidden md:block">
         <div className="relative bg-[#FBEDDE]">
           <img
             src={vectorImage1}
@@ -92,7 +92,7 @@ export default function LearnCulture() {
             className="absolute bottom-1/3 -left-14 w-40 z-20"
           />
 
-          <div className="pl-[12%] py-10 z-10 relative">
+          <div className="py-12 z-10 relative left-[10%] 2xl:left-[20%]">
             <img src={phoneCatTalk} alt="phoneCatTalk" />
           </div>
         </div>

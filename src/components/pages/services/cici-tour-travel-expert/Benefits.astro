@@ -45,10 +45,13 @@ const benefits = [
       }
     </div>
 
-    <div id="benefits-scroller" class="md:hidden w-full flex gap-4 overflow-x-auto snap-x snap-mandatory px-4 pb-4">
+    <div id="benefits-scroller" class="md:hidden w-full flex gap-4 overflow-x-auto snap-x snap-mandatory px-4 pb-4 scroll-pl-4">
       {
         benefits.map((benefit, index) => (
-          <div id={index === 1 ? "default-benefit" : undefined} class="relative w-64 h-auto rounded-3xl overflow-hidden shadow-2xl border-3 border-white flex-none snap-center">
+          <div 
+            id={index === 1 ? "default-benefit" : undefined} 
+            class="relative w-64 h-auto rounded-3xl overflow-hidden shadow-2xl border-3 border-white flex-none snap-center"
+          >
             <img src={benefit.image} alt={benefit.title} class="w-full h-full object-cover" />
             <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
             <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-linear-to-t via-[#0B5B50] from-[#105154] to-transparent" />
@@ -68,14 +71,14 @@ const benefits = [
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth < 768) {
+      const scroller = document.getElementById("benefits-scroller");
       const defaultItem = document.getElementById("default-benefit");
 
-      if (defaultItem) {
-        defaultItem.scrollIntoView({
-          behavior: "auto",
-          block: "nearest",
-          inline: "center",
-        });
+      if (scroller && defaultItem) {
+        setTimeout(() => {
+          const scrollLeft = defaultItem.offsetLeft - scroller.offsetLeft - (scroller.clientWidth / 2) + (defaultItem.clientWidth / 2);
+          scroller.scrollLeft = scrollLeft;
+        }, 100);
       }
     }
   });

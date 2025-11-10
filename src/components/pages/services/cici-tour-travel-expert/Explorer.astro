@@ -21,58 +21,57 @@ const videos = [video1, video2, video3, video5, video6, video7];
 
   <div class="absolute inset-0 px-2 md:px-4 lg:px-8 flex items-center justify-center md:items-center md:justify-center">
     <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 w-full max-w-6xl">
-
       <div class="relative w-full max-w-md md:max-w-lg mt-42 md:mt-0 md:ml-98.5">
         <div class="relative w-full" style="padding-top: 180%;">
           <div id="video-container" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[68%] md:h-[65%] overflow-y-scroll snap-y snap-mandatory rounded-3xl scrollbar-hide z-10">
-                {videos.map((videoSrc, index) => (
-                <div class="video-slide relative w-full h-full snap-start snap-always shrink-0">
-                  <video
+            {videos.map((videoSrc, index) => (
+              <div class="video-slide relative w-full h-full snap-start snap-always shrink-0">
+                <video
                   id={`video-${index}`}
                   class="w-full h-full object-cover"
                   src={videoSrc}
                   loop
                   playsinline
-                  muted
-                  >
-                  </video>
+                  muted>
+                </video>
                 <!-- Video Controls Overlay -->
-                <div class="controls-overlay absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-3 transition-opacity duration-300"><button 
+                <div class="controls-overlay absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-3 transition-opacity duration-300">
+                <button 
                   class="play-pause-btn bg-white/80 hover:bg-white rounded-full p-3 transition-all duration-200 shadow-lg"
                   data-video-id={`video-${index}`}
                   aria-label="Play/Pause">
-                    <svg class="play-icon w-6 h-6 text-gray-800" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z"/>
-                      </svg>
-                      <svg class="pause-icon w-6 h-6 text-gray-800 hidden" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
-                        </svg>
-                        </button>
-                        </div>
+                  <svg class="play-icon w-6 h-6 text-gray-800" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                  <svg class="pause-icon w-6 h-6 text-gray-800 hidden" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            ))}
+          </div>
+
+          <!-- Hand Phone Image Overlay (Di Atas Video) -->
+          <div class="absolute inset-0 z-30 pointer-events-none mt-46 md:mt-60">
+            <img 
+              src={handPhone} 
+              alt="Hand Phone Mockup" 
+              class="w-lg h-auto object-cover scale-150 translate-x-19 md:translate-x-26"
+            />
+          </div>
+
+          <!-- Navigation Hints -->
+          <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-40">
+            <div class="flex flex-col items-center gap-2 opacity-50 animate-bounce" id="scroll-hint">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+              </svg>
+              <span class="text-white text-sm font-semibold">Scroll</span>
+            </div>
+          </div>
         </div>
-      ))}
-    </div>
-
-    <!-- Hand Phone Image Overlay (Di Atas Video) -->
-    <div class="absolute inset-0 z-30 pointer-events-none mt-46 md:mt-60">
-      <img 
-        src={handPhone} 
-        alt="Hand Phone Mockup" 
-        class="w-lg h-auto object-cover scale-150 translate-x-19 md:translate-x-26"
-      />
-    </div>
-
-    <!-- Navigation Hints -->
-    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-40">
-      <div class="flex flex-col items-center gap-2 opacity-50 animate-bounce" id="scroll-hint">
-        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-        </svg>
-        <span class="text-white text-sm font-semibold">Scroll</span>
       </div>
-    </div>
-  </div>
-</div>
     </div>
   </div>
 </section>

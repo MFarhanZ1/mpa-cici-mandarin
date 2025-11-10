@@ -19,18 +19,67 @@ const CardFour = "/pages/landing-pages/our-service/4.png";
         >
       </div>
       <div class="grid grid-cols-2 grid-rows-2 gap-2">
-        <img src={CardOne} alt="CardOne" class="w-52" />
-        <img src={CardTwo} alt="CardTwo" class="w-52" />
-        <img src={CardThree} alt="CardThree" class="w-52" />
-        <img src={CardFour} alt="CardFour" class="w-52" />
+        <img
+          src={CardOne}
+          alt="CardOne"
+          class="w-52"
+          onclick="window.location.href = '/services/cici-language-course-expert' "
+        />
+        <img
+          src={CardTwo}
+          alt="CardTwo"
+          class="w-52"
+          onclick="window.location.href = '/services/cici-study-abroad-expert' "
+        />
+        <img
+          src={CardThree}
+          alt="CardThree"
+          class="w-52"
+          onclick="window.location.href = '/services/cici-tour-travel-expert' "
+        />
+        <img
+          src={CardFour}
+          alt="CardFour"
+          class="w-52"
+          onclick="window.location.href = '/services/cici-career-link-expert' "
+        />
       </div>
     </div>
   </section>
 
-  <section
-  class="bg-cover bg-top -mt-[12%] h-auto min-h-screen hidden md:block"
-  style={`background-image: url(${BackgroundWeb})`}
->
-  <div class="pb-[58%]"></div> <!-- Sesuaikan persentase dengan aspect ratio gambar -->
-</section>
+  <section class="-mt-[12%] hidden md:block w-full overflow-hidden relative">
+    <img
+      src={BackgroundWeb}
+      alt="Contact Us Background"
+      class="w-full h-auto object-cover object-center"
+    />
+    <div class="absolute top-[34.6%] w-full h-full pl-[22%] pr-[24.0578%]">
+      <div class="grid grid-cols-2 gap-x-[2%] gap-y-[5.5%]">
+        <!--cici language-->
+        <div
+          class="py-[26%] rounded-lg cursor-pointer"
+          onclick="window.location.href = '/services/cici-language-course-expert' "
+        >
+        </div>
+        <!--cici study-->
+        <div
+          class="py-[26%] rounded-lg cursor-pointer"
+          onclick="window.location.href = '/services/cici-study-abroad-expert' "
+        >
+        </div>
+        <!--cici tour-->
+        <div
+          class="py-[26%] rounded-lg cursor-pointer"
+          onclick="window.location.href = '/services/cici-tour-travel-expert' "
+        >
+        </div>
+        <!--  -->
+        <div
+          class="py-[26%] rounded-lg cursor-pointer"
+          onclick="window.location.href = '/services/cici-career-link-expert' "
+        >
+        </div>
+      </div>
+    </div>
+  </section>
 </>

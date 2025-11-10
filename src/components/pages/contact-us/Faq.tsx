@@ -59,9 +59,6 @@ export default function Faq() {
       nonActive: hijauButtonNonActive,
     },
   };
-
- 
-
   // Object mapping untuk background dan button (mobile)
   const colorConfigMobile = {
     merah: {
@@ -100,11 +97,10 @@ export default function Faq() {
         />
 
         {/* Container untuk overflow */}
-        <div className="absolute top-[15%] left-[23%] w-[55%] overflow-x-auto overflow-y-hidden scrollbar-hide">
+        <div className="absolute top-[13%] px-10">
           {/* Wrapper flex */}
-          <div className="flex justify-center items-center px-2 w-max mx-auto">
+          <div className="grid grid-cols-2">
             <div
-              
               onClick={() => handleColorChange("merah")}
               className="cursor-pointer"
             >
@@ -115,11 +111,10 @@ export default function Faq() {
                     : colorConfigMobile.merah.nonActive
                 }
                 alt=""
-                className="w-[55%]"
+                className=""
               />
             </div>
             <div
-             
               onClick={() => handleColorChange("biru")}
               className="cursor-pointer"
             >
@@ -130,11 +125,10 @@ export default function Faq() {
                     : colorConfigMobile.biru.nonActive
                 }
                 alt=""
-                className="w-[55%]"
+                className=""
               />
             </div>
             <div
-              
               onClick={() => handleColorChange("orange")}
               className="cursor-pointer"
             >
@@ -145,11 +139,10 @@ export default function Faq() {
                     : colorConfigMobile.orange.nonActive
                 }
                 alt=""
-                className="w-[55%]"
+                className=""
               />
             </div>
             <div
-              
               onClick={() => handleColorChange("hijau")}
               className="cursor-pointer"
             >
@@ -160,7 +153,7 @@ export default function Faq() {
                     : colorConfigMobile.hijau.nonActive
                 }
                 alt=""
-                className="w-[55%]"
+                className=""
               />
             </div>
           </div>

@@ -21,7 +21,7 @@ const CurrentPath = Astro.url.pathname;
                     href="/">HOME</a
                 >
                 <a
-                    class=`${CurrentPath === '/about-us' && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-[8px] md:text-sm`
+                    class=`${CurrentPath.includes('/about-us') && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-[8px] md:text-sm`
                     href="/about-us">ABOUT US</a
                 >
                 <button
@@ -31,7 +31,7 @@ const CurrentPath = Astro.url.pathname;
                     SERVICES
                 </button>
                 <a
-                    class=`${CurrentPath === '/contact-us' && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-[8px] md:text-sm`
+                    class=`${CurrentPath.includes('/contact-us') && 'text-yellow-300 underline'} text-white hover:text-yellow-300 hover:underline transition-colors font-medium text-[8px] md:text-sm`
                     href="/contact-us">CONTACT US</a
                 >
             </div>

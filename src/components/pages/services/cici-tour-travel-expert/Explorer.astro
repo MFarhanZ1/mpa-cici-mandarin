@@ -1,7 +1,16 @@
 ---
 const background = "/pages/services/cici-tour-travel-expert/explorer/background.webp";
-const bgMobile = "/pages/services/cici-tour-travel-expert/explorer/bg-mobile.webp";
+const bgMobile = "/pages/services/cici-tour-travel-expert/explorer/bg-mobile.png";
 const handPhone = "/pages/services/cici-tour-travel-expert/explorer/hand-phone.webp";
+
+const video1 = "/pages/landing-pages/why-us/1.mp4";
+const video2 = "/pages/landing-pages/why-us/2.mp4";
+const video3 = "/pages/landing-pages/why-us/3.mp4";
+const video5 = "/pages/landing-pages/why-us/5.mp4";
+const video6 = "/pages/landing-pages/why-us/6.mp4";
+const video7 = "/pages/landing-pages/why-us/7.mp4";
+
+const videos = [video1, video2, video3, video5, video6, video7];
 ---
 
 <section class="relative w-full overflow-hidden -mt-6 -z-4">
@@ -11,13 +20,257 @@ const handPhone = "/pages/services/cici-tour-travel-expert/explorer/hand-phone.w
   </picture>
 
   <div class="absolute inset-0 px-2 md:px-4 lg:px-8 py-8 md:py-12 flex items-center justify-center md:items-center md:justify-center ml-0 md:-ml-164 -mt-128 md:mt-0">
-    <div class="flex flex-col items-center mt-8 md:mt-0">
-      <h1 class="text-2xl md:text-3xl lg:text-6xl font-bold text-white tracking-wide font-mochiy-pop-one text-outline-cyan mb-4 text-center">
-        <span>EXPLORERS</span><br /><span class="mt-2 md:mt-4 block">JOURNEY</span>
-      </h1>
-      <div class="bg-linear-to-r from-[#18C3AC] to-[#0E8E7D] rounded-2xl px-2 md:px-3 py-2 md:py-3 w-fit">
-        <h2 class="text-lg md:text-2xl lg:text-3xl font-bold text-white tracking-wide font-mochiy-pop-one">IN CHINA</h2>
+    <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 mt-8 md:mt-0 w-full max-w-6xl">
+      <!-- Left Side: Title -->
+      <div class="flex flex-col items-center md:items-start">
+        <h1 class="text-2xl md:text-3xl lg:text-6xl font-bold text-white tracking-wide font-mochiy-pop-one text-outline-cyan mb-4 text-center md:text-left">
+          <span>EXPLORERS</span><br /><span class="mt-2 md:mt-4 block">JOURNEY</span>
+        </h1>
+        <div class="bg-linear-to-r from-[#18C3AC] to-[#0E8E7D] rounded-2xl px-2 md:px-3 py-2 md:py-3 w-fit">
+          <h2 class="text-lg md:text-2xl lg:text-3xl font-bold text-white tracking-wide font-mochiy-pop-one">IN CHINA</h2>
+        </div>
+      </div>
+
+      <!-- Right Side: Phone Mockup with Video -->
+      <div class="relative w-full max-w-sm md:max-w-md">
+        <!-- Hand Phone Image Overlay -->
+        <img 
+          src={handPhone} 
+          alt="Hand Phone Mockup" 
+          class="absolute inset-0 w-full h-auto z-20 pointer-events-none"
+        />
+        
+        <!-- Video Container (Behind Phone) -->
+        <div class="relative w-full" style="padding-top: 200%;">
+          <div id="video-container" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] h-[85%] overflow-y-scroll snap-y snap-mandatory rounded-3xl scrollbar-hide z-10">
+            {videos.map((videoSrc, index) => (
+              <div class="video-slide relative w-full h-full snap-start snap-always shrink-0">
+                <video
+                  id={`video-${index}`}
+                  class="w-full h-full object-cover"
+                  src={videoSrc}
+                  loop
+                  playsinline
+                  muted
+                ></video>
+                
+                <!-- Video Controls Overlay -->
+                <div class="controls-overlay absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-3 transition-opacity duration-300">
+                  <button 
+                    class="play-pause-btn bg-white/80 hover:bg-white rounded-full p-3 transition-all duration-200 shadow-lg"
+                    data-video-id={`video-${index}`}
+                    aria-label="Play/Pause"
+                  >
+                    <svg class="play-icon w-6 h-6 text-gray-800" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <svg class="pause-icon w-6 h-6 text-gray-800 hidden" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                    </svg>
+                  </button>
+                </div>
+
+                <!-- Video Counter -->
+                <div class="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm z-30">
+                  {index + 1} / {videos.length}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Navigation Hints -->
+          <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-30">
+            <div class="flex flex-col items-center gap-2 opacity-50 animate-bounce" id="scroll-hint">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+              </svg>
+              <span class="text-white text-sm font-semibold">Scroll</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Smooth scroll behavior */
+  #video-container {
+    scroll-behavior: smooth;
+  }
+
+  /* Animation for scroll hint */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-bounce {
+    animation: bounce 2s infinite;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('video-container');
+    const scrollHint = document.getElementById('scroll-hint');
+    let currentVideoIndex = 0;
+    const videos = document.querySelectorAll('video');
+    const playPauseBtns = document.querySelectorAll('.play-pause-btn');
+    const allSlides = document.querySelectorAll('.video-slide');
+    const hideButtonTimeouts = new Map<string, number>();
+
+    function showAndHideButton(button: HTMLElement) {
+      const videoId = button.getAttribute('data-video-id');
+      if (!videoId) return;
+
+      if (hideButtonTimeouts.has(videoId)) {
+        clearTimeout(hideButtonTimeouts.get(videoId));
+        hideButtonTimeouts.delete(videoId);
+      }
+
+      button.classList.remove('opacity-0');
+      button.classList.add('opacity-100');
+
+      const timeoutId = window.setTimeout(() => {
+        button.classList.remove('opacity-100');
+        button.classList.add('opacity-0');
+      }, 2000);
+
+      hideButtonTimeouts.set(videoId, timeoutId);
+    }
+
+    let hasScrolled = false;
+    container?.addEventListener('scroll', () => {
+      if (!hasScrolled && scrollHint) {
+        scrollHint.style.opacity = '0';
+        scrollHint.style.transition = 'opacity 0.3s';
+        hasScrolled = true;
+      }
+    });
+
+    playPauseBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const videoId = btn.getAttribute('data-video-id');
+        const video = document.getElementById(videoId) as HTMLVideoElement;
+        const playIcon = btn.querySelector('.play-icon');
+        const pauseIcon = btn.querySelector('.pause-icon');
+
+        if (video.paused) {
+          video.play();
+          playIcon?.classList.add('hidden');
+          pauseIcon?.classList.remove('hidden');
+        } else {
+          video.pause();
+          playIcon?.classList.remove('hidden');
+          pauseIcon?.classList.add('hidden');
+        }
+
+        showAndHideButton(btn as HTMLElement);
+      });
+    });
+
+    allSlides.forEach(slide => {
+      slide.addEventListener('click', () => {
+        const video = slide.querySelector('video') as HTMLVideoElement;
+        const btn = slide.querySelector('.play-pause-btn') as HTMLElement;
+        const playIcon = btn?.querySelector('.play-icon');
+        const pauseIcon = btn?.querySelector('.pause-icon');
+
+        if (!video || !btn || !playIcon || !pauseIcon) return;
+
+        if (video.paused) {
+          video.play();
+          playIcon.classList.add('hidden');
+          pauseIcon.classList.remove('hidden');
+        } else {
+          video.pause();
+          playIcon.classList.remove('hidden');
+          pauseIcon.classList.add('hidden');
+        }
+
+        showAndHideButton(btn);
+      });
+    });
+
+    const observerOptions = {
+      root: container,
+      threshold: 0.6
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const video = entry.target as HTMLVideoElement;
+        const index = Array.from(videos).indexOf(video);
+        const btn = playPauseBtns[index] as HTMLElement;
+        const playIcon = btn?.querySelector('.play-icon');
+        const pauseIcon = btn?.querySelector('.pause-icon');
+
+        if (entry.isIntersecting) {
+          video.play();
+          playIcon?.classList.add('hidden');
+          pauseIcon?.classList.remove('hidden');
+          currentVideoIndex = index;
+          showAndHideButton(btn);
+        } else {
+          video.pause();
+          playIcon?.classList.remove('hidden');
+          pauseIcon?.classList.add('hidden');
+          btn?.classList.remove('opacity-100');
+          btn?.classList.add('opacity-0');
+          const videoId = btn?.getAttribute('data-video-id');
+          if (videoId && hideButtonTimeouts.has(videoId)) {
+            clearTimeout(hideButtonTimeouts.get(videoId));
+            hideButtonTimeouts.delete(videoId);
+          }
+        }
+      });
+    }, observerOptions);
+
+    videos.forEach(video => {
+      observer.observe(video);
+    });
+
+    let scrollTimeout: number;
+    container?.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = window.setTimeout(() => {
+        const containerHeight = container.clientHeight;
+        const scrollTop = container.scrollTop;
+        const nearestIndex = Math.round(scrollTop / containerHeight);
+        container.scrollTo({
+          top: nearestIndex * containerHeight,
+          behavior: 'smooth'
+        });
+      }, 150);
+    });
+
+    if (videos.length > 0) {
+      const firstBtn = playPauseBtns[0] as HTMLElement;
+      const playIcon = firstBtn?.querySelector('.play-icon');
+      const pauseIcon = firstBtn?.querySelector('.pause-icon');
+
+      videos[0].play();
+      playIcon?.classList.add('hidden');
+      pauseIcon?.classList.remove('hidden');
+
+      if (firstBtn) {
+        showAndHideButton(firstBtn);
+      }
+    }
+  });
+</script>

@@ -78,14 +78,14 @@ const benefits = [
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     if (window.innerWidth < 768) {
+      const scroller = document.getElementById("benefits-scroller");
       const defaultItem = document.getElementById("default-benefit");
 
-      if (defaultItem) {
-        defaultItem.scrollIntoView({
-          behavior: "auto",
-          block: "nearest",
-          inline: "center",
-        });
+      if (scroller && defaultItem) {
+        setTimeout(() => {
+          const scrollLeft = defaultItem.offsetLeft - scroller.offsetLeft - (scroller.clientWidth / 2) + (defaultItem.clientWidth / 2);
+          scroller.scrollLeft = scrollLeft;
+        }, 100);
       }
     }
   });

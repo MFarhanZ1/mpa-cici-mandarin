@@ -36,7 +36,15 @@ export default function LearnCulture() {
                 LEARN CHINESE CULTURE WITH CICI MANDARIN!
               </span>
               <div className="xl:hidden lg:hidden">
-                <button className="bg-[#FFBC2D] py-1 px-3 rounded-lg">
+                <button
+                  onClick={() => {
+                    window.open(
+                      "https://www.instagram.com/cicimandarin.idn?igsh=aDg5eWU2a25wNzJt",
+                      "_blank"
+                    );
+                  }}
+                  className="bg-[#FFBC2D] py-1 px-3 rounded-lg"
+                >
                   <span className="text-[#F03C0B] font-bold">
                     {" "}
                     VISIT OUR INSTAGRAM{" "}
@@ -93,7 +101,17 @@ export default function LearnCulture() {
           />
 
           <div className="py-12 z-10 relative left-[10%] 2xl:left-[20%]">
-            <img src={phoneCatTalk} alt="phoneCatTalk" />
+            <img
+              src={phoneCatTalk}
+              alt="phoneCatTalk"
+              className="2xl:w-[58%] w-[70%] cursor-pointer"
+              onClick={() => {
+                window.open(
+                  "https://www.instagram.com/cicimandarin.idn?igsh=aDg5eWU2a25wNzJt",
+                  "_blank"
+                );
+              }}
+            />
           </div>
         </div>
       </section>

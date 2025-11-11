@@ -1,5 +1,6 @@
 ---
 const background = "/pages/services/cici-career-link-expert/services/background.webp";
+const bgMobile = "/pages/services/cici-career-link-expert/services/bg-mobile.jpg";
 // icon
 const checklist = "/pages/services/cici-career-link-expert/services/checklist.svg";
 const idea = "/pages/services/cici-career-link-expert/services/idea.svg";
@@ -56,16 +57,11 @@ const services2 = [
 ];
 ---
 
-<section class="relative w-full overflow-hidden -mt-5">
-  <div
-    class="absolute inset-0"
-    style={`background-image: url(${background}); background-size: cover; background-position: center;
-filter: brightness(0.5);`}
-  >
-  </div>
-  <div class="relative flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 py-10 md:py-10 min-h-screen">
+<section class="relative h-full overflow-hidden -mt-5">
+  <div class="absolute top-0 left-0 w-full h-full lg:hidden" style={`background-image: url(${bgMobile}); background-size: cover; background-position: top center; filter: brightness(0.5);`}></div>
+  <div class="absolute inset-0 hidden lg:block" style={`background-image: url(${background}); background-size: cover; background-position: center; filter: brightness(0.5);`}></div>
+  <div class="relative flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 py-1 md:py-10 min-h-screen">
     <h2 class="font-mochiy-pop-one text-3xl md:text-4xl lg:text-5xl text-white mb-6 md:mb-8 text-center tracking-wider text-outline-orange">SERVICES</h2>
-
     <!-- Desktop View: services (3 kolom) -->
     <div class="hidden lg:grid grid-cols-3 gap-6 max-w-5xl w-full">
       {
@@ -111,7 +107,7 @@ filter: brightness(0.5);`}
     </div>
 
     <!-- Mobile View: services2 (1 kolom, centered) -->
-    <div class="gap-3 md:gap-6 max-w-5xl w-full px-20 m-4 lg:hidden">
+    <div class="max-w-5xl w-full px-20 mt-4 lg:hidden">
       {
         services2.map((service, index) => (
           <div class="bg-white rounded-3xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl max-w-full md:max-w-xs mx-auto w-full flex flex-col">

@@ -1,0 +1,721 @@
+---
+import { ArrowRight, Briefcase, Globe, GraduationCap } from "@lucide/astro";
+import Layout from "../../layouts/Layout.astro";
+
+// --- Aset dari pola asli Anda ---
+const Background =
+    "/pages/landing-pages/hottest-news/article/article-background.webp";
+const CoverArticle =
+    "/pages/landing-pages/hottest-news/article/cover-artikel-dalam-stabilo.webp";
+
+// --- TAMBAHAN: Aset untuk artikel baru (Gunakan path dummy) ---
+const ShenzhenImage = "/pages/landing-pages/hottest-news/article/shenzen.png";
+const HangzouImage = "/pages/landing-pages/hottest-news/article/hangzou.png";
+const ShanghaiImage = "/pages/landing-pages/hottest-news/article/shanghai.png";
+const XionganImage = "/pages/landing-pages/hottest-news/article/xiongan.png";
+const SuzhouImage = "/pages/landing-pages/hottest-news/article/suzhou.png";
+
+// --- Objek artikel diperbarui untuk konten baru ---
+const article = {
+    topic: "CICIUNBOXCHINA #4",
+    title: "JALAN-JALAN KE MASA DEPAN: INI KOTA-KOTA TERCANGGIH DI CHINA!",
+    publishDate: "12 Nov 2025",
+    author: "Celia Vanessa Hakim",
+};
+---
+
+<Layout title={article.title}>
+    {/* --- MOBILE VERSION --- */}
+    <main
+        class="md:hidden min-h-screen bg-cover bg-center pb-8 pt-[4%]"
+        style={`background-image: url(${Background})`}
+    >
+        {/* HERO SECTION MOBILE */}
+        <div class="px-4 mx-auto pt-6">
+            <div class="rounded-xl p-4">
+                <div class="mb-3">
+                    <span
+                        class="inline-block bg-cyan-700 text-white font-bold text-xs px-3 py-1 rounded-full"
+                    >
+                        {article.topic}
+                    </span>
+                </div>
+                <h1 class="font-bold text-gray-900 text-xl leading-snug mb-3">
+                    {article.title}
+                </h1>
+                <div
+                    class="flex items-center gap-2 text-gray-600 text-xs border-t pt-3"
+                >
+                    <span class="font-medium">By {article.author}</span>
+                </div>
+            </div>
+        </div>
+
+        {/* CONTENT MOBILE */}
+        <div class="mx-auto px-4 pt-4">
+            <article class="rounded-xl p-4">
+                {/* Cover Image */}
+                <div class="mb-6 mx-auto">
+                    <img
+                        src={CoverArticle}
+                        alt="Cover Article"
+                        class="w-full h-auto rounded-lg"
+                    />
+                </div>
+
+                {/* Opening */}
+                <div class="mb-6">
+                    <p class="text-base font-semibold text-gray-800 italic">
+                        "你好! We're back with more China updates from Cici!"
+                    </p>
+                </div>
+
+                {/* Paragraf Pembuka */}
+                <div class="mb-6">
+                    <p
+                        class="text-gray-700 text-sm leading-relaxed text-justify"
+                    >
+                        Selamat Datang di Masa Depan! Pernah bayangin naik taksi
+                        terbang, belanja tanpa kasir, atau tinggal di kota yang
+                        dikelola oleh kecerdasan buatan? Di China, masa depan
+                        itu sudah hadir hari ini! Sekarang, China tidak hanya
+                        terkenal dengan sejarah dan kulinernya, tapi juga
+                        kota-kota futuristiknya yang bikin kita serasa hidup di
+                        film fiksi ilmiah.
+                    </p>
+                    <p
+                        class="text-gray-700 text-sm leading-relaxed text-justify mt-3"
+                    >
+                        Yuk kenalan dengan kota-kota tercanggih di China!
+                    </p>
+                </div>
+
+                {/* 1. Shenzhen */}
+                <div class="mb-6">
+                    <h2 class="text-lg font-bold text-gray-900 mb-3">
+                        1. Shenzhen
+                    </h2>
+                    <div class="mb-4">
+                        <p
+                            class="text-gray-700 text-sm leading-relaxed text-justify"
+                        >
+                            Dulu hanya desa nelayan kecil, sekarang Shenzhen
+                            menjadi pusat teknologi terbesar di Asia. Terletak
+                            di provinsi Guangdong dan bersebelahan dengan Hong
+                            Kong, Shenzhen merupakan Zona Ekonomi khusus pertama
+                            China. Kota ini merupakan rumah bagi raksasa
+                            teknologi seperti Huawei (telekomunikasi), Tencent
+                            (pemilik WeChat), dan DJI (pemimpin pasar drone
+                            dunia). Maka tidak heran kalau kota ini dijuluki
+                            sebagai Silicon Valley versi Asia! Bahkan, kamu bisa
+                            naik kereta melayang yang diatur oleh artificial
+                            intelligence (AI) di Shenzhen (Discover Hong Kong).
+                        </p>
+                    </div>
+                    <div class="my-4 flex justify-center">
+                        <img
+                            src={ShenzhenImage}
+                            alt="Pemandangan kota Shenzhen"
+                            class="w-full h-auto rounded-lg shadow-md"
+                        />
+                    </div>
+                </div>
+
+                {/* 2. Hangzhou */}
+                <div class="mb-6">
+                    <h2 class="text-lg font-bold text-gray-900 mb-3">
+                        2. Hangzhou
+                    </h2>
+                    <div class="mb-4">
+                        <p
+                            class="text-gray-700 text-sm leading-relaxed text-justify"
+                        >
+                            Salah satu kota yang paling cashless di China,
+                            dimana lagi kalau bukan di Hangzhou. Kamu mau beli
+                            jajanan kaki lima? Cukup scan QR pakai HP. Terkenal
+                            di Provinsi Zhejiang, Hangzhou juga dikenal sebagai
+                            markas besar Alibaba. Selain itu, Hangzhou
+                            menerapkan sistem kota pintar bernama "City Brain",
+                            yang mengelola lalu lintas, keamanan, dan layanan
+                            publik dengan bantuan AI (Ou Bai, Yijun Shu & Fuhua
+                            Wu, 2025). Tidaklah mengherankan kalau salah satu AI
+                            buatan China, yaitu Deepseek, foundernya (Liang
+                            Wenfang) merupakan lulusan dari universitas di
+                            Hangzhou, tak lain dan tak bukan Zhejiang
+                            University.
+                        </p>
+                    </div>
+                    <div class="my-4 flex justify-center">
+                        <img
+                            src={HangzouImage}
+                            alt="Pemandangan kota Hangzhou"
+                            class="w-full h-auto rounded-lg shadow-md"
+                        />
+                    </div>
+                </div>
+
+                {/* 3. Xiong'an */}
+                <div class="mb-6">
+                    <h2 class="text-lg font-bold text-gray-900 mb-3">
+                        3. Xiong'an
+                    </h2>
+                    <div class="mb-4">
+                        <p
+                            class="text-gray-700 text-sm leading-relaxed text-justify"
+                        >
+                            Mungkin kamu pertama dengar daerah yang namanya
+                            Xiong'an. Hal ini karena Xiong'an merupakan kawasan
+                            baru yang terletak di provinsi Hebei dan diresmikan
+                            pada tahun 2017 yang lalu. Kota Xiong'an merupakan
+                            hasil gabungan dari kabupaten Rongcheng, Anxin, dan
+                            Xiongxian. Area ini bertujuan untuk membebaskan
+                            Beijing dari fungsi-fungsi yang tidak penting
+                            terkait statusnya sebagai ibu kota negara, serta
+                            diperuntukkan untuk menguji inovasi teknologi
+                            mutakhir di China. China berkomitmen untuk membangun
+                            Xiong'an yang inovatif, hijau, cerdas, dan berkelas
+                            dunia, hingga dijuluki sebagai "kota masa depan".
+                            Saat ini, Xiong'an sudah mempunyai bus yang
+                            terhubung dengan AI (The State Council The People's
+                            Republic of China, 2024) dan bahkan jaringan 10 G
+                            sudah beroperasi di Xiong'an (Tempo, 2025).
+                        </p>
+                    </div>
+                    <div class="my-4 flex justify-center">
+                        <img
+                            src={XionganImage}
+                            alt="Pemandangan kota Xiong'an"
+                            class="w-full h-auto rounded-lg shadow-md"
+                        />
+                    </div>
+                </div>
+
+                {/* 4. Shanghai */}
+                <div class="mb-6">
+                    <h2 class="text-lg font-bold text-gray-900 mb-3">
+                        4. Shanghai
+                    </h2>
+                    <div class="mb-4">
+                        <p
+                            class="text-gray-700 text-sm leading-relaxed text-justify"
+                        >
+                            Shanghai adalah bukti bahwa warisan sejarah juga
+                            bisa dipadu dengan teknologi canggih. Kota ini
+                            memiliki salah satu sistem transportasi tercepat di
+                            dunia, yaitu kereta Maglev (Magnetic Levitation
+                            Train) yang mampu melaju sampai 430 km/jam! Bahkan,
+                            perjalanan dari Shanghai Pudong International
+                            Airport ke pusat kota hanya butuh 7 menit saja.
+                            Selain itu, di Shanghai kamu bisa dilayani oleh
+                            robot, baik itu untuk mengantar makanan dan mengirim
+                            paket sampai di depan pintu kamu (Global Times,
+                            2024). Menariknya lagi, Shanghai menerapkan smart
+                            traffic system yang memanfaatkan kamera AI untuk
+                            memantau dan mengatur lalu lintas secara real time
+                            (Jeff Lee & Mike Song, 2022).
+                        </p>
+                    </div>
+                    <div class="my-4 flex justify-center">
+                        <img
+                            src={ShanghaiImage}
+                            alt="Pemandangan kota Shanghai"
+                            class="w-full h-auto rounded-lg shadow-md"
+                        />
+                    </div>
+                </div>
+
+                {/* 5. Suzhou */}
+                <div class="mb-6">
+                    <h2 class="text-lg font-bold text-gray-900 mb-3">
+                        5. Suzhou
+                    </h2>
+                    <div class="mb-4">
+                        <p
+                            class="text-gray-700 text-sm leading-relaxed text-justify"
+                        >
+                            Kalau omongin China, sudah pasti tidak terlepas dari
+                            kata "industri manufaktur". Hal ini pun tidak akan
+                            lepas dari kota Suzhou yang terletak di provinsi
+                            Jiangsu dan terkenal akan industri manufakturnya
+                            yang berbasis teknologi. Sektor manufaktur
+                            berteknologi tinggi di Suzhou telah mengukuhkan
+                            dirinya sebagai pusat kekuatan global karena kota
+                            ini menyumbang 32% dari total produksi industri kota
+                            ini. Tidak hanya itu, kota Suzhou juga merupakan
+                            rumah bagi lebih dari 1.000 perusahaan asing, dua
+                            diantaranya adalah Intel dan Samsung (Texas
+                            International Freight, 2024).
+                        </p>
+                    </div>
+                    <div class="my-4 flex justify-center">
+                        <img
+                            src={SuzhouImage}
+                            alt="Pemandangan kota Suzhou"
+                            class="w-full h-auto rounded-lg shadow-md"
+                        />
+                    </div>
+                </div>
+
+                {/* Closing */}
+                <div
+                    class="mt-8 p-4 bg-cyan-50 border-l-4 border-cyan-700 rounded-r-lg"
+                >
+                    <p class="text-gray-800 text-sm font-medium">
+                        Stay curious, stay kind, and see you in the next chapter
+                        of #CiciUnboxChina!
+                    </p>
+                </div>
+
+                {/* References */}
+                <div class="mt-8 pt-6 border-t-2 border-gray-200">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">
+                        Referensi
+                    </h3>
+                    <div
+                        class="space-y-3 text-gray-700 text-xs leading-relaxed"
+                    >
+                        <p class="pl-4 -indent-4">
+                            Hong Kong Tourism Board. "Shenzhen."
+                            <a
+                                href="https://www.discoverhongkong.com/id/greater-bay-area/shenzhen.html"
+                                class="text-cyan-700 hover:text-cyan-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://www.discoverhongkong.com/id/greater-bay-area/shenzhen.html
+                            </a>.
+                        </p>
+                        <p class="pl-4 -indent-4">
+                            Jingyi, Chi. (2024). "Future in China: Robot
+                            services become a common sight,"
+                            <a
+                                href="https://www.globaltimes.cn/page/202408/1318287.shtml"
+                                class="text-cyan-700 hover:text-cyan-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://www.globaltimes.cn/page/202408/1318287.shtml
+                            </a>.
+                        </p>
+                        <p class="pl-4 -indent-4">
+                            Lee, Jeff & Mike Song. (2022). "Shanghai City is
+                            fully-promoting the application of intelligent
+                            connected vehicles that is far ahead of others in
+                            the world."
+                            <a
+                                href="https://www.autofuture.tw/EN/articles/detail?id=290"
+                                class="text-cyan-700 hover:text-cyan-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://www.autofuture.tw/EN/articles/detail?id=290
+                            </a>.
+                        </p>
+                        <p class="pl-4 -indent-4">
+                            Shi, Yijun. (2025). "Pioneering the Post-Smart
+                            Cities Paradigm in Urban Innovation Ecosystems
+                            Governance: A Case Study of Hangzhou City-Brain
+                            Initiative. <em>Urban Policy and Research</em>: 1.
+                        </p>
+                        <p class="pl-4 -indent-4">
+                            Tempo. (2025). "Diuji di Xiong'an Cina. Apa itu
+                            Jaringan 10G?"
+                            <a
+                                href="https://www.tempo.co/sains/diuji-di-xiong-an-cina-apa-itu-jaringan-10g--1234836"
+                                class="text-cyan-700 hover:text-cyan-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://www.tempo.co/sains/diuji-di-xiong-an-cina-apa-itu-jaringan-10g--1234836
+                            </a>.
+                        </p>
+                        <p class="pl-4 -indent-4">
+                            Texas International Freight. (2024). "Suzhou's
+                            High-Tech Manufacturing and Exports."
+                            <a
+                                href="https://www.txintlfreight.com/suzhous-high-tech-manufacturing/"
+                                class="text-cyan-700 hover:text-cyan-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://www.txintlfreight.com/suzhous-high-tech-manufacturing/
+                            </a>.
+                        </p>
+                        <p class="pl-4 -indent-4">
+                            Xinhua. (2024). "Xiong'an New Area: China's 'city of
+                            the future',"
+                            <a
+                                href="https://english.www.gov.cn/news/202403/31/content_WS66096809c6d0868f4e8e5a2f.html"
+                                class="text-cyan-700 hover:text-cyan-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://english.www.gov.cn/news/202403/31/content_WS66096809c6d0868f4e8e5a2f.html
+                            </a>.
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    {/* --- DESKTOP VERSION --- */}
+    <main
+        class="hidden md:block min-h-screen bg-cover bg-center pb-16 pt-[8%]"
+        style={`background-image: url(${Background})`}
+    >
+        {/* HERO SECTION DESKTOP */}
+        <div class="px-15 mx-auto">
+            <div class="rounded-2xl p-5">
+                <div class="mb-4">
+                    <span
+                        class="inline-block bg-cyan-700 text-white font-bold text-sm md:text-base px-4 py-2 rounded-full"
+                    >
+                        {article.topic}
+                    </span>
+                </div>
+                <h1
+                    class="font-bold text-gray-900 text-3xl md:text-4xl lg:text-5xl leading-tight mb-4"
+                >
+                    {article.title}
+                </h1>
+                <div
+                    class="flex items-center gap-2 text-gray-600 text-sm md:text-base border-t pt-4"
+                >
+                    <span class="font-medium">By {article.author}</span>
+                </div>
+            </div>
+        </div>
+
+        {/* CONTENT DESKTOP */}
+        <div class="mx-auto px-15">
+            <article class="rounded-2xl p-5">
+                {/* Cover Image */}
+                <div class="mb-10 mx-auto">
+                    <img
+                        src={CoverArticle}
+                        alt="Cover Article"
+                        class="w-full h-auto"
+                    />
+                </div>
+
+                {/* Opening */}
+                <div class="mb-8">
+                    <p
+                        class="text-lg md:text-xl font-semibold text-gray-800 italic"
+                    >
+                        "你好! We're back with more China updates from Cici!"
+                    </p>
+                </div>
+
+                {/* Paragraf Pembuka */}
+                <div class="mb-8">
+                    <p
+                        class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                    >
+                        Selamat Datang di Masa Depan! Pernah bayangin naik taksi
+                        terbang, belanja tanpa kasir, atau tinggal di kota yang
+                        dikelola oleh kecerdasan buatan? Di China, masa depan
+                        itu sudah hadir hari ini! Sekarang, China tidak hanya
+                        terkenal dengan sejarah dan kulinernya, tapi juga
+                        kota-kota futuristiknya yang bikin kita serasa hidup di
+                        film fiksi ilmiah.
+                    </p>
+                    <p
+                        class="text-gray-700 text-base md:text-lg leading-relaxed text-justify mt-4"
+                    >
+                        Yuk kenalan dengan kota-kota tercanggih di China!
+                    </p>
+                </div>
+
+                {/* 1. Shenzhen */}
+                <div class="mb-12">
+                    <h2
+                        class="text-2xl md:text-3xl font-bold text-gray-900 mb-4"
+                    >
+                        1. Shenzhen
+                    </h2>
+                    <div class="mb-8">
+                        <p
+                            class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                        >
+                            Dulu hanya desa nelayan kecil, sekarang Shenzhen
+                            menjadi pusat teknologi terbesar di Asia. Terletak
+                            di provinsi Guangdong dan bersebelahan dengan Hong
+                            Kong, Shenzhen merupakan Zona Ekonomi khusus pertama
+                            China. Kota ini merupakan rumah bagi raksasa
+                            teknologi seperti Huawei (telekomunikasi), Tencent
+                            (pemilik WeChat), dan DJI (pemimpin pasar drone
+                            dunia). Maka tidak heran kalau kota ini dijuluki
+                            sebagai Silicon Valley versi Asia! Bahkan, kamu bisa
+                            naik kereta melayang yang diatur oleh artificial
+                            intelligence (AI) di Shenzhen (Discover Hong Kong).
+                        </p>
+                    </div>
+                    <div class="my-12 flex justify-center">
+                        <figure>
+                            <img
+                                src={ShenzhenImage}
+                                alt="Pemandangan kota Shenzhen"
+                                class="max-w-full h-auto rounded-lg shadow-lg"
+                            />
+                        </figure>
+                    </div>
+                </div>
+
+                {/* 2. Hangzhou */}
+                <div class="mb-12">
+                    <h2
+                        class="text-2xl md:text-3xl font-bold text-gray-900 mb-4"
+                    >
+                        2. Hangzhou
+                    </h2>
+                    <div class="mb-8">
+                        <p
+                            class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                        >
+                            Salah satu kota yang paling cashless di China,
+                            dimana lagi kalau bukan di Hangzhou. Kamu mau beli
+                            jajanan kaki lima? Cukup scan QR pakai HP. Terkenal
+                            di Provinsi Zhejiang, Hangzhou juga dikenal sebagai
+                            markas besar Alibaba. Selain itu, Hangzhou
+                            menerapkan sistem kota pintar bernama "City Brain",
+                            yang mengelola lalu lintas, keamanan, dan layanan
+                            publik dengan bantuan AI (Ou Bai, Yijun Shu & Fuhua
+                            Wu, 2025). Tidaklah mengherankan kalau salah satu AI
+                            buatan China, yaitu Deepseek, foundernya (Liang
+                            Wenfang) merupakan lulusan dari universitas di
+                            Hangzhou, tak lain dan tak bukan Zhejiang
+                            University.
+                        </p>
+                    </div>
+                    <div class="my-12 flex justify-center">
+                        <figure>
+                            <img
+                                src={HangzouImage}
+                                alt="Pemandangan kota Hangzhou"
+                                class="max-w-full h-auto rounded-lg shadow-lg"
+                            />
+                        </figure>
+                    </div>
+                </div>
+
+                {/* 3. Xiong'an */}
+                <div class="mb-12">
+                    <h2
+                        class="text-2xl md:text-3xl font-bold text-gray-900 mb-4"
+                    >
+                        3. Xiong'an
+                    </h2>
+                    <div class="mb-8">
+                        <p
+                            class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                        >
+                            Mungkin kamu pertama dengar daerah yang namanya
+                            Xiong'an. Hal ini karena Xiong'an merupakan kawasan
+                            baru yang terletak di provinsi Hebei dan diresmikan
+                            pada tahun 2017 yang lalu. Kota Xiong'an merupakan
+                            hasil gabungan dari kabupaten Rongcheng, Anxin, dan
+                            Xiongxian. Area ini bertujuan untuk membebaskan
+                            Beijing dari fungsi-fungsi yang tidak penting
+                            terkait statusnya sebagai ibu kota negara, serta
+                            diperuntukkan untuk menguji inovasi teknologi
+                            mutakhir di China. China berkomitmen untuk membangun
+                            Xiong'an yang inovatif, hijau, cerdas, dan berkelas
+                            dunia, hingga dijuluki sebagai "kota masa depan".
+                            Saat ini, Xiong'an sudah mempunyai bus yang
+                            terhubung dengan AI (The State Council The People's
+                            Republic of China, 2024) dan bahkan jaringan 10 G
+                            sudah beroperasi di Xiong'an (Tempo, 2025).
+                        </p>
+                    </div>
+                    <div class="my-12 flex justify-center">
+                        <figure>
+                            <img
+                                src={XionganImage}
+                                alt="Pemandangan kota Xiong'an"
+                                class="max-w-full h-auto rounded-lg shadow-lg"
+                            />
+                        </figure>
+                    </div>
+                </div>
+
+                {/* 4. Shanghai */}
+                <div class="mb-12">
+                    <h2
+                        class="text-2xl md:text-3xl font-bold text-gray-900 mb-4"
+                    >
+                        4. Shanghai
+                    </h2>
+                    <div class="mb-8">
+                        <p
+                            class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                        >
+                            Shanghai adalah bukti bahwa warisan sejarah juga
+                            bisa dipadu dengan teknologi canggih. Kota ini
+                            memiliki salah satu sistem transportasi tercepat di
+                            dunia, yaitu kereta Maglev (Magnetic Levitation
+                            Train) yang mampu melaju sampai 430 km/jam! Bahkan,
+                            perjalanan dari Shanghai Pudong International
+                            Airport ke pusat kota hanya butuh 7 menit saja.
+                            Selain itu, di Shanghai kamu bisa dilayani oleh
+                            robot, baik itu untuk mengantar makanan dan mengirim
+                            paket sampai di depan pintu kamu (Global Times,
+                            2024). Menariknya lagi, Shanghai menerapkan smart
+                            traffic system yang memanfaatkan kamera AI untuk
+                            memantau dan mengatur lalu lintas secara real time
+                            (Jeff Lee & Mike Song, 2022).
+                        </p>
+                    </div>
+                    <div class="my-12 flex justify-center">
+                        <figure>
+                            <img
+                                src={ShanghaiImage}
+                                alt="Pemandangan kota Shanghai"
+                                class="max-w-full h-auto rounded-lg shadow-lg"
+                            />
+                        </figure>
+                    </div>
+                </div>
+
+                {/* 5. Suzhou */}
+                <div class="mb-12">
+                    <h2
+                        class="text-2xl md:text-3xl font-bold text-gray-900 mb-4"
+                    >
+                        5. Suzhou
+                    </h2>
+                    <div class="mb-8">
+                        <p
+                            class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                        >
+                            Kalau omongin China, sudah pasti tidak terlepas dari
+                            kata "industri manufaktur". Hal ini pun tidak akan
+                            lepas dari kota Suzhou yang terletak di provinsi
+                            Jiangsu dan terkenal akan industri manufakturnya
+                            yang berbasis teknologi. Sektor manufaktur
+                            berteknologi tinggi di Suzhou telah mengukuhkan
+                            dirinya sebagai pusat kekuatan global karena kota
+                            ini menyumbang 32% dari total produksi industri kota
+                            ini. Tidak hanya itu, kota Suzhou juga merupakan
+                            rumah bagi lebih dari 1.000 perusahaan asing, dua
+                            diantaranya adalah Intel dan Samsung (Texas
+                            International Freight, 2024).
+                        </p>
+                    </div>
+                    <div class="my-12 flex justify-center">
+                        <figure>
+                            <img
+                                src={SuzhouImage}
+                                alt="Pemandangan kota Suzhou"
+                                class="max-w-full h-auto rounded-lg shadow-lg"
+                            />
+                        </figure>
+                    </div>
+                </div>
+
+                {/* Closing */}
+                <div
+                    class="mt-12 p-6 bg-cyan-50 border-l-4 border-cyan-700 rounded-r-lg"
+                >
+                    <p class="text-gray-800 text-base md:text-lg font-medium">
+                        Stay curious, stay kind, and see you in the next chapter
+                        of #CiciUnboxChina!
+                    </p>
+                </div>
+
+                {/* References */}
+                <div class="mt-12 pt-8 border-t-2 border-gray-200">
+                    <h3
+                        class="text-xl md:text-2xl font-bold text-gray-900 mb-6"
+                    >
+                        Referensi
+                    </h3>
+                    <div
+                        class="space-y-4 text-gray-700 text-sm md:text-base leading-relaxed"
+                    >
+                        <p class="pl-6 -indent-6">
+                            Hong Kong Tourism Board. "Shenzhen."
+                            <a
+                                href="https://www.discoverhongkong.com/id/greater-bay-area/shenzhen.html"
+                                class="text-cyan-700 hover:text-cyan-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://www.discoverhongkong.com/id/greater-bay-area/shenzhen.html
+                            </a>.
+                        </p>
+                        <p class="pl-6 -indent-6">
+                            Jingyi, Chi. (2024). "Future in China: Robot
+                            services become a common sight,"
+                            <a
+                                href="https://www.globaltimes.cn/page/202408/1318287.shtml"
+                                class="text-cyan-700 hover:text-cyan-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://www.globaltimes.cn/page/202408/1318287.shtml
+                            </a>.
+                        </p>
+                        <p class="pl-6 -indent-6">
+                            Lee, Jeff & Mike Song. (2022). "Shanghai City is
+                            fully-promoting the application of intelligent
+                            connected vehicles that is far ahead of others in
+                            the world."
+                            <a
+                                href="https://www.autofuture.tw/EN/articles/detail?id=290"
+                                class="text-cyan-700 hover:text-cyan-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://www.autofuture.tw/EN/articles/detail?id=290
+                            </a>.
+                        </p>
+                        <p class="pl-6 -indent-6">
+                            Shi, Yijun. (2025). "Pioneering the Post-Smart
+                            Cities Paradigm in Urban Innovation Ecosystems
+                            Governance: A Case Study of Hangzhou City-Brain
+                            Initiative. <em>Urban Policy and Research</em>: 1.
+                        </p>
+                        <p class="pl-6 -indent-6">
+                            Tempo. (2025). "Diuji di Xiong'an Cina. Apa itu
+                            Jaringan 10G?"
+                            <a
+                                href="https://www.tempo.co/sains/diuji-di-xiong-an-cina-apa-itu-jaringan-10g--1234836"
+                                class="text-cyan-700 hover:text-cyan-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://www.tempo.co/sains/diuji-di-xiong-an-cina-apa-itu-jaringan-10g--1234836
+                            </a>.
+                        </p>
+                        <p class="pl-6 -indent-6">
+                            Texas International Freight. (2024). "Suzhou's
+                            High-Tech Manufacturing and Exports."
+                            <a
+                                href="https://www.txintlfreight.com/suzhous-high-tech-manufacturing/"
+                                class="text-cyan-700 hover:text-cyan-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://www.txintlfreight.com/suzhous-high-tech-manufacturing/
+                            </a>.
+                        </p>
+                        <p class="pl-6 -indent-6">
+                            Xinhua. (2024). "Xiong'an New Area: China's 'city of
+                            the future',"
+                            <a
+                                href="https://english.www.gov.cn/news/202403/31/content_WS66096809c6d0868f4e8e5a2f.html"
+                                class="text-cyan-700 hover:text-cyan-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://english.www.gov.cn/news/202403/31/content_WS66096809c6d0868f4e8e5a2f.html
+                            </a>.
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+</Layout>

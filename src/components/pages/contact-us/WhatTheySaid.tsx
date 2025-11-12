@@ -74,6 +74,8 @@ export default function WhatTheySaid() {
   };
   return (
     <>
+      
+      {/*mobile version*/}
       <section
         className="bg-cover bg-top block md:hidden"
         style={{
@@ -121,7 +123,8 @@ export default function WhatTheySaid() {
           </div>
         </div>
       </section>
-
+      
+      {/*web version version*/}
       <section
         className="bg-cover bg-top h-auto min-h-screen hidden md:block relative overflow-hidden"
         style={{

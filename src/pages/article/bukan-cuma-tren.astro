@@ -1,0 +1,578 @@
+---
+import { ArrowRight, Briefcase, Globe, GraduationCap } from "@lucide/astro";
+import Layout from "../../layouts/Layout.astro";
+
+const Background =
+    "/pages/landing-pages/hottest-news/article/article-background.webp";
+
+const CoverArticle =
+    "/pages/landing-pages/hottest-news/article/cover-artikel-dalam-merah.webp";
+
+const PasukanMiliter =
+    "/pages/landing-pages/hottest-news/article/pasukan-militer.png";
+const PresidenChina =
+    "/pages/landing-pages/hottest-news/article/presiden-china.png";
+
+const article = {
+    topic: "CICIUNBOXCHINA #2",
+    title: "DI BALIK TEMBOK KAMPUS TIONGKOK: BEGINI SISTEMNYA!",
+    publishDate: "10 Nov 2025",
+    author: "Celia Vanessa Hakim",
+};
+---
+
+<Layout title="BUKAN CUMAN TREN: MANDARIN JADI BAHASA STRATEGIS DUNIA!">
+    {/* --- MOBILE VERSION --- */}
+    <main
+        class="md:hidden min-h-screen bg-cover bg-center pb-8 pt-[4%]"
+        style={`background-image: url(${Background})`}
+    >
+        {/* HERO SECTION MOBILE */}
+        <div class="px-4 mx-auto pt-6">
+            <div class="rounded-xl p-4">
+                <div class="mb-3">
+                    <span
+                        class="inline-block bg-red-700 text-white font-bold text-xs px-3 py-1 rounded-full"
+                    >
+                        {article.topic}
+                    </span>
+                </div>
+                <h1 class="font-bold text-gray-900 text-xl leading-snug mb-3">
+                    {article.title}
+                </h1>
+                <div
+                    class="flex items-center gap-2 text-gray-600 text-xs border-t pt-3"
+                >
+                    <span class="font-medium">By {article.author}</span>
+                </div>
+            </div>
+        </div>
+
+        {/* CONTENT MOBILE */}
+        <div class=" pt-4">
+            <article class="rounded-xl p-4">
+                {/* Cover Image */}
+                <div class="mb-6 mx-auto">
+                    <img
+                        src={CoverArticle}
+                        alt="Cover Article"
+                        class="w-full h-auto rounded-lg"
+                    />
+                </div>
+
+                {/* Opening */}
+                <div class="mb-6">
+                    <p class="text-base font-semibold text-gray-800 italic">
+                        "你好! We're back with more China updates from Cici!"
+                    </p>
+                </div>
+
+                {/* Paragraph 1 */}
+                <div class="mb-6">
+                    <p
+                        class="text-gray-700 text-sm leading-relaxed text-justify"
+                    >
+                        Di tengah gempuran tren belajar bahasa Korea, Jepang,
+                        atau Spanyol, Bahasa Mandarin berdiri kokoh sebagai
+                        salah satu bahasa yang paling diminati di dunia. Ini
+                        bukan hanya soal lagu Mandarin yang bisa bawa suasana
+                        atau C-drama yang bikin baper GenZ sekarang, tapi Bahasa
+                        Mandarin menyimpan kekuatan strategis yang menjadikannya
+                        lebih dari sekedar tren sesaat.
+                    </p>
+                </div>
+
+                {/* Paragraph 2 */}
+                <div class="mb-6">
+                    <p
+                        class="text-gray-700 text-sm leading-relaxed text-justify"
+                    >
+                        <span class="font-bold"
+                            >Mandarin sebagai Bahasa Global</span
+                        >
+                        <br /> Taukah kamu bahwa Bahasa Mandarin digunakan oleh lebih
+                        dari 1 miliar orang di seluruh dunia? Ini bukan karena populasi
+                        di Tiongkok yang kini mencapai 1.411 miliar (Worldometers,
+                        2025), tapi karena pengaruh Tiongkok yang semakin kuat di
+                        dunia internasional. Bahasa Mandarin tidak hanya digunakan
+                        di Tiongkok, tetapi juga di Taiwan, Singapura, Malaysia,
+                        dan oleh diaspora Tiongkok di seluruh dunia. Bahkan, Bahasa
+                        Mandarin juga merupakan bahasa resmi di Perserikatan Bangsa-Bangsa
+                        (PBB).
+                    </p>
+                    <br />
+                    <p
+                        class="text-gray-700 text-sm leading-relaxed text-justify"
+                    >
+                        Popularitas ini mendorong banyak negara untuk memasukkan
+                        Bahasa Mandarin sebagai bagian dari kurikulum pendidikan
+                        nasional mereka. Misalnya, di Indonesia, banyak sekolah
+                        yang menawarkan Mandarin sebagai mata pelajaran wajib.
+                        Di negara Barat seperti Inggris dan Australia, Mandarin
+                        bahkan digadang sebagai "bahasa masa depan".
+                    </p>
+                </div>
+
+                <div class="mb-6">
+                    <p
+                        class="text-gray-700 text-sm leading-relaxed text-justify"
+                    >
+                        <span class="font-bold"
+                            >BRI dan Confucius Institute Menjadi Senjata
+                            Pengaruh Tiongkok Terhadap Dunia</span
+                        >
+                        <br /> Dalam inisiatif besar Tiongkok, yaitu Belt and Road
+                        Initiative (BRI), yang merupakan mega proyek lintas benua
+                        yang diasosiasikan oleh Presiden Xi Jinping pada tahun 2013,
+                        Bahasa Mandarin menjadi kunci komunikasi antara Tiongkok
+                        dan lebih dari 140 negara mitra kerja sama. Bagaimana tidak?
+                        Sejak 6 tahun pelaksanaan BRI, pemerintah Tiongkok telah
+                        menandatangani 173 perjanjian kerja sama dengan 125 negara
+                        dari Asia, Eropa, Afrika, dan Amerika Latin, serta dengan
+                        29 organisasi internasional (Ni Made Vira Saraswati, 2019).
+                        Oleh sebab itu, tidak dapat dipungkiri Bahasa Mandarin mampu
+                        memperluas jejaring diplomatik dan politik global.
+                    </p>
+                    <br />
+                    <p
+                        class="text-gray-700 text-sm leading-relaxed text-justify"
+                    >
+                        Tidak hanya itu, tetapi hal ini pun membuat akses
+                        terhadap penyebaran budaya Tiongkok ke seluruh dunia.
+                        Buktinya, melalui program Confucius Institute, yaitu
+                        Tiongkok menyebarkan pembelajaran Bahasa Mandarin dan
+                        kebudayaannya ke seluruh penjuru dunia. Hal ini
+                        merupakan bentuk soft power, yaitu pengaruh yang
+                        dibangun lewat budaya dan pendidikan. Pemerintah
+                        Tiongkok menginvestasikan miliaran dollar untuk
+                        merealisasikan program Confucius Institute sejak tahun
+                        2007 ketika masa pemerintahan Presiden Hu Jintao. Salah
+                        satu bentuk soft power inilah yang menjadi salah satu
+                        strategi dan langkah utama Tiongkok untuk menjadi negara
+                        superpower (Thung Ju Lan, 2017).
+                    </p>
+                </div>
+
+                <div class="mb-6">
+                    <p
+                        class="text-gray-700 text-sm leading-relaxed text-justify"
+                    >
+                        <span class="font-bold">Mandarin dan Dunia Bisnis</span>
+                        <br /> Dalam dunia bisnis, Bahasa Mandarin bukan hanya nilai
+                        tambah, tapi juga senjata kompetitif. Bayangkan ada beberapa
+                        banyak lowongan kerja di luar sana yang membutuhkan kemampuan
+                        Bahasa Mandarin. Tidak dapat dipungkiri bahwa hal ini bisa
+                        terjadi karena Tiongkok kini menjadi kekuatan ekonomi terbesar
+                        kedua di dunia, dan menjadi mitra dagang utama bagi banyak
+                        negara, termasuk Indonesia.
+                    </p>
+                    <br />
+                    <p
+                        class="text-gray-700 text-sm leading-relaxed text-justify"
+                    >
+                        Banyak perusahaan multinasional mencari tenaga kerja
+                        yang mampu berbahasa Mandarin untuk berkomunikasi dengan
+                        klien dan mitra dari Tiongkok. Di Indonesia sendiri,
+                        terdapat sekitar 1.000 perusahaan Tiongkok yang
+                        beroperasi di Indonesia. 17% di antaranya bergerak di
+                        bidang konstruksi, 15% di sektor pertambangan, dan 13%
+                        lainnya di sektor kelistrikan. Keberadaan perusahaan
+                        Tiongkok di Indonesia telah membantu menciptakan
+                        lapangan pekerjaan bagi masyarakat Indonesia (CNN
+                        Indonesia, 2018). Tidak hanya itu, tetapi dalam dunia
+                        investasi pun, Tiongkok merupakan salah satu penanam
+                        modal asing ketiga terbesar di Indonesia dengan
+                        realisasi 8.1 miliar USD pada 2024 (Kementerian
+                        Koordinator Bidang Perekonomian Republik Indonesia,
+                        2025). Oleh karena itu, menguasai Bahasa Mandarin
+                        tentunya dapat membuka pintu atas berbagai kesempatan
+                        karir di berbagai sektor, termasuk ekspor-impor,
+                        perbankan internasional, hukum, teknologi, hingga
+                        diplomasi.
+                    </p>
+                </div>
+
+                <div class="mb-6">
+                    <p
+                        class="text-gray-700 text-sm leading-relaxed text-justify"
+                    >
+                        <span class="font-bold"
+                            >Investasi Bahasa untuk Masa Depan</span
+                        >
+                        <br /> Belajar Bahasa Mandarin bukan soal ikut tren, tapi
+                        investasi jangka panjang di era multipolar, ketika pengaruh
+                        Tiongkok di bidang politik, ekonomi, dan budaya terus meningkat.
+                        Dengan menguasai Mandarin, kamu membuka jalan menuju peluang
+                        global yang semakin luas. Seperti kata pepatah Tiongkok,
+                        "学一门语言，就是多一个灵魂" yang artinya "Belajar satu bahasa
+                        berarti memiliki satu jiwa tambahan".
+                    </p>
+                    <br />
+                    <p
+                        class="text-gray-700 text-sm leading-relaxed text-justify"
+                    >
+                        Di tengah dunia yang terus berubah dan terhubung,
+                        kemampuan berbahasa Mandarin adalah bekal yang tak
+                        ternilai. Disinilah Cici Mandarin hadir sebagai tempat
+                        Anda mempelajari Bahasa Mandarin untuk investasi jangka
+                        panjang. Cici Mandarin menyediakan kurikulum yang
+                        selaras dengan kebutuhan global serta Anda akan
+                        diajarkan oleh pengajar yang berpengalaman dan
+                        profesional. Ayo buruan daftar les Bahasa Mandarin di
+                        Cici Mandarin!
+                    </p>
+                </div>
+
+                {/* Closing */}
+                <div
+                    class="mt-8 p-4 bg-red-50 border-l-4 border-red-700 rounded-r-lg"
+                >
+                    <p class="text-gray-800 text-sm font-medium">
+                        Stay curious, stay kind, and see you in the next chapter
+                        of #CiciUnboxChina!
+                    </p>
+                </div>
+
+                {/* References */}
+                <div class="mt-8 pt-6 border-t-2 border-gray-200">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">
+                        Referensi
+                    </h3>
+                    <div
+                        class="space-y-3 text-gray-700 text-xs leading-relaxed"
+                    >
+                        <p class="pl-4 -indent-4">
+                            CNN Indonesia. (2018). "Sekitar 1.000 Perusahaan
+                            China Beroperasi di Indonesia."
+                            <a
+                                href="https://www.cnnindonesia.com/ekonomi/20181127132649-92-349567/sekitar-1000-perusahaan-china-beroperasi-di-indonesia"
+                                class="text-red-700 hover:text-red-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://www.cnnindonesia.com/ekonomi/20181127132649-92-349567/sekitar-1000-perusahaan-china-beroperasi-di-indonesia
+                            </a>.
+                        </p>
+                        <p class="pl-4 -indent-4">
+                            Kementerian Koordinator Bidang Perekonomian Republik
+                            Indonesia. (2025). "Peringati Momentum 75 Tahun
+                            Jalinan Hubungan Diplomatik, Indonesia-Tiongkok
+                            Tingkatkan Kerja Sama Ekonomi."
+                            <a
+                                href="https://ekon.go.id/publikasi/detail/6390/peringati-momentum-75-tahun-jalinan-hubungan-diplomatik-indonesia-tiongkok-tingkatkan-kerja-sama-ekonomi"
+                                class="text-red-700 hover:text-red-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://ekon.go.id/publikasi/detail/6390/peringati-momentum-75-tahun-jalinan-hubungan-diplomatik-indonesia-tiongkok-tingkatkan-kerja-sama-ekonomi
+                            </a>.
+                        </p>
+                        <p class="pl-4 -indent-4">
+                            Lan, Thung Ju. (2017). "Confucius Institute at
+                            Universitas Al Azhar, Jakarta; The unseen power of
+                            China."
+                            <em>Journal of Humanities of Indonesia</em>, 153.
+                        </p>
+                        <p class="pl-4 -indent-4">
+                            Saraswati, Ni Made Vira. (2019). "Menilik Perjanjian
+                            Indonesia-Cina dalam Kerangka Belt and Road
+                            Initiative (BRI) dalam Perspektif Ketahanan
+                            Nasional. <em>Jurnal Kajian Lemhanas RI</em>, 56.
+                        </p>
+                        <p class="pl-4 -indent-4">
+                            Worldometers. (2025). China Population.
+                            <a
+                                href="https://www.worldometers.info/world-population/china-population/#:~:text=Populasi%20Tiongkok%20saat%20ini%20adalah,%2C20%25%20total%20populasi%20dunia"
+                                class="text-red-700 hover:text-red-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://www.worldometers.info/world-population/china-population/#:~:text=Populasi%20Tiongkok%20saat%20ini%20adalah,%2C20%25%20total%20populasi%20dunia
+                            </a>.
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    {/* --- DESKTOP VERSION --- */}
+    <main
+        class="hidden md:block min-h-screen bg-cover bg-center pb-16 pt-[8%]"
+        style={`background-image: url(${Background})`}
+    >
+        {/* DESKTOP HERO SECTION */}
+        <div class="px-15 mx-auto">
+            <div class="rounded-2xl p-5">
+                <div class="mb-4">
+                    <span
+                        class="inline-block bg-red-700 text-white font-bold text-sm md:text-base px-4 py-2 rounded-full"
+                    >
+                        {article.topic}
+                    </span>
+                </div>
+                <h1
+                    class="font-bold text-gray-900 text-3xl md:text-4xl lg:text-5xl leading-tight mb-4"
+                >
+                    {article.title}
+                </h1>
+                <div
+                    class="flex items-center gap-2 text-gray-600 text-sm md:text-base border-t pt-4"
+                >
+                    <span class="font-medium">By {article.author}</span>
+                </div>
+            </div>
+        </div>
+
+        {/* DESKTOP CONTENT */}
+        <div class="mx-auto px-15">
+            <article class="rounded-2xl p-5">
+                {/* Cover Image */}
+                <div class="mb-10 mx-auto">
+                    <img
+                        src={CoverArticle}
+                        alt="Cover Article"
+                        class="w-full h-auto"
+                    />
+                </div>
+
+                {/* Opening */}
+                <div class="mb-8">
+                    <p
+                        class="text-lg md:text-xl font-semibold text-gray-800 italic"
+                    >
+                        "你好! We're back with more China updates from Cici!"
+                    </p>
+                </div>
+
+                {/* Paragraph 1 */}
+                <div class="mb-8">
+                    <p
+                        class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                    >
+                        Di tengah gempuran tren belajar bahasa Korea, Jepang,
+                        atau Spanyol, Bahasa Mandarin berdiri kokoh sebagai
+                        salah satu bahasa yang paling diminati di dunia. Ini
+                        bukan hanya soal lagu Mandarin yang bisa bawa suasana
+                        atau C-drama yang bikin baper GenZ sekarang, tapi Bahasa
+                        Mandarin menyimpan kekuatan strategis yang menjadikannya
+                        lebih dari sekedar tren sesaat.
+                    </p>
+                </div>
+
+                {/* Paragraph 2 */}
+                <div class="mb-8">
+                    <p
+                        class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                    >
+                        <span class="font-bold"
+                            >Mandarin sebagai Bahasa Global</span
+                        >
+                        <br /> Taukah kamu bahwa Bahasa Mandarin digunakan oleh lebih
+                        dari 1 miliar orang di seluruh dunia? Ini bukan karena populasi
+                        di Tiongkok yang kini mencapai 1.411 miliar (Worldometers,
+                        2025), tapi karena pengaruh Tiongkok yang semakin kuat di
+                        dunia internasional. Bahasa Mandarin tidak hanya digunakan
+                        di Tiongkok, tetapi juga di Taiwan, Singapura, Malaysia,
+                        dan oleh diaspora Tiongkok di seluruh dunia. Bahkan, Bahasa
+                        Mandarin juga merupakan bahasa resmi di Perserikatan Bangsa-Bangsa
+                        (PBB).
+                    </p>
+                    <br />
+                    <p
+                        class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                    >
+                        Popularitas ini mendorong banyak negara untuk memasukkan
+                        Bahasa Mandarin sebagai bagian dari kurikulum pendidikan
+                        nasional mereka. Misalnya, di Indonesia, banyak sekolah
+                        yang menawarkan Mandarin sebagai mata pelajaran wajib.
+                        Di negara Barat seperti Inggris dan Australia, Mandarin
+                        bahkan digadang sebagai "bahasa masa depan".
+                    </p>
+                </div>
+
+                <div class="mb-8">
+                    <p
+                        class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                    >
+                        <span class="font-bold"
+                            >BRI dan Confucius Institute Menjadi Senjata
+                            Pengaruh Tiongkok Terhadap Dunia</span
+                        >
+                        <br /> Dalam inisiatif besar Tiongkok, yaitu Belt and Road
+                        Initiative (BRI), yang merupakan mega proyek lintas benua
+                        yang diasosiasikan oleh Presiden Xi Jinping pada tahun 2013,
+                        Bahasa Mandarin menjadi kunci komunikasi antara Tiongkok
+                        dan lebih dari 140 negara mitra kerja sama. Bagaimana tidak?
+                        Sejak 6 tahun pelaksanaan BRI, pemerintah Tiongkok telah
+                        menandatangani 173 perjanjian kerja sama dengan 125 negara
+                        dari Asia, Eropa, Afrika, dan Amerika Latin, serta dengan
+                        29 organisasi internasional (Ni Made Vira Saraswati, 2019).
+                        Oleh sebab itu, tidak dapat dipungkiri Bahasa Mandarin mampu
+                        memperluas jejaring diplomatik dan politik global.
+                    </p>
+                    <br />
+                    <p
+                        class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                    >
+                        Tidak hanya itu, tetapi hal ini pun membuat akses
+                        terhadap penyebaran budaya Tiongkok ke seluruh dunia.
+                        Buktinya, melalui program Confucius Institute, yaitu
+                        Tiongkok menyebarkan pembelajaran Bahasa Mandarin dan
+                        kebudayaannya ke seluruh penjuru dunia. Hal ini
+                        merupakan bentuk soft power, yaitu pengaruh yang
+                        dibangun lewat budaya dan pendidikan. Pemerintah
+                        Tiongkok menginvestasikan miliaran dollar untuk
+                        merealisasikan program Confucius Institute sejak tahun
+                        2007 ketika masa pemerintahan Presiden Hu Jintao. Salah
+                        satu bentuk soft power inilah yang menjadi salah satu
+                        strategi dan langkah utama Tiongkok untuk menjadi negara
+                        superpower (Thung Ju Lan, 2017).
+                    </p>
+                </div>
+
+                <div class="mb-8">
+                    <p
+                        class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                    >
+                        <span class="font-bold">Mandarin dan Dunia Bisnis</span>
+                        <br /> Dalam dunia bisnis, Bahasa Mandarin bukan hanya nilai
+                        tambah, tapi juga senjata kompetitif. Bayangkan ada beberapa
+                        banyak lowongan kerja di luar sana yang membutuhkan kemampuan
+                        Bahasa Mandarin. Tidak dapat dipungkiri bahwa hal ini bisa
+                        terjadi karena Tiongkok kini menjadi kekuatan ekonomi terbesar
+                        kedua di dunia, dan menjadi mitra dagang utama bagi banyak
+                        negara, termasuk Indonesia.
+                    </p>
+                    <br />
+                    <p
+                        class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                    >
+                        Banyak perusahaan multinasional mencari tenaga kerja
+                        yang mampu berbahasa Mandarin untuk berkomunikasi dengan
+                        klien dan mitra dari Tiongkok. Di Indonesia sendiri,
+                        terdapat sekitar 1.000 perusahaan Tiongkok yang
+                        beroperasi di Indonesia. 17% di antaranya bergerak di
+                        bidang konstruksi, 15% di sektor pertambangan, dan 13%
+                        lainnya di sektor kelistrikan. Keberadaan perusahaan
+                        Tiongkok di Indonesia telah membantu menciptakan
+                        lapangan pekerjaan bagi masyarakat Indonesia (CNN
+                        Indonesia, 2018). Tidak hanya itu, tetapi dalam dunia
+                        investasi pun, Tiongkok merupakan salah satu penanam
+                        modal asing ketiga terbesar di Indonesia dengan
+                        realisasi 8.1 miliar USD pada 2024 (Kementerian
+                        Koordinator Bidang Perekonomian Republik Indonesia,
+                        2025). Oleh karena itu, menguasai Bahasa Mandarin
+                        tentunya dapat membuka pintu atas berbagai kesempatan
+                        karir di berbagai sektor, termasuk ekspor-impor,
+                        perbankan internasional, hukum, teknologi, hingga
+                        diplomasi.
+                    </p>
+                </div>
+
+                <div class="mb-8">
+                    <p
+                        class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                    >
+                        <span class="font-bold"
+                            >Investasi Bahasa untuk Masa Depan</span
+                        >
+                        <br /> Belajar Bahasa Mandarin bukan soal ikut tren, tapi
+                        investasi jangka panjang di era multipolar, ketika pengaruh
+                        Tiongkok di bidang politik, ekonomi, dan budaya terus meningkat.
+                        Dengan menguasai Mandarin, kamu membuka jalan menuju peluang
+                        global yang semakin luas. Seperti kata pepatah Tiongkok,
+                        "学一门语言，就是多一个灵魂" yang artinya "Belajar satu bahasa
+                        berarti memiliki satu jiwa tambahan".
+                    </p>
+                    <br />
+                    <p
+                        class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                    >
+                        Di tengah dunia yang terus berubah dan terhubung,
+                        kemampuan berbahasa Mandarin adalah bekal yang tak
+                        ternilai. Disinilah Cici Mandarin hadir sebagai tempat
+                        Anda mempelajari Bahasa Mandarin untuk investasi jangka
+                        panjang. Cici Mandarin menyediakan kurikulum yang
+                        selaras dengan kebutuhan global serta Anda akan
+                        diajarkan oleh pengajar yang berpengalaman dan
+                        profesional. Ayo buruan daftar les Bahasa Mandarin di
+                        Cici Mandarin!
+                    </p>
+                </div>
+
+                {/* Closing */}
+                <div
+                    class="mt-12 p-6 bg-red-50 border-l-4 border-red-700 rounded-r-lg"
+                >
+                    <p class="text-gray-800 text-base md:text-lg font-medium">
+                        Stay curious, stay kind, and see you in the next chapter
+                        of #CiciUnboxChina!
+                    </p>
+                </div>
+
+                {/* References */}
+                <div class="mt-12 pt-8 border-t-2 border-gray-200">
+                    <h3
+                        class="text-xl md:text-2xl font-bold text-gray-900 mb-6"
+                    >
+                        Referensi
+                    </h3>
+                    <div
+                        class="space-y-4 text-gray-700 text-sm md:text-base leading-relaxed"
+                    >
+                        <p class="pl-6 -indent-6">
+                            CNN Indonesia. (2018). "Sekitar 1.000 Perusahaan
+                            China Beroperasi di Indonesia."
+                            <a
+                                href="https://www.cnnindonesia.com/ekonomi/20181127132649-92-349567/sekitar-1000-perusahaan-china-beroperasi-di-indonesia"
+                                class="text-red-700 hover:text-red-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://www.cnnindonesia.com/ekonomi/20181127132649-92-349567/sekitar-1000-perusahaan-china-beroperasi-di-indonesia
+                            </a>.
+                        </p>
+                        <p class="pl-6 -indent-6">
+                            Kementerian Koordinator Bidang Perekonomian Republik
+                            Indonesia. (2025). "Peringati Momentum 75 Tahun
+                            Jalinan Hubungan Diplomatik, Indonesia-Tiongkok
+                            Tingkatkan Kerja Sama Ekonomi."
+                            <a
+                                href="https://ekon.go.id/publikasi/detail/6390/peringati-momentum-75-tahun-jalinan-hubungan-diplomatik-indonesia-tiongkok-tingkatkan-kerja-sama-ekonomi"
+                                class="text-red-700 hover:text-red-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://ekon.go.id/publikasi/detail/6390/peringati-momentum-75-tahun-jalinan-hubungan-diplomatik-indonesia-tiongkok-tingkatkan-kerja-sama-ekonomi
+                            </a>.
+                        </p>
+                        <p class="pl-6 -indent-6">
+                            Lan, Thung Ju. (2017). "Confucius Institute at
+                            Universitas Al Azhar, Jakarta; The unseen power of
+                            China."
+                            <em>Journal of Humanities of Indonesia</em>, 153.
+                        </p>
+                        <p class="pl-6 -indent-6">
+                            Saraswati, Ni Made Vira. (2019). "Menilik Perjanjian
+                            Indonesia-Cina dalam Kerangka Belt and Road
+                            Initiative (BRI) dalam Perspektif Ketahanan
+                            Nasional. <em>Jurnal Kajian Lemhanas RI</em>, 56.
+                        </p>
+                        <p class="pl-6 -indent-6">
+                            Worldometers. (2025). China Population.
+                            <a
+                                href="https://www.worldometers.info/world-population/china-population/#:~:text=Populasi%20Tiongkok%20saat%20ini%20adalah,%2C20%25%20total%20populasi%20dunia"
+                                class="text-red-700 hover:text-red-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://www.worldometers.info/world-population/china-population/#:~:text=Populasi%20Tiongkok%20saat%20ini%20adalah,%2C20%25%20total%20populasi%20dunia
+                            </a>.
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+</Layout>

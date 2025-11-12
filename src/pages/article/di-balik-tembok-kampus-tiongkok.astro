@@ -1,0 +1,649 @@
+---
+import { ArrowRight, Briefcase, Globe, GraduationCap } from "@lucide/astro";
+import Layout from "../../layouts/Layout.astro";
+
+const Background =
+    "/pages/landing-pages/hottest-news/article/article-background.webp";
+
+const CoverArticle =
+    "/pages/landing-pages/hottest-news/article/cover-artikel-dalam-biru.webp";
+
+const PasukanMiliter =
+    "/pages/landing-pages/hottest-news/article/pasukan-militer.png";
+const PresidenChina =
+    "/pages/landing-pages/hottest-news/article/presiden-china.png";
+
+const article = {
+    topic: "CICIUNBOXCHINA #2",
+    title: "DI BALIK TEMBOK KAMPUS TIONGKOK: BEGINI SISTEMNYA!",
+    publishDate: "10 Nov 2025",
+    author: "Celia Vanessa Hakim",
+};
+---
+
+<Layout title="DI BALIK TEMBOK KAMPUS TIONGKOK: BEGINI SISTEMNYA!">
+    
+    <main
+        class="md:hidden min-h-screen bg-cover bg-center pb-8 pt-[4%]"
+        style={`background-image: url(${Background})`}
+    >
+        {/* HERO SECTION MOBILE */}
+        <div class="px-4 mx-auto pt-6">
+            <div class="rounded-xl p-4">
+                <div class="mb-3">
+                    <span
+                        class="inline-block bg-blue-700 text-white font-bold text-xs px-3 py-1 rounded-full"
+                    >
+                        {article.topic}
+                    </span>
+                </div>
+                <h1 class="font-bold text-gray-900 text-xl leading-snug mb-3">
+                    {article.title}
+                </h1>
+                <div
+                    class="flex items-center gap-2 text-gray-600 text-xs border-t pt-3"
+                >
+                    <span class="font-medium">By {article.author}</span>
+                </div>
+            </div>
+        </div>
+
+        {/* CONTENT MOBILE */}
+        <div class="mx-auto px-4 pt-4">
+            <article class="rounded-xl p-4">
+                {/* Cover Image */}
+                <div class="mb-6 mx-auto">
+                    <img
+                        src={CoverArticle}
+                        alt="Cover Article"
+                        class="w-full h-auto rounded-lg"
+                    />
+                </div>
+
+                {/* Opening */}
+                <div class="mb-6">
+                    <p class="text-base font-semibold text-gray-800 italic">
+                        "你好! We're back with more China updates from Cici!"
+                    </p>
+                </div>
+
+                {/* Paragraph 1 */}
+                <div class="mb-6">
+                    <p
+                        class="text-gray-700 text-sm leading-relaxed text-justify"
+                    >
+                        Dalam beberapa dekade terakhir, pendidikan tinggi
+                        Tiongkok telah mengalami perubahan yang luar biasa
+                        pesat, dari sistem yang terpusat dan tertutup, kini
+                        menjadi terbuka, kompetitif, dan bercita-cita global.
+                        Melalui kebijakan reformasi dan keterbukaan sejak tahun
+                        1970-an, Tiongkok menjadikan pendidikan tinggi sebagai
+                        salah satu kunci utama untuk mencapai pembangunan
+                        nasional dan daya saing global.
+                    </p>
+                </div>
+
+                {/* Paragraph 2 */}
+                <div class="mb-6">
+                    <p
+                        class="text-gray-700 text-sm leading-relaxed text-justify"
+                    >
+                        <span class="font-bold"
+                            >Sejarah Pendidikan Tinggi di Tiongkok</span
+                        >
+                        <br /> Konsep pendidikan tinggi di Tiongkok diperkenalkan
+                        pada saat masa Dinasti Tang, melalui lembaga shuyan, yaitu
+                        akademi pembelajaran klasik Tiongkok. Kemudian, konsep pendidikan
+                        tinggi modern di Tiongkok mulai berkembang pada akhir abad
+                        ke-19, yang ditandai dengan adanya Beiyang Gong Xue (cikal
+                        bakal Tianjin University) yang didirikan pada tahun 1895.
+                        Kemudian, terdapat juga Nanyang Gong Xue (cikal bakal Shanghai
+                        Jiaotong University) yang didirikan pada tahun 1896 dan Imperial
+                        University of Peking (yang sekarang disebut sebagai Peking
+                        University) yang didirikan pada tahun 1898 (Yuzhuo Cai &
+                        Fengqiao Yan, 2017).
+                    </p>
+                    <br />
+                    <p
+                        class="text-gray-700 text-sm leading-relaxed text-justify"
+                    >
+                        Pada tahun 1949, ketika Republik Rakyat Tiongkok baru
+                        berdiri, pemerintahan Mao Zedong mencoba untuk membangun
+                        industrialisasi yang berideologi sosialis, yaitu paham
+                        yang menganjurkan kepemilikan sosial dan kontrol
+                        demokratis atas alat produksi untuk mengurangi
+                        ketidaksetaraan. Hal ini dilakukan dengan cara melakukan
+                        transisi dari negara agrikultur menjadi negara industri
+                        yang difasilitasi dengan sebuah sistem pendidikan
+                        (Mengyun Ma, 2022). Pemerintahan Tiongkok mengambil
+                        inspirasi dari Uni Soviet dalam membentuk sistem
+                        pendidikannya. Dalam hal ini, sistem pendidikan Tiongkok
+                        yang menekankan kontrol negara secara penuh terhadap
+                        pendidikan tinggi, termasuk dalam pengelolaan institusi,
+                        pengangkatan pimpinan, hingga penempatan lulusan kerja.
+                        Namun, pada masa pemerintahan Deng Xiao Ping pada akhir
+                        tahun 1970-an, Tiongkok mulai mereformasi sektor
+                        pendidikan tingginya secara signifikan. Reformasi ini
+                        mencakup desentralisasi wewenang dari pemerintah pusat
+                        ke daerah, pemberian otonomi luas kepada university,
+                        serta pembukaan ruang bagi pendirian institusi swasta
+                        (Yuzhuo Cai & Fengqiao Yan, 2017).
+                    </p>
+                </div>
+
+                <div class="mb-6">
+                    <p
+                        class="text-gray-700 text-sm leading-relaxed text-justify"
+                    >
+                        <span class="font-bold"
+                            >Struktur Sistem Pendidikan Tinggi di Tiongkok</span
+                        >
+                        <br /> Struktur sistem pendidikan tinggi di Tiongkok disusun
+                        secara jelas dan sistematis. Pada tingkat paling atas, terdapat
+                        universitas riset unggulan yang tergabung dalam "Project
+                        985", yaitu inisiatif dari Presiden Jiang Zemin pada tahun
+                        1998 untuk menciptakan universitas kelas dunia. Di bawahnya,
+                        terdapat institusi dalam kelompok "Project 211" yang dibuat
+                        pada tahun 1995 untuk memperkuat sekitar 100 universitas
+                        dan program studi unggulan. Tingkat ketiga mencakup universitas
+                        regional yang fokus pada pengajaran, serta tingkat paling
+                        bawah adalah perguruan tinggi vokasional dan politeknik.
+                        Untuk mencapai pendidikan yang berstandar global, pemerintah
+                        Tiongkok mengalokasikan dana yang sangat besar untuk Project
+                        985 dan Project 211 (Yuzhuo Cai & Fengqiao Yan, 2017).
+                    </p>
+                    <br />
+                    <p
+                        class="text-gray-700 text-sm leading-relaxed text-justify"
+                    >
+                        Dalam Project 985, terdapat 39 universitas, yang
+                        beberapa diantaranya adalah Tsinghua University, Peking
+                        University, Zhejiang University, Fudan University,
+                        Nanjing University, dan lainnya. Sementara itu, terdapat
+                        112 universitas yang termasuk dalam Project 211, yang
+                        diantaranya adalah Xinjiang University, Shaanxi Normal
+                        University, Guizhou University, serta 5 universitas yang
+                        sudah disebutkan dalam Project 985. Pemerintah Tiongkok
+                        mengalokasikan dana sebesar 7,97 miliar USD untuk
+                        Project 985 dan 2,7 miliar USD untuk Project 211 (Yannan
+                        Cao & Rui Yang, 2023).
+                    </p>
+                </div>
+
+                <div class="mb-6">
+                    <p
+                        class="text-gray-700 text-sm leading-relaxed text-justify"
+                    >
+                        <span class="font-bold"
+                            >China's National Plan for Medium and Long-term
+                            Education Reform and Development (2010-2020)</span
+                        >
+                        <br /> Untuk meningkatkan kualitas pendidikan tinggi, pemerintah
+                        Tiongkok meluncurkan China's National Plan for Medium and
+                        Long-term Education Reform and Development (2010-2020). Kebijakan
+                        ini menganut konsep Lifelong Learning atau pembelajaran seumur
+                        hidup, yang artinya semua orang harus diajari apa yang ingin
+                        mereka pelajari unggul dalam apa yang mereka pelajari, dan
+                        menerapkan apa yang telah mereka pelajari (UNESCO, 2023).
+                        Rencana ini menekankan pada peningkatan kualitas, pemerataan
+                        akses, dan inovasi dalam pendidikan. Salah satu aspek terpenting
+                        dalam rencana ini adalah proses internasionalisasi yang diupayakan
+                        melalui kolaborasi-kolaborasi internasional yang dilakukan
+                        oleh universitas lokal di Tiongkok, baik dalam bentuk double
+                        degree, pertukaran dosen, hingga riset kolaboratif. Pemerintah
+                        Tiongkok juga melakukan pengembangan kurikulum internasional
+                        dan penggunaan bahasa Inggris sebagai bahasa pengantar dalam
+                        pengajaran di berbagai program studi. Bahkan, dalam rencana
+                        ini, dinyatakan bahwa institusi pendidikan Tiongkok didorong
+                        untuk membuka cabang di luar negeri. Hal ini dilakukan untuk
+                        mendukung pengajaran bahasa Mandarin sebagai bahasa asing
+                        di negara lain. Maka, tidak mengherankan bahwa saat ini terdapat
+                        beberapa universitas Tiongkok yang membuka cabang di negara
+                        lain, salah satunya adalah Xiamen University di Malaysia.
+                    </p>
+                </div>
+                <div class="mb-6">
+                    <p
+                        class="text-gray-700 text-sm leading-relaxed text-justify"
+                    >
+                        <span class="font-bold">2011 Project</span>
+                        <br /> Pada tahun 2011, ketika Tsinghua University merayakan
+                        hari ulang tahunnya ke-100, Presiden Hu Jintao memberikan
+                        pernyataan mengenai keberhasilan kegiatan inovasi universitas.
+                        Perayaan tersebut juga diikuti oleh peluncuran 2011 Project
+                        oleh Menteri Pendidikan Tiongkok yang bertujuan untuk mencapai
+                        inovasi dalam penelitian dan pengembangan dengan mensinergikan
+                        upaya kolaboratif antara universitas, lembaga penelitian,
+                        industri dan pemerintah. Kebijakan tersebut mengubah struktur
+                        pendanaan dari investasi berbasis institusi menjadi investasi
+                        berbasis program (Yuzhuo Cai & Fengqiao Yan, 2017). Hal ini
+                        pun didukung dengan adanya the 12th Five-Year Plan (2011-2015)
+                        yang diajukan oleh Kongres Rakyat Nasional ke-11 pada tahun
+                        2011 yang menetapkan tujuan pembangunan Tiongkok untuk mempercepat
+                        reformasi pendidikan. Dalam rencana tersebut, salah satu
+                        pilar yang penting adalah memperkuat kerjasama internasional
+                        untuk meningkatkan riset dan inovasi (Feng Zhuolin, Wang
+                        Qi, Liu Niancai. ed., 2025).
+                    </p>
+                </div>
+                <div class="mb-6">
+                    <p
+                        class="text-gray-700 text-sm leading-relaxed text-justify"
+                    >
+                        <span class="font-bold"
+                            >Internasionalisasi Pendidikan Menjadi Peluang Untuk
+                            Studi di Tiongkok
+                        </span>
+                        <br /> Dengan adanya prinsip internasionalisasi yang selalu
+                        ditekankan oleh pemerintah Tiongkok, maka tidaklah mengherankan
+                        bahwa saat ini terdapat sekitar 35 juta mahasiswa asing yang
+                        menempuh studi sarjana dan 3,3 juta mahasiswa asing di tingkat
+                        pascasarjana di Tiongkok. Mahasiswa asing di Tiongkok juga
+                        berasal dari berbagai macam benua, termasuk Asia, Eropa,
+                        Amerika, dan bahkan Afrika. Melalui inisiatif yang sangat
+                        besar dari pemerintah Tiongkok terhadap pendidikan tinggi,
+                        tidak dapat dipungkiri bahwa peluang bagi mahasiswa asing
+                        untuk mengejar pendidikannya di negara tirai bambu semakin
+                        terbuka lebar (Timothy van Gardingen, 2024).
+                    </p>
+                </div>
+
+                {/* Closing */}
+                <div
+                    class="mt-8 p-4 bg-blue-50 border-l-4 border-blue-700 rounded-r-lg"
+                >
+                    <p class="text-gray-800 text-sm font-medium">
+                        Stay curious, stay kind, and see you in the next chapter
+                        of #CiciUnboxChina!
+                    </p>
+                </div>
+
+                {/* References */}
+                <div class="mt-8 pt-6 border-t-2 border-gray-200">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">
+                        Referensi
+                    </h3>
+                    <div
+                        class="space-y-3 text-gray-700 text-xs leading-relaxed"
+                    >
+                        <p class="pl-4 -indent-4">
+                            Cai, Yuzhuo & Fengqiao Yan. (2017). Chinese Higher
+                            Education and University. <em
+                                >Handbook of Chinese Education</em
+                            >.
+                        </p>
+                        <p class="pl-4 -indent-4">
+                            Cao, Yannan & Rui Yang. (2023). A new HE development
+                            model is needed to sustain excellence.
+                            <em>University World News</em>.
+                            <a
+                                href="https://www.universityworldnews.com/post.php?story=20230726111102317"
+                                class="text-blue-700 hover:text-blue-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://www.universityworldnews.com/post.php?story=20230726111102317
+                            </a>.
+                        </p>
+                        <p class="pl-4 -indent-4">
+                            Gardingen, Timothy van. (2024). How Many
+                            International Students Study in China. <em
+                                >The Pie News</em
+                            >.
+                            <a
+                                href="https://thepienews.com/how-many-international-students-study-in-china/"
+                                class="text-blue-700 hover:text-blue-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://thepienews.com/how-many-international-students-study-in-china/
+                            </a>.
+                        </p>
+                        <p class="pl-4 -indent-4">
+                            Ma, Mengyun (2022). Workforce Equality: The
+                            Constitutional Conception of Educational Equality in
+                            Mao-Era China. <em
+                                >Penn Carey Law: Legal Scholarship Repository</em
+                            >.
+                        </p>
+                        <p class="pl-4 -indent-4">
+                            UNESCO. (2023). China National Plan Medium and Long
+                            Term Education Reform and Development 2020, Issued
+                            2010. <em>UNESCO</em>.
+                            <a
+                                href="https://www.uil.unesco.org/en/articles/china-national-plan-medium-and-long-term-education-reform-and-development-2020-issued-2010"
+                                class="text-blue-700 hover:text-blue-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://www.uil.unesco.org/en/articles/china-national-plan-medium-and-long-term-education-reform-and-development-2020-issued-2010
+                            </a>.
+                        </p>
+                        <p class="pl-4 -indent-4">
+                            Zhuolin, Feng, Wang Qi & Liu Niancai. ed. (2025).
+                            Education in China and the World: National
+                            Development and Global Benchmarking. <em
+                                >Shanghai Jiaotong University</em
+                            >.
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    <main
+        class="min-h-screen bg-cover bg-center pb-16 pt-[8%] hidden md:block"
+        style={`background-image: url(${Background})`}
+    >
+        {/* --- HERO SECTION --- */}
+        <div class="px-15 mx-auto">
+            <div class="rounded-2xl p-5">
+                <div class="mb-4">
+                    <span
+                        class="inline-block bg-blue-700 text-white font-bold text-sm md:text-base px-4 py-2 rounded-full"
+                    >
+                        {article.topic}
+                    </span>
+                </div>
+                <h1
+                    class="font-bold text-gray-900 text-3xl md:text-4xl lg:text-5xl leading-tight mb-4"
+                >
+                    {article.title}
+                </h1>
+                <div
+                    class="flex items-center gap-2 text-gray-600 text-sm md:text-base border-t pt-4"
+                >
+                    <span class="font-medium">By {article.author}</span>
+                </div>
+            </div>
+        </div>
+
+        {/* --- CONTENT CONTAINER --- */}
+        <div class="mx-auto px-15">
+            {/* Main Article Content */}
+            <article class="rounded-2xl p-5">
+                {/* Cover Image */}
+                <div class="mb-10 mx-auto">
+                    <img
+                        src={CoverArticle}
+                        alt="Cover Article"
+                        class="w-full h-auto"
+                    />
+                </div>
+
+                {/* Opening */}
+                <div class="mb-8">
+                    <p
+                        class="text-lg md:text-xl font-semibold text-gray-800 italic"
+                    >
+                        "你好! We're back with more China updates from Cici!"
+                    </p>
+                </div>
+
+                {/* Paragraph 1 */}
+                <div class="mb-8">
+                    <p
+                        class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                    >
+                        Dalam beberapa dekade terakhir, pendidikan tinggi
+                        Tiongkok telah mengalami perubahan yang luar biasa
+                        pesat, dari sistem yang terpusat dan tertutup, kini
+                        menjadi terbuka, kompetitif, dan bercita-cita global.
+                        Melalui kebijakan reformasi dan keterbukaan sejak tahun
+                        1970-an, Tiongkok menjadikan pendidikan tinggi sebagai
+                        salah satu kunci utama untuk mencapai pembangunan
+                        nasional dan daya saing global.
+                    </p>
+                </div>
+
+                {/* Paragraph 2 */}
+                <div class="mb-8">
+                    <p
+                        class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                    >
+                        <span class="font-bold"
+                            >Sejarah Pendidikan Tinggi di Tiongkok</span
+                        >
+                        <br /> Konsep pendidikan tinggi di Tiongkok diperkenalkan
+                        pada saat masa Dinasti Tang, melalui lembaga shuyan, yaitu
+                        akademi pembelajaran klasik Tiongkok. Kemudian, konsep pendidikan
+                        tinggi modern di Tiongkok mulai berkembang pada akhir abad
+                        ke-19, yang ditandai dengan adanya Beiyang Gong Xue (cikal
+                        bakal Tianjin University) yang didirikan pada tahun 1895.
+                        Kemudian, terdapat juga Nanyang Gong Xue (cikal bakal Shanghai
+                        Jiaotong University) yang didirikan pada tahun 1896 dan Imperial
+                        University of Peking (yang sekarang disebut sebagai Peking
+                        University) yang didirikan pada tahun 1898 (Yuzhuo Cai &
+                        Fengqiao Yan, 2017).
+                    </p>
+                    <br />
+                    <p
+                        class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                    >
+                        Pada tahun 1949, ketika Republik Rakyat Tiongkok baru
+                        berdiri, pemerintahan Mao Zedong mencoba untuk membangun
+                        industrialisasi yang berideologi sosialis, yaitu paham
+                        yang menganjurkan kepemilikan sosial dan kontrol
+                        demokratis atas alat produksi untuk mengurangi
+                        ketidaksetaraan. Hal ini dilakukan dengan cara melakukan
+                        transisi dari negara agrikultur menjadi negara industri
+                        yang difasilitasi dengan sebuah sistem pendidikan
+                        (Mengyun Ma, 2022). Pemerintahan Tiongkok mengambil
+                        inspirasi dari Uni Soviet dalam membentuk sistem
+                        pendidikannya. Dalam hal ini, sistem pendidikan Tiongkok
+                        yang menekankan kontrol negara secara penuh terhadap
+                        pendidikan tinggi, termasuk dalam pengelolaan institusi,
+                        pengangkatan pimpinan, hingga penempatan lulusan kerja.
+                        Namun, pada masa pemerintahan Deng Xiao Ping pada akhir
+                        tahun 1970-an, Tiongkok mulai mereformasi sektor
+                        pendidikan tingginya secara signifikan. Reformasi ini
+                        mencakup desentralisasi wewenang dari pemerintah pusat
+                        ke daerah, pemberian otonomi luas kepada university,
+                        serta pembukaan ruang bagi pendirian institusi swasta
+                        (Yuzhuo Cai & Fengqiao Yan, 2017).
+                    </p>
+                </div>
+
+                <div class="mb-8">
+                    <p
+                        class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                    >
+                        <span class="font-bold"
+                            >Struktur Sistem Pendidikan Tinggi di Tiongkok</span
+                        >
+                        <br /> Struktur sistem pendidikan tinggi di Tiongkok disusun
+                        secara jelas dan sistematis. Pada tingkat paling atas, terdapat
+                        universitas riset unggulan yang tergabung dalam “Project
+                        985”, yaitu inisiatif dari Presiden Jiang Zemin pada tahun
+                        1998 untuk menciptakan universitas kelas dunia. Di bawahnya,
+                        terdapat institusi dalam kelompok “Project 211” yang dibuat
+                        pada tahun 1995 untuk memperkuat sekitar 100 universitas
+                        dan program studi unggulan. Tingkat ketiga mencakup universitas
+                        regional yang fokus pada pengajaran, serta tingkat paling
+                        bawah adalah perguruan tinggi vokasional dan politeknik.
+                        Untuk mencapai pendidikan yang berstandar global, pemerintah
+                        Tiongkok mengalokasikan dana yang sangat besar untuk Project
+                        985 dan Project 211 (Yuzhuo Cai & Fengqiao Yan, 2017).
+                    </p>
+                    <br />
+                    <p
+                        class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                    >
+                        Dalam Project 985, terdapat 39 universitas, yang
+                        beberapa diantaranya adalah Tsinghua University, Peking
+                        University, Zhejiang University, Fudan University,
+                        Nanjing University, dan lainnya. Sementara itu, terdapat
+                        112 universitas yang termasuk dalam Project 211, yang
+                        diantaranya adalah Xinjiang University, Shaanxi Normal
+                        University, Guizhou University, serta 5 universitas yang
+                        sudah disebutkan dalam Project 985. Pemerintah Tiongkok
+                        mengalokasikan dana sebesar 7,97 miliar USD untuk
+                        Project 985 dan 2,7 miliar USD untuk Project 211 (Yannan
+                        Cao & Rui Yang, 2023).
+                    </p>
+                </div>
+
+                <div class="mb-8">
+                    <p
+                        class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                    >
+                        <span class="font-bold"
+                            >China’s National Plan for Medium and Long-term
+                            Education Reform and Development (2010-2020)</span
+                        >
+                        <br /> Untuk meningkatkan kualitas pendidikan tinggi, pemerintah
+                        Tiongkok meluncurkan China’s National Plan for Medium and
+                        Long-term Education Reform and Development (2010-2020). Kebijakan
+                        ini menganut konsep Lifelong Learning atau pembelajaran seumur
+                        hidup, yang artinya semua orang harus diajari apa yang ingin
+                        mereka pelajari unggul dalam apa yang mereka pelajari, dan
+                        menerapkan apa yang telah mereka pelajari (UNESCO, 2023).
+                        Rencana ini menekankan pada peningkatan kualitas, pemerataan
+                        akses, dan inovasi dalam pendidikan. Salah satu aspek terpenting
+                        dalam rencana ini adalah proses internasionalisasi yang diupayakan
+                        melalui kolaborasi-kolaborasi internasional yang dilakukan
+                        oleh universitas lokal di Tiongkok, baik dalam bentuk double
+                        degree, pertukaran dosen, hingga riset kolaboratif. Pemerintah
+                        Tiongkok juga melakukan pengembangan kurikulum internasional
+                        dan penggunaan bahasa Inggris sebagai bahasa pengantar dalam
+                        pengajaran di berbagai program studi. Bahkan, dalam rencana
+                        ini, dinyatakan bahwa institusi pendidikan Tiongkok didorong
+                        untuk membuka cabang di luar negeri. Hal ini dilakukan untuk
+                        mendukung pengajaran bahasa Mandarin sebagai bahasa asing
+                        di negara lain. Maka, tidak mengherankan bahwa saat ini terdapat
+                        beberapa universitas Tiongkok yang membuka cabang di negara
+                        lain, salah satunya adalah Xiamen University di Malaysia.
+                    </p>
+                </div>
+                <div class="mb-8">
+                    <p
+                        class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                    >
+                        <span class="font-bold">2011 Project</span>
+                        <br /> Pada tahun 2011, ketika Tsinghua University merayakan
+                        hari ulang tahunnya ke-100, Presiden Hu Jintao memberikan
+                        pernyataan mengenai keberhasilan kegiatan inovasi universitas.
+                        Perayaan tersebut juga diikuti oleh peluncuran 2011 Project
+                        oleh Menteri Pendidikan Tiongkok yang bertujuan untuk mencapai
+                        inovasi dalam penelitian dan pengembangan dengan mensinergikan
+                        upaya kolaboratif antara universitas, lembaga penelitian,
+                        industri dan pemerintah. Kebijakan tersebut mengubah struktur
+                        pendanaan dari investasi berbasis institusi menjadi investasi
+                        berbasis program (Yuzhuo Cai & Fengqiao Yan, 2017). Hal ini
+                        pun didukung dengan adanya the 12th Five-Year Plan (2011-2015)
+                        yang diajukan oleh Kongres Rakyat Nasional ke-11 pada tahun
+                        2011 yang menetapkan tujuan pembangunan Tiongkok untuk mempercepat
+                        reformasi pendidikan. Dalam rencana tersebut, salah satu
+                        pilar yang penting adalah memperkuat kerjasama internasional
+                        untuk meningkatkan riset dan inovasi (Feng Zhuolin, Wang
+                        Qi, Liu Niancai. ed., 2025).
+                    </p>
+                </div>
+                <div class="mb-8">
+                    <p
+                        class="text-gray-700 text-base md:text-lg leading-relaxed text-justify"
+                    >
+                        <span class="font-bold"
+                            >Internasionalisasi Pendidikan Menjadi Peluang Untuk
+                            Studi di Tiongkok
+                        </span>
+                        <br /> Dengan adanya prinsip internasionalisasi yang selalu
+                        ditekankan oleh pemerintah Tiongkok, maka tidaklah mengherankan
+                        bahwa saat ini terdapat sekitar 35 juta mahasiswa asing yang
+                        menempuh studi sarjana dan 3,3 juta mahasiswa asing di tingkat
+                        pascasarjana di Tiongkok. Mahasiswa asing di Tiongkok juga
+                        berasal dari berbagai macam benua, termasuk Asia, Eropa,
+                        Amerika, dan bahkan Afrika. Melalui inisiatif yang sangat
+                        besar dari pemerintah Tiongkok terhadap pendidikan tinggi,
+                        tidak dapat dipungkiri bahwa peluang bagi mahasiswa asing
+                        untuk mengejar pendidikannya di negara tirai bambu semakin
+                        terbuka lebar (Timothy van Gardingen, 2024).
+                    </p>
+                </div>
+
+                {/* Closing */}
+                <div
+                    class="mt-12 p-6 bg-blue-50 border-l-4 border-blue-700 rounded-r-lg"
+                >
+                    <p class="text-gray-800 text-base md:text-lg font-medium">
+                        Stay curious, stay kind, and see you in the next chapter
+                        of #CiciUnboxChina!
+                    </p>
+                </div>
+
+                {/* References */}
+                <div class="mt-12 pt-8 border-t-2 border-gray-200">
+                    <h3
+                        class="text-xl md:text-2xl font-bold text-gray-900 mb-6"
+                    >
+                        Referensi
+                    </h3>
+                    <div
+                        class="space-y-4 text-gray-700 text-sm md:text-base leading-relaxed"
+                    >
+                        <p class="pl-6 -indent-6">
+                            Cai, Yuzhuo & Fengqiao Yan. (2017). Chinese Higher
+                            Education and University. <em
+                                >Handbook of Chinese Education</em
+                            >.
+                        </p>
+                        <p class="pl-6 -indent-6">
+                            Cao, Yannan & Rui Yang. (2023). A new HE development
+                            model is needed to sustain excellence.
+                            <em>University World News</em>.
+                            <a
+                                href="https://www.universityworldnews.com/post.php?story=20230726111102317"
+                                class="text-blue-700 hover:text-blue-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://www.universityworldnews.com/post.php?story=20230726111102317
+                            </a>.
+                        </p>
+                        <p class="pl-6 -indent-6">
+                            Gardingen, Timothy van. (2024). How Many
+                            International Students Study in China. <em
+                                >The Pie News</em
+                            >.
+                            <a
+                                href="https://thepienews.com/how-many-international-students-study-in-china/"
+                                class="text-blue-700 hover:text-blue-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://thepienews.com/how-many-international-students-study-in-china/
+                            </a>.
+                        </p>
+                        <p class="pl-6 -indent-6">
+                            Ma, Mengyun (2022). Workforce Equality: The
+                            Constitutional Conception of Educational Equality in
+                            Mao-Era China. <em
+                                >Penn Carey Law: Legal Scholarship Repository</em
+                            >.
+                        </p>
+                        <p class="pl-6 -indent-6">
+                            UNESCO. (2023). China National Plan Medium and Long
+                            Term Education Reform and Development 2020, Issued
+                            2010. <em>UNESCO</em>.
+                            <a
+                                href="https://www.uil.unesco.org/en/articles/china-national-plan-medium-and-long-term-education-reform-and-development-2020-issued-2010"
+                                class="text-blue-700 hover:text-blue-900 underline break-all"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                https://www.uil.unesco.org/en/articles/china-national-plan-medium-and-long-term-education-reform-and-development-2020-issued-2010
+                            </a>.
+                        </p>
+                        <p class="pl-6 -indent-6">
+                            Zhuolin, Feng, Wang Qi & Liu Niancai. ed. (2025).
+                            Education in China and the World: National
+                            Development and Global Benchmarking. <em
+                                >Shanghai Jiaotong University</em
+                            >.
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+</Layout>

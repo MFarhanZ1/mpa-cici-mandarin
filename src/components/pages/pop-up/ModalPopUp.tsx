@@ -27,7 +27,7 @@ export default function ModalPopUp() {
   // Fungsi handler yang lebih bersih
   const handleImageClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    
+
     // Cek state SAAT INI, bukan setelah di-set
     if (isPopupOpen === "default") {
       setIsPopupOpen("next");
@@ -40,34 +40,69 @@ export default function ModalPopUp() {
   return (
     <>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-           {/* Overlay Background */}
-          <div
-            className="absolute inset-0 bg-black/50" // Gunakan tailwind modern untuk opacity
-            onClick={() => setIsOpen(false)}
-          />
+        <>
+          <div className="hidden md:block">
+            <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 ">
+              {/* Overlay Background */}
+              <div
+                className="absolute inset-0 bg-black/50" // Gunakan tailwind modern untuk opacity
+                onClick={() => setIsOpen(false)}
+              />
 
-          {/* Modal Container */}
-          <div className="relative z-10 max-w-xl w-full">
-             {/* Tombol Close - Pastikan event onCick terpasang */}
-            <button
-              onClick={() => setIsOpen(false)} 
-              className="absolute -top-2 -right-2 z-20 bg-white text-black rounded-full p-1 hover:bg-gray-200 transition-colors shadow-lg cursor-pointer"
-              aria-label="Tutup"
-            >
-              <X size={20} />
-            </button>
-            
-            {/* Image */}
-            <img
-              onClick={handleImageClick}
-              src={configPopup[isPopupOpen].image}
-              alt="Popup"
-              draggable="false" // PENTING: Mencegah gambar di-drag agar klik lebih responsif
-              className="cursor-pointer relative w-full h-auto rounded-xl shadow-2xl select-none" // select-none juga membantu
-            />
+              {/* Modal Container */}
+              <div className="relative z-10 max-w-xl w-full">
+                {/* Tombol Close - Pastikan event onCick terpasang */}
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="absolute top-[5%] -right-[18%] z-20 bg-white text-black rounded-full p-1 hover:bg-gray-200 transition-colors shadow-lg cursor-pointer"
+                  aria-label="Tutup"
+                >
+                  <X size={20} />
+                </button>
+
+                {/* Image */}
+                <img
+                  onClick={handleImageClick}
+                  src={configPopup[isPopupOpen].image}
+                  alt="Popup"
+                  draggable="false" // PENTING: Mencegah gambar di-drag agar klik lebih responsif
+                  className="cursor-pointer relative w-full h-auto rounded-xl shadow-2xl select-none" // select-none juga membantu
+                />
+              </div>
+            </div>
           </div>
-        </div>
+
+          <div className="md:hidden block">
+            <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+              {/* Overlay Background */}
+              <div
+                className="absolute inset-0 bg-black/50" // Gunakan tailwind modern untuk opacity
+                onClick={() => setIsOpen(false)}
+              />
+
+              {/* Modal Container */}
+              <div className="relative z-10 max-w-xl w-full">
+                {/* Tombol Close - Pastikan event onCick terpasang */}
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="absolute top-0 -right-[2%] z-20 bg-white text-black rounded-full p-1 hover:bg-gray-200 transition-colors shadow-lg cursor-pointer"
+                  aria-label="Tutup"
+                >
+                  <X size={20} />
+                </button>
+
+                {/* Image */}
+                <img
+                  onClick={handleImageClick}
+                  src={configPopup[isPopupOpen].image}
+                  alt="Popup"
+                  draggable="false" // PENTING: Mencegah gambar di-drag agar klik lebih responsif
+                  className="cursor-pointer relative w-full h-auto rounded-xl shadow-2xl select-none" // select-none juga membantu
+                />
+              </div>
+            </div>
+          </div>
+        </>
       )}
     </>
   );

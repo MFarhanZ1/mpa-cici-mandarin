@@ -1,16 +1,12 @@
 ---
-const background = "/pages/services/cici-language-course-expert/goals/background.webp";
-const bgMobile = "/pages/services/cici-language-course-expert/goals/bg-mobile.webp";
+const background = "/pages/services/cici-language-course-expert/goals/background.png";
+const bgMobile = "/pages/services/cici-language-course-expert/goals/bg-mobile.png";
 ---
 
-<section class="relative w-full h-screen overflow-hidden -mt-16">
-  <picture class="absolute top-0 bottom-0 h-full" style="left: 50%; transform: translateX(-50%); width: 100vw;">
-    <source media="(min-width: 640px)" srcset={background} />
-    <img src={bgMobile} alt="Goals background" class="w-full h-full object-cover object-center md:object-right" />
-  </picture>
-  <div class="container mx-auto max-w-7xl pt-20 md:pt-20 h-full flex flex-col items-center justify-start md:items-start md:justify-start relative">
-    <div class="mt-1 md:ml-68">
-      <h2 class="text-6xl font-bold drop-shadow-lg font-mochiy-pop-one text-outline-red">GOALS</h2>
-    </div>
-  </div>
+<section class="relative w-full overflow-hidden -mt-24">
+  <!-- Mobile Background -->
+  <img src={bgMobile} alt="Goals background" class="w-full h-auto block md:hidden" />
+
+  <!-- Desktop Background -->
+  <img src={background} alt="Goals background" class="w-full h-screen object-cover object-right hidden md:block" />
 </section>

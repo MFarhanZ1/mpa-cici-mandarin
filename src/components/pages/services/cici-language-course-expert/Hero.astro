@@ -1,12 +1,15 @@
 ---
 const backgroundImage = "/pages/services/cici-language-course-expert/hero/background.png";
-const scrollImage = "/pages/services/cici-language-course-expert/hero/scroll-paper.svg";
+const scrollImage = "/pages/services/cici-language-course-expert/hero/scroll-paper.png";
 const bgMobile = "/pages/services/cici-language-course-expert/hero/bg-mobile.png";
 ---
 
-<section class="relative w-full h-screen bg-cover bg-center bg-no-repeat z-20">
-  <img src={bgMobile} alt="Hero background" class="absolute inset-0 w-full h-full object-cover sm:hidden z-0" />
-  <img src={backgroundImage} alt="Hero background" class="absolute inset-0 w-full h-full object-cover hidden sm:block z-0" />
-  <div class="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-black/30 to-transparent pointer-events-none z-10"></div>
-  <div class="absolute inset-x-0 bottom-0 h-20 shadow-2xl pointer-events-none"></div>
+<section class="relative w-full overflow-hidden z-20">
+  <!-- Mobile Background -->
+  <img src={bgMobile} alt="Hero background" class="w-full h-auto block sm:hidden" />
+
+  <!-- Desktop Background -->
+  <img src={backgroundImage} alt="Hero background" class="w-full h-screen object-cover hidden sm:block" />
+
+  <img src={scrollImage} alt="Scroll image" class="absolute top-0 left-1/2 -translate-x-1/2 w-auto h-auto px-4 mt-24 block sm:hidden" />
 </section>

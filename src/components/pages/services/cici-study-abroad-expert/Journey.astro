@@ -5,12 +5,13 @@ const arrowLeft = "/pages/services/cici-study-abroad-expert/journey/arrow-left.s
 const arrowRight = "/pages/services/cici-study-abroad-expert/journey/arrow-right.svg";
 
 const videos = [
-  { src: "/pages/services/cici-study-abroad-expert/journey/videos/video_2.MP4", type: "video" },
-  { src: "/pages/services/cici-study-abroad-expert/journey/videos/video_4.mov", type: "video" },
-  { src: "/pages/services/cici-study-abroad-expert/journey/videos/video_5.mov", type: "video" },
-  { src: "/pages/services/cici-study-abroad-expert/journey/videos/video_6.MOV", type: "video" },
-  { src: "/pages/services/cici-study-abroad-expert/journey/videos/video_7.mov", type: "video" },
-  { src: "/pages/services/cici-study-abroad-expert/journey/videos/video_8.mov", type: "video" },
+  { src: "1gEG8aefmU0", type: "youtube" },
+  { src: "kWnseEX0ovg", type: "youtube" },
+  { src: "hoj2LRqW7N0", type: "youtube" },
+  { src: "XX5nXhNAsiU", type: "youtube" },
+  { src: "KPm2Zwh8KnI", type: "youtube" },
+  { src: "9nGR1v3-UD8", type: "youtube" },
+  { src: "fGZ5LKTwBDk", type: "youtube" },
 ];
 ---
 
@@ -26,10 +27,20 @@ const videos = [
         <img src={arrowLeft} alt="Previous" class="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20" />
       </button>
       <div class="flex-1 flex justify-center relative">
-        <div id="mediaContainer" class="w-full max-w-[200px] md:max-w-[220px] lg:max-w-[250px] h-auto mt-6 md:mt-0">
+        <div id="mediaContainer" class="w-full max-w-[200px] md:max-w-[220px] lg:max-w-[250px] mt-6 md:mt-0">
           {
             videos.map((media, index) =>
-              media.type === "video" ? (
+              media.type === "youtube" ? (
+                <div data-index={index} class={`media-item w-full aspect-9/16 shadow-2xl rounded-lg overflow-hidden ${index === 0 ? "active" : "hidden"}`}>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${media.src}`}
+                    title={`YouTube video ${index + 1}`}
+                    class="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  />
+                </div>
+              ) : media.type === "video" ? (
                 <video data-index={index} class={`media-item w-full h-auto object-contain shadow-2xl rounded-lg ${index === 0 ? "active" : "hidden"}`} controls preload="metadata">
                   <source src={media.src} type="video/mp4" />
                   Your browser does not support the video tag.
@@ -60,10 +71,16 @@ const videos = [
   const nextBtn = document.getElementById("nextBtn");
 
   function updateMedia(newIndex: number) {
-    // Pause all videos
+    // Pause all videos and reset YouTube iframes
     mediaItems.forEach((item) => {
       if (item instanceof HTMLVideoElement) {
         item.pause();
+      }
+      // Reset YouTube iframe by reloading it
+      const iframe = item.querySelector("iframe");
+      if (iframe) {
+        const src = iframe.src;
+        iframe.src = src;
       }
     });
 

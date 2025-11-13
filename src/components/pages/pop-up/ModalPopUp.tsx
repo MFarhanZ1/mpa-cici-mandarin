@@ -1,6 +1,7 @@
 import { X } from "lucide-react";
 import { useState } from "react";
 
+// Pastikan path ini benar dan gambar sudah ada di public folder atau diimport dengan benar jika menggunakan Vite/Astro assets
 const PopupImage = "/pages/pop-up/popup.png";
 const Popup2Image = "/pages/pop-up/popup2.png";
 type ConfigPopupType = {

@@ -38,8 +38,8 @@
 }
 
 .text-outline-orange {
-  -webkit-text-stroke: 12px #E14A25;
-  text-stroke: 10px #EE770E;
+  -webkit-text-stroke: 8px #E14A25;
+  text-stroke: 8px #EE770E;
   color: #ffffff;
   paint-order: stroke fill;
 }

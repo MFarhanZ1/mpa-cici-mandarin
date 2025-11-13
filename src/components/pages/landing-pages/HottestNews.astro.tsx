@@ -1,13 +1,62 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Background = "/pages/landing-pages/hottest-news/BG.webp";
-const card8 = "/pages/landing-pages/hottest-news/8.png";
-const card9 = "/pages/landing-pages/hottest-news/9.png";
-const card10 = "/pages/landing-pages/hottest-news/10.png";
+const cardnews1 = "/pages/landing-pages/hottest-news/card-cici-news-1.webp";
+const cardnews2 = "/pages/landing-pages/hottest-news/card-cici-news-2.webp";
+const cardnews3 = "/pages/landing-pages/hottest-news/card-cici-news-3.webp";
+const cardnews4 = "/pages/landing-pages/hottest-news/card-cici-news-4.webp";
+
+const newsCards = [
+  {
+    image: cardnews1,
+    alt: "card1",
+    link: "/article/80-tahun-kemenangan-perang-dunia-II",
+  },
+  {
+    image: cardnews2,
+    alt: "card2",
+    link: "/article/di-balik-tembok-kampus-tiongkok",
+  },
+  {
+    image: cardnews3,
+    alt: "card3",
+    link: "/article/bukan-cuma-tren",
+  },
+  {
+    image: cardnews4,
+    alt: "card4",
+    link: "/article/jalan-jalan-ke-masa-depan",
+  },
+];
 
 export default function HottestNews() {
-  return (
+  const [activeCardMobile, setActiveCardMobile] = React.useState(0);
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
 
+  const handleScroll = () => {
+    if (!scrollContainerRef.current) return;
+
+    const container = scrollContainerRef.current;
+    const scrollLeft = container.scrollLeft;
+    const cardWidth = 280 + 16; // width + gap
+    const centerPosition = scrollLeft + container.offsetWidth / 2;
+    const activeIndex = Math.round((centerPosition - 140) / cardWidth);
+    setActiveCardMobile(
+      Math.max(0, Math.min(activeIndex, newsCards.length - 1)),
+    );
+  };
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.addEventListener("scroll", handleScroll);
+      handleScroll();
+
+      return () => container.removeEventListener("scroll", handleScroll);
+    }
+  }, []);
+
+  return (
     <>
     
     

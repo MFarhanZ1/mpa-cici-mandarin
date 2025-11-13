@@ -58,83 +58,90 @@ export default function HottestNews() {
 
   return (
     <>
-    
-    
-    <section
-      className="bg-cover px-7 bg-left py-12 -mt-44 md:hidden block -mb-[2%]"
-      style={{
-        backgroundImage: `url(${Background})`,
-      }}
-    >
-      <div className="flex flex-col justify-center items-center pt-32 gap-5">
-        <h1 className="text-white text-2xl font-mochiy-pop-one text-center">
-          CHINA'S HOTTEST NEWS
-        </h1>
-        <div className="w-full overflow-x-auto scrollbar-hide">
-          <div className="flex gap-4 pb-4 min-w-max px-4 justify-center items-center">
-            <div className="shrink-0 w-[280px] md:w-[320px]">
-              <img
-                src={card9}
-                alt="card9"
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
-            </div>
-            <div className="shrink-0 w-[280px] md:w-[320px]">
-              <img
-                src={card8}
-                alt="card8"
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
-            </div>
-            <div className="shrink-0 w-[280px] md:w-[320px]">
-              <img
-                src={card10}
-                alt="card10"
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
+      {/*mobile version*/}
+      <section
+        className="bg-cover px-7 bg-left py-12 -mt-44 md:hidden block -mb-[2%]"
+        style={{
+          backgroundImage: `url(${Background})`,
+        }}
+      >
+        <div className="flex flex-col justify-center items-center pt-32 gap-5">
+          <h1 className="text-white text-2xl font-mochiy-pop-one text-center">
+            CHINA'S HOTTEST NEWS
+          </h1>
+          <div
+            ref={scrollContainerRef}
+            className="w-full overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+            style={{
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+            }}
+          >
+            <div
+              className={`flex gap-4 pb-9`}
+              style={{
+                paddingLeft: "max(1rem, calc(50vw - 140px))",
+                paddingRight: "max(1rem, calc(50vw - 140px))",
+              }}
+            >
+              {newsCards.map((card, index) => (
+                <div
+                  key={index}
+                  className={`shrink-0 w-[280px] snap-center transition-all duration-300 ease-out cursor-pointer`}
+                  style={{
+                    transform:
+                      activeCardMobile === index ? "scale(1)" : "scale(0.85)",
+                    opacity: activeCardMobile === index ? 1 : 0.6,
+                    borderWidth: activeCardMobile === index ? "4px" : "0px",
+                    borderColor:
+                      activeCardMobile === index ? "#FFBC2D" : "transparent",
+                    borderRadius: "1rem",
+                  }}
+                  onClick={() => {
+                    window.location.href= card.link;
+                  }}
+                >
+                  <img
+                    src={card.image}
+                    alt={card.alt}
+                    className="w-full h-auto rounded-lg shadow-lg"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section
-      className="bg-cover px-7 py-12 -mt-[14%] 2xl:-mt-[10%] md:block hidden -mb-[2%] relative"
-      style={{
-        backgroundImage: `url(${Background})`,
-      }}
-    >
-      <div className="flex flex-col justify-center items-center pt-32 gap-5">
-        <h1 className="text-white text-2xl font-mochiy-pop-one text-center">
-          CHINA'S HOTTEST NEWS
-        </h1>
-        <div className="w-full overflow-x-auto scrollbar-hide">
-          <div className="flex gap-4 pb-4 min-w-max px-4 justify-center items-center">
-            <div className="shrink-0 w-[280px] md:w-[320px]">
-              <img
-                src={card9}
-                alt="card9"
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
-            </div>
-            <div className="shrink-0 w-[280px] md:w-[320px]">
-              <img
-                src={card8}
-                alt="card8"
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
-            </div>
-            <div className="shrink-0 w-[280px] md:w-[320px]">
-              <img
-                src={card10}
-                alt="card10"
-                className="w-full h-auto rounded-lg shadow-lg"
-              />
+      {/*web version*/}
+      <section
+        className="bg-cover px-7 py-12 -mt-[14%] 2xl:-mt-[10%] md:block hidden -mb-[2%] relative"
+        style={{
+          backgroundImage: `url(${Background})`,
+        }}
+      >
+        <div className="flex flex-col justify-center items-center pt-32 gap-5">
+          <h1 className="text-white text-2xl font-mochiy-pop-one text-center">
+            CHINA'S HOTTEST NEWS
+          </h1>
+          <div className="w-full overflow-x-auto scrollbar-hide">
+            <div className="flex gap-4 pb-4 min-w-max px-4 justify-center items-center">
+              {newsCards.map((card, index) => (
+                <div key={index} className="shrink-0 w-[275px]">
+                  <img
+                    src={card.image}
+                    alt={card.alt}
+                    className="w-full h-auto rounded-lg shadow-lg cursor-pointer hover:shadow-xl transition-shadow"
+                    onClick={() => {
+                      window.location.href = card.link;
+                    }}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 }

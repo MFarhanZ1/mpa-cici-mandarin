@@ -44,7 +44,7 @@ const programs = [
       <h2 class="text-3xl md:text-5xl font-bold drop-shadow-lg font-mochiy-pop-one text-outline-red">PROGRAMS</h2>
     </div>
 
-    <div class="relative w-full max-w-4xl px-4 md:px-8 mb-16 mx-auto">
+    <div class="relative w-full max-w-4xl px-10 md:px-8 mx-auto mt-8">
       <div class="md:hidden">
         <div class="grid grid-cols-2 gap-4 mb-4">
           {
@@ -57,13 +57,13 @@ const programs = [
                   {program.items.map((item) =>
                     item.type === "text" && "secondary" in item ? (
                       <div>
-                        <p class="font-bold text-xs">{item.primary}</p>
-                        <p class="text-[10px]">{item.secondary}</p>
+                        <p class="font-bold text-[9px]">{item.primary}</p>
+                        <p class="text-[9px]">{item.secondary}</p>
                       </div>
                     ) : (
                       <div class="flex items-center gap-2">
-                        <span class="text-red text-xs">•</span>
-                        <p class="text-[10px] font-medium">{item.primary}</p>
+                        <span class="text-red text-[9px]">•</span>
+                        <p class="text-[9px] font-medium">{item.primary}</p>
                       </div>
                     )
                   )}
@@ -82,8 +82,8 @@ const programs = [
               {
                 programs[2].items.map((item) => (
                     <div class="flex items-center">
-                      <span class="text-[#cb0d0d] text-xs">•</span>
-                      <p class="ml-3 text-xs font-medium">{item.primary}</p>
+                      <span class="text-[#cb0d0d] text-[9px]">•</span>
+                      <p class="ml-3 text-[9px] font-medium">{item.primary}</p>
                     </div>
                   )
                 )

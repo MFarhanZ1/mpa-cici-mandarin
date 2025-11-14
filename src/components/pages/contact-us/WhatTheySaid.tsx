@@ -65,8 +65,6 @@ export default function WhatTheySaid() {
     5: CardIndexFive,
     6: CardIndexSix,
   };
-
-
   const handleNext = () => {
     setCardIndex((prev) => (prev >= 6 ? 1 : prev + 1));
   };
@@ -76,6 +74,8 @@ export default function WhatTheySaid() {
   };
   return (
     <>
+      
+      {/*mobile version*/}
       <section
         className="bg-cover bg-top block md:hidden"
         style={{
@@ -123,7 +123,8 @@ export default function WhatTheySaid() {
           </div>
         </div>
       </section>
-
+      
+      {/*web version version*/}
       <section
         className="bg-cover bg-top h-auto min-h-screen hidden md:block relative overflow-hidden"
         style={{

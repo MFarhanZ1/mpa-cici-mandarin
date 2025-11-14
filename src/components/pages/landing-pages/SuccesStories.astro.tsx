@@ -219,7 +219,7 @@ const SuccesStories: React.FC = () => {
 				<img src={backgroundImage} className="w-full h-full" alt="BG Image" />
 
 				<div className="absolute top-[16vh] flex justify-center left-[50%] w-[35%]">
-					<div className="font-normal  inline border-[#FFBC2D] border bg-linear-to-r from-[#CB0D0D] to-[#E55B12] rounded-xl px-4 py-2 text-white font-mochiy-pop-one text-xl whitespace-nowrap">
+					<div className="font-normal inline border-[#FFBC2D] border bg-linear-to-r from-[#CB0D0D] to-[#E55B12] rounded-xl px-4 py-2 text-white font-mochiy-pop-one text-xl whitespace-nowrap">
 						<span>{textVideos[currentIndex]}</span>
 					</div>
 				</div>
@@ -333,7 +333,7 @@ const SuccesStories: React.FC = () => {
 					alt="Stamp"
 				/>
 
-				<div className="absolute top-[23vh] font-normal border-[#FFBC2D] border bg-linear-to-r from-[#CB0D0D] to-[#E55B12] rounded-xl px-4 py-2 text-white left-1/2 -translate-x-1/2 font-mochiy-pop-one text-xs whitespace-nowrap">
+				<div className="absolute z-70 top-[23vh] font-normal border-[#FFBC2D] border bg-linear-to-r from-[#CB0D0D] to-[#E55B12] rounded-xl px-4 py-2 text-white left-1/2 -translate-x-1/2 font-mochiy-pop-one text-xs whitespace-nowrap">
 					<span>{textVideos[currentIndex]}</span>
 				</div>
 

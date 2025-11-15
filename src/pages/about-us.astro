@@ -1,12 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import CiciMandarinTeam from "../components/pages/about-us/CiciMandarinTeam.astro";
+import CiciMandarinTeam from "../components/pages/about-us/CiciMandarinTeam.tsx";
 import VissionMission from "../components/pages/about-us/VissionMission.astro";
 import Milestone from "../components/pages/about-us/Milestone.astro";
 ---
 
 <Layout title="About Us">
-    <CiciMandarinTeam/>
+    <CiciMandarinTeam client:load/>
     <VissionMission/>
     <Milestone/>
 </Layout>

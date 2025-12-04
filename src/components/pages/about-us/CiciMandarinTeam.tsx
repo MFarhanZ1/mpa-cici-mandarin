@@ -9,6 +9,7 @@ const Imageweb = "/pages/about-us/cici-mandarin-team/image-web1.png";
 
 // 2. Masukkan semua video ke dalam Array (List)
 const videoList = [
+  "/pages/about-us/cici-mandarin-team/video-2.mp4",
   "/pages/about-us/cici-mandarin-team/video-1.mp4",
   "/pages/about-us/cici-mandarin-team/video-2.webm",
   "/pages/about-us/cici-mandarin-team/video-3.mp4",

@@ -78,7 +78,7 @@ export default function CiciMandarinTeam() {
                   muted // Muted disarankan untuk mobile agar tidak auto-fullscreen di beberapa browser
                   playsInline // PENTING: Agar di iPhone video tidak otomatis popup full screen
                 >
-                  <source src={videoSrc} />
+                  <source src={`${videoSrc}#t=0.001`} />
                 </video>
               ))}
             </div>
@@ -131,8 +131,10 @@ export default function CiciMandarinTeam() {
                   className="w-full h-full aspect-video object-cover rounded-xl shadow-lg bg-black border-2 border-white border-rounded-lg"
                   controls
                   autoPlay // Opsional: Auto play saat ganti
+                  playsInline
+                  muted
                 >
-                  <source src={videoList[currentIndex]} />
+                  <source src={`${videoList[currentIndex]}#t=0.001`} />
                 </video>
 
                 {/* TOMBOL NAVIGASI */}
@@ -141,11 +143,10 @@ export default function CiciMandarinTeam() {
                   <button
                     onClick={handlePrev}
                     disabled={currentIndex === 0}
-                    className={`p-1 rounded-full text-white transition-all ${
-                      currentIndex === 0
+                    className={`p-1 rounded-full text-white transition-all ${currentIndex === 0
                         ? "bg-gray-400 cursor-not-allowed opacity-50" // Style Disabled
                         : "bg-red-600 hover:bg-red-700 shadow-md" // Style Active
-                    }`}
+                      }`}
                   >
                     {/* Ganti tulisan "Prev" dengan Icon jika mau */}
                     <StepBack />
@@ -155,11 +156,10 @@ export default function CiciMandarinTeam() {
                   <button
                     onClick={handleNext}
                     disabled={currentIndex === videoList.length - 1}
-                    className={`p-1 rounded-full text-white transition-all ${
-                      currentIndex === videoList.length - 1
+                    className={`p-1 rounded-full text-white transition-all ${currentIndex === videoList.length - 1
                         ? "bg-gray-400 cursor-not-allowed opacity-50"
                         : "bg-red-600 hover:bg-red-700 shadow-md"
-                    }`}
+                      }`}
                   >
                     <StepForward />
                   </button>

@@ -29,7 +29,7 @@ const videos = [video1, video2, video3, video5, video6, video7];
                 <video
                   id={`video-${index}`}
                   class="w-full h-full object-cover"
-                  src={videoSrc}
+                  src={`${videoSrc}#t=0.001`}
                   loop
                   playsinline
                   muted>
@@ -149,7 +149,7 @@ const videos = [video1, video2, video3, video5, video6, video7];
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const videoId = btn.getAttribute('data-video-id');
-        const video = document.getElementById(videoId) as HTMLVideoElement;
+        const video = document.getElementById(videoId as string) as HTMLVideoElement;
         const playIcon = btn.querySelector('.play-icon');
         const pauseIcon = btn.querySelector('.pause-icon');
 

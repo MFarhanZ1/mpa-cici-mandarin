@@ -224,7 +224,7 @@ const SuccesStories: React.FC = () => {
 						<span>{textVideos[currentIndex]}</span>
 					</div>
 				</div>
-				
+
 				<div className="absolute top-[22vh] right-[15%] w-[35%] h-auto z-50 flex flex-col xl:flex-row lg:flex-row gap-10 justify-center items-center">
 					<div className="flex flex-col items-center justify-center py-6 sm:py-8 px-4 sm:px-6 rounded-3xl w-full">
 						{/* Carousel Container - HANYA TAMPILKAN 1 VIDEO */}
@@ -238,7 +238,7 @@ const SuccesStories: React.FC = () => {
 								{videos.map((video, index) => (
 									<div key={video} className="w-full shrink-0">
 										<VideoCard
-											videoSrc={`pages/landing-pages/succes-stories/${video}`}
+											videoSrc={`pages/landing-pages/succes-stories/${video}#t=0.001`}
 											logoSrc={ciciMandarinLogo}
 											isPlaying={playingIndex === index}
 											onPlayToggle={() => handlePlayToggle(index)}
@@ -305,11 +305,10 @@ const SuccesStories: React.FC = () => {
 										setCurrentIndex(index);
 										setPlayingIndex(null);
 									}}
-									className={`h-2 rounded-full transition-all ${
-										currentIndex === index
+									className={`h-2 rounded-full transition-all ${currentIndex === index
 											? "w-8 bg-white"
 											: "w-2 bg-white/50 hover:bg-white/75"
-									}`}
+										}`}
 									aria-label={`Go to slide ${index + 1}`}
 								/>
 							))}
@@ -354,7 +353,7 @@ const SuccesStories: React.FC = () => {
 								{videos.map((video, index) => (
 									<div key={video} className="w-full shrink-0">
 										<VideoCard
-											videoSrc={`pages/landing-pages/succes-stories/${video}`}
+											videoSrc={`pages/landing-pages/succes-stories/${video}#t=0.001`}
 											logoSrc={ciciMandarinLogo}
 											isPlaying={playingIndex === index}
 											onPlayToggle={() => handlePlayToggle(index)}
@@ -425,11 +424,10 @@ const SuccesStories: React.FC = () => {
 										setCurrentIndex(index);
 										setPlayingIndex(null);
 									}}
-									className={`h-2 rounded-full transition-all ${
-										currentIndex === index
+									className={`h-2 rounded-full transition-all ${currentIndex === index
 											? "w-8 bg-white"
 											: "w-2 bg-white/50 hover:bg-white/75"
-									}`}
+										}`}
 									aria-label={`Go to slide ${index + 1}`}
 								/>
 							))}

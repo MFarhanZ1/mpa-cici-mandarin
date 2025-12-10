@@ -1,40 +1,125 @@
 ---
-
 const FooterBackground = "/footer/footer-bg.svg";
 const FooterBackgroundMobile = "/footer/footer-bg-mobile.svg";
 const currentPath = Astro.url.pathname;
-
 ---
+
 <footer class="w-full text-white relative overflow-hidden">
-	<img src={FooterBackgroundMobile} alt="Footer Background" class="w-full h-auto block md:hidden" />
-	<img src={FooterBackground} alt="Footer Background" class="w-full h-auto hidden md:block" />
-	<div class="absolute inset-0 md:right-0 -right-35 justify-center items-center flex">
+	<img
+		src={FooterBackgroundMobile}
+		alt="Footer Background"
+		class="w-full h-auto block md:hidden"
+		loading="eager"
+		decoding="sync"
+		width="430"
+		height="235"
+	/>
+	<img
+		src={FooterBackground}
+		alt="Footer Background"
+		class="w-full h-auto hidden md:block"
+		loading="eager"
+		decoding="sync"
+		width="1440"
+		height="400"
+	/>
+	<div
+		class="absolute inset-0 md:right-0 -right-35 justify-center items-center flex"
+	>
 		<div class="w-md h-16 md:h-24 -mt-3 md:-mt-7">
-			<div class="w-full h-2/3 flex justify-center items-center gap-1.5 md:gap-4">
+			<div
+				class="w-full h-2/3 flex justify-center items-center gap-1.5 md:gap-4"
+			>
 				<a href="/">
-					<img src="/web.svg" alt="Web" class="w-6 h-6 md:w-12 md:h-12">
+					<img
+						src="/web.svg"
+						alt="Web"
+						class="w-6 h-6 md:w-12 md:h-12"
+						loading="eager"
+						decoding="sync"
+						width="48"
+						height="48"
+					/>
 				</a>
 				<a href="https://www.instagram.com/cicimandarin.idn">
-					<img src="/ig.svg" alt="Instagram" class="w-6 h-6 md:w-12 md:h-12">
+					<img
+						src="/ig.svg"
+						alt="Instagram"
+						class="w-6 h-6 md:w-12 md:h-12"
+						loading="eager"
+						decoding="sync"
+						width="48"
+						height="48"
+					/>
 				</a>
 				<a href="https://wa.me/+6287853909383">
-					<img src="/wa.svg" alt="WhatsApp" class="w-6 h-6 md:w-12 md:h-12">
+					<img
+						src="/wa.svg"
+						alt="WhatsApp"
+						class="w-6 h-6 md:w-12 md:h-12"
+						loading="eager"
+						decoding="sync"
+						width="48"
+						height="48"
+					/>
 				</a>
 				<a href="https://www.tiktok.com/@cicimandarin.idn">
-					<img src="/tiktok.svg" alt="TikTok" class="w-6 h-6 md:w-12 md:h-12">
+					<img
+						src="/tiktok.svg"
+						alt="TikTok"
+						class="w-6 h-6 md:w-12 md:h-12"
+						loading="eager"
+						decoding="sync"
+						width="48"
+						height="48"
+					/>
 				</a>
 				<a href="https://www.linkedin.com/company/cici-mandarin-idn">
-					<img src="/linked-in.svg" alt="LinkedIn" class="w-6 h-6 md:w-12 md:h-12">
+					<img
+						src="/linked-in.svg"
+						alt="LinkedIn"
+						class="w-6 h-6 md:w-12 md:h-12"
+						loading="eager"
+						decoding="sync"
+						width="48"
+						height="48"
+					/>
 				</a>
 				<a href="mailto:info@cicimandarin.idn">
-					<img src="/mail.svg" alt="Mail" class="w-6 h-6 md:w-12 md:h-12">
+					<img
+						src="/mail.svg"
+						alt="Mail"
+						class="w-6 h-6 md:w-12 md:h-12"
+						loading="eager"
+						decoding="sync"
+						width="48"
+						height="48"
+					/>
 				</a>
 			</div>
-			<div class="-mt-1 md:mt-0 w-full font-bold text-[10px] md:text-base h-1/3 flex justify-center items-center gap-2 md:gap-6">
-				<a href="/" class=`${currentPath === '/' && 'text-yellow-300 underline'} hover:underline hover:text-yellow-300`>HOME</a>
-				<a href="/about-us" class=`${currentPath.includes('/about-us') && 'text-yellow-300 underline'} hover:underline hover:text-yellow-300`>ABOUT US</a>
-				<a href="/services/cici-language-course-expert" class=`${currentPath.includes('/services') && 'text-yellow-300 underline'} hover:underline hover:text-yellow-300`>SERVICES</a>
-				<a href="/contact-us" class=`${currentPath.includes('/contact-us') && 'text-yellow-300 underline'} hover:underline hover:text-yellow-300`>CONTACT US</a>
+			<div
+				class="-mt-1 md:mt-0 w-full font-bold text-[10px] md:text-base h-1/3 flex justify-center items-center gap-2 md:gap-6"
+			>
+				<a
+					href="/"
+					class=`${currentPath === '/' && 'text-yellow-300 underline'} hover:underline hover:text-yellow-300`
+					>HOME</a
+				>
+				<a
+					href="/about-us"
+					class=`${currentPath.includes('/about-us') && 'text-yellow-300 underline'} hover:underline hover:text-yellow-300`
+					>ABOUT US</a
+				>
+				<a
+					href="/services/cici-language-course-expert"
+					class=`${currentPath.includes('/services') && 'text-yellow-300 underline'} hover:underline hover:text-yellow-300`
+					>SERVICES</a
+				>
+				<a
+					href="/contact-us"
+					class=`${currentPath.includes('/contact-us') && 'text-yellow-300 underline'} hover:underline hover:text-yellow-300`
+					>CONTACT US</a
+				>
 			</div>
 		</div>
 	</div>

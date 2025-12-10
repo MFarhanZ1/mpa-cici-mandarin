@@ -18,7 +18,7 @@ const backgroundImageWeb = "pages/landing-pages/why-us/BG-Web.webp";
 // (920px viewport) + (16px gap) + (16px gap) + (48px tombol) + (48px tombol)
 // Ukuran tombol: p-3 (12px) * 2 + w-6 (24px) = 48px
 // (Lebar 920px) + (gap 16px) + (Tombol 48px) + (gap 16px) + (Tombol 48px) = 1048px
-const DESKTOP_LAYOUT_WIDTH = 1048; 
+const DESKTOP_LAYOUT_WIDTH = 1048;
 const DESKTOP_LAYOUT_HEIGHT = 600; // (minHeight 540px + padding 60px)
 // ... (sisa kode)
 
@@ -99,7 +99,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
       }}
     >
       {/* ... (sisa konten VideoCard) ... */}
-            {/* Pattern overlay */}
+      {/* Pattern overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -132,6 +132,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
           className={`w-full h-full object-cover ${isOdd ? "scale-105" : ""}`}
           loop
           playsInline
+          muted
           preload="auto"
         />
 
@@ -333,27 +334,27 @@ const WhyUs: React.FC = () => {
           {/* PERBAIKAN: 
             Container 1: 'w-full' untuk mengukur layar (mobileWrapperRef)
           */}
-          <div 
-            ref={mobileWrapperRef} 
+          <div
+            ref={mobileWrapperRef}
             className="relative w-full h-auto flex items-center justify-center"
             style={{
-                // PAKSA TINGGINYA JADI TINGGI YANG SUDAH DI-SCALE
-                height: `${DESKTOP_LAYOUT_HEIGHT * mobileScale}px`,
-                // Tambahkan ini untuk jaga-jaga
-                overflow: "hidden" 
+              // PAKSA TINGGINYA JADI TINGGI YANG SUDAH DI-SCALE
+              height: `${DESKTOP_LAYOUT_HEIGHT * mobileScale}px`,
+              // Tambahkan ini untuk jaga-jaga
+              overflow: "hidden"
             }}
           >
             {/* PERBAIKAN: 
               Container 2: Terapkan 'scale' dan 'width' desktop
             */}
-            <div 
+            <div
               className="relative flex items-center justify-center gap-4"
               style={{
                 width: `${DESKTOP_LAYOUT_WIDTH}px`,
                 transform: `scale(${mobileScale})`,
                 transformOrigin: 'center',
                 // Beri padding vertikal ekstra untuk kompensasi scale
-                paddingTop: '30px', 
+                paddingTop: '30px',
                 paddingBottom: '30px'
               }}
             >
@@ -484,7 +485,7 @@ const WhyUs: React.FC = () => {
 
             {/* Tombol dan Viewport dalam satu Flex Container */}
             <div className="relative flex items-center justify-center gap-4 w-full">
-              
+
               {/* Tombol Kiri */}
               <button
                 type="button"

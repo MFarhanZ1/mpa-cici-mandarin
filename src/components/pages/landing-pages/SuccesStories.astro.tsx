@@ -26,7 +26,7 @@ const textVideos = [
 	"Client Travel Experience",
 	"One Day Beijing Tour",
 	"Student University Life",
-	"Prescholer Class",
+	"Preschoolers Class",
 	"Kids Class",
 	"Adult Class",
 ];

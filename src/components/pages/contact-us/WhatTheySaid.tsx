@@ -74,7 +74,7 @@ export default function WhatTheySaid() {
   };
   return (
     <>
-      
+
       {/*mobile version*/}
       <section
         className="bg-cover bg-top block md:hidden"
@@ -96,7 +96,7 @@ export default function WhatTheySaid() {
             }}
           >
             <div
-              className={`flex gap-4 pb-9 px-4`}
+              className={`inline-flex gap-4 pb-9 px-4`}
               style={{
                 paddingLeft: "max(1rem, calc(50vw - 140px))",
                 paddingRight: "max(1rem, calc(50vw - 140px))",
@@ -123,7 +123,7 @@ export default function WhatTheySaid() {
           </div>
         </div>
       </section>
-      
+
       {/*web version version*/}
       <section
         className="bg-cover bg-top h-auto min-h-screen hidden md:block relative overflow-hidden"
@@ -151,9 +151,8 @@ export default function WhatTheySaid() {
               id="prevBtn"
               disabled={cardIndex === 1}
               onClick={handlePrev}
-              className={`${
-                cardIndex === 1 ? "opacity-55" : ""
-              } absolute cursor-pointer left-[15%] top-1/2 -translate-y-1/2 z-10 bg-[#FFBC2D] hover:bg-[#FFBC2D] rounded-full w-8 h-8 flex items-center justify-center shadow-lg transition-all`}
+              className={`${cardIndex === 1 ? "opacity-55" : ""
+                } absolute cursor-pointer left-[15%] top-1/2 -translate-y-1/2 z-10 bg-[#FFBC2D] hover:bg-[#FFBC2D] rounded-full w-8 h-8 flex items-center justify-center shadow-lg transition-all`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -186,9 +185,8 @@ export default function WhatTheySaid() {
               id="nextBtn"
               onClick={handleNext}
               disabled={cardIndex === 6}
-              className={`${
-                cardIndex === 6 ? "opacity-55" : ""
-              } absolute right-[15%] cursor-pointer top-1/2 -translate-y-1/2 z-10 bg-[#FFBC2D] hover:bg-[#FFBC2D] rounded-full w-8 h-8 flex items-center justify-center shadow-lg transition-all`}
+              className={`${cardIndex === 6 ? "opacity-55" : ""
+                } absolute right-[15%] cursor-pointer top-1/2 -translate-y-1/2 z-10 bg-[#FFBC2D] hover:bg-[#FFBC2D] rounded-full w-8 h-8 flex items-center justify-center shadow-lg transition-all`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

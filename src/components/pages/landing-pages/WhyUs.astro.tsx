@@ -132,7 +132,6 @@ const VideoCard: React.FC<VideoCardProps> = ({
           className={`w-full h-full object-cover ${isOdd ? "scale-105" : ""}`}
           loop
           playsInline
-          muted
           preload="auto"
         />
 
@@ -403,7 +402,7 @@ const WhyUs: React.FC = () => {
                       isOdd={index % 2 === 1}
                       isCenter={index === centerIndex}
                       key={video}
-                      videoSrc={`pages/landing-pages/why-us/${video}`}
+                      videoSrc={`pages/landing-pages/why-us/${video}#t=0.001`}
                       logoSrc={ciciMandarinLogo}
                       isPlaying={playingIndex === index}
                       onPlayToggle={() => handlePlayToggle(index)}
@@ -531,7 +530,7 @@ const WhyUs: React.FC = () => {
                       isOdd={index % 2 === 1}
                       isCenter={index === centerIndex}
                       key={video}
-                      videoSrc={`pages/landing-pages/why-us/${video}`}
+                      videoSrc={`pages/landing-pages/why-us/${video}#t=0.001`}
                       logoSrc={ciciMandarinLogo}
                       isPlaying={playingIndex === index}
                       onPlayToggle={() => handlePlayToggle(index)}

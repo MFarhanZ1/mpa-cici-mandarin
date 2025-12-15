@@ -1,10 +1,4 @@
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  useMemo,
-  useCallback,
-} from "react";
+import React, { useState, useRef, useEffect, useMemo, useCallback } from "react";
 
 const videos = ["1.mp4", "2.mp4", "3.mp4", "5.mp4", "6.mp4", "7.mp4"];
 const cardWidth = 280; // increased base card width
@@ -31,23 +25,16 @@ interface VideoCardProps {
   onPlayToggle: () => void;
 }
 
-const VideoCard: React.FC<VideoCardProps> = ({
-  videoSrc,
-  logoSrc,
-  isOdd,
-  isPlaying,
-  isCenter,
-  onPlayToggle,
-}) => {
+const VideoCard: React.FC<VideoCardProps> = ({ videoSrc, logoSrc, isOdd, isPlaying, isCenter, onPlayToggle }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
     const videoEl = videoRef.current;
     if (!videoEl) return;
     if (isPlaying) {
-      videoEl.muted = false;
-      setIsMuted(false);
+      videoEl.muted = true;
+      setIsMuted(true);
       videoEl.play().catch((err) => console.log("Play failed:", err));
     } else {
       videoEl.pause();
@@ -90,9 +77,7 @@ const VideoCard: React.FC<VideoCardProps> = ({
         background: "linear-gradient(to bottom, #CB0D0D, #a00a0a)",
         borderRadius: "16px",
         position: "relative",
-        boxShadow: isCenter
-          ? "0 12px 36px rgba(203, 13, 13, 0.6)"
-          : "0 4px 12px rgba(203, 13, 13, 0.4)",
+        boxShadow: isCenter ? "0 12px 36px rgba(203, 13, 13, 0.6)" : "0 4px 12px rgba(203, 13, 13, 0.4)",
         transform: isCenter ? "scale(1.12)" : "scale(1)",
         transition: "all 400ms ease",
         zIndex: isCenter ? 2 : 1,
@@ -111,38 +96,20 @@ const VideoCard: React.FC<VideoCardProps> = ({
             radial-gradient(circle at 25% 50%, rgba(255,255,255,0.1) 2px, transparent 2px),
             radial-gradient(circle at 75% 50%, rgba(255,255,255,0.1) 2px, transparent 2px)
           `,
-          backgroundSize:
-            "30px 25px, 30px 25px, 35px 30px, 35px 30px, 20px 20px, 20px 20px",
-          backgroundPosition:
-            "0% 0%, 100% 100%, 50% 0%, 50% 100%, 25% 50%, 75% 50%",
+          backgroundSize: "30px 25px, 30px 25px, 35px 30px, 35px 30px, 20px 20px, 20px 20px",
+          backgroundPosition: "0% 0%, 100% 100%, 50% 0%, 50% 100%, 25% 50%, 75% 50%",
           borderRadius: "10px",
           opacity: "0.7",
         }}
       />
 
       {/* Card inner dengan video */}
-      <div
-        className="video-card relative group cursor-pointer w-full h-full"
-        style={{ borderRadius: "6px", overflow: "hidden", background: "#000" }}
-        onClick={onPlayToggle}
-      >
-        <video
-          ref={videoRef}
-          src={videoSrc}
-          className={`w-full h-full object-cover ${isOdd ? "scale-105" : ""}`}
-          loop
-          playsInline
-          preload="auto"
-        />
+      <div className="video-card relative group cursor-pointer w-full h-full" style={{ borderRadius: "6px", overflow: "hidden", background: "#000" }} onClick={onPlayToggle}>
+        <video ref={videoRef} src={videoSrc} className={`w-full h-full object-cover ${isOdd ? "scale-105" : ""}`} loop playsInline preload="metadata" muted />
 
         {/* Logo Cici Mandarin */}
         <div className="absolute bottom-3 left-0 right-0 flex justify-center z-10">
-          <img
-            src={logoSrc}
-            className="h-4 w-auto opacity-95"
-            style={{ filter: "drop-shadow(1px 1px 2px rgba(0,0,0,0.7))" }}
-            alt="Cici Mandarin Logo"
-          />
+          <img src={logoSrc} className="h-4 w-auto opacity-95" style={{ filter: "drop-shadow(1px 1px 2px rgba(0,0,0,0.7))" }} alt="Cici Mandarin Logo" />
         </div>
 
         {/* Play button overlay */}
@@ -153,30 +120,15 @@ const VideoCard: React.FC<VideoCardProps> = ({
             pointerEvents: isPlaying ? "none" : "auto",
           }}
         >
-          <button
-            type="button"
-            className="play-button bg-[#CB0D0D] rounded-full hover:bg-[#a00a0a] transition-all transform hover:scale-110"
-            style={{ padding: "12px 16px" }}
-            aria-label="Play video"
-            onClick={handlePlayClick}
-          >
-            <svg
-              className="w-10 h-10 text-white"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
+          <button type="button" className="play-button bg-[#CB0D0D] rounded-full hover:bg-[#a00a0a] transition-all transform hover:scale-110" style={{ padding: "12px 16px" }} aria-label="Play video" onClick={handlePlayClick}>
+            <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
             </svg>
           </button>
         </div>
 
         {/* Mute/Unmute button */}
-        <button
-          type="button"
-          className="mute-button absolute bottom-3 right-3 bg-black/60 hover:bg-black/80 rounded-full p-1.5 transition-all z-20"
-          aria-label="Mute/Unmute video"
-          onClick={handleMuteToggle}
-        >
+        <button type="button" className="mute-button absolute bottom-3 right-3 bg-black/60 hover:bg-black/80 rounded-full p-1.5 transition-all z-20" aria-label="Mute/Unmute video" onClick={handleMuteToggle}>
           {isMuted ? <MuteIcon /> : <UnmuteIcon />}
         </button>
       </div>
@@ -241,11 +193,10 @@ const WhyUs: React.FC = () => {
   }, []);
   // ========================================================
 
-
   const centerOffset = Math.floor(visibleCards / 2);
   const centerIndex = Math.min(videos.length - 1, currentIndex + centerOffset);
 
-  const viewportContentWidth = (cardWidth * visibleCards) + (cardGap * (visibleCards - 1)); // 920px
+  const viewportContentWidth = cardWidth * visibleCards + cardGap * (visibleCards - 1); // 920px
 
   const maxIndex = useMemo(() => {
     return Math.max(0, videos.length - visibleCards);
@@ -261,10 +212,7 @@ const WhyUs: React.FC = () => {
     e?.preventDefault();
     e?.stopPropagation();
     setPlayingIndex(null);
-    const currentMaxIndex = Math.max(
-      0,
-      videos.length - visibleCardsRef.current
-    );
+    const currentMaxIndex = Math.max(0, videos.length - visibleCardsRef.current);
     setCurrentIndex((prev) => {
       if (prev >= currentMaxIndex) {
         return prev;
@@ -294,39 +242,22 @@ const WhyUs: React.FC = () => {
         SECTION MOBILE (PERBAIKAN SCALING)
         =========================
       */}
-      <section
-        className="bg-cover pt-6 bg-bottom px-6 py-4 xl:py-14 -mb-2 block md:hidden"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
-      >
+      <section className="bg-cover pt-6 bg-bottom px-6 py-4 xl:py-14 -mb-2 block md:hidden" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <div className="flex flex-col gap-3 justify-center items-center">
           {/* ... Teks "WHY US ?" ... */}
-          <span className="flex justify-center items-center font-normal font-mochiy-pop-one text-[#CB0D0D] text-2xl">
-            WHY US ?
-          </span>
+          <span className="flex justify-center items-center font-normal font-mochiy-pop-one text-[#CB0D0D] text-2xl">WHY US ?</span>
 
           {/* ... Paragraf Teks ... */}
           <div className="flex flex-col gap-2 text-xs">
             <span className="font-normal text-[#CB0D0D] text-center">
-              At Cici Mandarin, we don't just help you study, travel, or work in
-              China—
+              At Cici Mandarin, we don't just help you study, travel, or work in China—
               <span className="font-bold">we empower you to thrive. </span>
             </span>
             <span className="font-normal text-[#CB0D0D] text-center">
-              With personalized services, expert guidance, and a deep
-              understanding of both Indonesian and Chinese cultures,{" "}
-              <span className="font-bold">
-                we've helped hundreds of clients achieve their dreams.
-              </span>
+              With personalized services, expert guidance, and a deep understanding of both Indonesian and Chinese cultures, <span className="font-bold">we've helped hundreds of clients achieve their dreams.</span>
             </span>
-            <span className="font-normal text-[#CB0D0D] text-center">
-              Whether it's mastering Mandarin, securing a scholarship, or
-              exploring China's wonders, we're here to make your journey
-              seamless and successful.
-            </span>
-            <span className="font-normal text-[#CB0D0D] text-center">
-              Let us be your trusted partner in unlocking the opportunities
-              China has to offer!
-            </span>
+            <span className="font-normal text-[#CB0D0D] text-center">Whether it's mastering Mandarin, securing a scholarship, or exploring China's wonders, we're here to make your journey seamless and successful.</span>
+            <span className="font-normal text-[#CB0D0D] text-center">Let us be your trusted partner in unlocking the opportunities China has to offer!</span>
           </div>
 
           {/* video card carousel */}
@@ -340,7 +271,7 @@ const WhyUs: React.FC = () => {
               // PAKSA TINGGINYA JADI TINGGI YANG SUDAH DI-SCALE
               height: `${DESKTOP_LAYOUT_HEIGHT * mobileScale}px`,
               // Tambahkan ini untuk jaga-jaga
-              overflow: "hidden"
+              overflow: "hidden",
             }}
           >
             {/* PERBAIKAN: 
@@ -351,10 +282,10 @@ const WhyUs: React.FC = () => {
               style={{
                 width: `${DESKTOP_LAYOUT_WIDTH}px`,
                 transform: `scale(${mobileScale})`,
-                transformOrigin: 'center',
+                transformOrigin: "center",
                 // Beri padding vertikal ekstra untuk kompensasi scale
-                paddingTop: '30px',
-                paddingBottom: '30px'
+                paddingTop: "30px",
+                paddingBottom: "30px",
               }}
             >
               {/* Left Arrow */}
@@ -365,18 +296,8 @@ const WhyUs: React.FC = () => {
                 aria-label="Previous video"
                 disabled={currentIndex === 0}
               >
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
 
@@ -420,18 +341,8 @@ const WhyUs: React.FC = () => {
                 disabled={currentIndex >= maxIndex}
                 title={`currentIndex: ${currentIndex}, maxIndex: ${maxIndex}, visibleCards: ${visibleCards}`}
               >
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
             </div>
@@ -443,48 +354,29 @@ const WhyUs: React.FC = () => {
         SECTION DESKTOP (Ini sudah benar)
         =========================
       */}
-      <section
-        className="relative bg-cover bg-top xl:bg-center px-6 py-4 xl:py-14 hidden md:block"
-        style={{ backgroundImage: `url(${backgroundImageWeb})` }}
-      >
+      <section className="relative bg-cover bg-top xl:bg-center px-6 py-4 xl:py-14 hidden md:block" style={{ backgroundImage: `url(${backgroundImageWeb})` }}>
         <div className="flex flex-col gap-3 justify-center items-center ">
           {/* ... Teks "WHY US ?" ... */}
-          <span className="flex justify-center items-center font-normal font-mochiy-pop-one text-[#CB0D0D] text-3xl">
-            WHY US ?
-          </span>
+          <span className="flex justify-center items-center font-normal font-mochiy-pop-one text-[#CB0D0D] text-3xl">WHY US ?</span>
 
           {/* ... Paragraf Teks ... */}
           <div className="flex flex-col gap-2 text-md">
             <span className="font-normal text-[#CB0D0D] text-center">
-              At Cici Mandarin, we don't just help you study, travel, or work in
-              China—
+              At Cici Mandarin, we don't just help you study, travel, or work in China—
               <span className="font-bold">we empower you to thrive. </span>
             </span>
             <span className="font-normal text-[#CB0D0D] text-center">
-              With personalized services, expert guidance, and a deep
-              understanding of both Indonesian and Chinese cultures,{" "}
-              <span className="font-bold">
-                we've helped hundreds of clients achieve their dreams.
-              </span>
+              With personalized services, expert guidance, and a deep understanding of both Indonesian and Chinese cultures, <span className="font-bold">we've helped hundreds of clients achieve their dreams.</span>
             </span>
-            <span className="font-normal text-[#CB0D0D] text-center">
-              Whether it's mastering Mandarin, securing a scholarship, or
-              exploring China's wonders, we're here to make your journey
-              seamless and successful.
-            </span>
-            <span className="font-normal text-[#CB0D0D] text-center">
-              Let us be your trusted partner in unlocking the opportunities
-              China has to offer!
-            </span>
+            <span className="font-normal text-[#CB0D0D] text-center">Whether it's mastering Mandarin, securing a scholarship, or exploring China's wonders, we're here to make your journey seamless and successful.</span>
+            <span className="font-normal text-[#CB0D0D] text-center">Let us be your trusted partner in unlocking the opportunities China has to offer!</span>
           </div>
 
           {/* video card carousel */}
           {/* Container dengan maxWidth, beri ruang sedikit ekstra */}
           <div className="relative w-full mt-6 flex items-center justify-center" style={{ maxWidth: `${DESKTOP_LAYOUT_WIDTH}px` }}>
-
             {/* Tombol dan Viewport dalam satu Flex Container */}
             <div className="relative flex items-center justify-center gap-4 w-full">
-
               {/* Tombol Kiri */}
               <button
                 type="button"
@@ -493,18 +385,8 @@ const WhyUs: React.FC = () => {
                 aria-label="Previous video"
                 disabled={currentIndex === 0}
               >
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
 
@@ -559,18 +441,8 @@ const WhyUs: React.FC = () => {
                 disabled={currentIndex >= maxIndex}
                 title={`currentIndex: ${currentIndex}, maxIndex: ${maxIndex}, visibleCards: ${visibleCards}`}
               >
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
             </div>

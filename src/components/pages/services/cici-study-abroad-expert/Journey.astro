@@ -18,13 +18,13 @@ const videos = [
 ];
 ---
 
-<section class="relative w-full overflow-hidden -mt-6 -z-3">
-  <picture>
+<section class="relative w-full overflow-hidden -mt-6 -z-3 min-h-screen">
+  <picture class="absolute inset-0 w-full h-full">
     <source media="(min-width: 640px)" srcset={background} />
-    <img src={bgMobile} alt="Roadmap background" class="w-full h-auto block" />
+    <img src={bgMobile} alt="Roadmap background" class="w-full h-full object-cover" />
   </picture>
 
-  <div class="absolute inset-0 flex flex-col items-center justify-center px-4 md:px-8 lg:px-12">
+  <div class="relative flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 min-h-screen">
     <div class="flex items-center justify-center gap-1 md:gap-1 lg:gap-2 w-full max-w-xl mt-8 md:mt-20 lg:mt-36">
       <button id="prevBtn" class="shrink-0 hover:scale-110 transition-transform duration-300 cursor-pointer" aria-label="Previous media">
         <img src={arrowLeft} alt="Previous" class="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20" />

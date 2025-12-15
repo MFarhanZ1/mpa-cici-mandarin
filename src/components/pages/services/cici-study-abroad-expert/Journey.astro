@@ -1,167 +1,121 @@
 ---
-const background =
-	"/pages/services/cici-study-abroad-expert/journey/background.png";
-const bgMobile =
-	"/pages/services/cici-study-abroad-expert/journey/bg-mobile.png";
-const arrowLeft =
-	"/pages/services/cici-study-abroad-expert/journey/arrow-left.svg";
-const arrowRight =
-	"/pages/services/cici-study-abroad-expert/journey/arrow-right.svg";
+const videoBasePath = "/pages/services/cici-study-abroad-expert/journey/videos/";
+
+const background = "/pages/services/cici-study-abroad-expert/journey/background.png";
+const bgMobile = "/pages/services/cici-study-abroad-expert/journey/bg-mobile.png";
+const arrowLeft = "/pages/services/cici-study-abroad-expert/journey/arrow-left.svg";
+const arrowRight = "/pages/services/cici-study-abroad-expert/journey/arrow-right.svg";
 
 const videos = [
-	{ src: "1gEG8aefmU0", type: "youtube" },
-	{ src: "kWnseEX0ovg", type: "youtube" },
-	{ src: "hoj2LRqW7N0", type: "youtube" },
-	{ src: "XX5nXhNAsiU", type: "youtube" },
-	{ src: "KPm2Zwh8KnI", type: "youtube" },
-	{ src: "9nGR1v3-UD8", type: "youtube" },
-	{ src: "fGZ5LKTwBDk", type: "youtube" },
+  { src: `${videoBasePath}video 3.mp4`, type: "video" },
+  { src: `${videoBasePath}video 4.mp4`, type: "video" },
+  { src: `${videoBasePath}video 5.mp4`, type: "video" },
+  { src: `${videoBasePath}video 1.mp4`, type: "video" },
+  { src: `${videoBasePath}video 2.mp4`, type: "video" },
+  { src: `${videoBasePath}video 6.mp4`, type: "video" },
+  { src: `${videoBasePath}video 7.mp4`, type: "video" },
+  { src: `${videoBasePath}video 8.mp4`, type: "video" },
 ];
 ---
 
 <section class="relative w-full overflow-hidden -mt-6 -z-3">
-	<picture>
-		<source media="(min-width: 640px)" srcset={background} />
-		<img src={bgMobile} alt="Roadmap background" class="w-full h-auto block" />
-	</picture>
+  <picture>
+    <source media="(min-width: 640px)" srcset={background} />
+    <img src={bgMobile} alt="Roadmap background" class="w-full h-auto block" />
+  </picture>
 
-	<div
-		class="absolute inset-0 flex flex-col items-center justify-center px-4 md:px-8 lg:px-12"
-	>
-		<div
-			class="flex items-center justify-center gap-1 md:gap-1 lg:gap-2 w-full max-w-xl mt-8 md:mt-20 lg:mt-36"
-		>
-			<button
-				id="prevBtn"
-				class="shrink-0 hover:scale-110 transition-transform duration-300 cursor-pointer"
-				aria-label="Previous media"
-			>
-				<img
-					src={arrowLeft}
-					alt="Previous"
-					class="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20"
-				/>
-			</button>
-			<div class="flex-1 flex justify-center relative">
-				<div
-					id="mediaContainer"
-					class="w-full max-w-[200px] md:max-w-[220px] lg:max-w-[230px] mt-6 md:mt-0"
-				>
-					{
-						videos.map((media, index) =>
-							media.type === "youtube" ? (
-								<div
-									data-index={index}
-									class={`media-item w-full aspect-9/16 shadow-2xl rounded-lg overflow-hidden ${index === 0 ? "active" : "hidden"}`}
-								>
-									<iframe
-										src={`https://www.youtube.com/embed/${media.src}?autoplay=1&mute=1`}
-										title={`YouTube video ${index + 1}`}
-										class="w-full h-full"
-										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-										allowfullscreen
-									/>
-								</div>
-							) : media.type === "video" ? (
-								<video
-									data-index={index}
-									class={`media-item w-full h-auto object-contain shadow-2xl rounded-lg ${index === 0 ? "active" : "hidden"}`}
-									controls
-									preload="metadata"
-									playsinline
-									muted
-								>
-									<source src={`${media.src}#t=0.001`} type="video/mp4" />
-									Your browser does not support the video tag.
-								</video>
-							) : (
-								<img
-									data-index={index}
-									src={media.src}
-									alt={`Journey image ${index + 1}`}
-									class={`media-item w-full h-auto object-contain shadow-2xl rounded-lg ${index === 0 ? "active" : "hidden"}`}
-								/>
-							),
-						)
-					}
-				</div>
-			</div>
-			<button
-				id="nextBtn"
-				class="shrink-0 hover:scale-110 transition-transform duration-300 cursor-pointer"
-				aria-label="Next media"
-			>
-				<img
-					src={arrowRight}
-					alt="Next"
-					class="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20"
-				/>
-			</button>
-		</div>
-		<div class="flex gap-2 mt-4 md:mt-6">
-			{
-				videos.map((_, index) => (
-					<div
-						data-dot={index}
-						class={`w-2 h-2 rounded-full transition-all duration-300 ${index === 0 ? "bg-white w-8" : "bg-white/50"}`}
-					/>
-				))
-			}
-		</div>
-	</div>
+  <div class="absolute inset-0 flex flex-col items-center justify-center px-4 md:px-8 lg:px-12">
+    <div class="flex items-center justify-center gap-1 md:gap-1 lg:gap-2 w-full max-w-xl mt-8 md:mt-20 lg:mt-36">
+      <button id="prevBtn" class="shrink-0 hover:scale-110 transition-transform duration-300 cursor-pointer" aria-label="Previous media">
+        <img src={arrowLeft} alt="Previous" class="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20" />
+      </button>
+      <div class="flex-1 flex justify-center relative">
+        <div id="mediaContainer" class="w-full max-w-[200px] md:max-w-[220px] lg:max-w-[230px] mt-1 md:-mt-1">
+          {
+            videos.map((media, index) =>
+              media.type === "youtube" ? (
+                <div data-index={index} class={`media-item w-full aspect-9/16 shadow-2xl rounded-lg overflow-hidden ${index === 0 ? "active" : "hidden"}`}>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${media.src}?autoplay=1&mute=1`}
+                    title={`YouTube video ${index + 1}`}
+                    class="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  />
+                </div>
+              ) : media.type === "video" ? (
+                <video data-index={index} class={`media-item w-full h-auto object-contain shadow-2xl rounded-lg ${index === 0 ? "active" : "hidden"}`} controls preload="metadata" playsinline muted>
+                  <source src={`${media.src}#t=0.001`} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                <img data-index={index} src={media.src} alt={`Journey image ${index + 1}`} class={`media-item w-full h-auto object-contain shadow-2xl rounded-lg ${index === 0 ? "active" : "hidden"}`} />
+              )
+            )
+          }
+        </div>
+      </div>
+      <button id="nextBtn" class="shrink-0 hover:scale-110 transition-transform duration-300 cursor-pointer" aria-label="Next media">
+        <img src={arrowRight} alt="Next" class="w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20" />
+      </button>
+    </div>
+    <div class="flex gap-2 mt-2 md:mt-3">
+      {videos.map((_, index) => <div data-dot={index} class={`w-2 h-2 rounded-full transition-all duration-300 ${index === 0 ? "bg-white w-8" : "bg-white/50"}`} />)}
+    </div>
+  </div>
 </section>
 
 <script>
-	let currentIndex = 0;
-	const totalMedia = document.querySelectorAll(".media-item").length;
-	const mediaItems = document.querySelectorAll(".media-item");
-	const dots = document.querySelectorAll("[data-dot]");
-	const prevBtn = document.getElementById("prevBtn");
-	const nextBtn = document.getElementById("nextBtn");
+  let currentIndex = 0;
+  const totalMedia = document.querySelectorAll(".media-item").length;
+  const mediaItems = document.querySelectorAll(".media-item");
+  const dots = document.querySelectorAll("[data-dot]");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
 
-	function updateMedia(newIndex: number) {
-		// Pause all videos and reset YouTube iframes
-		mediaItems.forEach((item) => {
-			if (item instanceof HTMLVideoElement) {
-				item.pause();
-			}
-			// Reset YouTube iframe by reloading it
-			const iframe = item.querySelector("iframe");
-			if (iframe) {
-				const src = iframe.src;
-				iframe.src = src;
-			}
-		});
+  function updateMedia(newIndex: number) {
+    // Pause all videos and reset YouTube iframes
+    mediaItems.forEach((item) => {
+      if (item instanceof HTMLVideoElement) {
+        item.pause();
+      }
+      // Reset YouTube iframe by reloading it
+      const iframe = item.querySelector("iframe");
+      if (iframe) {
+        const src = iframe.src;
+        iframe.src = src;
+      }
+    });
 
-		// Hide current
-		mediaItems[currentIndex].classList.remove("active");
-		mediaItems[currentIndex].classList.add("hidden");
-		dots[currentIndex].classList.remove("bg-white", "w-8");
-		dots[currentIndex].classList.add("bg-white/50");
+    // Hide current
+    mediaItems[currentIndex].classList.remove("active");
+    mediaItems[currentIndex].classList.add("hidden");
+    dots[currentIndex].classList.remove("bg-white", "w-8");
+    dots[currentIndex].classList.add("bg-white/50");
 
-		// Show new
-		currentIndex = newIndex;
-		mediaItems[currentIndex].classList.remove("hidden");
-		mediaItems[currentIndex].classList.add("active");
-		dots[currentIndex].classList.remove("bg-white/50");
-		dots[currentIndex].classList.add("bg-white", "w-8");
-	}
+    // Show new
+    currentIndex = newIndex;
+    mediaItems[currentIndex].classList.remove("hidden");
+    mediaItems[currentIndex].classList.add("active");
+    dots[currentIndex].classList.remove("bg-white/50");
+    dots[currentIndex].classList.add("bg-white", "w-8");
+  }
 
-	prevBtn?.addEventListener("click", () => {
-		const newIndex = (currentIndex - 1 + totalMedia) % totalMedia;
-		updateMedia(newIndex);
-	});
+  prevBtn?.addEventListener("click", () => {
+    const newIndex = (currentIndex - 1 + totalMedia) % totalMedia;
+    updateMedia(newIndex);
+  });
 
-	nextBtn?.addEventListener("click", () => {
-		const newIndex = (currentIndex + 1) % totalMedia;
-		updateMedia(newIndex);
-	});
+  nextBtn?.addEventListener("click", () => {
+    const newIndex = (currentIndex + 1) % totalMedia;
+    updateMedia(newIndex);
+  });
 
-	// Optional: Click on dots to navigate
-	dots.forEach((dot, index) => {
-		dot.addEventListener("click", () => {
-			updateMedia(index);
-		});
-		dot.classList.add("cursor-pointer");
-	});
+  // Optional: Click on dots to navigate
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      updateMedia(index);
+    });
+    dot.classList.add("cursor-pointer");
+  });
 </script>

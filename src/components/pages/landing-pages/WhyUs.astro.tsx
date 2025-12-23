@@ -1,6 +1,13 @@
 import React, { useState, useRef, useEffect, useMemo, useCallback } from "react";
 
-const videos = ["1.mp4", "2.mp4", "3.mp4", "5.mp4", "6.mp4", "7.mp4"];
+const videos = [
+  "https://www.youtube.com/embed/yQopkiha9c0",
+  "https://www.youtube.com/embed/_Sgl9LblZ9E",
+  "https://www.youtube.com/embed/8_26jkEAIig",
+  "https://www.youtube.com/embed/oHFV_ytg7Ho",
+  "https://www.youtube.com/embed/_3LCW2Q7oVE",
+  "https://www.youtube.com/embed/_3LCW2Q7oVE",
+];
 const cardWidth = 280; // increased base card width
 const cardGap = 40; // increased gap for better spacing
 const visibleCardsCount = 3; // always show exactly 3 cards
@@ -29,23 +36,10 @@ const VideoCard: React.FC<VideoCardProps> = ({ videoSrc, logoSrc, isOdd, isPlayi
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
 
+  // YouTube iframe akan di-control melalui URL parameters
   useEffect(() => {
-    const videoEl = videoRef.current;
-    if (!videoEl) return;
-    if (isPlaying) {
-      videoEl.muted = true;
-      setIsMuted(true);
-      videoEl.play().catch((err) => console.log("Play failed:", err));
-    } else {
-      videoEl.pause();
-    }
-  }, [isPlaying]);
-  useEffect(() => {
-    const videoEl = videoRef.current;
-    if (videoEl) {
-      videoEl.muted = isMuted;
-    }
-  }, [isMuted]);
+    // Iframe YouTube akan otomatis handle play/pause melalui autoplay parameter di URL
+  }, [isPlaying, isMuted]);
   const handleMuteToggle = (e: React.MouseEvent) => {
     e.stopPropagation();
     setIsMuted((prev) => !prev);
@@ -105,7 +99,13 @@ const VideoCard: React.FC<VideoCardProps> = ({ videoSrc, logoSrc, isOdd, isPlayi
 
       {/* Card inner dengan video */}
       <div className="video-card relative group cursor-pointer w-full h-full" style={{ borderRadius: "6px", overflow: "hidden", background: "#000" }} onClick={onPlayToggle}>
-        <video ref={videoRef} src={videoSrc} className={`w-full h-full object-cover ${isOdd ? "scale-105" : ""}`} loop playsInline preload="metadata" muted />
+        <iframe
+          src={`${videoSrc}?autoplay=${isPlaying ? 1 : 0}&mute=${isMuted ? 1 : 0}&loop=1&playlist=${videoSrc.split("/").pop()}&controls=0&modestbranding=1&playsinline=1&rel=0`}
+          className={`w-full h-full ${isOdd ? "scale-105" : ""}`}
+          style={{ border: "none" }}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
 
         {/* Logo Cici Mandarin */}
         <div className="absolute bottom-3 left-0 right-0 flex justify-center z-10">
@@ -319,15 +319,7 @@ const WhyUs: React.FC = () => {
                   }}
                 >
                   {videos.map((video, index) => (
-                    <VideoCard
-                      isOdd={index % 2 === 1}
-                      isCenter={index === centerIndex}
-                      key={video}
-                      videoSrc={`pages/landing-pages/why-us/${video}#t=0.001`}
-                      logoSrc={ciciMandarinLogo}
-                      isPlaying={playingIndex === index}
-                      onPlayToggle={() => handlePlayToggle(index)}
-                    />
+                    <VideoCard isOdd={index % 2 === 1} isCenter={index === centerIndex} key={video} videoSrc={video} logoSrc={ciciMandarinLogo} isPlaying={playingIndex === index} onPlayToggle={() => handlePlayToggle(index)} />
                   ))}
                 </div>
               </div>
@@ -408,15 +400,7 @@ const WhyUs: React.FC = () => {
                   }}
                 >
                   {videos.map((video, index) => (
-                    <VideoCard
-                      isOdd={index % 2 === 1}
-                      isCenter={index === centerIndex}
-                      key={video}
-                      videoSrc={`pages/landing-pages/why-us/${video}#t=0.001`}
-                      logoSrc={ciciMandarinLogo}
-                      isPlaying={playingIndex === index}
-                      onPlayToggle={() => handlePlayToggle(index)}
-                    />
+                    <VideoCard isOdd={index % 2 === 1} isCenter={index === centerIndex} key={video} videoSrc={video} logoSrc={ciciMandarinLogo} isPlaying={playingIndex === index} onPlayToggle={() => handlePlayToggle(index)} />
                   ))}
                 </div>
               </div>

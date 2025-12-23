@@ -1,20 +1,18 @@
 ---
-const videoBasePath = "/pages/services/cici-study-abroad-expert/journey/videos/";
-
 const background = "/pages/services/cici-study-abroad-expert/journey/background.png";
 const bgMobile = "/pages/services/cici-study-abroad-expert/journey/bg-mobile.png";
 const arrowLeft = "/pages/services/cici-study-abroad-expert/journey/arrow-left.svg";
 const arrowRight = "/pages/services/cici-study-abroad-expert/journey/arrow-right.svg";
 
 const videos = [
-  { src: `${videoBasePath}video 3.mp4`, type: "video" },
-  { src: `${videoBasePath}video 4.mp4`, type: "video" },
-  { src: `${videoBasePath}video 5.mp4`, type: "video" },
-  { src: `${videoBasePath}video 1.mp4`, type: "video" },
-  { src: `${videoBasePath}video 2.mp4`, type: "video" },
-  { src: `${videoBasePath}video 6.mp4`, type: "video" },
-  { src: `${videoBasePath}video 7.mp4`, type: "video" },
-  { src: `${videoBasePath}video 8.mp4`, type: "video" },
+  { src: "csc1UMCd_bI", type: "youtube" },
+  { src: "6BzIMP_XYTU", type: "youtube" },
+  { src: "V5XoTROiKFw", type: "youtube" },
+  { src: "ZvDdh2PlTd4", type: "youtube" },
+  { src: "muebYkTNso4", type: "youtube" },
+  { src: "IAuonwdzEWs", type: "youtube" },
+  { src: "h1jwi2NXILU", type: "youtube" },
+  { src: "tNLEbZx7Tr0", type: "youtube" },
 ];
 ---
 
@@ -36,9 +34,10 @@ const videos = [
               media.type === "youtube" ? (
                 <div data-index={index} class={`media-item w-full aspect-9/16 shadow-2xl rounded-lg overflow-hidden ${index === 0 ? "active" : "hidden"}`}>
                   <iframe
-                    src={`https://www.youtube.com/embed/${media.src}?autoplay=1&mute=1`}
+                    src={`https://www.youtube.com/embed/${media.src}?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&loop=1&playlist=${media.src}`}
                     title={`YouTube video ${index + 1}`}
                     class="w-full h-full"
+                    style="border: none;"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen
                   />

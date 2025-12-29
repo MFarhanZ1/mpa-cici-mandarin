@@ -30,7 +30,7 @@ const videos = [
                   <iframe
                     id={`video-${index}`}
                     class="w-full h-full"
-                    src={`${videoSrc}?autoplay=${index === 0 ? 1 : 0}&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&loop=1&playlist=${videoSrc.split("/").pop()}`}
+                    src={`${videoSrc}?autoplay=${index === 0 ? 1 : 0}&mute=1&controls=1&modestbranding=1&playsinline=1&rel=0&showinfo=0&iv_load_policy=3&fs=1&loop=1&playlist=${videoSrc.split("/").pop()}`}
                     style="border: none;"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen

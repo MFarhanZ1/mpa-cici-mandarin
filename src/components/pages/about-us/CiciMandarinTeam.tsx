@@ -7,12 +7,7 @@ const ImageMobile = "/pages/about-us/cici-mandarin-team/image-mobile.webp";
 const Imageweb = "/pages/about-us/cici-mandarin-team/image-web1.png";
 
 // 2. Masukkan semua video ke dalam Array (List)
-const videoList = [
-  "https://www.youtube.com/embed/-lCwXNHeeEM", 
-  "https://www.youtube.com/embed/tNLEbZx7Tr0", 
-  "https://www.youtube.com/embed/muebYkTNso4", 
-  "https://www.youtube.com/embed/fYVrk5GVyo4"
-];
+const videoList = ["https://www.youtube.com/embed/-lCwXNHeeEM", "https://www.youtube.com/embed/tNLEbZx7Tr0", "https://www.youtube.com/embed/muebYkTNso4", "https://www.youtube.com/embed/fYVrk5GVyo4"];
 
 export default function CiciMandarinTeam() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -58,7 +53,7 @@ export default function CiciMandarinTeam() {
               {videoList.map((videoSrc, index) => (
                 <iframe
                   key={index}
-                  src={`${videoSrc}?autoplay=0&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&showinfo=0&iv_load_policy=3&fs=0`}
+                  src={`${videoSrc}?autoplay=0&mute=1&controls=1&modestbranding=1&playsinline=1&rel=0&showinfo=0&iv_load_policy=3&fs=1`}
                   className="min-w-full w-full h-full snap-center rounded-xl bg-black border-2 border-white"
                   style={{ border: "none" }}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -101,7 +96,7 @@ export default function CiciMandarinTeam() {
                 */}
                 <iframe
                   key={currentIndex}
-                  src={`${videoList[currentIndex]}?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&showinfo=0&iv_load_policy=3&fs=0&loop=1&playlist=${videoList[currentIndex].split("/").pop()}`}
+                  src={`${videoList[currentIndex]}?autoplay=1&mute=1&controls=1&modestbranding=1&playsinline=1&rel=0&showinfo=0&iv_load_policy=3&fs=1&loop=1&playlist=${videoList[currentIndex].split("/").pop()}`}
                   className="w-full h-full aspect-video rounded-xl shadow-lg bg-black border-2 border-white border-rounded-lg"
                   style={{ border: "none" }}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

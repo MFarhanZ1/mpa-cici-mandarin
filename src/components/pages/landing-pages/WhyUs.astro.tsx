@@ -100,7 +100,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ videoSrc, logoSrc, isOdd, isPlayi
       {/* Card inner dengan video */}
       <div className="video-card relative group cursor-pointer w-full h-full" style={{ borderRadius: "6px", overflow: "hidden", background: "#000" }} onClick={onPlayToggle}>
         <iframe
-          src={`${videoSrc}?autoplay=${isPlaying ? 1 : 0}&mute=${isMuted ? 1 : 0}&loop=1&playlist=${videoSrc.split("/").pop()}&controls=0&modestbranding=1&playsinline=1&rel=0`}
+          src={`${videoSrc}?autoplay=${isPlaying ? 1 : 0}&mute=${isMuted ? 1 : 0}&loop=1&playlist=${videoSrc.split("/").pop()}&controls=1&modestbranding=1&playsinline=1&rel=0`}
           className={`w-full h-full ${isOdd ? "scale-105" : ""}`}
           style={{ border: "none" }}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

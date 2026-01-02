@@ -1,124 +1,152 @@
 ---
-const background = "/pages/services/cici-tour-travel-expert/explorer/background.webp";
-const bgMobile = "/pages/services/cici-tour-travel-expert/explorer/bg-mobile.png";
-const handPhone = "/pages/services/cici-tour-travel-expert/explorer/hand-phone.webp";
+const background =
+	"/pages/services/cici-tour-travel-expert/explorer/background.webp";
+const bgMobile =
+	"/pages/services/cici-tour-travel-expert/explorer/bg-mobile.png";
+const handPhone =
+	"/pages/services/cici-tour-travel-expert/explorer/hand-phone.webp";
 
 const videos = [
-  "https://www.youtube.com/embed/yQopkiha9c0",
-  "https://www.youtube.com/embed/_Sgl9LblZ9E",
-  "https://www.youtube.com/embed/8_26jkEAIig",
-  "https://www.youtube.com/embed/oHFV_ytg7Ho",
-  "https://www.youtube.com/embed/_3LCW2Q7oVE",
-  "https://www.youtube.com/embed/_3LCW2Q7oVE",
+	"https://www.youtube.com/embed/Vvdq0t-_jiw",
+	"https://www.youtube.com/embed/elrquEmMIzQ",
+	"https://www.youtube.com/embed/iSV9FhNJEEY",
+	"https://www.youtube.com/embed/neRFsfkgd04",
 ];
 ---
 
 <section class="relative w-full overflow-hidden -mt-6">
-  <picture>
-    <source media="(min-width: 640px)" srcset={background} />
-    <img src={bgMobile} alt="Roadmap background" class="w-full h-auto block" />
-  </picture>
+	<picture>
+		<source media="(min-width: 640px)" srcset={background} />
+		<img src={bgMobile} alt="Roadmap background" class="w-full h-auto block" />
+	</picture>
 
-  <div class="absolute inset-0 px-2 md:px-4 lg:px-8 flex items-center justify-center md:items-center md:justify-center">
-    <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 w-full max-w-6xl">
-      <div class="relative w-full max-w-md md:max-w-lg mt-42 md:mt-0 md:ml-98.5">
-        <div class="relative w-full" style="padding-top: 180%;">
-          <div id="video-container" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[68%] md:h-[65%] overflow-y-scroll snap-y snap-mandatory rounded-3xl scrollbar-hide z-10">
-            {
-              videos.map((videoSrc, index) => (
-                <div class="video-slide relative w-full h-full snap-start snap-always shrink-0">
-                  <iframe
-                    id={`video-${index}`}
-                    class="w-full h-full"
-                    src={`${videoSrc}?autoplay=${index === 0 ? 1 : 0}&mute=1&controls=1&modestbranding=1&playsinline=1&rel=0&showinfo=0&iv_load_policy=3&fs=1&loop=1&playlist=${videoSrc.split("/").pop()}`}
-                    style="border: none;"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                  />
-                </div>
-              ))
-            }
-          </div>
+	<div
+		class="absolute inset-0 px-2 md:px-4 lg:px-8 flex items-center justify-center md:items-center md:justify-center"
+	>
+		<div
+			class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 w-full max-w-6xl"
+		>
+			<div
+				class="relative w-full max-w-md md:max-w-lg mt-42 md:mt-0 md:ml-98.5"
+			>
+				<div class="relative w-full" style="padding-top: 180%;">
+					<div
+						id="video-container"
+						class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[68%] md:h-[65%] overflow-y-scroll snap-y snap-mandatory rounded-3xl scrollbar-hide z-10"
+					>
+						{
+							videos.map((videoSrc, index) => (
+								<div class="video-slide relative w-full h-full snap-start snap-always shrink-0">
+									<iframe
+										id={`video-${index}`}
+										class="w-full h-full"
+										src={`${videoSrc}?autoplay=${index === 0 ? 1 : 0}&mute=1&controls=1&modestbranding=1&playsinline=1&rel=0&showinfo=0&iv_load_policy=3&fs=1&loop=1&playlist=${videoSrc.split("/").pop()}`}
+										style="border: none;"
+										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+										allowfullscreen
+									/>
+								</div>
+							))
+						}
+					</div>
 
-          <!-- Hand Phone Image Overlay (Di Atas Video) -->
-          <div class="absolute inset-0 z-30 pointer-events-none mt-46 md:mt-60">
-            <img src={handPhone} alt="Hand Phone Mockup" class="w-lg h-auto object-cover scale-150 translate-x-19 md:translate-x-26" />
-          </div>
+					<!-- Hand Phone Image Overlay (Di Atas Video) -->
+					<div class="absolute inset-0 z-30 pointer-events-none mt-46 md:mt-60">
+						<img
+							src={handPhone}
+							alt="Hand Phone Mockup"
+							class="w-lg h-auto object-cover scale-150 translate-x-19 md:translate-x-26"
+						/>
+					</div>
 
-          <!-- Navigation Hints -->
-          <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-40">
-            <div class="flex flex-col items-center gap-2 opacity-50 animate-bounce" id="scroll-hint">
-              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-              </svg>
-              <span class="text-white text-sm font-semibold">Scroll</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+					<!-- Navigation Hints -->
+					<div
+						class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-40"
+					>
+						<div
+							class="flex flex-col items-center gap-2 opacity-50 animate-bounce"
+							id="scroll-hint"
+						>
+							<svg
+								class="w-8 h-8 text-white"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+							</svg>
+							<span class="text-white text-sm font-semibold">Scroll</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 
 <style>
-  /* Hide scrollbar but keep functionality */
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+	/* Hide scrollbar but keep functionality */
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;
+	}
+	.scrollbar-hide {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
 
-  /* Smooth scroll behavior */
-  #video-container {
-    scroll-behavior: smooth;
-  }
+	/* Smooth scroll behavior */
+	#video-container {
+		scroll-behavior: smooth;
+	}
 
-  /* Animation for scroll hint */
-  @keyframes bounce {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
+	/* Animation for scroll hint */
+	@keyframes bounce {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-10px);
+		}
+	}
 
-  .animate-bounce {
-    animation: bounce 2s infinite;
-  }
+	.animate-bounce {
+		animation: bounce 2s infinite;
+	}
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementById("video-container");
-    const scrollHint = document.getElementById("scroll-hint");
-    const iframes = document.querySelectorAll("iframe");
+	document.addEventListener("DOMContentLoaded", () => {
+		const container = document.getElementById("video-container");
+		const scrollHint = document.getElementById("scroll-hint");
+		const iframes = document.querySelectorAll("iframe");
 
-    let hasScrolled = false;
-    container?.addEventListener("scroll", () => {
-      if (!hasScrolled && scrollHint) {
-        scrollHint.style.opacity = "0";
-        scrollHint.style.transition = "opacity 0.3s";
-        hasScrolled = true;
-      }
-    });
+		let hasScrolled = false;
+		container?.addEventListener("scroll", () => {
+			if (!hasScrolled && scrollHint) {
+				scrollHint.style.opacity = "0";
+				scrollHint.style.transition = "opacity 0.3s";
+				hasScrolled = true;
+			}
+		});
 
-    // Snap scroll behavior
-    let scrollTimeout: number;
-    container?.addEventListener("scroll", () => {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = window.setTimeout(() => {
-        const containerHeight = container.clientHeight;
-        const scrollTop = container.scrollTop;
-        const nearestIndex = Math.round(scrollTop / containerHeight);
-        container.scrollTo({
-          top: nearestIndex * containerHeight,
-          behavior: "smooth",
-        });
-      }, 150);
-    });
-  });
+		// Snap scroll behavior
+		let scrollTimeout: number;
+		container?.addEventListener("scroll", () => {
+			clearTimeout(scrollTimeout);
+			scrollTimeout = window.setTimeout(() => {
+				const containerHeight = container.clientHeight;
+				const scrollTop = container.scrollTop;
+				const nearestIndex = Math.round(scrollTop / containerHeight);
+				container.scrollTo({
+					top: nearestIndex * containerHeight,
+					behavior: "smooth",
+				});
+			}, 150);
+		});
+	});
 </script>

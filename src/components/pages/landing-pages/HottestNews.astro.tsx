@@ -127,10 +127,10 @@ export default function HottestNews() {
             <button
               onClick={handleMobilePrevious}
               disabled={activeCardMobile === 0}
-              className={`absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-lg transition-all ${activeCardMobile === 0 ? "opacity-50 cursor-not-allowed" : "hover:bg-yellow-400 hover:scale-110"}`}
+              className={`hidden absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-lg transition-all ${activeCardMobile === 0 ? "opacity-50 cursor-not-allowed" : "hover:bg-yellow-400 hover:scale-110"}`}
               aria-label="Previous"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="black" className="w-5 h-5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
               </svg>
             </button>
@@ -147,7 +147,7 @@ export default function HottestNews() {
                 className={`flex gap-4 pb-9`}
                 style={{
                   paddingLeft: "max(1rem, calc(50vw - 140px))",
-                  paddingRight: "max(1rem, calc(50vw - 140px))",
+                  // No padding right, we use a spacer
                 }}
               >
                 {newsCards.map((card, index) => (
@@ -168,6 +168,11 @@ export default function HottestNews() {
                     <img src={card.image} alt={card.alt} className="w-full h-auto rounded-lg shadow-lg" />
                   </div>
                 ))}
+                {/* Spacer for the last item to center */}
+                <div
+                  className="shrink-0"
+                  style={{ width: "calc(50vw - 140px - 1rem)" }}
+                />
               </div>
             </div>
 
@@ -175,12 +180,11 @@ export default function HottestNews() {
             <button
               onClick={handleMobileNext}
               disabled={activeCardMobile === newsCards.length - 1}
-              className={`absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-lg transition-all ${
-                activeCardMobile === newsCards.length - 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-yellow-400 hover:scale-110"
-              }`}
+              className={`hidden absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-lg transition-all ${activeCardMobile === newsCards.length - 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-yellow-400 hover:scale-110"
+                }`}
               aria-label="Next"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="black" className="w-5 h-5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
               </svg>
             </button>
@@ -197,22 +201,22 @@ export default function HottestNews() {
       >
         <div className="flex flex-col justify-center items-center pt-32 gap-5">
           <h1 className="text-white text-2xl font-mochiy-pop-one text-center">CHINA'S HOTTEST NEWS</h1>
-          <div className="w-full max-w-[1180px] mx-auto relative">
+          <div className="mx-auto relative w-[1148px]">
             {/* Left Arrow Button */}
             <button
               onClick={handlePrevious}
               disabled={currentIndex === 0}
-              className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-3 shadow-lg transition-all ${currentIndex === 0 ? "opacity-50 cursor-not-allowed" : "hover:bg-yellow-400 hover:scale-110"}`}
+              className={`absolute -left-16 top-1/2 -translate-y-1/2 z-10 bg-[#FFBC2D] rounded-full p-3 shadow-lg transition-all ${currentIndex === 0 ? "opacity-50 cursor-not-allowed" : "hover:bg-yellow-500 hover:scale-110"}`}
               aria-label="Previous"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="black" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
               </svg>
             </button>
 
             {/* Cards Container */}
             <div ref={webScrollContainerRef} className="overflow-hidden scrollbar-hide">
-              <div className="flex gap-4 pb-4 px-4">
+              <div className="flex gap-4 pb-4">
                 {newsCards.map((card, index) => (
                   <div key={index} className="shrink-0 w-[275px]">
                     <img
@@ -232,12 +236,11 @@ export default function HottestNews() {
             <button
               onClick={handleNext}
               disabled={currentIndex === maxIndex}
-              className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-3 shadow-lg transition-all ${
-                currentIndex === maxIndex ? "opacity-50 cursor-not-allowed" : "hover:bg-yellow-400 hover:scale-110"
-              }`}
+              className={`absolute -right-16 top-1/2 -translate-y-1/2 z-10 bg-[#FFBC2D] rounded-full p-3 shadow-lg transition-all ${currentIndex === maxIndex ? "opacity-50 cursor-not-allowed" : "hover:bg-yellow-500 hover:scale-110"
+                }`}
               aria-label="Next"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="black" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
               </svg>
             </button>

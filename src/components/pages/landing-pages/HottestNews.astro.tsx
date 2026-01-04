@@ -9,29 +9,34 @@ const cardnews5 = "/pages/landing-pages/hottest-news/card-cici-news-5.webp";
 
 const newsCards = [
   {
-    image: cardnews1,
-    alt: "card1",
-    link: "/article/80-tahun-kemenangan-perang-dunia-II",
-  },
-  {
-    image: cardnews2,
-    alt: "card2",
-    link: "/article/di-balik-tembok-kampus-tiongkok",
-  },
-  {
-    image: cardnews3,
-    alt: "card3",
-    link: "/article/bukan-cuma-tren",
+    image: cardnews5,
+    alt: "card5",
+    link: "/article/mandarin-naik-tahta-dialek-terancam-punah",
+    isNew: true,
   },
   {
     image: cardnews4,
     alt: "card4",
     link: "/article/jalan-jalan-ke-masa-depan",
+    isNew: false,
   },
   {
-    image: cardnews5,
-    alt: "card5",
-    link: "/article/mandarin-naik-tahta-dialek-terancam-punah",
+    image: cardnews3,
+    alt: "card3",
+    link: "/article/bukan-cuma-tren",
+    isNew: false,
+  },
+  {
+    image: cardnews2,
+    alt: "card2",
+    link: "/article/di-balik-tembok-kampus-tiongkok",
+    isNew: false,
+  },
+  {
+    image: cardnews1,
+    alt: "card1",
+    link: "/article/80-tahun-kemenangan-perang-dunia-II",
+    isNew: false,
   },
 ];
 
@@ -93,7 +98,7 @@ export default function HottestNews() {
               {newsCards.map((card, index) => (
                 <div
                   key={index}
-                  className={`shrink-0 w-[280px] snap-center transition-all duration-300 ease-out cursor-pointer`}
+                  className={`shrink-0 w-[280px] snap-center transition-all duration-300 ease-out cursor-pointer relative overflow-visible`}
                   style={{
                     transform:
                       activeCardMobile === index ? "scale(1)" : "scale(0.85)",
@@ -104,9 +109,16 @@ export default function HottestNews() {
                     borderRadius: "1rem",
                   }}
                   onClick={() => {
-                    window.location.href= card.link;
+                    window.location.href = card.link;
                   }}
                 >
+                  {card.isNew && (
+                    <div className="absolute top-1 right-1 z-10">
+                      <div className="bg-red-600 text-white font-bold text-xs px-3 py-1.5 rounded-full shadow-lg transform rotate-12 animate-pulse">
+                        NEW!
+                      </div>
+                    </div>
+                  )}
                   <img
                     src={card.image}
                     alt={card.alt}
@@ -133,7 +145,14 @@ export default function HottestNews() {
           <div className="w-full overflow-x-auto scrollbar-hide">
             <div className="flex gap-4 pb-4 min-w-max px-4 justify-center items-center">
               {newsCards.map((card, index) => (
-                <div key={index} className="shrink-0 w-[275px]">
+                <div key={index} className="shrink-0 w-[275px] relative overflow-visible">
+                  {card.isNew && (
+                    <div className="absolute top-1 right-1 z-10">
+                      <div className="bg-red-600 text-white font-bold text-xs px-3 py-1.5 rounded-full shadow-lg transform rotate-12 animate-pulse">
+                        NEW!
+                      </div>
+                    </div>
+                  )}
                   <img
                     src={card.image}
                     alt={card.alt}

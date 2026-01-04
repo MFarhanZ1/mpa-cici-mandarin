@@ -5,6 +5,7 @@ const cardnews1 = "/pages/landing-pages/hottest-news/card-cici-news-1.webp";
 const cardnews2 = "/pages/landing-pages/hottest-news/card-cici-news-2.webp";
 const cardnews3 = "/pages/landing-pages/hottest-news/card-cici-news-3.webp";
 const cardnews4 = "/pages/landing-pages/hottest-news/card-cici-news-4.webp";
+const cardnews5 = "/pages/landing-pages/hottest-news/card-cici-news-5.webp";
 
 const newsCards = [
   {
@@ -26,6 +27,11 @@ const newsCards = [
     image: cardnews4,
     alt: "card4",
     link: "/article/jalan-jalan-ke-masa-depan",
+  },
+  {
+    image: cardnews5,
+    alt: "card5",
+    link: "/article/dialek-terancam-punah",
   },
 ];
 

@@ -11,12 +11,12 @@ const newsCards = [
   {
     image: cardnews5,
     alt: "card1",
-    link: "/article/80-tahun-kemenangan-perang-dunia-II",
+    link: "/article/dialek-terancam-punah",
   },
   {
     image: cardnews4,
     alt: "card2",
-    link: "/article/di-balik-tembok-kampus-tiongkok",
+    link: "/article/jalan-jalan-ke-masa-depan",
   },
   {
     image: cardnews3,
@@ -26,12 +26,12 @@ const newsCards = [
   {
     image: cardnews2,
     alt: "card4",
-    link: "/article/jalan-jalan-ke-masa-depan",
+    link: "/article/di-balik-tembok-kampus-tiongkok"
   },
   {
     image: cardnews1,
     alt: "card5",
-    link: "/article/dialek-terancam-punah",
+    link: "/article/80-tahun-kemenangan-perang-dunia-II",
   },
 ];
 

@@ -9,12 +9,12 @@ const cardnews5 = "/pages/landing-pages/hottest-news/card-cici-news-5.webp";
 
 const newsCards = [
   {
-    image: cardnews1,
+    image: cardnews5,
     alt: "card1",
     link: "/article/80-tahun-kemenangan-perang-dunia-II",
   },
   {
-    image: cardnews2,
+    image: cardnews4,
     alt: "card2",
     link: "/article/di-balik-tembok-kampus-tiongkok",
   },
@@ -24,12 +24,12 @@ const newsCards = [
     link: "/article/bukan-cuma-tren",
   },
   {
-    image: cardnews4,
+    image: cardnews2,
     alt: "card4",
     link: "/article/jalan-jalan-ke-masa-depan",
   },
   {
-    image: cardnews5,
+    image: cardnews1,
     alt: "card5",
     link: "/article/dialek-terancam-punah",
   },

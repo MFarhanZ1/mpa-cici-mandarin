@@ -158,7 +158,7 @@ export default function HottestNews() {
                 {newsCards.map((card, index) => (
                   <div
                     key={index}
-                    className={`shrink-0 w-[280px] snap-center transition-all duration-300 ease-out cursor-pointer`}
+                    className={`shrink-0 w-[280px] snap-center transition-all duration-300 ease-out cursor-pointer relative`}
                     style={{
                       transform: activeCardMobile === index ? "scale(1)" : "scale(0.85)",
                       opacity: activeCardMobile === index ? 1 : 0.6,
@@ -171,6 +171,11 @@ export default function HottestNews() {
                     }}
                   >
                     <img src={card.image} alt={card.alt} className="w-full h-auto rounded-lg shadow-lg" />
+                    {card.isNew && (
+                      <div className="absolute top-2 right-2 bg-red-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow-lg animate-pulse hover:scale-110 transition-transform duration-300">
+                        NEW
+                      </div>
+                    )}
                   </div>
                 ))}
                 {/* Spacer for the last item to center */}
@@ -223,7 +228,7 @@ export default function HottestNews() {
             <div ref={webScrollContainerRef} className="overflow-hidden scrollbar-hide">
               <div className="flex gap-4 pb-4">
                 {newsCards.map((card, index) => (
-                  <div key={index} className="shrink-0 w-[275px]">
+                  <div key={index} className="shrink-0 w-[275px] relative">
                     <img
                       src={card.image}
                       alt={card.alt}
@@ -232,6 +237,11 @@ export default function HottestNews() {
                         window.location.href = card.link;
                       }}
                     />
+                    {card.isNew && (
+                      <div className="absolute top-2 right-2 bg-red-600 text-white font-bold text-xs px-3 py-1 rounded-full shadow-lg animate-pulse hover:scale-110 transition-transform duration-300">
+                        NEW
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>

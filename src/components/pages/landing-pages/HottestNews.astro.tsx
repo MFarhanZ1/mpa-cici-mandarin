@@ -28,7 +28,7 @@ const allNewsCards = [
     image: cardnews7,
     alt: "card7",
     link: "/article/china-berinvestasi-dunia-bertransformasi",
-    publishDate: "2026-01-08",
+    publishDate: "2026-01-09",
   },
   {
     image: cardnews6,

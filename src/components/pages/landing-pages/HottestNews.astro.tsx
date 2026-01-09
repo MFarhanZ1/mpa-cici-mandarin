@@ -10,8 +10,15 @@ const cardnews6 = "/pages/landing-pages/hottest-news/card-cici-news-6.webp";
 const cardnews7 = "/pages/landing-pages/hottest-news/card-cici-news-7.webp";
 const cardnews8 = "/pages/landing-pages/hottest-news/card-cici-news-8.webp";
 const cardnews9 = "/pages/landing-pages/hottest-news/card-cici-news-9.webp";
+const cardnews11 = "/pages/landing-pages/hottest-news/card-cici-news-11.webp";
 // All news cards with publish dates (format: YYYY-MM-DD)
 const allNewsCards = [
+  {
+    image: cardnews11,
+    alt: "card11",
+    link: "/article/yuan-digital-senjata-baru-china-untuk-tantang-dolar",
+    publishDate: "2026-01-19",
+  },
   {
     image: cardnews9,
     alt: "card9",

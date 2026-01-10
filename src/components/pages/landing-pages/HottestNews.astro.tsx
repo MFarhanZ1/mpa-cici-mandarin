@@ -37,16 +37,83 @@ const allNewsCards = [
     link: "/article/china-berinvestasi-dunia-bertransformasi",
     publishDate: "2026-01-09",
   },
+const cardnews7 = "/pages/landing-pages/hottest-news/card-cici-news-7.webp";
+const cardnews8 = "/pages/landing-pages/hottest-news/card-cici-news-8.webp";
+const cardnews9 = "/pages/landing-pages/hottest-news/card-cici-news-9.webp";
+const cardnews10 = "/pages/landing-pages/hottest-news/card-cici-news-10.webp";
+const cardnews12 = "/pages/landing-pages/hottest-news/card-cici-news-12.webp";
+const cardnews13 = "/pages/landing-pages/hottest-news/card-cici-news-13.webp";
+const cardnews14 = "/pages/landing-pages/hottest-news/card-cici-news-14.webp";
+const cardnews15 = "/pages/landing-pages/hottest-news/card-cici-news-15.webp";
+const cardnews16 = "/pages/landing-pages/hottest-news/card-cici-news-16.webp";
+// All news cards with publish dates (format: YYYY-MM-DD)
+const allNewsCards = [
+  {
+    image: cardnews16,
+    alt: "card16",
+    link: "/article/pasar-pernikahan-di-china",
+    publishDate: "2026-01-30", // Artikel akan muncul mulai 30 Januari 2026
+  },
+  {
+    image: cardnews15,
+    alt: "card15",
+    link: "/article/ujian-csca",
+    publishDate: "2026-01-28", // Artikel akan muncul mulai 28 Januari 2026
+  },
+  {
+    image: cardnews14,
+    alt: "card14",
+    link: "/article/fifteenth-five-year-plan-china",
+    publishDate: "2026-01-26", // Artikel akan muncul mulai 26 Januari 2026
+  },
+  {
+    image: cardnews13,
+    alt: "card13",
+    link: "/article/etika-kerja-dan-budaya-kantor-di-china",
+    publishDate: "2026-01-23", // Artikel akan muncul mulai 23 Januari 2026
+  },
+  {
+    image: cardnews12,
+    alt: "card12",
+    link: "/article/bahasa-mandarin-sebagai-soft-power",
+    publishDate: "2026-01-21", // Artikel akan muncul mulai 21 Januari 2026
+  },
+  {
+    image: cardnews10,
+    alt: "card10",
+    link: "/article/cara-apply-chinese-government-scholarship",
+    publishDate: "2026-01-16", // Artikel akan muncul mulai 16 Januari 2026
+  },
+  {
+    image: cardnews9,
+    alt: "card9",
+    link: "/article/ngomong-mandarin-kekinian-slang-yang-gak-ada-di-kamus",
+    publishDate: "2026-01-14", // Artikel akan muncul mulai 14 Januari 2026
+  },
+  {
+    image: cardnews8,
+    alt: "card8",
+    link: "/article/seru-menimba-ilmu-dan-bela-diri-di-china",
+    publishDate: "2026-01-12", // Artikel akan muncul mulai 12 Januari 2026
+  },
+  {
+    image: cardnews7,
+    alt: "card7",
+    link: "/article/china-berinvestasi-dunia-bertransformasi",
+    publishDate: "2026-01-09", // Artikel akan muncul mulai 9 Januari 2026
+  },
   {
     image: cardnews6,
     alt: "card6",
     link: "/article/pesta-api-suku-yi",
+    publishDate: "2026-01-07", // Artikel akan muncul mulai 5 Januari 2026
     publishDate: "2026-01-05", // Artikel akan muncul mulai 5 Januari 2026
   },
   {
     image: cardnews5,
     alt: "card5",
     link: "/article/mandarin-naik-tahta-dialek-terancam-punah",
+    publishDate: "2026-01-05", // Artikel akan muncul mulai 1 Januari 2026
     publishDate: "2026-01-01", // Artikel akan muncul mulai 1 Januari 2026
   },
   {
@@ -54,11 +121,13 @@ const allNewsCards = [
     alt: "card4",
     link: "/article/jalan-jalan-ke-masa-depan",
     publishDate: "2025-12-20", // Artikel sudah publish
+    publishDate: "2025-12-20", // Artikel sudah publish
   },
   {
     image: cardnews3,
     alt: "card3",
     link: "/article/bukan-cuma-tren",
+    publishDate: "2025-12-15", // Artikel sudah publish
     publishDate: "2025-12-15", // Artikel sudah publish
   },
   {
@@ -66,11 +135,49 @@ const allNewsCards = [
     alt: "card2",
     link: "/article/di-balik-tembok-kampus-tiongkok",
     publishDate: "2025-12-10", // Artikel sudah publish
+    publishDate: "2025-12-10", // Artikel sudah publish
   },
   {
     image: cardnews1,
     alt: "card1",
     link: "/article/80-tahun-kemenangan-perang-dunia-II",
+    publishDate: "2025-12-01", // Artikel sudah publish
+  },
+];
+
+// Helper function: check if article is new (published within last 2 days)
+const isArticleNew = (publishDateStr: string) => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const publishDate = new Date(publishDateStr);
+  publishDate.setHours(0, 0, 0, 0);
+
+  // Calculate difference in days
+  const diffTime = today.getTime() - publishDate.getTime();
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+  // Show NEW badge if published within last 2 days (0, 1, or 2 days ago)
+  return diffDays >= 0 && diffDays <= 1;
+};
+
+// Filter function: only show articles where publish date has passed
+const getPublishedCards = () => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // Reset time to midnight for accurate date comparison
+
+  return allNewsCards
+    .filter(card => {
+      const publishDate = new Date(card.publishDate);
+      publishDate.setHours(0, 0, 0, 0);
+      return publishDate <= today; // Show if publish date is today or in the past
+    })
+    .map(card => ({
+      ...card,
+      // Override isNew based on publish date (within 2 days)
+      isNew: isArticleNew(card.publishDate)
+    }));
+};
     publishDate: "2025-12-01", // Artikel sudah publish
   },
 ];

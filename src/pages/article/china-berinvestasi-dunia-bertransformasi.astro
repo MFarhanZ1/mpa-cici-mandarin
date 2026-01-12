@@ -1,5 +1,4 @@
 ---
-import { ArrowRight, Briefcase, Globe, GraduationCap } from "@lucide/astro";
 import Layout from "../../layouts/Layout.astro";
 
 const Background =
@@ -24,7 +23,7 @@ const article = {
 };
 ---
 
-<Layout title="CHINA BERINVESTASI, DUNIA BERTRANSFORMASI?">
+<Layout title={article.title}>
     <main
         class="md:hidden min-h-screen bg-cover bg-center pb-8 pt-[4%]"
         style={`background-image: url(${Background})`}

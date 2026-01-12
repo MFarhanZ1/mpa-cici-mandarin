@@ -1,5 +1,4 @@
 ---
-import { ArrowRight, Briefcase, Globe, GraduationCap } from "@lucide/astro";
 import Layout from "../../layouts/Layout.astro";
 
 const Background =
@@ -7,11 +6,6 @@ const Background =
 
 const CoverArticle =
     "/pages/landing-pages/hottest-news/article/cover-artikel-dalam-2.webp";
-
-const PasukanMiliter =
-    "/pages/landing-pages/hottest-news/article/pasukan-militer.png";
-const PresidenChina =
-    "/pages/landing-pages/hottest-news/article/presiden-china.png";
 
 const article = {
     topic: "CICIUNBOXCHINA #2",
@@ -21,7 +15,7 @@ const article = {
 };
 ---
 
-<Layout title="DI BALIK TEMBOK KAMPUS TIONGKOK: BEGINI SISTEMNYA!">
+<Layout title={article.title}>
     
     <main
         class="md:hidden min-h-screen bg-cover bg-center pb-8 pt-[4%]"
